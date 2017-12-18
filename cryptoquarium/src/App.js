@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Wrapper from "./components/Wrapper";
+import Footer from "./components/Footer";
+import Header from './components/Header';
+
 
 class App extends Component {
   render() {
     return (
+      <Wrapper>
+        <Header>CryptoQuarium</Header>
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h3 className="center-align">Welcome to CryptoQuarium</h3>
+        <div className="">Fishtank Goes here</div>
       </div>
+      <Footer>Canbcheeky</Footer>
+      </Wrapper>
     );
   }
 }
