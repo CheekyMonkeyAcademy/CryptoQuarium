@@ -3,31 +3,32 @@ let db = require('../models');
 
 module.exports = function(app) {
 
-    app.post('/api/createfish', function(req, res){
-        let createfishObject = {};
-        //This are fake variables.
-        createfishObject.name = "myfish";
-        createfishObject.species = "fish species";
-        createfishObject.image = "fish image";
-        createfishObject.movementMin = 0;
-        createfishObject.movementMax = 0;
-        createfishObject.movementPercent = 0;
-        createfishObject.movementHeightMin = 0;
-        createfishObject.movementHeightMax = 0;
-        //End of fake variables.
-        db.Fish.create( {...createfishObject} )
+    app.post('/api/createFish', function(req, res){
+        // TODO validate that we do not already have this species
+        // If we do have the species, do not create and return.  
+        console.log(`In createFish`)
+        console.log(req.body);
+        db.Fish.create({
+            species: req.body.species,
+            image: req.body.image,
+            movementMin: req.body.movementMin,
+            movementMax: req.body.movementMax,
+            movementPercent: req.body.movementPercent,
+            movementHeightMin: req.body.movementHeightMin,
+            movementHeightMax: req.body.movementHeightMax
+        })
         .then(function(fishObject){
             console.log(fishObject);
-        })
+            res.json(fishObject)
+        });
     });
 
-    app.get('/api/allfishes', function(req, res) {
-        console.log("something that we can see");
+    app.get('/api/allFish', function(req, res) {
         db.Fish.findAll({  
-        }).then(function(allfishes){
-                console.log(allfishes);
-                res.json(allfishes);
-        })
+        }).then(function(allFish){
+                console.log(allFish);
+                res.json(allFish);
+        });
     });
 
 }//End of module.exports        

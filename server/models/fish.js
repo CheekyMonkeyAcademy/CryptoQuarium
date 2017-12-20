@@ -1,7 +1,7 @@
 //TODO make sure move has a z index.
 
 // Fish_Templates.js
-// - Name
+// - Name - Implmeent only on user fish
 // - Species
 // - Graphic
 // - movement min
@@ -12,13 +12,15 @@
 
 module.exports = function(sequelize, DataTypes) {
     let Fish = sequelize.define("Fish", {
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
+        // An individual fish has no 'name' just a species 
+        // A user owned fish will have a name
+        // name: { 
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        //     validate: {
+        //         len: [1]
+        //     }
+        // },
         species: {
             type: DataTypes.STRING,
             allowNull: false,
