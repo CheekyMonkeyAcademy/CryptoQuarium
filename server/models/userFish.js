@@ -11,16 +11,15 @@
 // - movement height max
 
 module.exports = function(sequelize, DataTypes) {
-    let Fish = sequelize.define("Fish", {
-        // An individual fish has no 'name' just a species 
-        // A user owned fish will have a name
-        // name: { 
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        //     validate: {
-        //         len: [1]
-        //     }
-        // },
+    let UserFish = sequelize.define("UserFish", {
+        // A user owned fish will have a name (optional)
+        name: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            validate: {
+                len: [1]
+            }
+        },
         species: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -72,15 +71,13 @@ module.exports = function(sequelize, DataTypes) {
         }  
     });
 
-    // Fish.associate = function(models) {
-    //     Story.hasMany(models.Line, {
-    //         onDelete: "cascade"
-    //     });
+    UserFish.associate = (models) => {
+        UserFish.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    }
 
-    //     Fish.hasMany(models.Permission, {
-    //         onDelete: "cascade"
-    //     });
-    // }
-
-    return Fish;
+    return UserFish;
 };
