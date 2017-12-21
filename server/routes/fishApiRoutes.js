@@ -58,6 +58,8 @@ module.exports = function(app) {
         // This will be purchasing a fish from the store
         // so... we'll use the template to create a new fish
         // first select the template: 
+        // TODO FIRST FIRST FIRST we need to validate they have the cash
+        // TODO not sure what cash looks like yet - we need to implement user very soon
         db.Fish.findOne({
             where: {
                 id: req.params.id
