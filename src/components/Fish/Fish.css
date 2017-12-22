@@ -1,0 +1,10 @@
+.fish{
+    position: absolute;
+    animation: both;
+
+}
+
+@keyframes swim{
+    from{transform: translate3d()}
+    to{}
+}
