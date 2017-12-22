@@ -69,7 +69,23 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [1]
             }
-        }  
+        },
+        quantityAvailable: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            default: 1000,
+            validate: {
+                len: [1]
+            }
+        },
+        price: {
+            type: DataTypes.DOUBLE,
+            allowNull: false,
+            default: 1.0,
+            validate: {
+                len: [1]
+            }
+        }
     });
 
     // Fish.associate = function(models) {

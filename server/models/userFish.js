@@ -68,7 +68,17 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [1]
             }
-        }  
+        },
+        forSale: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            default: false
+        },
+        price: {
+            type: DataTypes.DOUBLE,
+            allowNull: false,
+            default: 0.0
+        }
     });
 
     UserFish.associate = (models) => {
