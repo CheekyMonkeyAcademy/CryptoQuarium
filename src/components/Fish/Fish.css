@@ -1,10 +1,15 @@
 .fish{
+    display: flex;
+    display: inline-block;
     position: absolute;
-    animation: both;
-
+    animation-name: swim;
+    animation-duration: 5s;
+    animation-fill-mode: both;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
 }
 
 @keyframes swim{
-    from{transform: translate3d()}
-    to{}
+    from{transform: translate3d(-10px, 100px, 100px)}
+    to{transform: translate3d(100px, -10px, -10px)}
 }
