@@ -14,7 +14,11 @@ GET: /api/allFishTemplates
 Lists all of the fish templates - NOT users fish
 
 POST: /api/userPurchaseFish/:id
-Takes the passed ID of the fish and adds it to the current logged in user inventory
+    Purchasing a fish from the store...
+    1. Find the fishObject
+    2. See if there are quantity quantityAvailable
+    3. If it is, see if the user has the required funds
+    4. If all of that works, buy it and move along 
     <!-- name: req.body.name (a user can name their fish)
     forSale: req.body.forSale (BOOLEAN - default false)
     price: req.body.price (DOUBLE - default 0.0) -->
@@ -22,7 +26,5 @@ Takes the passed ID of the fish and adds it to the current logged in user invent
 GET: /api/allUserFish/
 Lists all fish for a particular userId
 (The Sequelize WHERE clause pulls in req.user.id - so we're looking at CURRENT USER inventory);
-!!!ALERT!!! User currently not turned on so this returns all user fish 
 
-PUT: /api/updateFish/:id
-Target fish is updatable
+
