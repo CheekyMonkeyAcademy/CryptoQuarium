@@ -1,5 +1,6 @@
 .tankBorder{
-    height: 100%;
+    position: relative;
+    min-height: 300px;
     width: 90%;
     border: 5px solid black;
 }
