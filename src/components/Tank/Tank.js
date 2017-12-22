@@ -8,8 +8,15 @@ class Tank extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="tankBorder">
-                            This is a Tank
-                            <Fish>Fish</Fish>
+                            <div id="box">
+                                <figure class="front"></figure>
+                                <figure class="back"></figure>
+                                <figure class="right"></figure>
+                                <Fish>Fish</Fish>
+                                <figure class="left"></figure>
+                                <figure class="top"></figure>
+                                <figure class="bottom"></figure>                                
+                            </div>                            
                         </div>
                     </div>
                 </div>
