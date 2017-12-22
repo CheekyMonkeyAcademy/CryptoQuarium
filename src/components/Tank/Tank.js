@@ -1,14 +1,16 @@
 import React, {Component} from "react";
 import Fish from "../Fish";
-// import "./Aquarium.css";
+import "./Tank.css";
 
 class Tank extends Component {
         render(){
             return (
                 <div className="container">
                     <div className="row">
-                        This is my Tank
-                        <Fish>Fish</Fish>
+                        <div className="tankBorder">
+                            This is a Tank
+                            <Fish>Fish</Fish>
+                        </div>
                     </div>
                 </div>
             )
