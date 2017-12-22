@@ -1,15 +1,130 @@
 .fish{
+    margin-left: 10%;
+    margin-right: 10%;
     display: flex;
     display: inline-block;
     position: absolute;
     animation-name: swim;
-    animation-duration: 5s;
+    animation-duration: 30s;
     animation-fill-mode: both;
     animation-direction: alternate;
     animation-iteration-count: infinite;
 }
 
 @keyframes swim{
-    from{transform: translate3d(-10px, 100px, 100px)}
-    to{transform: translate3d(100px, -10px, -10px)}
+    from {
+        left: 200px;
+    }
+
+    20% {
+        left: 0px;
+        -webkit-transform: scaleX(1);
+        z-index: 90;
+    }
+
+    20.5% {
+        -webkit-transform: scaleX(-1);
+        z-index: 10;
+        left: -30px;
+    }
+
+    21% {
+        left: 80px;
+    }
+
+    42% {
+        left: 550px;
+    }
+
+    50% {
+        z-index: 28;
+        top: 130px;
+        left: 630px;
+        -webkit-transform: scaleX(-1);
+    }
+
+    50.5% {
+        -webkit-transform: scaleX(1);
+        z-index: 100;
+        left: 630px;
+        top: 160px;
+    }
+
+    51% {
+        left: 530px;
+        z-index: 150;
+    }
+
+    60% {
+        left: 300px;
+        z-index: 150;
+    }
+
+    64% {
+        left: 200px;
+        z-index: 150;
+    }
+
+    66% {
+        left: 80px;
+        z-index: 150;
+    }
+
+    69% {
+        left: -30px;
+        z-index: 150;
+    }
+
+    70% {
+        top: 105px;
+        left: -30px;
+        -webkit-transform: scaleX(1);
+        z-index: 90;
+    }
+
+    70.5% {
+        -webkit-transform: scaleX(-1);
+        z-index: 10;
+        left: -30px;
+    }
+
+    71% {
+        left: 40px;
+    }
+
+    80% {
+        left: 550px;
+    }
+
+    81% {
+        left: 550px;
+        top: 70px;
+    }
+
+    82% {
+        left: 550px;
+        -webkit-transform: scaleX(-1);
+    }
+
+    82.5% {
+        -webkit-transform: scaleX(1);
+        top: 70px;
+        left: 550px;
+    }
+
+    84% {
+        top: 105px;
+        left: 500px;
+        z-index: 28;
+    }
+
+    88% {
+        top: 105px;
+        left: 400px;
+        z-index: 28;
+    }
+
+    to {
+        left: 200px;
+    }
 }
