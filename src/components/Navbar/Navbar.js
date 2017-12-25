@@ -23,6 +23,13 @@ const Navbar = props =>
                     </li>
 
                     <li
+                        onClick = {() => {props.handlePageChange("Home"); }}
+                        className = {props.currentPage === "Home" ? "active": ""}
+                    >
+                        <a>Home</a>
+                    </li>
+
+                    <li
                         onClick = {() => {props.handlePageChange("MyAquarium"); }}
                         className = {props.currentPage === "MyAquarium" ? "active": ""}
                     >
@@ -41,13 +48,6 @@ const Navbar = props =>
                         className = {props.currentPage === "Wallet" ? "active": ""}
                     >
                         <a>Wallet</a>
-                    </li>
-
-                    <li
-                        onClick = {() => {props.handlePageChange("Home"); }}
-                        className = {props.currentPage === "Home" ? "active": ""}
-                    >
-                        <a>Home</a>
                     </li>
                 </ul>
         </div>
