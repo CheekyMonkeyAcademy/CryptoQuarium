@@ -46,7 +46,8 @@ function(request, accessToken, refreshToken, profile, done) {
                 email: profile.emails[0].value,
                 userId: profile.id,
                 username: profile.username,
-                provider: 'google'
+                provider: 'google',
+                walletBalance: 0.0
             })
             .then((user) => {
                 console.log(`This is the done user`);

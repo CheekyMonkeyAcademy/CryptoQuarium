@@ -1,5 +1,6 @@
 const db = require('../models');
 const passport = require('passport');
+const authenticationMiddleware = require('../passport/authenticationMiddleware');
 
 
 module.exports = function(app) {

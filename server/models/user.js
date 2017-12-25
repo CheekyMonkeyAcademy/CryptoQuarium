@@ -14,7 +14,6 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1]
             }
         },
-
         displayName: {
             type: DataTypes.STRING,
             allowNull: true,
@@ -28,6 +27,11 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [1]
             }
+        },
+        walletBalance: {
+            type: DataTypes.DOUBLE,
+            allowNull: false,
+            default: 0.00
         }
 
     });
