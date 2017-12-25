@@ -25,8 +25,8 @@ const Navbar = props =>
         </li>
 
         <li
-            onClick = {() => {props.handlePageChange("Buy|Sell|Trade"); }}
-            className = {props.currentPage === "Buy|Sell|Trade" ? "active": ""}
+            onClick = {() => {props.handlePageChange("FishMarket"); }}
+            className = {props.currentPage === "FishMarket" ? "active": ""}
         >
             <a>Home</a>
         </li>
