@@ -1,4 +1,6 @@
-import React from "react";
+import React, { Component } from "react";
+import Tank from "../Tank";
+
 
 //This is NOT a stateful component- not sure at the moment if it needs to be
 
@@ -7,9 +9,11 @@ import React from "react";
     //Water
     //Fish
 
-const MyAquarium = () =>
+const MyAquarium = () => 
+
     <div>
-        My Aquarium
+        <h5>My Aquarium</h5>
+        <Tank />
     </div>
 
 export default MyAquarium;
