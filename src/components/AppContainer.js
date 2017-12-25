@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import MyAquarium from "./pages/MyAquarium";
-import CryptoAccount from "./pages/CryptoAccount";
+import Wallet from "./pages/Wallet";
 import FishMarket from "./pages/FishMarket";
 
 //This is a stateful component that will handle pageChange logic
@@ -30,8 +30,8 @@ class AppContainer extends Component {
             return <Login />
         } else if (this.state.currentPage === "MyAquarium"){
             return <MyAquarium />
-        } else if (this.state.currentPage === "CryptoAccount"){
-            return <CryptoAccount />
+        } else if (this.state.currentPage === "Wallet"){
+            return <Wallet />
         } else if (this.state.currentPage === "FishMarket"){
             return <FishMarket />
         }
@@ -44,7 +44,7 @@ class AppContainer extends Component {
             <div>
                 <Navbar
                     currentPage = {this.state.currentPage}
-                    handlePageChange = {this.state.handlePageChange}
+                    handlePageChange = {this.handlePageChange}
                 />
                 {this.renderPage()}
             </div>

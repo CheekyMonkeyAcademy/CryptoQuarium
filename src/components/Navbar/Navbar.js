@@ -34,10 +34,10 @@ const Navbar = props =>
                 </li>
 
                 <li
-                    onClick = {() => {props.handlePageChange("CryptoAccount"); }}
-                    className = {props.currentPage === "CryptoAccount" ? "active": ""}
+                    onClick = {() => {props.handlePageChange("Wallet"); }}
+                    className = {props.currentPage === "Wallet" ? "active": ""}
                 >
-                    <a>CryptoAccount</a>
+                    <a>Wallet</a>
                 </li>
 
                 <li
