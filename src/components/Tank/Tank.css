@@ -47,4 +47,3 @@
 #box .left   { transform: rotateY( -90deg ) translateZ( 150px ); }
 #box .top    { transform: rotateX(  90deg ) translateZ( 100px ); }
 #box .bottom { transform: rotateX( -90deg ) translateZ( 100px ); }
-
