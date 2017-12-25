@@ -11,6 +11,9 @@ import React from "react";
 //INPUT LOGIN PAGE!!
 //NEST WRAPPER/LOGIN/FOOTER HERE!!
 
+//I am handling pageChange logic here bc it makes the most sense at the moment
+    //It may change as pages develop
+
 const Home = () =>
     <div>
         Welcome to CryptoAquarium
