@@ -18,7 +18,8 @@ render() {
         margin: '10%',
         padding: '10%',
         borderRadius: '5px',
-        border: '2px solid black',
+        border: '2px solid',
+        borderColor: 'rgb(240, 248, 255)',
         backgroundColor: 'rgb(255,255,255)',
         color: 'rgb(0,0,0)',
         textAlign: 'center'

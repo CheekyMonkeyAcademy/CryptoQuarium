@@ -1,4 +1,7 @@
-import React from "react";
+import React, {Component} from "react";
+import Wrapper from "../Wrapper";
+import Header from "../Header";
+import Footer from "../Footer";
 
 //This is NOT a statful component at the moment
     //This is where the login page will live
@@ -12,9 +15,18 @@ import React from "react";
 //NEST WRAPPER/LOGIN/FOOTER HERE!!
 
 
-const Home = () =>
-    <div>
-        Welcome to CryptoAquarium
-    </div>;
+class Home extends Component {
+  render() {
+    return (
+      <Wrapper>
+        <Header>CryptoQuarium</Header>
+        <div className="App">            
+            <h5 className="center-align">A description about what this does and how awesome this app is and other stuff</h5>
+        </div>
+        <Footer>Canbcheeky</Footer>
+      </Wrapper>
+    );
+  }
+}
 
 export default Home;
