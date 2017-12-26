@@ -2,8 +2,7 @@ import React from "react";
 import "../Style/FishMarket.css"
 
 
-const FishMarketNav = (props) =>    
-
+const FishMarketNav = props =>    
     <nav className="nav-extended">
         <div className="nav-wrapper">
             <a className="brand-logo">FishMarket</a>                   
