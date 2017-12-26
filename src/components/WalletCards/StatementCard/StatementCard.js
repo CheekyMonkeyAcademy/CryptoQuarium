@@ -7,6 +7,7 @@ import StatementModal from "../../StatementModal"
     //A scrollable box appears with all recent account activity
 
 //For modal- set initial state to handle when the modal is shown
+//Got Modal from here: https://peteris.rocks/blog/modal-window-in-react-from-scratch/
 
 class StatementCard extends Component {
     
@@ -23,38 +24,11 @@ class StatementCard extends Component {
             lastTransactionOne: "- 5.00 purchased blowfish",
             lastTransactionTwo: "+ 60.00 sold fishfood",
             lastTransactionThree: "- 19.00 purchased goldfish", 
-            isOpen: false
+            isModalOpen: false
         };    
-    
+        
+        
     } //Closing of constructor here!
-
-    //Toggle Modal
-    toggleModal = () => {
-        this.setState({
-            isOpen: !this.state.isOpen
-        });
-    }
-
-    //THIS HAS AN ASYNC ISSUE
-    // handleClick = (event) => {
-    //     //Registers click
-    //     console.log('click happened');
-    //     //Change the state of showModal from false to true
-    //     //ASYNC PROBLEM!!!
-    //         //Not changing the state once the button is clicked the first time!
-    //     this.setState({showModal:true});        
-    //     console.log(this.state.showModal)            
-    // }
-
-    //Function to call the modal component
-    //HANDLE THIS LOGIC IN MODAL COMPONENT
-    // getModal = (event) => {
-    //     if (this.state.showModal === true) {
-    //         return <StatementModal />;
-    //     } else {
-    //         return null;
-    //     }
-    // }
 
     render(){
         return (
@@ -68,13 +42,26 @@ class StatementCard extends Component {
                         <p>{this.state.lastTransactionThree}</p>
                     </div>
                     <div className="card-action">                        
-                        <button onClick = {this.toggleModal} data-target="modal1" label="Action" className="btn modal-trigger">View Account Summary</button>         
-                        <StatementModal show={this.state.isOpen} onClose={this.toggleModal} />
+                        <a className="waves-effect waves-light btn" onClick={() => this.openModel()}>View Account Activity</a>                      
+                        <StatementModal isOpen={this.state.isModalOpen} onClose={() => this.closeModal()}>
+                            <h5>Statement One</h5>
+                            <hr />
+                            <h5>Statement Two</h5>
+                            <p><a className="waves-effect waves-light btn" onClick={() => this.closeModal()}>Close</a></p>                                                 
+                        </StatementModal>
                     </div>
                 </div>
                 </div>
             </div>               
         );
+    }
+
+    openModel () {
+        this.setState({isModalOpen:true});
+    }
+
+    closeModal = () => {
+        this.setState({isModalOpen:false})
     }
 }
 
