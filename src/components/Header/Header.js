@@ -1,6 +1,21 @@
 import React from "react";
 import "./Header.css";
+// import {Router, Route} from "react";
+// import Login from "../pages/Login";
+// import Home from "../pages/Home"
 
-const Header = props => <h1 className="center-align hoverable">{props.children}</h1>;
+//I want welcome to link to login page
+
+const Header = () =>
+    
+    <div>
+        Welcome to Cryptoaquarium
+    </div>
+        
 
 export default Header;
+
+{/* <Router>
+            <Route path='/' component={Home} />
+            <Route path='/Login' component={Login} />
+        </Router> */}

@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+// import Water from "../Water";
 import Fish from "../Fish";
 import "./Tank.css";
 
@@ -13,6 +14,7 @@ class Tank extends Component {
                                 <figure class="back"></figure>
                                 <figure class="right"></figure>
                                 <Fish>Fish</Fish>
+                                {/* <Water> Water </Water> */}
                                 <figure class="left"></figure>
                                 <figure class="top"></figure>
                                 <figure class="bottom"></figure>                                
