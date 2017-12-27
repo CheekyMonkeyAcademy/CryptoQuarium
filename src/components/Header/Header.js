@@ -1,19 +1,21 @@
 import React from "react";
 import "./Header.css";
-import Login from "../pages/Login"
+// import {Router, Route} from "react";
+// import Login from "../pages/Login";
+// import Home from "../pages/Home"
 
+//I want welcome to link to login page
 
-
-
-const Header = () => 
-
-    // handleClick= (e) => {
-    //     e.preventDefault();
-    //     console.log("logging in...")
-    // }
-
-    <a href='loggin'>
-        <h4 className="center-align">Welcome</h4>
-    </a>;
+const Header = () =>
+    
+    <div>
+        Welcome to Cryptoaquarium
+    </div>
+        
 
 export default Header;
+
+{/* <Router>
+            <Route path='/' component={Home} />
+            <Route path='/Login' component={Login} />
+        </Router> */}
