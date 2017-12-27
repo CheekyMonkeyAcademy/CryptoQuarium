@@ -17,9 +17,6 @@ module.exports = function(sequelize, DataTypes) {
         displayName: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1]
-            }
         },
         email: {
             type: DataTypes.STRING,
@@ -38,6 +35,12 @@ module.exports = function(sequelize, DataTypes) {
 
     User.associate = function(models) {
         User.hasMany(models.UserFish, {
+            onDelete: "cascade"
+        });
+    };
+
+    User.associate = function(models) {
+        User.hasMany(models.WalletHistory, {
             onDelete: "cascade"
         });
     };

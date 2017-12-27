@@ -27,4 +27,9 @@ GET: /api/allUserFish/
 Lists all fish for a particular userId
 (The Sequelize WHERE clause pulls in req.user.id - so we're looking at CURRENT USER inventory);
 
+POST: /api/addFundsToWallet/
+    Adding funds from a bank - NOT SURE HOW TO VALIDATE BANK BALANCE - so we'll use fake money for now
+    user: req.user.id
+    amount: req.body.amount (amount to be deposited);
+
 

@@ -39,6 +39,7 @@ function(request, accessToken, refreshToken, profile, done) {
             userId: profile.id
         }
     }).then((user) => {
+        let defaultAccountBalance = 10;
         //No user was found... so create a new user with values from Facebook (all the profile. stuff)
         if (!user) {
             db.User.create({
@@ -47,12 +48,15 @@ function(request, accessToken, refreshToken, profile, done) {
                 userId: profile.id,
                 username: profile.username,
                 provider: 'google',
-                walletBalance: 0.0
+                walletBalance: defaultAccountBalance // add a gratis 10 to get some basics
             })
             .then((user) => {
-                console.log(`This is the done user`);
-                console.log(user);
-                console.log(`This is the end of the done user`);
+                db.WalletHistory.create({
+                    UserId: user.id,
+                    walletBalanceChange: defaultAccountBalance,
+                    walletBalanceChangeReason: "New Account Creation Balance",
+                    lastWalletBalance: 0 // New Account had no balance
+                });
                 return done(null, user);
             })
             .catch(err => {
