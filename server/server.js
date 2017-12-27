@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 8080;
 const db = require("./models");
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));//TODO what the heck is this true mean
+app.use(bodyParser.urlencoded({ extended: true })); //TODO what the heck is this true mean
 app.use(bodyParser.text());
 app.use(cookieParser());
 app.use(session({ secret: 'YES' }));
@@ -25,8 +25,6 @@ app.get('/', function (req, res) {
 app.get('/success', function (req, res) {
     res.sendfile('success.html');
 });
-
-
 
 app.use(express.static("../src"));
 

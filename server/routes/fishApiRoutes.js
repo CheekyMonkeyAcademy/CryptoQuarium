@@ -5,9 +5,10 @@ module.exports = function(app) {
 
     app.get('/api/allFishTemplates', function(req, res) {
         db.Fish.findAll({  
-        }).then((allFish) => {
-                console.log(allFish);
-                res.json(allFish);
+        })
+        .then((allFish) => {
+            console.log(allFish);
+            res.json(allFish);
         });
     });
 
@@ -57,7 +58,7 @@ module.exports = function(app) {
     });
 
     app.post('/api/userPurchaseFish/:id', authenticationMiddleware, function(req, res){
-    // app.post('/api/userPurchaseFish/:id', function(req, res){ --- TEST VALUE
+    // app.post('/api/userPurchaseFish/:id', function(req, res){ // --- TEST VALUE
         // Purchasing a fish from the store
         // 1. Find the fishObject
         // 2. See if there are quantity quantityAvailable
@@ -80,7 +81,7 @@ module.exports = function(app) {
             db.User.findOne({
                 where: {
                     id: req.user.id
-                    // id: 1  --- TEST VALUE
+                    // id: 1 // --- TEST VALUE
                 }
             })
             .then((user) => {
@@ -89,6 +90,13 @@ module.exports = function(app) {
                     console.log(`You're clear to buy this fish, w00t!`);
                     selectedFish.update({quantityAvailable: (selectedFish.quantityAvailable -= 1)});
                     user.update({walletBalance: (user.walletBalance -= selectedFish.price)});
+                    db.WalletHistory.create({
+                        UserId: req.user.id,
+                        // UserId: 1, //--- TEST VALUE
+                        walletBalanceChange: -selectedFish.price,
+                        walletBalanceChangeReason: `Fish purchased: ${selectedFish.species}`,
+                        lastWalletBalance: (user.walletBalance - selectedFish.price)
+                    });
                     // do we need to update the current req.user to reflect the new balance?           
                     db.UserFish.create({
                         name: req.body.name,
@@ -101,7 +109,7 @@ module.exports = function(app) {
                         movementHeightMax: selectedFish.movementHeightMax,
                         forSale: false,
                         price: 0,
-                        // UserId: 1 --- TEST VALUE
+                        // UserId: 1 // --- TEST VALUE
                         UserId: req.user.id
                     })
                     .then((fishObject) => {
@@ -115,5 +123,6 @@ module.exports = function(app) {
             });
         });
     });
+
 
 }//End of module.exports        
