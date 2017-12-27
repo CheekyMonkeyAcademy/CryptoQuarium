@@ -11,7 +11,7 @@ const InventoryCards = () =>
                     <div className="card-image">
                         <img className="subCrabImage" src="http://via.placeholder.com/140x100" />
                         <span className="item"></span>
-                        <a className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
+                        <a className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add_shopping_cart</i></a>
                     </div>
                     <div class="itemDescription">
                         <p>Red Fish</p>
