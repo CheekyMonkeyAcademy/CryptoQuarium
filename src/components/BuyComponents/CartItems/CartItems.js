@@ -1,10 +1,12 @@
+import React from "react"
+
 const CartItems = props => (
     <div>
         <div className="row">
             <div className="col s12">                
                 <div className="card horizontal">
                     <div className="card-image">
-                        <img className="cartImage" src="http://via.placeholder.com/120x150" />                
+                        <img className="cartImage" alt="" src="http://via.placeholder.com/120x150" />                
                     </div>
 
                     <div className="card-stacked">

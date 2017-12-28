@@ -10,7 +10,7 @@ const InventoryCards = props => (
             <div class="col s3">
                 <div class="card">
                     <div class="card-image">
-                        <img src="http://via.placeholder.com/140x100" />
+                        <img alt="" src="http://via.placeholder.com/140x100" />
                         
                         <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                     </div>
