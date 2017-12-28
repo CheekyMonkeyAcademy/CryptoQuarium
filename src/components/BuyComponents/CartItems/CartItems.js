@@ -2,30 +2,30 @@ import React from "react"
 
 const CartItems = props => (
     <div>
-        <div className="row">
-            <div className="col s12">                
-                <div className="card horizontal">
-                    <div className="card-image">
-                        <img className="cartImage" alt="" src="http://via.placeholder.com/120x150" />                
+        <div class="row">
+            <div class="col s12">
+                <div class="card white">
+                    <div class="card-content black-text">
+                        <span class="card-title">Item Name</span>
+                            <p>Item Description: Lorem ipsum yada yada nada nada</p>
                     </div>
-
-                    <div className="card-stacked">
-                        <div className="card-content">
-                            <p>Blue Fish</p>                                                      
-                        </div>
-                    </div>
-
-                    <div className="card-action">
-                        <p>Price</p>
-                        <div class="input-field inline">
-                            <input id="email" type="email" class="validate" placeholder="Quantity"/>
+                    <div class="card-action black-text">
+                        <p>$ {props.price}</p>
+                        <div>
+                            <div class="input-field inline black-text">
+                                <input id="email" type="email" class="validate" placeholder="Quantity" />
                                 <label for="email" data-error="wrong" data-success="right"></label>
-                        </div>                                
-                    </div> 
+
+                                
+                            </div>
+                        </div>  
+                    </div>
                 </div>
-            </div>                  
-        </div>
+            </div>
+        </div>    
     </div>
+
+        
     
 
 );
