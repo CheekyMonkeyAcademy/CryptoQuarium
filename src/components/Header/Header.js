@@ -14,8 +14,3 @@ const Header = () =>
         
 
 export default Header;
-
-{/* <Router>
-            <Route path='/' component={Home} />
-            <Route path='/Login' component={Login} />
-        </Router> */}
