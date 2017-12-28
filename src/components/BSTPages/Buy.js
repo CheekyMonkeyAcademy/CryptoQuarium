@@ -10,10 +10,7 @@ const Buy = () =>
         <div className="row">
             <div className="col s8">
                 <h5>Buy Fish and Accoutrement</h5>
-            </div>
-            <div className="col s4">   
-                <h5>Your Shopping Cart</h5>
-            </div>
+            </div>           
         </div>
         
         <div className="row">
