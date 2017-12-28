@@ -1,6 +1,3 @@
-import React from "react";
-import "../../../Style/FishMarket.css"
-
 const CartItems = props => (
     <div>
         <div className="row">
