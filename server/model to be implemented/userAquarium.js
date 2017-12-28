@@ -1,4 +1,3 @@
-// User_Aquarium_Inventory.js
 
 // Inherits template and modifies it
 // - User_Owner (ID reference)
@@ -12,7 +11,7 @@
 
 
 module.exports = function(sequelize, DataTypes) {
-    let Aquarium = sequelize.define("aquarium", {
+    let UserAquarium = sequelize.define("UserAquarium", {
         tankDescription: {
             type: DataTypes,STRING,
             allowNull: false,
@@ -51,5 +50,5 @@ module.exports = function(sequelize, DataTypes) {
     });
 
 
-    return Aquarium;
+    return UserAquarium;
 };

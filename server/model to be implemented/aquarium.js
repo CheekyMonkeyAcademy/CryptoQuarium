@@ -1,6 +1,6 @@
 
 module.exports = function(sequelize, DataTypes) {
-    let Aquarium = sequelize.define("aquarium", {
+    let Aquarium = sequelize.define("Aquarium", {
         tankDescription: {
             type: DataTypes,STRING,
             allowNull: false,
