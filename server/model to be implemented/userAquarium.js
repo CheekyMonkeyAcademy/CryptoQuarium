@@ -34,22 +34,15 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1]
             }
         },
-        numDecorationsAllowed: {
-            type: DataTypes,INTEGER,
+        background: {
+            type: DataTypes,STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        numDecorationsAllowed: {
-            type: DataTypes,INTEGER,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        numDecorationsAllowed: {
-            type: DataTypes,INTEGER,
+        lightingEffect: {
+            type: DataTypes,STRING,
             allowNull: false,
             validate: {
                 len: [1]
