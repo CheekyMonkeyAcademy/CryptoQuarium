@@ -36,11 +36,24 @@ module.exports = function(app) {
                 res.json({"newBalance": newBalance});
             });
         })
-    })
+    });
+
+    app.get('/api/viewWalletHistory', authenticationMiddleware, (req, res) => {
+    // app.get('/api/viewWalletHistory/', (req, res) => { // --- TEST VALUE
+
+        db.WalletHistory.findAll({
+            where: {
+                UserId: req.user.id
+                // UserId: 1 // TEST VALUE
+            }
+        })
+        .then((history) => {
+            console.log(history);
+            res.json(history);
+        })
+    });
 
 
     // TODO remove funds from wallet to bank (???? requires remote source - so not yet)
-        
-
 
 } // End module.exports
