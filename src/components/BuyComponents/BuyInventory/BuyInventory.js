@@ -8,9 +8,9 @@ import axios from 'axios';
 
 class BuyInventory extends Component {
     state = {
-        fishArray:[], 
-        cartArray: []
+        fishArray = []
     }
+    
 
     //Function handling 'add item to cart' button on inventory card
         //The prop being passed in in this case is the id
@@ -60,5 +60,10 @@ class BuyInventory extends Component {
 }
 
 export default BuyInventory;
+
+// state = {
+//     fishArray:[], 
+//     cartArray: []
+// }
 
     
