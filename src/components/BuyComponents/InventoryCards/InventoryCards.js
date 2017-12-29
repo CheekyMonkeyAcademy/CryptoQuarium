@@ -5,7 +5,8 @@ import "./InventoryCards.css"
 
 const InventoryCards = props => (
     
-    <div>         
+    <div> 
+        
         <div class="row">
             <div class="col s3">
                 <div class="card">
@@ -15,12 +16,13 @@ const InventoryCards = props => (
                         <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                     </div>
                     <div class="card-content">
-                        <p>Item Name</p>
-                        <p>{props.price}</p>
+                        <p>name:{props.species}</p>
+                        <p>id:{props.id}</p>
                         </div>
                     </div>
                 </div>
             </div>
+
     </div>    
 );
     

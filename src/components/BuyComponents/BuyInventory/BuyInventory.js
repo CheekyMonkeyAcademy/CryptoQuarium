@@ -9,29 +9,33 @@ class BuyInventory extends Component {
     state = {
         fishArray:[]
     }
-    // .concat([newObject])});
+
+    
     componentDidMount() {
         axios.get('/api/allFishTemplates')
         .then((allfish) => {
           console.log(allfish);
                 allfish.data.forEach((fish) => {
-                    this.setState({fishArray: this.state.fishArray.concat([fish])});
-                    // this.setState({fishArray: this.state.fishArray.concat([newObject])});
-            })        
+                    this.setState({fishArray: this.state.fishArray.concat([fish])});                   
+                })      
+            console.log("This is fish array")  
             console.log(this.state.fishArray)              
         })
         .catch((err) => {
           console.log(err);
         })    
-      }
-
-     
+    }     
 
     render(){
         return(
 
             <div className="inventoryBorder">
-                <InventoryCards />
+                
+                {this.state.fishArray.map(fish => {
+                    return <InventoryCards {...fish}
+                    key={fish.id} />
+                })}
+            
             </div>
         )
     }
@@ -39,3 +43,5 @@ class BuyInventory extends Component {
 }
 
 export default BuyInventory;
+
+    
