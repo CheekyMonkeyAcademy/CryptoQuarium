@@ -2,7 +2,8 @@ import React, {Component} from "react";
 import "./BuyInventory.css"
 import InventoryCards from "../InventoryCards"
 import axios from 'axios';
-//Add in State, as it will change on buying habits of the user
+
+//NICOLE--LIFT UP THE STATE!!!! THAT IS KEY!!
 
 
 class BuyInventory extends Component {
@@ -13,6 +14,8 @@ class BuyInventory extends Component {
 
     //Function handling 'add item to cart' button on inventory card
         //The prop being passed in in this case is the id
+        //Second part of function after setState handles async issue 
+        //THE CART ARRAY IS NOW POPULATING WITH THE CORRECT ITEMS CLICKED!!!
     clickItem = (id, clickItem) => {
         //Am I grabbing the correct id when I click? --YES!!!!!!
         console.log(`You clicked ${id}`);
@@ -20,11 +23,7 @@ class BuyInventory extends Component {
             console.log(this.state.cartArray)  
             }
         );                  
-    }
-    
-
-    
-    
+    } 
 
     //On this route, take fish from database and push them into the fishArray 
         //defined in the state above
