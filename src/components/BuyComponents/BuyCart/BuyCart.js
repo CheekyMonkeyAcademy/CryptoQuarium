@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import CartItems from "../CartItems/CartItems"
 
-//State because the cart will always be updating
+
 
 class BuyCart extends Component {
     render() {

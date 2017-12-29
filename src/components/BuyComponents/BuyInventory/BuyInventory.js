@@ -7,10 +7,27 @@ import axios from 'axios';
 
 class BuyInventory extends Component {
     state = {
-        fishArray:[]
+        fishArray:[], 
+        cartArray: []
     }
 
+    //Function handling 'add item to cart' button on inventory card
+        //The prop being passed in in this case is the id
+    clickItem = (id, clickItem) => {
+        //Am I grabbing the correct id when I click? --YES!!!!!!
+        console.log(`You clicked ${id}`);
+        this.setState({cartArray: this.state.cartArray.concat([id])}, () => {
+            console.log(this.state.cartArray)  
+            }
+        );                  
+    }
     
+
+    
+    
+
+    //On this route, take fish from database and push them into the fishArray 
+        //defined in the state above
     componentDidMount() {
         axios.get('/api/allFishTemplates')
         .then((allfish) => {
@@ -33,6 +50,7 @@ class BuyInventory extends Component {
                 
                 {this.state.fishArray.map(fish => {
                     return <InventoryCards {...fish}
+                    clickItem = {this.clickItem}
                     key={fish.id} />
                 })}
             
