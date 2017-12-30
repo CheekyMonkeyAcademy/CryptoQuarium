@@ -7,15 +7,15 @@ class BuyCart extends Component {
     render() {
         return (
             <div>
-                <div class="row">
-                    <div class="col s12">
-                    <div class="card teal lighten-2">
-                        <div class="card-content white-text">
-                            <span class="card-title">Shopping Cart</span>
+                <div className="row">
+                    <div className="col s12">
+                    <div className="card teal lighten-2">
+                        <div className="card-content white-text">
+                            <span className="card-title">Shopping Cart</span>
                                 <CartItems />
                         </div>
-                        <div class="card-action">
-                            <a class="waves-effect waves-light btn black"><i class="material-icons left">done</i>checkout</a>
+                        <div className="card-action">
+                            <a className="waves-effect waves-light btn black"><i class="material-icons left">done</i>checkout</a>
                         </div>
                     </div>
                     </div>

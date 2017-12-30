@@ -7,17 +7,19 @@ import axios from 'axios';
 
 
 class BuyInventory extends Component {
-    state = {
-        fishArray = []
-    }
     
+    state = {
+        fishArray: [], 
+        cartArray: []
+    }
+   
 
     //Function handling 'add item to cart' button on inventory card
         //The prop being passed in in this case is the id
         //Second part of function after setState handles async issue 
         //THE CART ARRAY IS NOW POPULATING WITH THE CORRECT ITEMS CLICKED!!!
     clickItem = (id, clickItem) => {
-        //Am I grabbing the correct id when I click? --YES!!!!!!
+    //     //Am I grabbing the correct id when I click? --YES!!!!!!
         console.log(`You clicked ${id}`);
         this.setState({cartArray: this.state.cartArray.concat([id])}, () => {
             console.log(this.state.cartArray)  
@@ -59,11 +61,33 @@ class BuyInventory extends Component {
 
 }
 
+
 export default BuyInventory;
 
-// state = {
-//     fishArray:[], 
-//     cartArray: []
-// }
-
+//Function handling 'add item to cart' button on inventory card
+        //The prop being passed in in this case is the id
+        //Second part of function after setState handles async issue 
+        //THE CART ARRAY IS NOW POPULATING WITH THE CORRECT ITEMS CLICKED!!!
+        // clickItem = (id, clickItem) => {
+        //     //Am I grabbing the correct id when I click? --YES!!!!!!
+        //     console.log(`You clicked ${id}`);
+        //     this.setState({cartArray: this.state.cartArray.concat([id])}, () => {
+        //         console.log(this.state.cartArray)  
+        //         }
+        //     );                  
+        // } 
     
+
+        //MAP
+        
+        // {this.state.fishArray.map(fish => {
+        //     return <InventoryCards {...fish}
+        //     clickItem = {this.clickItem}
+        //     key={fish.id} />
+        // })}
+
+        // {this.state.fishArray.map(fish => {
+        //     return <InventoryCards {...fish}
+        //     clickItem = {this.clickItem}
+        //     key={fish.id} />
+        // })}

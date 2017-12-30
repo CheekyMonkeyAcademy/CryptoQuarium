@@ -14,7 +14,7 @@ const InventoryCards = props => (
                     <div class="card-image">
                         <img alt="" src="http://via.placeholder.com/140x100" />
                         
-                        <a class="btn-floating halfway-fab waves-effect waves-light red" onClick={() => props.clickItem(props.id)}><i class="material-icons">add</i></a>
+                        <a class="btn-floating halfway-fab waves-effect waves-light red" id={props.id} onClick={() => props.clickItem(props.id)}><i class="material-icons">add</i></a>
                     </div>
                     <div class="card-content">
                         <p>{props.species}</p>
@@ -30,3 +30,6 @@ const InventoryCards = props => (
     
 
 export default InventoryCards;
+
+// onClick={() => props.clickItem(props.id)}
+// onClick={this.clickItem}
