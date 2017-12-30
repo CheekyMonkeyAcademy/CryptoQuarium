@@ -7,6 +7,7 @@ import "../../Style/FishMarket.css"
 class Buy extends Component {
     state = {
         cartArray : []
+        
     }
     
     // clickItem = (id, clickItem) => {    
@@ -17,8 +18,9 @@ class Buy extends Component {
     //     // );                  
     // } 
 
-    clickItem = () => {
+    clickItem = (id) => {
         console.log("You got here")
+        console.log(id)
     }
 
     render(){
@@ -35,7 +37,7 @@ class Buy extends Component {
                 
                 <div className="row">
                     <div className="col s8">
-                        <BuyInventory addToCart={this.clickItem} />                
+                        <BuyInventory addToCart={this.clickItem} id={this.props.id}/>                
                     </div>
 
                     <div className="col s4">

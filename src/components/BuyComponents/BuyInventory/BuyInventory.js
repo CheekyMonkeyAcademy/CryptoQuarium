@@ -52,8 +52,10 @@ class BuyInventory extends Component {
                 
                 {this.state.fishArray.map(fish => {
                     return <InventoryCards {...fish}
-                    onClick={this.props.addToCart}
-                     />
+                    onClick ={this.props.addToCart}
+                    key = {this.state.fishArray.id}
+                    id = {fish.id}                    
+                    />
                 })}
             
             </div>
