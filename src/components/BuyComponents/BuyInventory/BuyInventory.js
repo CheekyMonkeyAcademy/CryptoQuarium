@@ -10,7 +10,7 @@ class BuyInventory extends Component {
     
     state = {
         fishArray: [], 
-        cartArray: []
+        // cartArray: []
     }
    
 
@@ -18,14 +18,14 @@ class BuyInventory extends Component {
         //The prop being passed in in this case is the id
         //Second part of function after setState handles async issue 
         //THE CART ARRAY IS NOW POPULATING WITH THE CORRECT ITEMS CLICKED!!!
-    clickItem = (id, clickItem) => {
+    // clickItem = (id, clickItem) => {
     //     //Am I grabbing the correct id when I click? --YES!!!!!!
-        console.log(`You clicked ${id}`);
-        this.setState({cartArray: this.state.cartArray.concat([id])}, () => {
-            console.log(this.state.cartArray)  
-            }
-        );                  
-    } 
+    //     console.log(`You clicked ${id}`);
+    //     this.setState({cartArray: this.state.cartArray.concat([id])}, () => {
+    //         console.log(this.state.cartArray)  
+    //         }
+    //     );                  
+    // } 
 
     //On this route, take fish from database and push them into the fishArray 
         //defined in the state above
@@ -45,14 +45,15 @@ class BuyInventory extends Component {
     }     
 
     render(){
+        
         return(
 
             <div className="inventoryBorder">
                 
                 {this.state.fishArray.map(fish => {
                     return <InventoryCards {...fish}
-                    clickItem = {this.clickItem}
-                    key={fish.id} />
+                    onClick={this.props.onClick}
+                     />
                 })}
             
             </div>

@@ -5,11 +5,27 @@ import "../../Style/FishMarket.css"
 
    
 class Buy extends Component {
+    state = {
+        cartArray : []
+    }
     
+    // clickItem = (id, clickItem) => {    
+    //     console.log(`You clicked ${id}`);
+    //     // this.setState({cartArray: this.state.cartArray.concat([id])}, () => {
+    //     //     console.log(this.state.cartArray)  
+    //     //     }
+    //     // );                  
+    // } 
+
+    clickItem = () => {
+        console.log("You got here")
+    }
 
     render(){
-        return (
-                
+        
+
+        return (             
+           
             <div>
                 <div className="row">
                     <div className="col s8">
@@ -19,7 +35,7 @@ class Buy extends Component {
                 
                 <div className="row">
                     <div className="col s8">
-                        <BuyInventory  />                
+                        <BuyInventory onClick={this.clickItem} />                
                     </div>
 
                     <div className="col s4">
