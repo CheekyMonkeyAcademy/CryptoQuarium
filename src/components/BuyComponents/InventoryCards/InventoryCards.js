@@ -14,7 +14,7 @@ const InventoryCards = props => (
                     <div class="card-image">
                         <img alt="" src="http://via.placeholder.com/140x100" />
                         
-                        <a class="btn-floating halfway-fab waves-effect waves-light red" id={props.id} onClick={this.onClick}><i class="material-icons">add</i></a>
+                        <a class="btn-floating halfway-fab waves-effect waves-light red" id={props.id} onClick={props.onClick}><i class="material-icons">add</i></a>
                     </div>
                     <div class="card-content">
                         <p>{props.species}</p>

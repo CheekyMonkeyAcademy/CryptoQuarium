@@ -35,7 +35,7 @@ class Buy extends Component {
                 
                 <div className="row">
                     <div className="col s8">
-                        <BuyInventory onClick={this.clickItem} />                
+                        <BuyInventory addToCart={this.clickItem} />                
                     </div>
 
                     <div className="col s4">

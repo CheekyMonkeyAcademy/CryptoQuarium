@@ -52,7 +52,7 @@ class BuyInventory extends Component {
                 
                 {this.state.fishArray.map(fish => {
                     return <InventoryCards {...fish}
-                    onClick={this.props.onClick}
+                    onClick={this.props.addToCart}
                      />
                 })}
             
