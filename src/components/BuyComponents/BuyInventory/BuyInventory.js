@@ -1,17 +1,17 @@
 import React, {Component} from "react";
 import "./BuyInventory.css"
 import InventoryCards from "../InventoryCards"
-import axios from 'axios';
+// import axios from 'axios';
 
 //NICOLE--LIFT UP THE STATE!!!! THAT IS KEY!!
 
 
 class BuyInventory extends Component {
     
-    state = {
-        fishArray: [], 
+    // state = {
+        // fishArray: [], 
         // cartArray: []
-    }
+    // }
    
 
     //Function handling 'add item to cart' button on inventory card
@@ -29,20 +29,24 @@ class BuyInventory extends Component {
 
     //On this route, take fish from database and push them into the fishArray 
         //defined in the state above
-    componentDidMount() {
-        axios.get('/api/allFishTemplates')
-        .then((allfish) => {
-          console.log(allfish);
-                allfish.data.forEach((fish) => {
-                    this.setState({fishArray: this.state.fishArray.concat([fish])});                   
-                })      
-            console.log("This is fish array")  
-            console.log(this.state.fishArray)              
-        })
-        .catch((err) => {
-          console.log(err);
-        })    
-    }     
+    // componentDidMount() {
+    //     axios.get('/api/allFishTemplates')
+    //     .then((allfish) => {
+    //       console.log(allfish);
+    //             allfish.data.forEach((fish) => {
+    //                 this.setState({fishArray: this.state.fishArray.concat([fish])});                   
+    //             })      
+    //         console.log("This is fish array")  
+    //         console.log(this.state.fishArray)              
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     })    
+    // }     
+
+    componentDidMount(){
+        {this.props.updateBuyFishArrayState()}
+    }
 
     render(){
         
@@ -50,13 +54,13 @@ class BuyInventory extends Component {
 
             <div className="inventoryBorder">
                 
-                {this.state.fishArray.map(fish => {
+                {this.props.buyFishArray.map(fish => {
                     return <InventoryCards {...fish}
                     onClick ={this.props.addToCart}
-                    key = {this.state.fishArray.id}
-                    id = {fish.id}                    
+                    key = {this.props.buyFishArray.id}
+                                       
                     />
-                })}
+                }, this)}
             
             </div>
         )
@@ -78,8 +82,7 @@ export default BuyInventory;
         //         console.log(this.state.cartArray)  
         //         }
         //     );                  
-        // } 
-    
+        // }   
 
         //MAP
         
@@ -88,9 +91,30 @@ export default BuyInventory;
         //     clickItem = {this.clickItem}
         //     key={fish.id} />
         // })}
-
+        
         // {this.state.fishArray.map(fish => {
         //     return <InventoryCards {...fish}
-        //     clickItem = {this.clickItem}
-        //     key={fish.id} />
+        //     onClick ={this.props.addToCart}
+        //     key = {this.state.fishArray.id}
+                               
+        //     />
         // })}
+
+    //     this.setState({buyFishArray: this.props.buyFishArray.concat([fish])})
+    // }, this)
+
+    //This does not give me errors, but it doesn't update the state with the fish data!
+    // componentDidMount(){
+    //     axios.get('/api/allFishTemplates')
+    //         .then((allfish) => {
+    //             console.log(allfish);
+    //                 allfish.data.forEach((fish) => {
+    //                     this.setState({buyFishArray: this.props.buyFishArray.concat([fish])})
+    //                 }, this)
+    //                 console.log("This is fish array")
+    //                 console.log(this.props.buyFishArray)
+    //         })
+    //         .catch((err)=> {
+    //             console.log(err)
+    //         })
+    // }

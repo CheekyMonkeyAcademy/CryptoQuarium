@@ -15,7 +15,7 @@ class BuyCart extends Component {
                                 <CartItems />
                         </div>
                         <div className="card-action">
-                            <a className="waves-effect waves-light btn black"><i class="material-icons left">done</i>checkout</a>
+                            <a className="waves-effect waves-light btn black"><i className="material-icons left">done</i>checkout</a>
                         </div>
                     </div>
                     </div>
