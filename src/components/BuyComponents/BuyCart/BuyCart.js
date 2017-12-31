@@ -12,7 +12,13 @@ class BuyCart extends Component {
                     <div className="card teal lighten-2">
                         <div className="card-content white-text">
                             <span className="card-title">Shopping Cart</span>
-                                <CartItems />
+
+                                {this.props.shoppingCart.map(items =>{
+                                    return <CartItems {...items}
+                                    key = {items.id}
+                                    />
+                                })}
+                                
                         </div>
                         <div className="card-action">
                             <a className="waves-effect waves-light btn black"><i className="material-icons left">done</i>checkout</a>

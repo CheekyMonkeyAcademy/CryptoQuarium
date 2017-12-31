@@ -30,7 +30,7 @@ const InventoryCards = props => (
 
 export default InventoryCards;
 
-// onClick={() => props.clickItem(props.id)}
+
 
 //This works, but doesn't pass in id
 // onClick={props.onClick}

@@ -10,15 +10,9 @@ const CartItems = props => (
                             <p>Item Description: Lorem ipsum yada yada nada nada</p>
                     </div>
                     <div className="card-action black-text">
-                        <p>$ {props.price}</p>
-                        <div>
-                            <div className="input-field inline black-text">
-                                <input id="email" type="email" className="validate" placeholder="Quantity" />
-                                <label for="email" data-error="wrong" data-success="right"></label>
+                        <p>$ {props.id}</p>
 
-                                
-                            </div>
-                        </div>  
+                        
                     </div>
                 </div>
             </div>
@@ -32,3 +26,12 @@ const CartItems = props => (
 
 export default CartItems; 
 
+//UX CODE FOR ADJUSTING QUANTITY WANTED FOR EACH ITEM
+{/* <div>
+<div className="input-field inline black-text">
+    <input id="email" type="email" className="validate" placeholder="Quantity" />
+    <label for="email" data-error="wrong" data-success="right"></label>
+
+    
+</div>
+</div>   */}

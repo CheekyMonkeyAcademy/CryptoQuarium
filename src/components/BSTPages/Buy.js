@@ -11,6 +11,7 @@ class Buy extends Component {
         buyFishArray : [] 
     }    
 
+    //AT THE MOMENT, YOU ARE TRACKING THE ITEM ID. TO GET THE NAME(A MORE USER FRIENDLY PROPERTY OF THE ITEM), ADJUST WHAT IS ATTACHED TO THE CLICK BUTTON IN THE INVENTORYCARD COMPONENT, AND ALL THE WAY UP FROM GRANDCHILD TO GRANDPARENT
     clickItem = (id) => {
         console.log("You got here")
         console.log(`clicked: ${id}`)
@@ -55,7 +56,9 @@ class Buy extends Component {
                     </div>
 
                     <div className="col s4">
-                        <BuyCart />
+                        <BuyCart 
+                            shoppingCart={this.state.cartArray}
+                        />
                     </div>
                 </div>
             </div>
