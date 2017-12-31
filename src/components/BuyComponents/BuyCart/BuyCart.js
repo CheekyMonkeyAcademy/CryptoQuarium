@@ -1,21 +1,30 @@
 import React, {Component} from "react";
 import CartItems from "../CartItems/CartItems"
+import CartSubtotal from "../CartSubtotal/CartSubtotal"
 
-//State because the cart will always be updating
 
 class BuyCart extends Component {
+      
     render() {
         return (
+
             <div>
-                <div class="row">
-                    <div class="col s12">
-                    <div class="card teal lighten-2">
-                        <div class="card-content white-text">
-                            <span class="card-title">Shopping Cart</span>
-                                <CartItems />
+                <div className="row">
+                    <div className="col s12">
+                    <div className="card teal lighten-2">
+                        <div className="card-content white-text">
+                            <span className="card-title">Shopping Cart</span>
+
+                                {this.props.shoppingCart.map(items =>{
+                                    return <CartItems {...items}
+                                    key = {items.id}                                        
+                                    />
+                                }, this)}
+                                
                         </div>
-                        <div class="card-action">
-                            <a class="waves-effect waves-light btn black"><i class="material-icons left">done</i>checkout</a>
+                        <div className="card-action card-content white-text">                           
+                           <CartSubtotal subTotal={this.props.subTotal}/>
+                            <a className="waves-effect waves-light btn black"><i className="material-icons left">done</i>checkout</a>
                         </div>
                     </div>
                     </div>
