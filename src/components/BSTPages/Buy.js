@@ -8,8 +8,13 @@ import axios from 'axios';
 class Buy extends Component {
     state = {
         cartArray : [], 
-        buyFishArray : []
-        
+        buyFishArray : [] 
+    }
+
+    constructor(props) {
+        super(props)
+        console.log("these are props")
+        console.log(props)
     }
     
     // clickItem = (id, clickItem) => {    
@@ -22,7 +27,7 @@ class Buy extends Component {
 
     clickItem = (id) => {
         console.log("You got here")
-        console.log(id)
+        console.log(`clicked: ${id}`)
     }
 
     updateBuyFishArrayState = () => {
@@ -33,17 +38,14 @@ class Buy extends Component {
                     this.setState({buyFishArray: this.state.buyFishArray.concat([fish])})
                 })
                 console.log("This is fish array")
-                console.log(this.props.buyFishArray)
+                console.log(this.state.buyFishArray)
         })
         .catch((err)=> {
             console.log(err)
         })       
     }
 
-   
-
     render(){        
-
         return (             
            
             <div>
@@ -59,7 +61,7 @@ class Buy extends Component {
                             addToCart={this.clickItem} 
                             buyFishArray={this.state.buyFishArray}
                             updateBuyFishArrayState={this.updateBuyFishArrayState}
-                            />                
+                        />                
                     </div>
 
                     <div className="col s4">

@@ -8,15 +8,14 @@ const InventoryCards = props => (
     
     <div> 
         
-        <div class="row">
-            <div class="col s3">
-                <div class="card">
-                    <div class="card-image">
-                        <img alt="" src="http://via.placeholder.com/140x100" />
-                        
-                        <a class="btn-floating halfway-fab waves-effect waves-light red" id={props.id} onClick={props.onClick}><i class="material-icons">add</i></a>
+        <div className="row">
+            <div className="col s3">
+                <div className="card">
+                    <div className="card-image">
+                        <img alt="" src="http://via.placeholder.com/140x100" />                        
+                        <a className="btn-floating halfway-fab waves-effect waves-light red" id={props.id} onClick={() => props.onClick(props.id)}><i className="material-icons">add</i></a>
                     </div>
-                    <div class="card-content">
+                    <div className="card-content">
                         <p>{props.species}</p>
                         <p>id:{props.id}</p>
                         <p>${props.price}</p>
@@ -32,4 +31,7 @@ const InventoryCards = props => (
 export default InventoryCards;
 
 // onClick={() => props.clickItem(props.id)}
-// onClick={this.clickItem}
+
+//This works, but doesn't pass in id
+// onClick={props.onClick}
+
