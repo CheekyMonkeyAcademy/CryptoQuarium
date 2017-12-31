@@ -1,8 +1,6 @@
 import React from "react";
 import "./InventoryCards.css"
 
-//Props--pulling price from item stored in the database
-//Click function to track which fish is clicked on to add to the cart
 
 const InventoryCards = props => (
     
@@ -29,9 +27,4 @@ const InventoryCards = props => (
     
 
 export default InventoryCards;
-
-
-
-//This works, but doesn't pass in id
-// onClick={props.onClick}
 

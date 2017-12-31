@@ -11,15 +11,20 @@ class Buy extends Component {
         buyFishArray : [] 
     }    
 
-    //AT THE MOMENT, YOU ARE TRACKING THE ITEM ID. TO GET THE NAME(A MORE USER FRIENDLY PROPERTY OF THE ITEM), ADJUST WHAT IS ATTACHED TO THE CLICK BUTTON IN THE INVENTORYCARD COMPONENT, AND ALL THE WAY UP FROM GRANDCHILD TO GRANDPARENT
+    //MASSIVE TODO!!! THIS WORKS FOR NOW- BUT WILL DEFINITELY NEED TO BE REVISITED
+        //ID FOR FISH START AT 1,2,3 ETC
+        //AND THE ARRAY STARTS WITH 0,1,2 ETC
+        //CURRENTLY ADDED IN -1 TO FIX- BUT WILL CREATE PROBLEMS LATER DOWN THE ROAD
+        //POSSIBLE FIX: this.state.fishThing[this.state.filter(filter to get the specific index of the matching ID)]
+            //A FILTER OF THE ARRAY TO LOOK FOR THE APPROPRIATE ID ASSOCIATED WITH THE FISH
     clickItem = (id) => {
         console.log("You got here")
         console.log(`clicked: ${id}`)
-        this.setState({cartArray: this.state.cartArray.concat([id])}, () => {
+        this.setState({cartArray: this.state.cartArray.concat([this.state.buyFishArray[id-1]])}, () => {
             console.log("This is cart array")
             console.log(this.state.cartArray)  
         }); 
-    }
+    }    
 
     updateBuyFishArrayState = () => {
         axios.get('/api/allFishTemplates')
@@ -57,7 +62,7 @@ class Buy extends Component {
 
                     <div className="col s4">
                         <BuyCart 
-                            shoppingCart={this.state.cartArray}
+                            shoppingCart={this.state.cartArray}                             
                         />
                     </div>
                 </div>

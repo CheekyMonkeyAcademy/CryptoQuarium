@@ -2,6 +2,7 @@ import React from "react"
 
 const CartItems = props => (
     <div>
+        
         <div className="row">
             <div className="col s12">
                 <div className="card white">
@@ -10,14 +11,15 @@ const CartItems = props => (
                             <p>Item Description: Lorem ipsum yada yada nada nada</p>
                     </div>
                     <div className="card-action black-text">
-                        <p>$ {props.id}</p>
-
+                        <p>Item Id: {props.id}</p>
+                        <p>Species: {props.species}</p>
                         
                     </div>
                 </div>
             </div>
         </div>    
     </div>
+    
 
         
     

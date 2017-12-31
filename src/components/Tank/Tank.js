@@ -10,14 +10,14 @@ class Tank extends Component {
                     <div className="row">
                         <div className="tankBorder">
                             <div id="box">
-                                <figure class="front"></figure>
-                                <figure class="back"></figure>
-                                <figure class="right"></figure>
+                                <figure className="front"></figure>
+                                <figure className="back"></figure>
+                                <figure className="right"></figure>
                                 <Fish>Fish</Fish>
                                 {/* <Water> Water </Water> */}
-                                <figure class="left"></figure>
-                                <figure class="top"></figure>
-                                <figure class="bottom"></figure>                                
+                                <figure className="left"></figure>
+                                <figure className="top"></figure>
+                                <figure className="bottom"></figure>                                
                             </div>                            
                         </div>
                     </div>

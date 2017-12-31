@@ -2,10 +2,10 @@ import React, {Component} from "react";
 import CartItems from "../CartItems/CartItems"
 
 
-
 class BuyCart extends Component {
     render() {
         return (
+
             <div>
                 <div className="row">
                     <div className="col s12">
@@ -15,9 +15,9 @@ class BuyCart extends Component {
 
                                 {this.props.shoppingCart.map(items =>{
                                     return <CartItems {...items}
-                                    key = {items.id}
+                                    key = {items.id}                                        
                                     />
-                                })}
+                                }, this)}
                                 
                         </div>
                         <div className="card-action">
