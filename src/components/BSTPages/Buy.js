@@ -9,25 +9,15 @@ class Buy extends Component {
     state = {
         cartArray : [], 
         buyFishArray : [] 
-    }
-
-    constructor(props) {
-        super(props)
-        console.log("these are props")
-        console.log(props)
-    }
-    
-    // clickItem = (id, clickItem) => {    
-    //     console.log(`You clicked ${id}`);
-    //     // this.setState({cartArray: this.state.cartArray.concat([id])}, () => {
-    //     //     console.log(this.state.cartArray)  
-    //     //     }
-    //     // );                  
-    // } 
+    }    
 
     clickItem = (id) => {
         console.log("You got here")
         console.log(`clicked: ${id}`)
+        this.setState({cartArray: this.state.cartArray.concat([id])}, () => {
+            console.log("This is cart array")
+            console.log(this.state.cartArray)  
+        }); 
     }
 
     updateBuyFishArrayState = () => {
