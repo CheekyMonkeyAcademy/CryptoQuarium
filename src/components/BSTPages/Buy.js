@@ -8,8 +8,10 @@ import axios from 'axios';
 class Buy extends Component {
     state = {
         cartArray : [], 
-        buyFishArray : [] 
+        buyFishArray : [],
+        subTotal: 0
     }    
+
 
     //MASSIVE TODO!!! THIS WORKS FOR NOW- BUT WILL DEFINITELY NEED TO BE REVISITED
         //ID FOR FISH START AT 1,2,3 ETC
@@ -62,7 +64,8 @@ class Buy extends Component {
 
                     <div className="col s4">
                         <BuyCart 
-                            shoppingCart={this.state.cartArray}                             
+                            shoppingCart={this.state.cartArray}   
+                            subTotal={this.state.subTotal}                          
                         />
                     </div>
                 </div>
