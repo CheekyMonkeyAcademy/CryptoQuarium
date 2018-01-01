@@ -3,7 +3,8 @@ import React from "react"
 
 const Trade = () =>
     <div>
-        <h5>Trade</h5>
+        <h4>Trade</h4>
+        <h5>Stretch Goal</h5>
     </div>;
 
 export default Trade;

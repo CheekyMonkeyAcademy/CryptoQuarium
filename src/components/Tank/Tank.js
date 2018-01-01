@@ -3,6 +3,7 @@ import Fish from "../Fish";
 import "./Tank.css";
 
 class Tank extends Component {
+
     render() {
         return (
 <div id="wrap"> 
@@ -24,7 +25,7 @@ class Tank extends Component {
         </div>
         <div className="water"></div>
         <Fish></Fish>
-        
+
 
             <div className="ground"></div>
             <div className="rock_1"></div>
