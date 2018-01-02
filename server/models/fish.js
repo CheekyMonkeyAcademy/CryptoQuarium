@@ -1,6 +1,5 @@
 //TODO make sure move has a z index.
 
-// Fish_Templates.js
 // - Name - Implement only on user fish
 // - Species
 // - Graphic
