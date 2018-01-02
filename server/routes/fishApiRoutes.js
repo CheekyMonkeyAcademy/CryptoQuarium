@@ -7,7 +7,6 @@ module.exports = function(app) {
         db.Fish.findAll({  
         })
         .then((allFish) => {
-            console.log(allFish);
             res.json(allFish);
         });
     });
@@ -19,7 +18,6 @@ module.exports = function(app) {
                 UserId:  req.user.id
             }  
         }).then((allUserFish) => {
-            console.log(allUserFish);
             res.json(allUserFish);
         });
     });
@@ -32,12 +30,9 @@ module.exports = function(app) {
         })
         .then((count) => {
             if (count > 0) {
-                console.log(`species exists - we're not creating it again`);
                 res.json({"Error": "Species exists, cannot duplicate"});
             }
             else {
-                console.log(`Creating new species`)
-                console.log(req.body);
                 db.Fish.create({
                     species: req.body.species,
                     image: req.body.image,
@@ -50,7 +45,6 @@ module.exports = function(app) {
                     price: req.body.price
                 })
                 .then((newFishObject) => {
-                    console.log(newFishObject);
                     res.json(newFishObject)
                 });
             }
@@ -71,10 +65,8 @@ module.exports = function(app) {
         })
         .then((selectedFish) => {
             if (selectedFish.quantityAvailable > 1) {
-                console.log(`We're good to continue - we have fish available: ${selectedFish.quantityAvailable}`);
             }
             else {
-                console.log(`Not enough quantity available`);
                 res.json({"Error": "Not enough quantity available to purchase this fish"});
             }
 
@@ -85,7 +77,6 @@ module.exports = function(app) {
                 }
             })
             .then((user) => {
-                console.log(`zzzz wallet balance: ${user.walletBalance} --- fish cost: ${selectedFish.price}`);
                 if (user.walletBalance >= selectedFish.price) {
                     console.log(`You're clear to buy this fish, w00t!`);
                     selectedFish.update({quantityAvailable: (selectedFish.quantityAvailable -= 1)});
@@ -113,7 +104,6 @@ module.exports = function(app) {
                         UserId: req.user.id
                     })
                     .then((fishObject) => {
-                        console.log(fishObject);
                         res.json(fishObject)
                     });
                 }

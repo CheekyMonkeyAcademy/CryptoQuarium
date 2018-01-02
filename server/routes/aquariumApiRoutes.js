@@ -15,10 +15,8 @@ module.exports = function(app) {
             })
             .then((selectedAquarium) => {
                 if (selectedAquarium.quantityAvailable > 1) {
-                    console.log(`We're good to continue - we have this aquarium available: ${selectedAquarium.quantityAvailable}`);
                 }
                 else {
-                    console.log(`Not enough quantity available`);
                     res.json({"Error": "Not enough quantity available to purchase this aquarium"});
                 }
     
@@ -29,9 +27,7 @@ module.exports = function(app) {
                     }
                 })
                 .then((user) => {
-                    console.log(`zzzz wallet balance: ${user.walletBalance} --- aquarium cost: ${selectedAquarium.price}`);
                     if (user.walletBalance >= selectedAquarium.price) {
-                        console.log(`You're clear to buy this aquarium, w00t!`);
                         selectedAquarium.update({quantityAvailable: (selectedAquarium.quantityAvailable -= 1)});
                         user.update({walletBalance: (user.walletBalance -= selectedAquarium.price)});
                         db.WalletHistory.create({
@@ -41,13 +37,6 @@ module.exports = function(app) {
                             walletBalanceChangeReason: `Aquarium purchased: ${selectedAquarium.tankDescription}`,
                             lastWalletBalance: (user.walletBalance - selectedAquarium.price)
                         });
-                        console.log("********************************************");
-                        console.log("********************************************");
-                        console.log("********************************************");
-                        console.log("********************************************");
-                        console.log("********************************************");
-                        console.log("********************************************");
-                        console.log(selectedAquarium.dataValues.numFishAllowed);
                         
                         // do we need to update the current req.user to reflect the new balance?           
                         db.UserAquarium.create({
@@ -58,7 +47,6 @@ module.exports = function(app) {
                             UserId: req.user.id
                         })
                         .then((aquariumObject) => {
-                            console.log(aquariumObject);
                             res.json(aquariumObject)
                         });
                     }
