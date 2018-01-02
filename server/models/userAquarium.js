@@ -14,10 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     let UserAquarium = sequelize.define("UserAquarium", {
         name: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            allowNull: true,
         },
         tankDescription: {
             type: DataTypes.STRING,
@@ -42,17 +39,11 @@ module.exports = function(sequelize, DataTypes) {
         },
         background: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            allowNull: true,
         },
         lightingEffect: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            allowNull: true,
         }
     });
 
