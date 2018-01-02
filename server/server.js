@@ -18,12 +18,12 @@ app.use(session({ secret: 'YES' }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', function (req, res) {
-    res.sendfile('test.html');
+app.get('/login', function (req, res) {
+    res.sendfile('testLogin.html');
 });
 
 app.get('/success', function (req, res) {
-    res.sendfile('success.html');
+    res.sendfile('successfulLogin.html');
 });
 
 app.use(express.static("../src"));

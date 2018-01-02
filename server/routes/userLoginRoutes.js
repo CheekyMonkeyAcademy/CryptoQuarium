@@ -5,6 +5,14 @@ const authenticationMiddleware = require('../passport/authenticationMiddleware')
 
 module.exports = function(app) {
 
+    app.get('/api/userCredentials', function(req, res){
+        console.log(`$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$`);
+        console.log(req.user);
+        console.log(`$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$`);
+        // console.log(req);
+        res.json(req.user);
+    });
+
     // Google OAuth 2
     app.get('/auth/google',
     passport.authenticate('google', { scope: 
@@ -14,7 +22,7 @@ module.exports = function(app) {
 
     app.get('/auth/google/callback', 
     passport.authenticate( 'google', { 
-        successRedirect: '/',
+        successRedirect: '/success',
         failureRedirect: '/login'
     }));
 
