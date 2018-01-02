@@ -1,13 +1,18 @@
 import React, { Component } from "react";
 import BalanceCard from "../WalletCards/BalanceCard/BalanceCard";
 import StatementCard from "../WalletCards/StatementCard/StatementCard";
-
-
-
-//This is also set up to be a stateful component, but this can change as well
-//Wallet will always be updated!
+// import axios from 'axios';
 
 class Wallet extends Component {
+    state = {
+        currentWalletBalance:10
+    }
+
+    // updateWalletFunds = () => {
+
+    // }
+
+
     render() {
         return (
             <div>

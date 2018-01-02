@@ -10,9 +10,8 @@ class Buy extends Component {
         cartArray : [], 
         buyFishArray : [],
         subTotal: 0
-    }    
-
-
+    } 
+    
     //MASSIVE TODO!!! THIS WORKS FOR NOW- BUT WILL DEFINITELY NEED TO BE REVISITED
         //ID FOR FISH START AT 1,2,3 ETC
         //AND THE ARRAY STARTS WITH 0,1,2 ETC
@@ -25,6 +24,9 @@ class Buy extends Component {
         this.setState({cartArray: this.state.cartArray.concat([this.state.buyFishArray[id-1]])}, () => {
             console.log("This is cart array")
             console.log(this.state.cartArray)  
+        //Call the update subtotal function here!
+            //Everytime the cart state is updated, the subtotal gets updated too!
+            this.updateSubtotalState()
         }); 
     }    
 
@@ -42,6 +44,21 @@ class Buy extends Component {
             console.log(err)
         })       
     }
+
+    //FUNCTION TO HANDLE THE SUBTOTAL MATH
+    updateSubtotalState = () => {
+        // Loop over the cart array to find the price of each item in there
+        this.state.cartArray.forEach((item) => {
+            console.log("this is item price")
+            console.log(item.price);
+
+            //Add the price (you will need to burrow into each fish object to grab the price)
+            const finalSubtotal = this.state.subTotal + item.price
+
+            //Update the state of the subtotal
+            this.setState({subTotal: finalSubtotal})         
+        });          
+    }    
 
     render(){        
         return (             
@@ -63,9 +80,9 @@ class Buy extends Component {
                     </div>
 
                     <div className="col s4">
-                        <BuyCart 
-                            shoppingCart={this.state.cartArray}   
-                            subTotal={this.state.subTotal}                          
+                        <BuyCart                               
+                            shoppingCart={this.state.cartArray}  
+                            subTotal={this.state.subTotal}                                                                             
                         />
                     </div>
                 </div>
