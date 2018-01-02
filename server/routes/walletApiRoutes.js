@@ -53,6 +53,11 @@ module.exports = function(app) {
         })
     });
 
+    //Need a route just to see the current wallet balance
+    // app.get('/api/viewCurrentBalance', authenticationMiddleware, (req, res) => {
+    //     db.User.
+    // })
+
 
     // TODO remove funds from wallet to bank (???? requires remote source - so not yet)
 

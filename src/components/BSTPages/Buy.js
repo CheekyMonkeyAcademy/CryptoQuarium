@@ -10,9 +10,8 @@ class Buy extends Component {
         cartArray : [], 
         buyFishArray : [],
         subTotal: 0
-    }    
-
-
+    } 
+    
     //MASSIVE TODO!!! THIS WORKS FOR NOW- BUT WILL DEFINITELY NEED TO BE REVISITED
         //ID FOR FISH START AT 1,2,3 ETC
         //AND THE ARRAY STARTS WITH 0,1,2 ETC
