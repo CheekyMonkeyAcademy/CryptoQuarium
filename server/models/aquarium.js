@@ -2,21 +2,21 @@
 module.exports = function(sequelize, DataTypes) {
     let Aquarium = sequelize.define("Aquarium", {
         tankDescription: {
-            type: DataTypes,STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
         numFishAllowed: {
-            type: DataTypes,INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
         numDecorationsAllowed: {
-            type: DataTypes,INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
                 len: [1]
