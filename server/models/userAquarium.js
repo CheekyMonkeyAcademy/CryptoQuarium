@@ -1,4 +1,3 @@
-// User_Aquarium_Inventory.js
 
 // Inherits template and modifies it
 // - User_Owner (ID reference)
@@ -12,44 +11,42 @@
 
 
 module.exports = function(sequelize, DataTypes) {
-    let Aquarium = sequelize.define("aquarium", {
+    let UserAquarium = sequelize.define("UserAquarium", {
+        name: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
         tankDescription: {
-            type: DataTypes,STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
         numFishAllowed: {
-            type: DataTypes,INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
         numDecorationsAllowed: {
-            type: DataTypes,INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
         background: {
-            type: DataTypes,STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            type: DataTypes.STRING,
+            allowNull: true,
         },
         lightingEffect: {
-            type: DataTypes,STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            type: DataTypes.STRING,
+            allowNull: true,
         }
     });
 
 
-    return Aquarium;
+    return UserAquarium;
 };

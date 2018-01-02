@@ -31,6 +31,7 @@ app.use(express.static("../src"));
 require('./routes/fishApiRoutes.js')(app);
 require('./routes/userLoginRoutes.js')(app);
 require('./routes/walletApiRoutes.js')(app);
+require('./routes/aquariumApiRoutes.js')(app);
 
 
 db.sequelize.sync({ force: false }).then(() => {
