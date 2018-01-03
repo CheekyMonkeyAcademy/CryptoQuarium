@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Fish from "../Fish";
+import PufferFish from "../PufferFish";
 import "./Tank.css";
 
 class Tank extends Component {
@@ -25,6 +26,7 @@ class Tank extends Component {
         </div>
         <div className="water"></div>
         <Fish></Fish>
+        <PufferFish></PufferFish>
 
 
             <div className="ground"></div>
