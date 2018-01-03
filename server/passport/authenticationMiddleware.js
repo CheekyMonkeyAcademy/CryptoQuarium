@@ -1,5 +1,5 @@
 function authenticationMiddleware () {
-    console.log(`DING DING DING - WE HAVE AUTHENTICATION VALIDATION!  Woot!`)
+    console.log(`Validating Authentication... so... we should see something here...`)
     return function (req, res, next) {
       if (req.isAuthenticated()) {
         return next()

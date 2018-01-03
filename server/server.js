@@ -10,20 +10,39 @@ const PORT = process.env.PORT || 8080;
 
 const db = require("./models");
 
+const env = process.env.NODE_ENV || 'development';
+const config = require('./config/config.json')[env];
+
+//Authentication Packages
+const MySQLStore = require('express-mysql-session')(session);
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); //TODO what the heck is this true mean
 app.use(bodyParser.text());
 app.use(cookieParser());
-app.use(session({ secret: 'YES' }));
+const options = {
+    host: config.host,
+    user: config.username,
+    password: config.password,
+    database: config.database,
+    port: 3306
+}
+const sessionStore = new MySQLStore(options);
+app.use(session({   
+    secret: 'OnceThereWasABoyWhoLikedToys',
+    resave: false,
+    store: sessionStore,
+    saveUninitialized: false
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', function (req, res) {
-    res.sendfile('test.html');
+app.get('/login', function (req, res) {
+    res.sendfile('testLogin.html');
 });
 
 app.get('/success', function (req, res) {
-    res.sendfile('success.html');
+    res.sendfile('successfulLogin.html');
 });
 
 app.use(express.static("../src"));

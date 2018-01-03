@@ -12,54 +12,44 @@ class Buy extends Component {
         subTotal: 0
     }    
 
-
-    //MASSIVE TODO!!! THIS WORKS FOR NOW- BUT WILL DEFINITELY NEED TO BE REVISITED
-        //ID FOR FISH START AT 1,2,3 ETC
-        //AND THE ARRAY STARTS WITH 0,1,2 ETC
-        //CURRENTLY ADDED IN -1 TO FIX- BUT WILL CREATE PROBLEMS LATER DOWN THE ROAD
-        //POSSIBLE FIX: this.state.fishThing[this.state.filter(filter to get the specific index of the matching ID)]
-            //A FILTER OF THE ARRAY TO LOOK FOR THE APPROPRIATE ID ASSOCIATED WITH THE FISH
     clickItem = (id) => {
-        console.log("You got here")
-        console.log(`clicked: ${id}`)
-        this.setState({cartArray: this.state.cartArray.concat([this.state.buyFishArray[id-1]])}, () => {
-            console.log("This is cart array")
-            console.log(this.state.cartArray)  
-           //Call the update subtotal function here!
- +            //Everytime the cart state is updated, the subtotal gets updated too!
- +            this.updateSubtotalState() 
+        // We are looking for the index of the target fish... so... find index of all fish where the fish is filtered to the fish with the target ID
+        // This will prevent issues when we concatenate below.  
+        let fishIndex = this.state.buyFishArray.findIndex((fish) => fish===this.state.buyFishArray.filter(fish => fish.id===id)[0]);
+        this.setState({cartArray: this.state.cartArray.concat([this.state.buyFishArray[fishIndex]])}, () => {
+            //Call the update subtotal function here!
+            //Everytime the cart state is updated, the subtotal gets updated too!
+            this.updateSubtotalState() 
         }); 
     }    
 
     updateBuyFishArrayState = () => {
         axios.get('/api/allFishTemplates')
-        .then((allfish) => {
-            console.log(allfish);
-                allfish.data.forEach((fish) => {
-                    this.setState({buyFishArray: this.state.buyFishArray.concat([fish])})
-                })
-                console.log("This is fish array")
-                console.log(this.state.buyFishArray)
+        .then((allfish) => {    
+            // console.log(allfish);
+            allfish.data.forEach((fish) => {
+                this.setState({buyFishArray: this.state.buyFishArray.concat([fish])})
+            })
         })
         .catch((err)=> {
             console.log(err)
-        })       
+        })
     }
 
     //FUNCTION TO HANDLE THE SUBTOTAL MATH
     updateSubtotalState = () => {
-           // Loop over the cart array to find the price of each item in there
-            this.state.cartArray.forEach((item) => {
-                console.log("this is item price")
-                console.log(item.price);
-    
-                //Add the price (you will need to burrow into each fish object to grab the price)
-                const finalSubtotal = this.state.subTotal + item.price
-    
-                //Update the state of the subtotal
-                this.setState({subTotal: finalSubtotal})         
-            });          
-        }    
+        // Loop over the cart array to find the price of each item in there
+        this.state.cartArray.forEach((item) => {
+            console.log("this is item price")
+            console.log(item.price);
+
+            //Add the price (you will need to burrow into each fish object to grab the price)
+            const finalSubtotal = this.state.subTotal + item.price
+
+            //Update the state of the subtotal
+            this.setState({subTotal: finalSubtotal})         
+        });          
+    }    
 
 
     render(){        
