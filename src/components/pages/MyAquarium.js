@@ -12,7 +12,7 @@ import Tank from "../Tank";
 const MyAquarium = () => 
 
     <div>
-        <h5>My Aquarium</h5>
+        <h5 className="center-align indigo-text text-accent-4">My Aquarium</h5>
         <Tank />
     </div>
 
