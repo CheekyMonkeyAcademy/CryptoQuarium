@@ -5,20 +5,18 @@ const PORT = process.env.PORT || 8080;
 
 //Serialize user ids
 passport.serializeUser(function(user, done){
+    console.log(`Serialized user ID: ${user.userId}`);
     done(null, user.userId);
 });
 //Deserialize user ids
 passport.deserializeUser(function(userId, done) {  
+    console.log(`Deserialized user ID: ${userId}`);
     db.User.findOne({
         where: {
             userId: userId
         }
     })
     .then((user) => {
-        // TODO restrict this object down to only what we need, not everything
-        // console.log(`zzzzzz deserialized user`);
-        // console.log(user);
-        // console.log(`zzzzzz end deserialize user`);
         done(null, user)
     })
     .catch(err => {

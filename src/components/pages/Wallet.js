@@ -11,24 +11,15 @@ import axios from 'axios';
 class Wallet extends Component {
 
     componentDidMount() {
-        fetch('/api/userCredentials')
+        axios.get('/api/getUserAuthenticated')
         .then((userCredentials) => {
             console.log(`So... we theoretically have user creds?`);
-            console.log(userCredentials);
+            console.log(userCredentials.data);
         })
         .catch((err)=> {
-            console.log(`this thing vomited - so - it didn't get you credentials`)
+            console.log(`user auth vomited - so - it didn't get you credentials`)
             console.log(err)
         })
-        // fetch('https://jsonplaceholder.typicode.com/posts/1')
-        // .then(function(response) {
-        // // The response is a Response instance.
-        // // You parse the data into a useable format using `.json()`
-        //     return response.json();
-        // }).then(function(data) {
-        // // `data` is the parsed version of the JSON returned from the above endpoint.
-        //     console.log(data);  // { "userId": 1, "id": 1, "title": "...", "body": "..." }
-        // });     
     }
 
     render() {
