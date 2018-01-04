@@ -11,7 +11,7 @@ import axios from 'axios';
 class Wallet extends Component {
 
     componentDidMount() {
-        axios.get('/api/getUserAuthenticated')
+        axios.get('/api/getAuthenticatedUser')
         .then((userCredentials) => {
             console.log(`So... we theoretically have user creds?`);
             console.log(userCredentials.data);

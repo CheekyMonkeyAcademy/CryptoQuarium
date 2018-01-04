@@ -1,3 +1,7 @@
+GET:  /api/getAuthenticatedUser
+This returns either the user information (which can be accessed in your .then as <uservariable>.data) or it returns a JSON error saying no user is logged in.  
+
+This is really a 'for us' route - NOT for the users (they shouldn't create fish).  
 POST:  /api/createFishTemplate
 Species must be unique
     species: req.body.species,
