@@ -5,7 +5,7 @@ import React, {Component} from "react";
 
 class BalanceCard extends Component {
     state = {
-        currentBalance: 0
+        currentBalance: 0       
     };
 
     render(){
