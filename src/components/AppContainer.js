@@ -13,7 +13,8 @@ import FishMarket from "./pages/FishMarket";
 class AppContainer extends Component {
     //This is class because state will change, depending on which page the user is on
     state = {
-        currentPage: "Home"
+        currentPage: "Home", 
+        currentBalance: 0
     };
 
     //This function sets the state for the current page
@@ -31,7 +32,9 @@ class AppContainer extends Component {
         } else if (this.state.currentPage === "MyAquarium"){
             return <MyAquarium />
         } else if (this.state.currentPage === "Wallet"){
-            return <Wallet />
+            return <Wallet 
+                        currentBalance={this.state.currentBalance}
+                    />
         } else if (this.state.currentPage === "FishMarket"){
             return <FishMarket />
         }

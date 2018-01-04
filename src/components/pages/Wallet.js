@@ -22,7 +22,7 @@ class Wallet extends Component {
                 this.setState({thisUserCred: this.state.thisUserCred.concat([userCredentials.data])
                 })
             console.log("This is user cred")
-            console.log(this.state.thisUserCred)
+            console.log(this.state.thisUserCred[0].walletBalance)
         })
         .catch((err)=> {
             console.log(`user auth vomited - so - it didn't get you credentials`)
@@ -34,7 +34,8 @@ class Wallet extends Component {
         return (
             <div>
                 My CryptoAquarium Wallet
-                <BalanceCard />
+                <BalanceCard 
+                    currentBalance={this.props.currentBalance}/>
                 <StatementCard />
 
 
