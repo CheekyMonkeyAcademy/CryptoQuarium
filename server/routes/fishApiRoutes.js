@@ -114,7 +114,17 @@ module.exports = function(app) {
         });
     });
 
-
+    app.put('/api/userFishUpdate/:id', authenticationMiddleware, function(req, res) {
+        let updatedUserFish = {...req.body} // TODO validate this works?
+        // TODO this might need to be broken down and each component validated individually
+        // that would be a lot of work -b ut eh, if necessary
+        console.log(updatedUserFish);
+        db.User.update(updatedUserFish,{
+            where: {
+                id: updatedUserFish.id
+            }    
+        })
+    });
 
 
 }//End of module.exports        
