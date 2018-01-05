@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import StatementModal from "../../StatementModal"
-import axios from 'axios';
+// import axios from 'axios';
 
 //This is a stateful component because I just think so for right now
 

@@ -4,6 +4,7 @@ import CartSubtotal from "../CartSubtotal/CartSubtotal"
 
 
 class BuyCart extends Component {
+
       
     render() {
         return (
@@ -24,7 +25,7 @@ class BuyCart extends Component {
                         </div>
                         <div className="card-action card-content white-text">                           
                            <CartSubtotal subTotal={this.props.subTotal}/>
-                            <a className="waves-effect waves-light btn black"><i className="material-icons left">done</i>checkout</a>
+                            <a className="waves-effect waves-light btn black" onClick = {() => this.props.checkoutChangeBalance()}><i className="material-icons left">done</i>checkout</a>
                         </div>
                     </div>
                     </div>
@@ -35,3 +36,6 @@ class BuyCart extends Component {
 }
 
 export default BuyCart;
+// () => props.onClick(props.id)
+// () => this.props.checkoutBalanceToUpdate
+//() => this.closeModal()

@@ -1,8 +1,9 @@
 import React, {Component} from "react";
 import BuyInventory from "../BuyComponents/BuyInventory";
 import BuyCart from "../BuyComponents/BuyCart";
-import "../../Style/FishMarket.css"
+import "../../Style/FishMarket.css";
 import axios from 'axios';
+
 
    
 class Buy extends Component {
@@ -75,7 +76,8 @@ class Buy extends Component {
                         <BuyCart 
                             updateSubtotalState={this.state.updateSubtotalState}
                             shoppingCart={this.state.cartArray}   
-                            subTotal={this.state.subTotal}                          
+                            subTotal={this.state.subTotal} 
+                            checkoutChangeBalance ={this.props.checkoutChangeBalance}                         
                         />
                     </div>
                 </div>

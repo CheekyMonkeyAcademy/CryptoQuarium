@@ -38,9 +38,9 @@ class AppContainer extends Component {
     }
 
     //FUNCTION FOR HANDLING ACCOUNT MATH ON CHECKOUT CLICK
-    // updateBalanceAfterCheckout = () => {
-
-    // }
+    updateBalanceAfterCheckout = () => {
+        console.log("Am I clicking the checkout button")
+    }
 
 
     //This function sets the state for the current page
@@ -62,7 +62,9 @@ class AppContainer extends Component {
                         currentBalance={this.state.currentBalance}
                     />
         } else if (this.state.currentPage === "FishMarket"){
-            return <FishMarket />
+            return <FishMarket 
+                    checkoutChangeBalance = {this.updateBalanceAfterCheckout}
+                    />
         }
     }
 
