@@ -21,7 +21,23 @@ class AppContainer extends Component {
         // buyFishArray: [] 
     };
 
+    
+    //FUNCTION TO HANDLE THE SUBTOTAL MATH
+    updateSubtotalState = (value) => {
+        console.log("am i getting here?")
+        this.setState({subTotal: value});
+        // Loop over the cart array to find the price of each item in there
+        // this.state.cartArray.forEach((item) => {
+        //     console.log("this is item price")
+        //     console.log(item.price);
 
+        //     //Add the price (you will need to burrow into each fish object to grab the price)
+        //     const finalSubtotal = this.state.subTotal + item.price
+
+        //     //Update the state of the subtotal
+        //     this.setState({subTotal: value})         
+        // });          
+    }    
 
     //FUNCTION TO GET LOGGEDIN USER CREDENTIALS FROM THE DATABASE
     componentDidMount() {
@@ -67,7 +83,8 @@ class AppContainer extends Component {
         } else if (this.state.currentPage === "FishMarket"){
             return <FishMarket 
                         checkoutChangeBalance = {this.updateBalanceAfterCheckout}
-                        currentSubTotal = {this.state.subTotal}
+                        subTotal = {this.state.subTotal}
+                        updateSubtotalState = {this.updateSubtotalState}
                     />
         }
     }
