@@ -1,11 +1,23 @@
 import React, {Component} from "react";
-
 import "./Fish.css";
+import {changeAnimationTime} from "./moveRand";
 
 class Fish extends Component {
+    swim() {
+        let fish_wrap = document.querySelector(".fish_wrap");
+        let time = changeAnimationTime(fish_wrap);
+
+        setTimeout(() => {
+            this.swim();
+        }, time * 1000);
+    }
+
+    componentDidMount() {
+       this.swim();
+    }
     render() {
         return (
-            <div className = "fish_wrap" > 
+            <div className="fish_wrap"> 
                 <div className="fish1">
                     <div className="top_fin"></div>
                     <div className="tail_fin"></div>

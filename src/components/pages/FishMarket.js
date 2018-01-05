@@ -22,7 +22,12 @@ class FishMarket extends Component {
     //for the page that is selected as current page
     renderPage = () => {
         if (this.state.currentPage === "Buy"){
-            return <Buy />
+            return <Buy
+                checkoutChangeBalance = {this.props.checkoutChangeBalance}   
+                subTotal = {this.props.subTotal}  
+                updateSubtotalState = {this.props.updateSubtotalState}   
+                  
+            />
         } else if(this.state.currentPage === "Sell"){
             return <Sell />
         } else if (this.state.currentPage === "Trade"){

@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import StatementModal from "../../StatementModal"
+// import axios from 'axios';
 
 //This is a stateful component because I just think so for right now
 
@@ -25,11 +26,10 @@ class StatementCard extends Component {
             lastTransactionTwo: "+ 60.00 sold fishfood",
             lastTransactionThree: "- 19.00 purchased goldfish", 
             isModalOpen: false
-        };    
-        
-        
+        };         
     } //Closing of constructor here!
 
+        
     render(){
         return (
             <div className="row">
@@ -37,9 +37,7 @@ class StatementCard extends Component {
                 <div className="card blue-grey darken-1">
                     <div className="card-content white-text">
                         <span className="card-title">Recent Wallet Statements</span>
-                        <p>{this.state.lastTransactionOne}</p>
-                        <p>{this.state.lastTransactionTwo}</p>
-                        <p>{this.state.lastTransactionThree}</p>
+                        <p>{this.props.myStatementHistory}</p>                       
                     </div>
                     <div className="card-action">                        
                         <a className="waves-effect waves-light btn" onClick={() => this.openModel()}>View Account Activity</a>                      

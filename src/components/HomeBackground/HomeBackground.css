@@ -1,0 +1,9 @@
+.home {
+    background-image: url("../../Images/aquarium2.jpg");
+    min-height: 950px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  
