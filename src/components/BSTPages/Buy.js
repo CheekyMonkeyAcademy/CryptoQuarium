@@ -26,12 +26,11 @@ class Buy extends Component {
         // We are looking for the index of the target fish... so... find index of all fish where the fish is filtered to the fish with the target ID
         // This will prevent issues when we concatenate below.  
         let fishIndex = this.state.buyFishArray.findIndex((fish) => fish===this.state.buyFishArray.filter(fish => fish.id===id)[0]);
-        this.setState({cartArray: this.state.cartArray.concat([this.state.buyFishArray[fishIndex]])}, () => {
-            //Call the update subtotal function here!
-            //Everytime the cart state is updated, the subtotal gets updated too!
-            // this.updateSubtotalState()             
-        }); 
-        () => this.props.updateSubtotalState();
+        this.setState({
+            cartArray: this.state.cartArray.concat([this.state.buyFishArray[fishIndex]])
+        }, (state) => {
+            this.props.updateSubtotalState(this.props.subTotal + this.state.buyFishArray[fishIndex].price);                
+        });         
     }    
 
     //SINCE THIS FUNCTION IS USING THE BUYFISHARRAY STATE WHICH WILL BE MOVED TO THE APP CONTAINER, IT ALSO NEEDS TO BE MOVED
