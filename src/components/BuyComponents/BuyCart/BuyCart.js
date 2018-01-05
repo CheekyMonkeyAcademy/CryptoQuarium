@@ -4,7 +4,6 @@ import CartSubtotal from "../CartSubtotal/CartSubtotal"
 
 
 class BuyCart extends Component {
-
       
     render() {
         return (
