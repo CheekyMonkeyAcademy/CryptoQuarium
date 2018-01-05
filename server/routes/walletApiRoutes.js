@@ -38,13 +38,14 @@ module.exports = function(app) {
         })
     });
 
-    app.get('/api/viewWalletHistory', authenticationMiddleware, (req, res) => {
-    // app.get('/api/viewWalletHistory/', (req, res) => { // --- TEST VALUE
+    //TODO: AUTHENTICATION MIDDLEWARE THREW UP CHUNKIES!!!
+    // app.get('/api/viewWalletHistory', authenticationMiddleware, (req, res) => {
+    app.get('/api/viewWalletHistory/', (req, res) => { // --- TEST VALUE
 
         db.WalletHistory.findAll({
             where: {
                 UserId: req.user.id
-                // UserId: 1 // TEST VALUE
+                // UserId: 2
             }
         })
         .then((history) => {

@@ -1,17 +1,27 @@
 import React, {Component} from "react";
 import BuyInventory from "../BuyComponents/BuyInventory";
 import BuyCart from "../BuyComponents/BuyCart";
-import "../../Style/FishMarket.css"
+import "../../Style/FishMarket.css";
 import axios from 'axios';
 
-   
+
+//Can I possibly ONLY move the subtotal and the function that updates the subtotal to the app container
+    //and then pass through the update function as a props???????
+
+//Also can I move the cartArray to the app container
+    //and in the function that updates the cartArray, I am passing it through as a prop and updating
+    //the props in the buyComponent?????
+
 class Buy extends Component {
+    //NEED: CART ARRAY AND SUBTOTAL IN APPCONTAINER
     state = {
         cartArray : [], 
         buyFishArray : [],
-        subTotal: 0
+        // subTotal: 0
     }    
 
+    //SINCE CLICKITEM IS CALLING THE UPDATESUBTOTALSTATE USING THE BUYFISHARRAY THIS NEEDS TO BE IN THE APPCONTAINER TOO
+    //ALSO HOISTING THE BUYFISHARRAY
     clickItem = (id) => {
         // We are looking for the index of the target fish... so... find index of all fish where the fish is filtered to the fish with the target ID
         // This will prevent issues when we concatenate below.  
@@ -23,6 +33,7 @@ class Buy extends Component {
         }); 
     }    
 
+    //SINCE THIS FUNCTION IS USING THE BUYFISHARRAY STATE WHICH WILL BE MOVED TO THE APP CONTAINER, IT ALSO NEEDS TO BE MOVED
     updateBuyFishArrayState = () => {
         axios.get('/api/allFishTemplates')
         .then((allfish) => {    
@@ -36,6 +47,7 @@ class Buy extends Component {
         })
     }
 
+    //THIS ALSO NEEDS TO BE MOVED UP TO THE APP CONTAINER
     //FUNCTION TO HANDLE THE SUBTOTAL MATH
     updateSubtotalState = () => {
         // Loop over the cart array to find the price of each item in there
@@ -52,6 +64,7 @@ class Buy extends Component {
     }    
 
 
+    //FUNCTIONS BELOW WILL NEED TO BE PASSED THROUGH AS PROPS!
     render(){        
         return (             
            
@@ -75,7 +88,9 @@ class Buy extends Component {
                         <BuyCart 
                             updateSubtotalState={this.state.updateSubtotalState}
                             shoppingCart={this.state.cartArray}   
-                            subTotal={this.state.subTotal}                          
+                            // subTotal={this.state.subTotal} 
+                            currentSubTotal={this.props.currentSubTotal}
+                            checkoutChangeBalance ={this.props.checkoutChangeBalance}                         
                         />
                     </div>
                 </div>
