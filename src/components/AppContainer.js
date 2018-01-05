@@ -11,13 +11,17 @@ import axios from 'axios';
 
 //Will need to import in other pages and components!!!
 
-class AppContainer extends Component {
-    //This is class because state will change, depending on which page the user is on
+class AppContainer extends Component {    
     state = {
         currentPage: "Home", 
         currentBalance: 0,         
-        thisUserCred: [],                 
+        thisUserCred: [],     
+        subTotal: 0, 
+        // cartArray: [], 
+        // buyFishArray: [] 
     };
+
+
 
     //FUNCTION TO GET LOGGEDIN USER CREDENTIALS FROM THE DATABASE
     componentDidMount() {
@@ -42,7 +46,6 @@ class AppContainer extends Component {
         console.log("Am I clicking the checkout button")
     }
 
-
     //This function sets the state for the current page
     handlePageChange = page => {
         this.setState({currentPage: page});
@@ -63,7 +66,8 @@ class AppContainer extends Component {
                     />
         } else if (this.state.currentPage === "FishMarket"){
             return <FishMarket 
-                    checkoutChangeBalance = {this.updateBalanceAfterCheckout}
+                        checkoutChangeBalance = {this.updateBalanceAfterCheckout}
+                        currentSubTotal = {this.state.subTotal}
                     />
         }
     }

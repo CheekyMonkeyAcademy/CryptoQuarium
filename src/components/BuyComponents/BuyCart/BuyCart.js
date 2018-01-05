@@ -24,7 +24,7 @@ class BuyCart extends Component {
                                 
                         </div>
                         <div className="card-action card-content white-text">                           
-                           <CartSubtotal subTotal={this.props.subTotal}/>
+                           <CartSubtotal subTotal={this.props.currentSubTotal}/>
                             <a className="waves-effect waves-light btn black" onClick = {() => this.props.checkoutChangeBalance()}><i className="material-icons left">done</i>checkout</a>
                         </div>
                     </div>
@@ -36,6 +36,3 @@ class BuyCart extends Component {
 }
 
 export default BuyCart;
-// () => props.onClick(props.id)
-// () => this.props.checkoutBalanceToUpdate
-//() => this.closeModal()
