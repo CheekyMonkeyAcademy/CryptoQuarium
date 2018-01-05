@@ -16,9 +16,7 @@ class AppContainer extends Component {
         currentPage: "Home", 
         currentBalance: 0,         
         thisUserCred: [],     
-        subTotal: 0, 
-        // cartArray: [], 
-        // buyFishArray: [] 
+        subTotal: 0,         
     };
 
     
