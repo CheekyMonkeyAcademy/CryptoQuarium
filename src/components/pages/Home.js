@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import Wrapper from "../Wrapper";
 import HomeBackground from "../HomeBackground";
 
 

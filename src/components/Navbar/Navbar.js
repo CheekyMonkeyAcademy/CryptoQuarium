@@ -1,4 +1,5 @@
 import React from "react";
+import canbcheeky1 from '../../Images/canbcheeky1.png';
 
 //Possible pages we will need:
 //Login 
@@ -15,7 +16,7 @@ const Navbar = props =>
         <div className="nav-wrapper">
         {/* Still working on the upper right logo */}
             <a className="brand-logo right">
-                <img src={"../../Images/canbcheeky2.png"} style={{ width: 100, marginTop: -7 }} />
+                <img src={canbcheeky1} style={{ width: 200, marginTop: 15 }} />
             </a>
         
             <ul className="left hide-on-med-and-down">
