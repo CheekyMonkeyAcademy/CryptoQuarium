@@ -115,9 +115,19 @@ module.exports = function(app) {
     });
 
     app.put('/api/userFishUpdate/:id', authenticationMiddleware, function(req, res) {
-        let updatedUserFish = {} //{...req.body} // TODO validate this works?
-        // TODO this might need to be broken down and each component validated individually
-        // that would be a lot of work -b ut eh, if necessary
+        let updatedUserFish = {} 
+        if (req.body.name !== "" || req.body.name !== null) {
+            updatedUserFish.name = req.body.name
+        }
+        if (req.body.forSale === true) {
+            console.log(`Fish is for sale - we need a price`)
+            if (req.body.price > 0) {
+                updatedUserFish.forSale = true;
+                updatedUserFish.price = req.body.price;
+            }
+        }
+        // TODO validate this functionality
+
         console.log(updatedUserFish);
         db.User.update(updatedUserFish,{
             where: {
