@@ -136,9 +136,10 @@
     left: 200px;
     top: 105px;
     z-index: 100;
-    animation-name: swim1;
-    animation-duration: 40s;
-    animation-iteration-count: infinite;
+    /* animation-name: swim1; */
+    /* animation-duration: 40s; */
+    /* animation-iteration-count: infinite; */
+    animation: swim1 var(--animation-time) ease infinite;
  }
 
 @keyframes swim1 {
