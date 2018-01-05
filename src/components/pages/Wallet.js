@@ -5,27 +5,27 @@ import axios from 'axios';
 
 
 
-//This is also set up to be a stateful component, but this can change as well
-//Wallet will always be updated!
+//MOVED THE STATE OF CURRENTBALANCE AND THISUSERCRED TO APPCONTAINER
 
 class Wallet extends Component {
     state={
-        // currentBalance: 0,
-        thisUserCred: []
+        statementHistory: []
     }
 
-    componentDidMount() {
-        axios.get('/api/getUserAuthenticated')
-        .then((userCredentials) => {
-            console.log(`So... we theoretically have user creds?`);
-            console.log(userCredentials.data);
-                this.setState({thisUserCred: this.state.thisUserCred.concat([userCredentials.data])
-                })
-            console.log("This is user cred")
-            console.log(this.state.thisUserCred[0].walletBalance)
+
+    componentDidMount(){
+        axios.get('/api/viewWalletHistory')
+        .then((statementHistory)=> {
+            console.log(`What have I spent my crypto money on?`)
+            console.log(statementHistory.data)
+            console.log(statementHistory.data[0].walletBalanceChangeReason)
+            const myHistory = statementHistory.data[0].walletBalanceChangeReason
+            this.setState({statementHistory: myHistory})
+            console.log("STATE!!!")
+            console.log(this.state.statementHistory)            
         })
         .catch((err)=> {
-            console.log(`user auth vomited - so - it didn't get you credentials`)
+            console.log(`Error: No statement history for you!`)
             console.log(err)
         })
     }
@@ -36,7 +36,9 @@ class Wallet extends Component {
                 My CryptoAquarium Wallet
                 <BalanceCard 
                     currentBalance={this.props.currentBalance}/>
-                <StatementCard />
+                <StatementCard 
+                    myStatementHistory = {this.state.statementHistory}
+                />
 
 
             </div>
