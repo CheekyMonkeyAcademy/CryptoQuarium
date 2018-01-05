@@ -29,8 +29,9 @@ class Buy extends Component {
         this.setState({cartArray: this.state.cartArray.concat([this.state.buyFishArray[fishIndex]])}, () => {
             //Call the update subtotal function here!
             //Everytime the cart state is updated, the subtotal gets updated too!
-            this.updateSubtotalState() 
+            // this.updateSubtotalState()             
         }); 
+        () => this.props.updateSubtotalState();
     }    
 
     //SINCE THIS FUNCTION IS USING THE BUYFISHARRAY STATE WHICH WILL BE MOVED TO THE APP CONTAINER, IT ALSO NEEDS TO BE MOVED
@@ -49,19 +50,19 @@ class Buy extends Component {
 
     //THIS ALSO NEEDS TO BE MOVED UP TO THE APP CONTAINER
     //FUNCTION TO HANDLE THE SUBTOTAL MATH
-    updateSubtotalState = () => {
-        // Loop over the cart array to find the price of each item in there
-        this.state.cartArray.forEach((item) => {
-            console.log("this is item price")
-            console.log(item.price);
+    // updateSubtotalState = () => {
+    //     // Loop over the cart array to find the price of each item in there
+    //     this.state.cartArray.forEach((item) => {
+    //         console.log("this is item price")
+    //         console.log(item.price);
 
-            //Add the price (you will need to burrow into each fish object to grab the price)
-            const finalSubtotal = this.state.subTotal + item.price
+    //         //Add the price (you will need to burrow into each fish object to grab the price)
+    //         const finalSubtotal = this.state.subTotal + item.price
 
-            //Update the state of the subtotal
-            this.setState({subTotal: finalSubtotal})         
-        });          
-    }    
+    //         //Update the state of the subtotal
+    //         this.setState({subTotal: finalSubtotal})         
+    //     });          
+    // }    
 
 
     //FUNCTIONS BELOW WILL NEED TO BE PASSED THROUGH AS PROPS!
@@ -86,10 +87,10 @@ class Buy extends Component {
 
                     <div className="col s4">
                         <BuyCart 
-                            updateSubtotalState={this.state.updateSubtotalState}
+                            updateSubtotalState={this.props.updateSubtotalState}
                             shoppingCart={this.state.cartArray}   
                             // subTotal={this.state.subTotal} 
-                            currentSubTotal={this.props.currentSubTotal}
+                            subTotal={this.props.subTotal}
                             checkoutChangeBalance ={this.props.checkoutChangeBalance}                         
                         />
                     </div>
