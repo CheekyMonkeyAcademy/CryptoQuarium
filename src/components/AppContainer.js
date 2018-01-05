@@ -16,9 +16,9 @@ class AppContainer extends Component {
         currentPage: "Home", 
         currentBalance: 0,         
         thisUserCred: [],     
-        subTotal: 0,         
+        subTotal: 0,  
+        // cartArray: []       
     };
-
     
     //FUNCTION TO HANDLE THE SUBTOTAL MATH
     updateSubtotalState = (value) => {
@@ -58,6 +58,16 @@ class AppContainer extends Component {
     //FUNCTION FOR HANDLING ACCOUNT MATH ON CHECKOUT CLICK
     updateBalanceAfterCheckout = () => {
         console.log("Am I clicking the checkout button")
+       //I NEED TO PASS UP THE CART ARRAY TO EMPTY IT HERE--BUT IT IS BEING USED HEAVILY TWO COMPONENTS DOWN >:(
+        if(this.state.subTotal <= this.state.currentBalance){
+            console.log(`You CAN purchase these items!`)
+            const afterPurchaseWalletBalance = this.state.currentBalance - this.state.subTotal;
+            this.setState({currentBalance: afterPurchaseWalletBalance})
+            console.log(`Go to wallet page and see your updated balance!`)
+            // this.setState({cartArray: []})            
+        } else if (this.state.subTotal >= this.state.currentBalance){
+            console.log(`You DO NO have enough money to purchase these items`)
+        }
     }
 
     //This function sets the state for the current page
@@ -83,6 +93,7 @@ class AppContainer extends Component {
                         checkoutChangeBalance = {this.updateBalanceAfterCheckout}
                         subTotal = {this.state.subTotal}
                         updateSubtotalState = {this.updateSubtotalState}
+                        // cartArray = {this.state.cartArray}
                     />
         }
     }
