@@ -31,6 +31,13 @@ GET: /api/allUserFish/
 Lists all fish for a particular userId
 (The Sequelize WHERE clause pulls in req.user.id - so we're looking at CURRENT USER inventory)
 
+PUT: /api/userFishUpdate/:id
+    Updating a user fish for ONE or TWO reasons:
+    1. Rename the fish (uses req.body.name)
+    2. Put the fish up for sale (or take it off sale)
+        a. forSale (Boolean):  req.body.forSale
+        b. price (double): req.body.price (needs to be a value above zero);
+
 POST: /api/addFundsToWallet/
     Adding funds from a bank - NOT SURE HOW TO VALIDATE BANK BALANCE - so we'll use fake money for now
     user: req.user.id
