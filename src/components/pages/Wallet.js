@@ -17,12 +17,12 @@ class Wallet extends Component {
         axios.get('/api/viewWalletHistory')
         .then((statementHistory)=> {
             console.log(`What have I spent my crypto money on?`)
-            console.log(statementHistory.data)
-            console.log(statementHistory.data[0].walletBalanceChangeReason)
+            // console.log(statementHistory.data)
+            // console.log(statementHistory.data[0].walletBalanceChangeReason)
             const myHistory = statementHistory.data[0].walletBalanceChangeReason
             this.setState({statementHistory: myHistory})
-            console.log("STATE!!!")
-            console.log(this.state.statementHistory)            
+            // console.log("STATE!!!")
+            // console.log(this.state.statementHistory)            
         })
         .catch((err)=> {
             console.log(`Error: No statement history for you!`)
