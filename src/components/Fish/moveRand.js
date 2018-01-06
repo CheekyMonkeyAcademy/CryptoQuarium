@@ -3,7 +3,7 @@ function setProperty(fish_body, duration) {
 }
 
 export function changeAnimationTime(fish_body) {
-    let animationDuration = Math.floor(Math.random() * 40 + 40);
+    let animationDuration = Math.floor(Math.random() * 40 + 80);
     setProperty(fish_body, animationDuration);
     return animationDuration;
 }

@@ -2,8 +2,21 @@ import React, {Component} from "react";
 import Fish from "../Fish";
 import PufferFish from "../PufferFish";
 import "./Tank.css";
+import axios from "axios";
 
 class Tank extends Component {
+
+     componentDidMount(){
+        axios.get('/api/allUserFish/')
+        .then((allFish)=> {
+            // allFish.data.forEach()
+            console.log(allFish.data);
+        })
+        .catch((err)=> {
+            console.log(`Error: here Fishy fishy`)
+            console.log(err)
+        })
+    }
 
     render() {
         return (
@@ -25,7 +38,10 @@ class Tank extends Component {
         <div className="bubbles b8"></div>
         </div>
         <div className="water"></div>
-        <Fish></Fish>
+
+
+        <Fish dataid={this.props.id}></Fish>
+        <Fish dataid={this.props.id}></Fish>
         <PufferFish></PufferFish>
 
 
