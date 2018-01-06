@@ -5,9 +5,7 @@ const authenticationMiddleware = require('../passport/authenticationMiddleware')
 
 module.exports = function(app) {
 
-    app.get('/api/getUserAuthenticated', function(req, res){
-        console.log(`$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$`);
-        console.log(req.user);
+    app.get('/api/getAuthenticatedUser', function(req, res){
         if (req.user) {
             console.log(`User is logged in`);
             res.json(req.user);
@@ -27,7 +25,7 @@ module.exports = function(app) {
 
     app.get('/auth/google/callback', 
     passport.authenticate( 'google', { 
-        successRedirect: 'localhost:3000/',
+        successRedirect: 'localhost:3000/', // TODO fix this hack job -- react-router ??
         failureRedirect: '/login'
     }));
 

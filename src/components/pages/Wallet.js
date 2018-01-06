@@ -12,7 +12,6 @@ class Wallet extends Component {
         statementHistory: []
     }
 
-
     componentDidMount(){
         axios.get('/api/viewWalletHistory')
         .then((statementHistory)=> {
