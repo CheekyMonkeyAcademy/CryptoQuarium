@@ -4,7 +4,7 @@ function authenticationMiddleware () {
       if (req.isAuthenticated()) {
         return next()
       }
-      res.redirect('/login')
+      res.redirect('/login') // TODO get this routing more appropriately with an error 
     }
 }
 

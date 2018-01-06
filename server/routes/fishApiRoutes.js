@@ -11,7 +11,7 @@ module.exports = function(app) {
         });
     });
 
-    app.get('/api/allUserFish', authenticationMiddleware, function(req, res) {
+    app.get('/api/allUserFish', function(req, res) {
         db.UserFish.findAll({
             // TODO re-enable this once we have users built in
             where: {
@@ -51,7 +51,7 @@ module.exports = function(app) {
         });
     });
 
-    app.post('/api/userPurchaseFish/:id', authenticationMiddleware, function(req, res){
+    app.post('/api/userPurchaseFish/:id', function(req, res){
     // app.post('/api/userPurchaseFish/:id', function(req, res){ // --- TEST VALUE
         // Purchasing a fish from the store
         // 1. Find the fishObject
@@ -114,7 +114,27 @@ module.exports = function(app) {
         });
     });
 
+    app.put('/api/userFishUpdate/:id', function(req, res) {
+        let updatedUserFish = {} 
+        if (req.body.name !== "" || req.body.name !== null) {
+            updatedUserFish.name = req.body.name
+        }
+        if (req.body.forSale === true) {
+            console.log(`Fish is for sale - we need a price`)
+            if (req.body.price > 0) {
+                updatedUserFish.forSale = true;
+                updatedUserFish.price = req.body.price;
+            }
+        }
+        // TODO validate this functionality
 
+        console.log(updatedUserFish);
+        db.User.update(updatedUserFish,{
+            where: {
+                id: updatedUserFish.id
+            }    
+        })
+    });
 
 
 }//End of module.exports        

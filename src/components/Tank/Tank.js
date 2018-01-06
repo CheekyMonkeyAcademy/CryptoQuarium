@@ -4,6 +4,7 @@ import PufferFish from "../PufferFish";
 import "./Tank.css";
 import axios from 'axios';
 
+
 class Tank extends Component {
     state = {
         allUserFish: []
@@ -36,6 +37,18 @@ class Tank extends Component {
         })
     }
 
+     componentDidMount(){
+        axios.get('/api/allUserFish/')
+        .then((allFish)=> {
+            // allFish.data.forEach()
+            console.log(allFish.data);
+        })
+        .catch((err)=> {
+            console.log(`Error: here Fishy fishy`)
+            console.log(err)
+        })
+    }
+
     render() {
         
         return (
@@ -57,7 +70,7 @@ class Tank extends Component {
         <div className="bubbles b8"></div>
         </div>
         <div className="water"></div>
-        
+       
 
         {this.state.allUserFish.map((fish) => {
             console.log(`inside of fish render`);
