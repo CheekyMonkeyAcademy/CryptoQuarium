@@ -14,7 +14,7 @@
 
 .fish_body {
     transform: skewX(30deg) skewY(5deg);
-    background: linear-gradient(145deg, rgb(255,94,0), 80%, rgb(2,83,235));
+    background: linear-gradient(145deg, rgb(255,94,0), 72%, rgb(2,83,235));
     border-radius: 200px 112px 47px 362px;
     box-shadow: 6px -12px 15px #3A2104 inset, -2px -3px 4px #281602 inset;
     height: 72px;
@@ -235,14 +235,14 @@
     85% {
         left: 825px;
     }
-    /* 87% {
+     87% {
         left: 840px;
         top: 6px;
     }
     90%{
         left: 875px;
         top: 8px;
-    } */
+    } 
     92% {
         transform: scaleX(-1);
         top: 10px;

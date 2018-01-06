@@ -1,5 +1,3 @@
-//TODO make sure move has a z index.
-
 // - Name - Implement only on user fish
 // - Species
 // - Graphic
@@ -8,6 +6,8 @@
 // - % movement time
 // - movement height min
 // - movement height max
+
+//CReate for column for randomizeVar fields 
 
 module.exports = function(sequelize, DataTypes) {
     let Fish = sequelize.define("Fish", {
@@ -27,46 +27,122 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1]
             }
         },
-        image: {
+        codeSpecies: {
+              type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        color1r: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        }, 
+        color1b: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        }, 
+        color1g: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        movementMin: {
-            type: DataTypes.INTEGER,
+        color2r: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        }, 
+        color2b: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        }, 
+        color2g: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },codeSpecies: {
+              type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        movementMax: {
-            type: DataTypes.INTEGER,
+        color1r: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        }, 
+        color1b: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        }, 
+        color1g: {
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        movementPercent: {
-            type: DataTypes.INTEGER,
+        color2r: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        }, 
+        color2b: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        }, 
+        color2g: {
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        movementHeightMin: {
-            type: DataTypes.INTEGER,
+        degree: {
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        movementHeightMax: {
-            type: DataTypes.INTEGER,
+        percent: {
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
+            }
+        },
+        randomizeVar: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len:[1]
             }
         },
         quantityAvailable: {
