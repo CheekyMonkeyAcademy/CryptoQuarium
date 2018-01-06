@@ -2,9 +2,40 @@ import React, {Component} from "react";
 import Fish from "../Fish";
 import PufferFish from "../PufferFish";
 import "./Tank.css";
-import axios from "axios";
+import axios from 'axios';
+
 
 class Tank extends Component {
+    state = {
+        allUserFish: []
+    }
+
+    renderFish(fish){
+        switch (fish.codeSpecies) {
+            case 'Fish': 
+                return <Fish key={fish.id}/>
+            case 'PufferFish':
+                return <PufferFish key={fish.id}/>
+            
+            default:
+                return <Fish key={fish.id}/>
+        }
+    }
+
+    componentDidMount(){
+        axios.get('/api/allUserFish')
+        .then((allFish)=> {
+            this.setState({allUserFish: allFish.data});
+            // console.log(allUserFish);
+            // allFish.data.forEach((fish) => {
+            //     console.log(`This fish ${fish.species} has ID: ${fish.id}`);
+            // })
+        })
+        .catch((err)=> {
+            console.log(`Error: No statement history for you!`)
+            console.log(err)
+        })
+    }
 
      componentDidMount(){
         axios.get('/api/allUserFish/')
@@ -19,6 +50,7 @@ class Tank extends Component {
     }
 
     render() {
+        
         return (
 <div id="wrap"> 
 <div className="window">
@@ -38,11 +70,12 @@ class Tank extends Component {
         <div className="bubbles b8"></div>
         </div>
         <div className="water"></div>
+       
 
-
-        <Fish dataid={this.props.id}></Fish>
-        <Fish dataid={this.props.id}></Fish>
-        <PufferFish></PufferFish>
+        {this.state.allUserFish.map((fish) => {
+            console.log(`inside of fish render`);
+            return this.renderFish(fish);
+        })}
 
 
             <div className="ground"></div>
