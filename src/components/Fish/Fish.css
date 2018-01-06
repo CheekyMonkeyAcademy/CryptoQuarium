@@ -235,6 +235,14 @@
     85% {
         left: 825px;
     }
+    /* 87% {
+        left: 840px;
+        top: 6px;
+    }
+    90%{
+        left: 875px;
+        top: 8px;
+    } */
     92% {
         transform: scaleX(-1);
         top: 10px;
@@ -242,6 +250,16 @@
     92.5% {
         top: 12px;
         left: 925px;
+    }
+    94% {
+        left: 935px;
+    }
+    95% {
+        left: 960px;
+    }
+    95.5% {
+        left: 960px;
+        top: 13px;
     }
     96% {
         left: 1000px;

@@ -4,7 +4,7 @@ import PufferFish from "../PufferFish";
 import "./Tank.css";
 
 class Tank extends Component {
-
+  
     render() {
         return (
 <div id="wrap"> 
@@ -25,7 +25,8 @@ class Tank extends Component {
         <div className="bubbles b8"></div>
         </div>
         <div className="water"></div>
-        <Fish></Fish>
+        <Fish dataid={this.props.id}></Fish>
+        <Fish dataid={this.props.id}></Fish>
         <PufferFish></PufferFish>
 
 

@@ -1,8 +1,18 @@
 import React, {Component} from "react";
 import "./Fish.css";
 import {changeAnimationTime} from "./moveRand";
+// import models from "../../../server/models/fish.js";
 
 class Fish extends Component {
+    constructor(props){
+        super(props)
+
+        this.state = {
+            // id: id,
+            // species: species,
+            // price: price
+        }
+    }
     swim() {
         let fish_wrap = document.querySelector(".fish_wrap");
         let time = changeAnimationTime(fish_wrap);
