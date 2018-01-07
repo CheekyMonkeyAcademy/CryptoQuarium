@@ -1,5 +1,6 @@
 let db = require('../models');
-const authenticationMiddleware = require('../passport/authenticationMiddleware');
+// const authenticationMiddleware = require('../passport/authenticationMiddleware');
+const randomize = require('../services/randomize.js');
 
 module.exports = function(app) {
 
@@ -91,34 +92,34 @@ module.exports = function(app) {
                         lastWalletBalance: (user.walletBalance - selectedFish.price)
                     });
                     // TODO - Kyle - I'll finish up the randomization as soon as I can (likely Monday)
-                    // let randomizeThese = {}
-                    // if (selectedFish.randomizeVar.percent === true) {
-                    //     console.log(`We are randomizing PERCENT on this fish`);
-                    //     // TODO randomization here for percent
-                    // }
-                    // if (selectedFish.randomizeVar.degree === true) {
-                    //     console.log(`We are randomizing DEGREE on this fish`);
-                    //     // TODO randomization
-                    // }
-                    // console.log(`@@@@@@@@@@@@@@@@@@@@@@@@@@@`);
-                    // console.log(selectedFish.randomizeVar);
-                    // selectedFish.randomizeVar.color.forEach((color) => {
-                    //     console.log(`We are randomizing THIS COLOR: ${color}`);
-                    //     // TODO randomization
-                    // })
+                    let randomizeThese = JSON.parse(selectedFish.randomizeVar);
+                    let randomizedTargets = {};
+                    if (randomizeThese.percent === true) {
+                        console.log(`We are randomizing PERCENT on this fish`);
+                        randomizedTargets.percent = randomize(0,100);
+                    }
+                    if (randomizeThese.degree === true) {
+                        console.log(`We are randomizing DEGREE on this fish`);
+                        randomizedTargets.degree = randomize(1,360);
+                    }
+                    randomizeThese.color.forEach((color) => {
+                        console.log(`We are randomizing THIS COLOR: ${color}`);
+                        randomizedTargets[color] = randomize(1, 255);
+                    })
+                    console.log(randomizedTargets);
                     // do we need to update the current req.user to reflect the new balance?           
                     db.UserFish.create({
                         name: 'New Fish Needs A Name',
                         species: selectedFish.species,
                         codeSpecies: selectedFish.codeSpecies,
-                        color1r: selectedFish.color1r,
-                        color1b: selectedFish.color1b,
-                        color1g: selectedFish.color1g,
-                        color2r: selectedFish.color2r,
-                        color2b: selectedFish.color2b,
-                        color2g: selectedFish.color2g,
-                        degree: selectedFish.degree,
-                        percent: selectedFish.percent,
+                        color1r: randomizedTargets.color1r ? randomizedTargets.color1r : selectedFish.color1r,
+                        color1b: randomizedTargets.color1b ? randomizedTargets.color1b : selectedFish.color1b,
+                        color1g: randomizedTargets.color1g ? randomizedTargets.color1g : selectedFish.color1g,
+                        color2r: randomizedTargets.color2r ? randomizedTargets.color2r : selectedFish.color2r,
+                        color2b: randomizedTargets.color2b ? randomizedTargets.color2b : selectedFish.color2b,
+                        color2g: randomizedTargets.color2g ? randomizedTargets.color2g : selectedFish.color2g,
+                        degree: randomizedTargets.degree ? randomizedTargets.degree : selectedFish.degree,
+                        percent: randomizedTargets.percent ? randomizedTargets.percent : selectedFish.percent,
                         forSale: false,
                         price: 0,
                         // UserId: 1 // --- TEST VALUE
