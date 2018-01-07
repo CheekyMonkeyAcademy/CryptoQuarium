@@ -22,34 +22,36 @@ module.exports = function(app) {
         });
     });
 
-    app.post('/api/createFishTemplate', function(req, res){
-        db.Fish.count({
-            where: {
-                species: req.body.species
-            }
-        })
-        .then((count) => {
-            if (count > 0) {
-                res.json({"Error": "Species exists, cannot duplicate"});
-            }
-            else {
-                db.Fish.create({
-                    species: req.body.species,
-                    image: req.body.image,
-                    movementMin: req.body.movementMin,
-                    movementMax: req.body.movementMax,
-                    movementPercent: req.body.movementPercent,
-                    movementHeightMin: req.body.movementHeightMin,
-                    movementHeightMax: req.body.movementHeightMax,
-                    quantityAvailable: req.body.quantityAvailable,
-                    price: req.body.price
-                })
-                .then((newFishObject) => {
-                    res.json(newFishObject)
-                });
-            }
-        });
-    });
+    // TODO:  fix this - it's an older generation - disabled 2018/1/7 - Kyle
+    // Granted, we don't really NEED this, we can just populate the DB directly... so maybe we'll ditch this.
+    // app.post('/api/createFishTemplate', function(req, res){
+    //     db.Fish.count({
+    //         where: {
+    //             species: req.body.species
+    //         }
+    //     })
+    //     .then((count) => {
+    //         if (count > 0) {
+    //             res.json({"Error": "Species exists, cannot duplicate"});
+    //         }
+    //         else {
+    //             db.Fish.create({
+    //                 species: req.body.species,
+    //                 image: req.body.image,
+    //                 movementMin: req.body.movementMin,
+    //                 movementMax: req.body.movementMax,
+    //                 movementPercent: req.body.movementPercent,
+    //                 movementHeightMin: req.body.movementHeightMin,
+    //                 movementHeightMax: req.body.movementHeightMax,
+    //                 quantityAvailable: req.body.quantityAvailable,
+    //                 price: req.body.price
+    //             })
+    //             .then((newFishObject) => {
+    //                 res.json(newFishObject)
+    //             });
+    //         }
+    //     });
+    // });
 
     app.post('/api/userPurchaseFish/:id', function(req, res){
     // app.post('/api/userPurchaseFish/:id', function(req, res){ // --- TEST VALUE
@@ -88,16 +90,35 @@ module.exports = function(app) {
                         walletBalanceChangeReason: `Fish purchased: ${selectedFish.species}`,
                         lastWalletBalance: (user.walletBalance - selectedFish.price)
                     });
+                    // TODO - Kyle - I'll finish up the randomization as soon as I can (likely Monday)
+                    // let randomizeThese = {}
+                    // if (selectedFish.randomizeVar.percent === true) {
+                    //     console.log(`We are randomizing PERCENT on this fish`);
+                    //     // TODO randomization here for percent
+                    // }
+                    // if (selectedFish.randomizeVar.degree === true) {
+                    //     console.log(`We are randomizing DEGREE on this fish`);
+                    //     // TODO randomization
+                    // }
+                    // console.log(`@@@@@@@@@@@@@@@@@@@@@@@@@@@`);
+                    // console.log(selectedFish.randomizeVar);
+                    // selectedFish.randomizeVar.color.forEach((color) => {
+                    //     console.log(`We are randomizing THIS COLOR: ${color}`);
+                    //     // TODO randomization
+                    // })
                     // do we need to update the current req.user to reflect the new balance?           
                     db.UserFish.create({
-                        name: req.body.name,
+                        name: 'New Fish Needs A Name',
                         species: selectedFish.species,
-                        image: selectedFish.image,
-                        movementMin: selectedFish.movementMin,
-                        movementMax: selectedFish.movementMax,
-                        movementPercent: selectedFish.movementPercent,
-                        movementHeightMin: selectedFish.movementHeightMin,
-                        movementHeightMax: selectedFish.movementHeightMax,
+                        codeSpecies: selectedFish.codeSpecies,
+                        color1r: selectedFish.color1r,
+                        color1b: selectedFish.color1b,
+                        color1g: selectedFish.color1g,
+                        color2r: selectedFish.color2r,
+                        color2b: selectedFish.color2b,
+                        color2g: selectedFish.color2g,
+                        degree: selectedFish.degree,
+                        percent: selectedFish.percent,
                         forSale: false,
                         price: 0,
                         // UserId: 1 // --- TEST VALUE
