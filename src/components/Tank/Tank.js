@@ -26,10 +26,6 @@ class Tank extends Component {
         axios.get('/api/allUserFish')
         .then((allFish)=> {
             this.setState({allUserFish: allFish.data});
-            // console.log(allUserFish);
-            // allFish.data.forEach((fish) => {
-            //     console.log(`This fish ${fish.species} has ID: ${fish.id}`);
-            // })
         })
         .catch((err)=> {
             console.log(`Error: No statement history for you!`)
@@ -40,7 +36,6 @@ class Tank extends Component {
      componentDidMount(){
         axios.get('/api/allUserFish/')
         .then((allFish)=> {
-            // allFish.data.forEach()
             console.log(allFish.data);
         })
         .catch((err)=> {
@@ -73,7 +68,6 @@ class Tank extends Component {
        
 
         {this.state.allUserFish.map((fish) => {
-            console.log(`inside of fish render`);
             return this.renderFish(fish);
         })}
 

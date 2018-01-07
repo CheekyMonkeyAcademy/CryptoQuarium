@@ -1,6 +1,7 @@
 GET:  /api/getAuthenticatedUser
 This returns either the user information (which can be accessed in your .then as <uservariable>.data) or it returns a JSON error saying no user is logged in.  
 
+<!-- DISABLED ***************
 This is really a 'for us' route - NOT for the users (they shouldn't create fish).  
 POST:  /api/createFishTemplate
 Species must be unique
@@ -12,7 +13,8 @@ Species must be unique
     movementHeightMin: req.body.movementHeightMin,
     movementHeightMax: req.body.movementHeightMax,
     quantityAvailable: req.body.quantityAvailable,
-    price: req.body.price
+    price: req.body.price 
+    DISABLED *************** -->
 
 GET: /api/allFishTemplates
 Lists all of the fish templates - NOT users fish
