@@ -82,9 +82,10 @@ class AppContainer extends Component {
         if(this.state.subTotal <= this.state.currentBalance){
             console.log(`You CAN purchase these items!`)
             const afterPurchaseWalletBalance = this.state.currentBalance - this.state.subTotal;
-            this.setState({currentBalance: afterPurchaseWalletBalance})
+            this.setState({currentBalance: afterPurchaseWalletBalance})                       
             console.log(`Go to wallet page and see your updated balance!`)
-            // this.setState({cartArray: []})            
+            this.setState({cartArray: []})   
+            this.setState({subTotal: 0})         
         } else if (this.state.subTotal >= this.state.currentBalance){
             console.log(`You DO NO have enough money to purchase these items`)
         }
