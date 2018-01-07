@@ -9,8 +9,9 @@ import InventoryCards from "../InventoryCards"
 class BuyInventory extends Component {
    
     componentDidMount(){
-        {this.props.updateBuyFishArrayState()}
-    }
+      
+       {this.props.updateBuyFishArrayState()}        
+    }   
 
     render(){
         
