@@ -1,15 +1,6 @@
 import React, {Component} from "react";
 import "./Fish.css";
 import {changeAnimationTime} from "./moveRand";
-import {changeDegree} from "./colorRando";
-import {changePercent} from "./colorRando";
-import {changeRedOne} from "./colorRando";
-import {changeGreenOne} from "./colorRando";
-import {changeBlueOne} from "./colorRando";
-import {changeRedTwo} from "./colorRando";
-import {changeGreenTwo} from "./colorRando";
-import {changeBlueTwo} from "./colorRando";
-// import models from "../../../server/models/fish.js";
 
 class Fish extends Component {
     constructor(props) {
@@ -20,41 +11,41 @@ class Fish extends Component {
 
     degree() {
         let fish_wrap = document.querySelector(".fish_wrap");
-        let gradeDegree = changeDegree(fish_wrap);
-        }
+        fish_wrap.style.setProperty('--degree', this.props.degree + 'deg');
+    }
     percent() {
         let fish_wrap = document.querySelector(".fish_wrap");
-        let gradePercent = changePercent(fish_wrap);
+        fish_wrap.style.setProperty('--percent', this.props.percent + '%');
     }
 
     colorRedOne(){
         let fish_wrap = document.querySelector(".fish_wrap");
-        let redOne = changeRedOne(fish_wrap);
+        fish_wrap.style.setProperty('--colorOneR', this.props.color1r);
     }
 
     colorGreenOne() {
         let fish_wrap = document.querySelector(".fish_wrap");
-        let greenOne = changeGreenOne(fish_wrap);
+        fish_wrap.style.setProperty('--colorOneG', this.props.color1g);
     }
 
     colorBlueOne() {
         let fish_wrap = document.querySelector(".fish_wrap");
-        let blueOne = changeBlueOne(fish_wrap);
+        fish_wrap.style.setProperty('--colorOneB', this.props.color1b);
     }
 
     colorRedTwo() {
         let fish_wrap = document.querySelector(".fish_wrap");
-        let redTwo = changeRedTwo(fish_wrap);
+        fish_wrap.style.setProperty('--colorTwoR', this.props.color2r);
     }
 
     colorGreenTwo() {
         let fish_wrap = document.querySelector(".fish_wrap");
-        let greenTwo = changeGreenTwo(fish_wrap);
+        fish_wrap.style.setProperty('--colorTwoG', this.props.color2g);
     }
 
     colorBlueTwo() {
         let fish_wrap = document.querySelector(".fish_wrap");
-        let blueTwo = changeBlueTwo(fish_wrap);
+        fish_wrap.style.setProperty('--colorTwoB', this.props.color2b);
     }
 
     swim() {
