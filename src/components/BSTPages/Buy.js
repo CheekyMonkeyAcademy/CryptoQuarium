@@ -4,8 +4,6 @@ import BuyCart from "../BuyComponents/BuyCart";
 import "../../Style/FishMarket.css";
 // import axios from 'axios';
 
-
-
 class Buy extends Component {
     //NEED: CART ARRAY AND SUBTOTAL IN APPCONTAINER
     // state = {
