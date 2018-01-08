@@ -36,6 +36,7 @@ class AppContainer extends Component {
     
     //ORIGINAL IN BUY COMPONENT
     updateBuyFishArrayState = () => {
+        this.state.buyFishArray = []; // TODO make this more graceful - we are over populating the array
         axios.get('/api/allFishTemplates')
         .then((allfish) => {    
             // console.log(allfish);
@@ -61,11 +62,11 @@ class AppContainer extends Component {
         .then((userCredentials) => {
             console.log(`So... we theoretically have user creds?`);
             console.log(userCredentials.data);
-                this.setState({thisUserCred: this.state.thisUserCred.concat([userCredentials.data])
-                })
-                this.setState({currentBalance: this.state.thisUserCred[0].walletBalance})
+            // Changed this to only have one set of user credentials data instead of a contact (would create multiple sets of the same)
+            this.setState({thisUserCred: userCredentials.data})
+            this.setState({currentBalance: this.state.walletBalance})
             console.log("This is user cred")
-            console.log(this.state.thisUserCred[0].walletBalance)
+            console.log(this.state.thisUserCred.walletBalance)
         })
         .catch((err)=> {
             console.log(`user auth vomited - so - it didn't get you credentials`)
