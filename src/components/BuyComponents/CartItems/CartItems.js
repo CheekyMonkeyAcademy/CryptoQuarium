@@ -7,13 +7,12 @@ const CartItems = props => (
             <div className="col s12">
                 <div className="card white">
                     <div className="card-content black-text">
-                        <span className="card-title">Item Name</span>
-                            <p>Item Description: Lorem ipsum yada yada nada nada</p>
+                        <p>Show the fish here</p>
+                        <img /> 
                     </div>
                     <div className="card-action black-text">
-                        <p>Item Id: {props.id}</p>
                         <p>Species: {props.species}</p>
-                        <p>$ {props.price}</p>                        
+                        <p>Cost: ${props.price}</p>                        
                     </div>
                 </div>
             </div>

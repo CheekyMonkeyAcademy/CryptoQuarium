@@ -69,7 +69,7 @@ class AppContainer extends Component {
             console.log(this.state.thisUserCred.walletBalance)
         })
         .catch((err)=> {
-            console.log(`user auth vomited - so - it didn't get you credentials`)
+            console.log(`user auth vomited - so - it didn't get your credentials`)
             console.log(err)
         })
     }
@@ -78,16 +78,34 @@ class AppContainer extends Component {
     //THIS FUNCTION NEEDS THE CARTARRAY
         //I WANT TO CLEAR THE ARRAY AFTER ACCEPTED PURCHASE SO THERE IS AN EMPTY CART FOR THE NEXT PURCHASE
     updateBalanceAfterCheckout = () => {
-        console.log("Am I clicking the checkout button")
+        console.log("Am I clicking the checkout button");
+        console.log(`Subtotal: ${this.state.subTotal}`);
+        console.log(`Balance: ${this.state.thisUserCred.walletBalance}`);
        //I NEED TO PASS UP THE CART ARRAY TO EMPTY IT HERE--BUT IT IS BEING USED HEAVILY TWO COMPONENTS DOWN >:(
-        if(this.state.subTotal <= this.state.currentBalance){
+        if(this.state.subTotal <= this.state.thisUserCred.walletBalance){
             console.log(`You CAN purchase these items!`)
-            const afterPurchaseWalletBalance = this.state.currentBalance - this.state.subTotal;
-            this.setState({currentBalance: afterPurchaseWalletBalance})                       
+            
+            axios.post('/api/userPurchaseFish/', this.state.cartArray)
+            .then((success) => {
+                this.setState({cartArray: []})   
+                this.setState({subTotal: 0})    
+            })
+            .catch((err)=> {
+                console.log(`Purchasing fish broke`);
+                console.log(err)
+            })
+            
+            // TODO would prefer to call the logged in user -- and get the balance -- instead of doing this
+            // Reason being - we are then using the database as the system of record (there can be...
+            // ... other data changes in the background - what if the user has multiple windows open?)
+
+            // const afterPurchaseWalletBalance = this.state.currentBalance - this.state.subTotal;
+            // this.setState({currentBalance: afterPurchaseWalletBalance})                     
+
             console.log(`Go to wallet page and see your updated balance!`)
-            this.setState({cartArray: []})   
-            this.setState({subTotal: 0})         
+     
         } else if (this.state.subTotal >= this.state.currentBalance){
+            // TODO forward this error to the user - modal?
             console.log(`You DO NO have enough money to purchase these items`)
         }
     }
