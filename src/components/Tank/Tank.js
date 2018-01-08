@@ -11,11 +11,12 @@ class Tank extends Component {
     }
 
     renderFish(fish){
+        // console.log(fish);
         switch (fish.codeSpecies) {
             case 'Fish': 
-                return <Fish key={fish.id}/>
+                return <Fish {...fish} key={fish.id}/>
             case 'PufferFish':
-                return <PufferFish key={fish.id}/>
+                return <PufferFish {...fish} key={fish.id}/>
             
             default:
                 return <Fish key={fish.id}/>

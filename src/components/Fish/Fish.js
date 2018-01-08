@@ -12,6 +12,12 @@ import {changeBlueTwo} from "./colorRando";
 // import models from "../../../server/models/fish.js";
 
 class Fish extends Component {
+    constructor(props) {
+        super(props);
+
+        console.log(this.props);
+    }
+
     degree() {
         let fish_wrap = document.querySelector(".fish_wrap");
         let gradeDegree = changeDegree(fish_wrap);
@@ -73,7 +79,7 @@ class Fish extends Component {
     }
     render() {
         return (
-            <div className="fish_wrap"> 
+            <div className="fish_wrap" id={this.props.id}> 
                 <div className="fish1">
                     <div className="top_fin"></div>
                     <div className="tail_fin"></div>
