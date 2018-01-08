@@ -53,11 +53,9 @@ class AppContainer extends Component {
     updateSubtotalState = (value) => {
         console.log("am i getting here? NOW")
         this.setState({subTotal: value});               
-    }      
+    }
 
-    //FUNCTION TO GET LOGGEDIN USER CREDENTIALS FROM THE DATABASE
-    componentDidMount() {
-        // axios.get('/api/getUserAuthenticated')
+    checkAndUpdateAuthenticatedUser = () => {
         axios.get('/api/getAuthenticatedUser')
         .then((userCredentials) => {
             console.log(`So... we theoretically have user creds?`);
@@ -72,6 +70,11 @@ class AppContainer extends Component {
             console.log(`user auth vomited - so - it didn't get your credentials`)
             console.log(err)
         })
+    }
+
+    //FUNCTION TO GET LOGGEDIN USER CREDENTIALS FROM THE DATABASE
+    componentDidMount() {
+        this.checkAndUpdateAuthenticatedUser();
     }
     
     //FUNCTION FOR HANDLING ACCOUNT MATH ON CHECKOUT CLICK
@@ -88,7 +91,7 @@ class AppContainer extends Component {
             axios.post('/api/userPurchaseFish/', this.state.cartArray)
             .then((success) => {
                 this.setState({cartArray: []})   
-                this.setState({subTotal: 0})    
+                this.setState({subTotal: 0});  
             })
             .catch((err)=> {
                 console.log(`Purchasing fish broke`);
@@ -102,6 +105,7 @@ class AppContainer extends Component {
             // const afterPurchaseWalletBalance = this.state.currentBalance - this.state.subTotal;
             // this.setState({currentBalance: afterPurchaseWalletBalance})                     
 
+            this.checkAndUpdateAuthenticatedUser();
             console.log(`Go to wallet page and see your updated balance!`)
      
         } else if (this.state.subTotal >= this.state.currentBalance){

@@ -63,6 +63,8 @@ module.exports = function(app) {
         console.log(req.body);
 
         req.body.forEach((fish) => {
+            // TODO:  Fix this - it's an async mess.  
+            // Basically... you call it and it executes them all at the same time - BAD
             console.log(fish.species);
             db.Fish.findOne({
                 where: {
