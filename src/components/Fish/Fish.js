@@ -7,47 +7,47 @@ class Fish extends Component {
     }
 
     degree() {
-        let fish_wrap = document.querySelector(".fish_wrap");
+        let fish_wrap = document.getElementById(this.props.id);
         fish_wrap.style.setProperty('--degree', this.props.degree + 'deg');
     }
     percent() {
-        let fish_wrap = document.querySelector(".fish_wrap");
+        let fish_wrap = document.getElementById(this.props.id);
         fish_wrap.style.setProperty('--percent', this.props.percent + '%');
     }
 
     colorRedOne(){
-        let fish_wrap = document.querySelector(".fish_wrap");
+        let fish_wrap = document.getElementById(this.props.id);
         fish_wrap.style.setProperty('--colorOneR', this.props.color1r);
     }
 
     colorGreenOne() {
-        let fish_wrap = document.querySelector(".fish_wrap");
+        let fish_wrap = document.getElementById(this.props.id);
         fish_wrap.style.setProperty('--colorOneG', this.props.color1g);
     }
 
     colorBlueOne() {
-        let fish_wrap = document.querySelector(".fish_wrap");
+        let fish_wrap = document.getElementById(this.props.id);
         fish_wrap.style.setProperty('--colorOneB', this.props.color1b);
     }
 
     colorRedTwo() {
-        let fish_wrap = document.querySelector(".fish_wrap");
+        let fish_wrap = document.getElementById(this.props.id);
         fish_wrap.style.setProperty('--colorTwoR', this.props.color2r);
     }
 
     colorGreenTwo() {
-        let fish_wrap = document.querySelector(".fish_wrap");
+        let fish_wrap = document.getElementById(this.props.id);
         fish_wrap.style.setProperty('--colorTwoG', this.props.color2g);
     }
 
     colorBlueTwo() {
-        let fish_wrap = document.querySelector(".fish_wrap");
+        let fish_wrap = document.getElementById(this.props.id);
         fish_wrap.style.setProperty('--colorTwoB', this.props.color2b);
     }
 
     swim() {
-        let animationDuration = Math.floor(Math.random() * 40 + 80);
-        let fish_wrap = document.querySelector(".fish_wrap");
+        let animationDuration = Math.floor(Math.random() * 20 + 20);
+        let fish_wrap = document.getElementById(this.props.id);
         fish_wrap.style.setProperty("--animation-time", animationDuration + "s");
 
         setTimeout(() => {
