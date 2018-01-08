@@ -14,7 +14,8 @@
 
 .fish_body {
     transform: skewX(30deg) skewY(5deg);
-    background: linear-gradient(145deg, rgb(255,94,0), 72%, rgb(2,83,235));
+    /* background: linear-gradient(145deg, rgb(255,94,0), 72%, rgb(2,83,235)); */
+    background: linear-gradient(var(--degree), rgb(var(--colorOneR), var(--colorOneG), var(--colorOneB)), var(--percent), rgb(var(--colorTwoR), var(--colorTwoG), var(--colorTwoB)));    
     border-radius: 200px 112px 47px 362px;
     box-shadow: 6px -12px 15px #3A2104 inset, -2px -3px 4px #281602 inset;
     height: 72px;
@@ -95,7 +96,7 @@
 
 .top_fin {
     transform: skewX(30deg) skewY(8deg);    
-    background-color: rgb(255, 94, 0);
+    background-color: rgb(var(--colorOneR), var(--colorOneG), var(--colorOneB));
     border-radius: 200px 112px 47px 62px;    
     box-shadow: -7px -8px 9px black inset;   
     height: 20px;
@@ -107,7 +108,7 @@
 
 .tail_fin {
     transform: skewX(30deg) skewY(5deg);    
-    background-color: rgb(2, 83, 235);
+    background-color: rgb(var(--colorTwoR), var(--colorTwoG), var(--colorTwoB)); /*matches second rgb from body*/
     border-radius: 200px 112px 47px 62px;    
     box-shadow: -15px -7px 9px #000604 inset;    
     height: 32px;
@@ -119,7 +120,7 @@
 
 .tail_fin:before {
     transform: skewX(30deg) skewY(5deg);   
-    background-color: rgb(2, 83, 235);
+    background-color: rgb(var(--colorTwoR), var(--colorTwoG), var(--colorTwoB));
     border-radius: 62px 112px 112px 200px;
     box-shadow: 6px 13px 9px #2F1E01 inset, -6px -7px 2px black inset;
     content: "";

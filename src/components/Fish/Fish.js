@@ -1,10 +1,56 @@
 import React, {Component} from "react";
 import "./Fish.css";
 import {changeAnimationTime} from "./moveRand";
+import {changeDegree} from "./colorRando";
+import {changePercent} from "./colorRando";
+import {changeRedOne} from "./colorRando";
+import {changeGreenOne} from "./colorRando";
+import {changeBlueOne} from "./colorRando";
+import {changeRedTwo} from "./colorRando";
+import {changeGreenTwo} from "./colorRando";
+import {changeBlueTwo} from "./colorRando";
 // import models from "../../../server/models/fish.js";
 
 class Fish extends Component {
-    
+    degree() {
+        let fish_wrap = document.querySelector(".fish_wrap");
+        let gradeDegree = changeDegree(fish_wrap);
+        }
+    percent() {
+        let fish_wrap = document.querySelector(".fish_wrap");
+        let gradePercent = changePercent(fish_wrap);
+    }
+
+    colorRedOne(){
+        let fish_wrap = document.querySelector(".fish_wrap");
+        let redOne = changeRedOne(fish_wrap);
+    }
+
+    colorGreenOne() {
+        let fish_wrap = document.querySelector(".fish_wrap");
+        let greenOne = changeGreenOne(fish_wrap);
+    }
+
+    colorBlueOne() {
+        let fish_wrap = document.querySelector(".fish_wrap");
+        let blueOne = changeBlueOne(fish_wrap);
+    }
+
+    colorRedTwo() {
+        let fish_wrap = document.querySelector(".fish_wrap");
+        let redTwo = changeRedTwo(fish_wrap);
+    }
+
+    colorGreenTwo() {
+        let fish_wrap = document.querySelector(".fish_wrap");
+        let greenTwo = changeGreenTwo(fish_wrap);
+    }
+
+    colorBlueTwo() {
+        let fish_wrap = document.querySelector(".fish_wrap");
+        let blueTwo = changeBlueTwo(fish_wrap);
+    }
+
     swim() {
         let fish_wrap = document.querySelector(".fish_wrap");
         let time = changeAnimationTime(fish_wrap);
@@ -15,7 +61,15 @@ class Fish extends Component {
     }
 
     componentDidMount() {
-       this.swim();
+        this.swim();
+        this.degree();
+        this.percent();
+        this.colorRedOne();
+        this.colorGreenOne();
+        this.colorBlueOne();
+        this.colorRedTwo();
+        this.colorGreenTwo();
+        this.colorBlueTwo();
     }
     render() {
         return (
