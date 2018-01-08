@@ -1,4 +1,5 @@
 let db = require('../models');
+const Sequelize = require('sequelize');
 // const authenticationMiddleware = require('../passport/authenticationMiddleware');
 const randomize = require('../services/randomize.js');
 
@@ -22,36 +23,74 @@ module.exports = function(app) {
         });
     });
 
-    // TODO:  fix this - it's an older generation - disabled 2018/1/7 - Kyle
-    // Granted, we don't really NEED this, we can just populate the DB directly... so maybe we'll ditch this.
-    // app.post('/api/createFishTemplate', function(req, res){
-    //     db.Fish.count({
-    //         where: {
-    //             species: req.body.species
-    //         }
-    //     })
-    //     .then((count) => {
-    //         if (count > 0) {
-    //             res.json({"Error": "Species exists, cannot duplicate"});
-    //         }
-    //         else {
-    //             db.Fish.create({
-    //                 species: req.body.species,
-    //                 image: req.body.image,
-    //                 movementMin: req.body.movementMin,
-    //                 movementMax: req.body.movementMax,
-    //                 movementPercent: req.body.movementPercent,
-    //                 movementHeightMin: req.body.movementHeightMin,
-    //                 movementHeightMax: req.body.movementHeightMax,
-    //                 quantityAvailable: req.body.quantityAvailable,
-    //                 price: req.body.price
-    //             })
-    //             .then((newFishObject) => {
-    //                 res.json(newFishObject)
-    //             });
-    //         }
-    //     });
-    // });
+    app.get('/api/allUserFishOnSale', function(req, res) {
+        db.UserFish.findAll({
+            where: {
+                forSale: true,
+                // TODO:  This should - theoretically - eliminate your own sales from the for sale... 
+                // ... remove once tested - or comment out code :)  Still need to remove own users' sales
+                UserId: {[Sequelize.op.ne]: req.user.id} 
+            }  
+        }).then((allUserFishOnSale) => {
+            res.json(allUserFishOnSale);
+        });
+    });
+
+    // TODO TEST THIS ENTIRE BEAST
+    app.post('/api/userPurchaseOtherUserFish/', function(req, res){
+        // First we go through the array of fish and we start breaking them down to individual buys
+        req.body.forEach((fish) => {
+            // TODO:  Fix this - it's an async mess.  
+            // Basically... you call it and it executes them all at the same time - BAD
+            console.log(fish.id);
+            db.UserFish.findOne({
+                where: {
+                    id: fish.id
+                }
+            })
+            .then((fishForSale) => {
+                // Get the user wanting to purchase
+                db.User.findOne({
+                    where: {
+                        id: req.user.id
+                        // id: 1 // --- TEST VALUE
+                    }
+                })
+                .then((userBuying) => {
+                    if (userBuying.walletBalance >= fishForSale.price) {
+                        // Money changes hands
+                        userBuying.update({walletBalance: (userBuying.walletBalance -= fishForSale.price)});
+                        db.WalletHistory.create({
+                            UserId: req.user.id,
+                            // UserId: 1, //--- TEST VALUE
+                            walletBalanceChange: -fishForSale.price,
+                            walletBalanceChangeReason: `Fish purchased from other user: ${fish.species} named: '${fishForSale.name}'`,
+                            lastWalletBalance: (userBuying.walletBalance - fishForSale.price)
+                        });
+
+                        db.User.findOne({
+                            where: {
+                                id: fishForSale.UserId
+                            }
+                        })
+                        .then((userSelling) => {
+                            userSelling.update({walletBalance: (userSelling.walletBalance += fishForSale.price)});
+                            db.WalletHistory.create({
+                                UserId: fishForSale.UserId,
+                                walletBalanceChange: +fishForSale.price,
+                                walletBalanceChangeReason: `Fish sold: ${selectedFish.species} named: '${fishForSale.name}'`,
+                                lastWalletBalance: (user.walletBalance - selectedFish.price)
+                            });
+                        });
+
+                        // Fish is moved from original user to current user
+                        fish.update({UserId: req.user.id});
+                    }
+                });
+            });
+        });
+    });
+                
 
     app.post('/api/userPurchaseFish/:id', function(req, res){
         // Purchasing a fish from the store
