@@ -33,17 +33,6 @@ class Tank extends Component {
         })
     }
 
-     componentDidMount(){
-        axios.get('/api/allUserFish/')
-        .then((allFish)=> {
-            console.log(allFish.data);
-        })
-        .catch((err)=> {
-            console.log(`Error: here Fishy fishy`)
-            console.log(err)
-        })
-    }
-
     render() {
         
         return (

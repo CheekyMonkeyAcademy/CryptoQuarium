@@ -14,7 +14,6 @@ module.exports = function(app) {
 
     app.get('/api/allUserFish', function(req, res) {
         db.UserFish.findAll({
-            // TODO re-enable this once we have users built in
             where: {
                 UserId:  req.user.id
             }  
@@ -55,7 +54,6 @@ module.exports = function(app) {
     // });
 
     app.post('/api/userPurchaseFish/:id', function(req, res){
-    // app.post('/api/userPurchaseFish/:id', function(req, res){ // --- TEST VALUE
         // Purchasing a fish from the store
         // 1. Find the fishObject
         // 2. See if there are quantity quantityAvailable
