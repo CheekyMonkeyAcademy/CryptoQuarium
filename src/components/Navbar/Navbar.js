@@ -16,7 +16,7 @@ const Navbar = props =>
         <div className="nav-wrapper">
         {/* Still working on the upper right logo */}
             <a className="brand-logo right">
-                <img src={canbcheeky1} style={{ width: 200, marginTop: 15 }} />
+                <img alt="" src={canbcheeky1} style={{ width: 200, marginTop: 15 }} />
             </a>
         
             <ul className="left hide-on-med-and-down">
