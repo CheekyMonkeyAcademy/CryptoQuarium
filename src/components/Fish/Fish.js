@@ -1,12 +1,9 @@
 import React, {Component} from "react";
 import "./Fish.css";
-import {changeAnimationTime} from "./moveRand";
 
 class Fish extends Component {
     constructor(props) {
         super(props);
-
-        console.log(this.props);
     }
 
     degree() {
@@ -49,12 +46,13 @@ class Fish extends Component {
     }
 
     swim() {
+        let animationDuration = Math.floor(Math.random() * 40 + 80);
         let fish_wrap = document.querySelector(".fish_wrap");
-        let time = changeAnimationTime(fish_wrap);
+        fish_wrap.style.setProperty("--animation-time", animationDuration + "s");
 
         setTimeout(() => {
             this.swim();
-        }, time * 1000);
+        }, animationDuration * 1000);
     }
 
     componentDidMount() {
