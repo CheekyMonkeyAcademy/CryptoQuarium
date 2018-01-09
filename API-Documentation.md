@@ -19,9 +19,10 @@ Species must be unique
 GET: /api/allFishTemplates
 Lists all of the fish templates - NOT users fish
 
-POST: /api/userPurchaseFish/:id
+POST: /api/userPurchaseFish/
     Purchasing a fish from the store...
-    1. Find the fishObject
+    0. Get the array of fish from the front end
+    1. Iterate through and find the individual fishObjects
     2. See if there are quantity quantityAvailable
     3. If it is, see if the user has the required funds
     4. If all of that works, buy it and move along 
