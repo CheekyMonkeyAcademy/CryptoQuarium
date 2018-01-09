@@ -18,7 +18,8 @@ class AppContainer extends Component {
         thisUserCred: [],     
         subTotal: 0,
         cartArray: [],
-        buyFishArray: []
+        buyFishArray: [],
+        fishTemplateTrueOrUserFishFalse: false 
     };
 
     //ORIGINAL IN BUY COMPONENT
@@ -37,16 +38,30 @@ class AppContainer extends Component {
     //ORIGINAL IN BUY COMPONENT
     updateBuyFishArrayState = () => {
         this.state.buyFishArray = []; // TODO make this more graceful - we are over populating the array
-        axios.get('/api/allFishTemplates')
-        .then((allfish) => {    
-            // console.log(allfish);
-            allfish.data.forEach((fish) => {
-                this.setState({buyFishArray: this.state.buyFishArray.concat([fish])})
+        if (this.state.fishTemplateTrueOrUserFishFalse){
+            axios.get('/api/allFishTemplates')
+            .then((allfish) => {    
+                // console.log(allfish);
+                allfish.data.forEach((fish) => {
+                    this.setState({buyFishArray: this.state.buyFishArray.concat([fish])})
+                })
             })
-        })
-        .catch((err)=> {
-            console.log(err)
-        })
+            .catch((err)=> {
+                console.log(err)
+            })
+        }
+        else (
+            axios.get('/api/allUserFishOnSale')
+            .then((allfish) => {    
+                // console.log(allfish);
+                allfish.data.forEach((fish) => {
+                    this.setState({buyFishArray: this.state.buyFishArray.concat([fish])})
+                })
+            })
+            .catch((err)=> {
+                console.log(err)
+            })
+        )
     } 
     
     //FUNCTION TO HANDLE THE SUBTOTAL MATH
@@ -86,25 +101,31 @@ class AppContainer extends Component {
         console.log(`Balance: ${this.state.thisUserCred.walletBalance}`);
        //I NEED TO PASS UP THE CART ARRAY TO EMPTY IT HERE--BUT IT IS BEING USED HEAVILY TWO COMPONENTS DOWN >:(
         if(this.state.subTotal <= this.state.thisUserCred.walletBalance){
-            console.log(`You CAN purchase these items!`)
-            
-            axios.post('/api/userPurchaseFish/', this.state.cartArray)
-            .then((success) => {
-                this.setState({cartArray: []})   
-                this.setState({subTotal: 0});  
-            })
-            .catch((err)=> {
-                console.log(`Purchasing fish broke`);
-                console.log(err)
-            })
-            
-            // TODO would prefer to call the logged in user -- and get the balance -- instead of doing this
-            // Reason being - we are then using the database as the system of record (there can be...
-            // ... other data changes in the background - what if the user has multiple windows open?)
+            console.log(`You CAN purchase these items!`);
 
-            // const afterPurchaseWalletBalance = this.state.currentBalance - this.state.subTotal;
-            // this.setState({currentBalance: afterPurchaseWalletBalance})                     
-
+            if (this.state.fishTemplateTrueOrUserFishFalse){
+                axios.post('/api/userPurchaseFish/', this.state.cartArray)
+                .then((success) => {
+                    this.setState({cartArray: []})   
+                    this.setState({subTotal: 0});  
+                })
+                .catch((err)=> {
+                    console.log(`Purchasing fish broke`);
+                    console.log(err)
+                })
+            }
+            else {
+                axios.post('/api/userPurchaseOtherUserFish/', this.state.cartArray)
+                .then((success) => {
+                    this.setState({cartArray: []})   
+                    this.setState({subTotal: 0});  
+                })
+                .catch((err)=> {
+                    console.log(`Purchasing fish broke`);
+                    console.log(err);
+                })
+            }
+            
             this.checkAndUpdateAuthenticatedUser();
             console.log(`Go to wallet page and see your updated balance!`)
      
