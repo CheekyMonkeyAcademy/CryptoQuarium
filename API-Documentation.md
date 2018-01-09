@@ -41,6 +41,12 @@ PUT: /api/userFishUpdate/:id
         a. forSale (Boolean):  req.body.forSale
         b. price (double): req.body.price (needs to be a value above zero);
 
+GET: /api/allUserFishOnSale/
+    Lists all fish that are OWNED by a user and marked as 'FOR SALE'
+
+POST: /api/userPurchaseOtherUserFish/
+    Uses req.user.id to purchase other users fish - much akin to buying fish from the store (take a cart, buy, etc)
+
 POST: /api/addFundsToWallet/
     Adding funds from a bank - NOT SURE HOW TO VALIDATE BANK BALANCE - so we'll use fake money for now
     user: req.user.id
