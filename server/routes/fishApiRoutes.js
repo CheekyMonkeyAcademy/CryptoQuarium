@@ -39,10 +39,12 @@ module.exports = function(app) {
     // TODO TEST THIS ENTIRE BEAST
     app.post('/api/userPurchaseOtherUserFish/', function(req, res){
         // First we go through the array of fish and we start breaking them down to individual buys
+        
         req.body.forEach((fish) => {
             // TODO:  Fix this - it's an async mess.  
             // Basically... you call it and it executes them all at the same time - BAD
-            console.log(fish.id);
+            // let fish = {} // --- TEST VALUE
+            // fish.id = 65; // --- TEST VALUE
             db.UserFish.findOne({
                 where: {
                     id: fish.id
@@ -64,7 +66,7 @@ module.exports = function(app) {
                             UserId: req.user.id,
                             // UserId: 1, //--- TEST VALUE
                             walletBalanceChange: -fishForSale.price,
-                            walletBalanceChangeReason: `Fish purchased from other user: ${fish.species} named: '${fishForSale.name}'`,
+                            walletBalanceChangeReason: `Fish purchased from other user: ${fishForSale.species} named: '${fishForSale.name}'`,
                             lastWalletBalance: (userBuying.walletBalance - fishForSale.price)
                         });
 
@@ -76,15 +78,18 @@ module.exports = function(app) {
                         .then((userSelling) => {
                             userSelling.update({walletBalance: (userSelling.walletBalance += fishForSale.price)});
                             db.WalletHistory.create({
-                                UserId: fishForSale.UserId,
+                                UserId: userSelling.id,
                                 walletBalanceChange: +fishForSale.price,
-                                walletBalanceChangeReason: `Fish sold: ${selectedFish.species} named: '${fishForSale.name}'`,
-                                lastWalletBalance: (user.walletBalance - selectedFish.price)
+                                walletBalanceChangeReason: `Fish sold: ${fishForSale.species} named: '${fishForSale.name}'`,
+                                lastWalletBalance: (userSelling.walletBalance + fishForSale.price)
                             });
                         });
 
                         // Fish is moved from original user to current user
-                        fish.update({UserId: req.user.id});
+                        fishForSale.update({UserId: req.user.id});
+                        // fishForSale.update({UserId: 1}); // --- TEST VALUE
+                        fishForSale.update({forSale: false});
+                        res.json({"Success": "Fish has changed hands"});
                     }
                 });
             });
