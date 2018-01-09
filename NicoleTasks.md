@@ -52,4 +52,15 @@ Create a dropdown menu titled "My..."
 
         **You will need to reorganize how the Wallet page queries for data because of this reorganization! WARNING!
           
+**RESTRUCTURING SELL PAGES/UPDATE PAGES**
+List user fish in clickable area in "my fish stock"
+    bring up optional three fields
+        1. name
+        2. price -- validate price is not negative
+        3. forSale -- if they click this, it automatically goes to the buy page for user fish
+
+Remove Sell and Trade and AppContainer and FishMarket and add a Buy tab
+    Possibly keep "fish market and have two buy pages" 
+        one for buy from us and buy from other users
+
 

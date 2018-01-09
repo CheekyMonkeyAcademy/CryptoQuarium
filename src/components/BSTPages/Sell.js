@@ -12,17 +12,17 @@ class Sell extends Component {
     }
 
     thisItemToMarket = (id) => {        
-        console.log("Am I clicking my sell tag?")         
-
-        let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id[0]))
-                // this.state.cartArray.concat([this.state.buyFishArray[fishIndex]])
-        // this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]])
-        this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray])
-        }, 
-        // console.log(this.state.myFishArray)
-        console.log(this.state.itemsToBeSold)
-        )           
+        console.log("Am I clicking my sell tag?")      
+        //0 on out side is referencing the filter
+        let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
+    
+        this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]])
+        }, (state) => {
+            console.log(this.state.itemsToBeSold)
+        })      
     }
+
+
 
     //FUNCTION TO GET ALL USERS FISH
     getAllUserFish = () => {
