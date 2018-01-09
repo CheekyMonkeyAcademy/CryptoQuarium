@@ -4,6 +4,9 @@ import BuyCart from "../BuyComponents/BuyCart";
 import "../../Style/FishMarket.css";
 // import axios from 'axios';
 
+//Add a checkbox that toggles with axios call is getting used
+    //buy from other users or buy from 'us'
+
 class Buy extends Component {
     //NEED: CART ARRAY AND SUBTOTAL IN APPCONTAINER
     // state = {

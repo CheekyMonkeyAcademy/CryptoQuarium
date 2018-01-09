@@ -1,10 +1,11 @@
 import React, {Component} from "react";
+import SellMarket from "../SellMarket"
 
 class SellUserCart extends Component {
     render(){
         return(
             <div>
-                This is sell user cart!
+                <SellMarket />
             </div>
         )
     }
