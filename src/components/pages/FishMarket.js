@@ -33,7 +33,10 @@ class FishMarket extends Component {
                               
             />
         } else if(this.state.currentPage === "Sell"){
-            return <Sell />
+            return <Sell 
+                buyFishArray = {this.props.buyFishArray}
+                
+            />
         } else if (this.state.currentPage === "Trade"){
             return <Trade />
         } 
