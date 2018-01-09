@@ -5,12 +5,16 @@
 //My..
     //.. Quarium
     //.. Wallet
-    //.. Fish Stock
+    //.. Fish Stock - Where users will update the specs of their fish
+        //Name
+        //For sale or nah? 
+            //Check box and price
+            //User can choose their own price of a range
 
 //STEP ONE: Populate page with this!
 //  GET: /api/allUserFish/
 // Lists all fish for a particular userId
-// (The Sequelize WHERE 
+ 
 
 //STEP TWO:UPDATE User fish spec with this route!
 // PUT: /api/userFishUpdate/:id
