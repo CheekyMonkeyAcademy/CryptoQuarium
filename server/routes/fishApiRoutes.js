@@ -78,7 +78,7 @@ module.exports = function(app) {
                         .then((userSelling) => {
                             userSelling.update({walletBalance: (userSelling.walletBalance += fishForSale.price)});
                             db.WalletHistory.create({
-                                UserId: userSelling.UserId,
+                                UserId: userSelling.id,
                                 walletBalanceChange: +fishForSale.price,
                                 walletBalanceChangeReason: `Fish sold: ${fishForSale.species} named: '${fishForSale.name}'`,
                                 lastWalletBalance: (userSelling.walletBalance + fishForSale.price)
