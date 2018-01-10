@@ -19,7 +19,7 @@ class AppContainer extends Component {
         subTotal: 0,
         cartArray: [],
         buyFishArray: [],
-        fishTemplateTrueOrUserFishFalse: false 
+        fishTemplateTrueOrUserFishFalse: true 
     };
 
     //ORIGINAL IN BUY COMPONENT
@@ -33,7 +33,15 @@ class AppContainer extends Component {
         }, (state) => {
             this.updateSubtotalState(this.state.subTotal + this.state.buyFishArray[fishIndex].price); 
         });             
-    }    
+    }   
+    
+    toggleFishMarket = (event) => {
+        // console.log(`Toggling fish market, hooray!`);
+        let targetToggle = document.getElementById("fishTemplateTrueOrUserFishFalseInput");
+        console.log(`currently: ${targetToggle.checked}`);
+        this.setState({fishTemplateTrueOrUserFishFalse: event.targetToggle.checked});
+    } 
+
     
     //ORIGINAL IN BUY COMPONENT
     updateBuyFishArrayState = () => {
@@ -163,7 +171,9 @@ class AppContainer extends Component {
                         buyFishArray = {this.state.buyFishArray}
                         clickItem = {this.clickItem}
                         updateBuyFishArrayState = {this.updateBuyFishArrayState}    
-                        updateSubtotalState = {this.updateSubtotalState}                    
+                        updateSubtotalState = {this.updateSubtotalState}
+                        fishTemplateTrueOrUserFishFalse = {this.fishTemplateTrueOrUserFishFalse}  
+                        toggleFishMarket = {this.toggleFishMarket}                 
                     />
             }
     }

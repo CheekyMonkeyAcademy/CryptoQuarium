@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import BuyInventory from "../BuyComponents/BuyInventory";
 import BuyCart from "../BuyComponents/BuyCart";
 import "../../Style/FishMarket.css";
+import "../../Style/ToggleSlider.css";
 // import axios from 'axios';
 
 //Add a checkbox that toggles with axios call is getting used
@@ -39,15 +40,35 @@ class Buy extends Component {
     //     .catch((err)=> {
     //         console.log(err)
     //     })
+    // }
+
+    // toggleFishMarket = () => {
+    //     // console.log(`Toggling fish market, hooray!`);
+    //     let targetToggle = document.getElementById("fishTemplateTrueOrUserFishFalseInput");
+    //     console.log(`currently: ${targetToggle.checked}`);
+    //     if (toggleTarget.checked === true) {
+    //         this.setState({fishTemplateTrueOrUserFishFalse: false});
+    //     }
+    //     else {
+    //         this.setState({fishTemplateTrueOrUserFishFalse: true})
+    //     }
     // } 
 
-    render(){        
+    render(){  
         return (             
-           
             <div>
                 <div className="row">
                     <div className="col s8">
                         <h5>Buy Fish and Accoutrement</h5>
+                        <div>
+                            Source:
+                            Fish Market  
+                            <label className="switch">
+                                <input id="fishTemplateTrueOrUserFishFalseInput" onChange={this.toggleFishMarket} type="checkbox"></input>
+                                <span className="slider round"></span>
+                            </label>  
+                            Other Users Market
+                        </div>
                     </div>           
                 </div>
                 
@@ -59,7 +80,7 @@ class Buy extends Component {
                             // updateBuyFishArrayState={this.updateBuyFishArrayState} 
                             addToCart={this.props.clickItem}
                             buyFishArray= {this.props.buyFishArray}    
-                            updateBuyFishArrayState = {this.props.updateBuyFishArrayState}     
+                            updateBuyFishArrayState = {this.props.updateBuyFishArrayState}  
                         />                
                     </div>
 
