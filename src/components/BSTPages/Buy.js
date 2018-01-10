@@ -42,18 +42,6 @@ class Buy extends Component {
     //     })
     // }
 
-    // toggleFishMarket = () => {
-    //     // console.log(`Toggling fish market, hooray!`);
-    //     let targetToggle = document.getElementById("fishTemplateTrueOrUserFishFalseInput");
-    //     console.log(`currently: ${targetToggle.checked}`);
-    //     if (toggleTarget.checked === true) {
-    //         this.setState({fishTemplateTrueOrUserFishFalse: false});
-    //     }
-    //     else {
-    //         this.setState({fishTemplateTrueOrUserFishFalse: true})
-    //     }
-    // } 
-
     render(){  
         return (             
             <div>
@@ -64,7 +52,7 @@ class Buy extends Component {
                             Source:
                             Fish Market  
                             <label className="switch">
-                                <input id="fishTemplateTrueOrUserFishFalseInput" onChange={this.toggleFishMarket} type="checkbox"></input>
+                                <input id="fishTemplateTrueOrUserFishFalseInput" onChange={this.props.toggleFishMarket} type="checkbox"></input>
                                 <span className="slider round"></span>
                             </label>  
                             Other Users Market
@@ -75,9 +63,6 @@ class Buy extends Component {
                 <div className="row">
                     <div className="col s8">
                         <BuyInventory 
-                            // addToCart={this.clickItem}                            
-                            // buyFishArray={this.state.buyFishArray}
-                            // updateBuyFishArrayState={this.updateBuyFishArrayState} 
                             addToCart={this.props.clickItem}
                             buyFishArray= {this.props.buyFishArray}    
                             updateBuyFishArrayState = {this.props.updateBuyFishArrayState}  

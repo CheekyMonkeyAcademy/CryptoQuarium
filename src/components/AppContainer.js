@@ -35,12 +35,13 @@ class AppContainer extends Component {
         });             
     }   
     
-    toggleFishMarket = (event) => {
-        // console.log(`Toggling fish market, hooray!`);
+    toggleFishMarket = () => {
+        console.log(`Toggling fish market APP CONTAINER, hooray!`);
         let targetToggle = document.getElementById("fishTemplateTrueOrUserFishFalseInput");
         console.log(`currently: ${targetToggle.checked}`);
-        this.setState({fishTemplateTrueOrUserFishFalse: event.targetToggle.checked});
-    } 
+        this.setState({fishTemplateTrueOrUserFishFalse: targetToggle.checked}, this.updateBuyFishArrayState())
+    }
+     
 
     
     //ORIGINAL IN BUY COMPONENT

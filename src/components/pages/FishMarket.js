@@ -30,8 +30,8 @@ class FishMarket extends Component {
                 buyFishArray = {this.props.buyFishArray}
                 clickItem = {this.props.clickItem}
                 updateBuyFishArrayState = {this.props.updateBuyFishArrayState} 
-                fishTemplateTrueOrUserFishFalse = {this.fishTemplateTrueOrUserFishFalse}
-                toggleFishMarket = {this.toggleFishMarket}
+                fishTemplateTrueOrUserFishFalse = {this.props.fishTemplateTrueOrUserFishFalse}
+                toggleFishMarket = {this.props.toggleFishMarket}
             />
         } else if(this.state.currentPage === "Sell"){
             return <Sell 
