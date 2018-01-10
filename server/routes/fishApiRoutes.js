@@ -105,13 +105,11 @@ module.exports = function(app) {
         // 3. If it is, see if the user has the required funds
         // 4. If all of that works, buy it and move along 
 
-        let asyncReturn = asyncFishPurchase(req.body, req.user.id);
-        let returnObject = Object.keys(asyncReturn);
         console.log(`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@`);
+        let asyncReturn = asyncFishPurchase(req.body, req.user.id);
         console.log(asyncReturn);
-        console.log(returnObject[0]);
 
-        if (returnObject[0] = "Success") {
+        if (asyncReturn = "Success") {
             res.sendStatus(204);
         }
         else (
@@ -148,8 +146,7 @@ asyncFishPurchase = (fishArray, userId,  index = 0) => {
 
     if (index >= fishArray.length) {
         console.log(`ANNNDD we're done here!`);
-        let returnSuccess = {"Success": "All items in cart have been purchased"}
-        return returnSuccess
+        return "Success"
     }
     else {
         console.log(`Purchase fish here ${fishArray[index]}`);
@@ -182,7 +179,7 @@ asyncFishPurchase = (fishArray, userId,  index = 0) => {
                         UserId: userId,
                         walletBalanceChange: -selectedFish.price,
                         walletBalanceChangeReason: `Fish purchased: ${selectedFish.species}`,
-                        lastWalletBalance: (user.walletBalance - selectedFish.price)
+                        lastWalletBalance: user.walletBalance
                     });
                     let randomizeThese = JSON.parse(selectedFish.randomizeVar);
                     let randomizedTargets = {};
@@ -220,7 +217,7 @@ asyncFishPurchase = (fishArray, userId,  index = 0) => {
                         console.log(`Fish purchased`);
                         // move the index along and fire again
                         index++
-                        asyncFishPurchase(fishArray, index);
+                        asyncFishPurchase(fishArray, userId, index);
                     });
                 }
                 else {

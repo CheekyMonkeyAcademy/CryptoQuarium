@@ -90,7 +90,7 @@ class AppContainer extends Component {
             console.log(userCredentials.data);
             // Changed this to only have one set of user credentials data instead of a contact (would create multiple sets of the same)
             this.setState({thisUserCred: userCredentials.data})
-            this.setState({currentBalance: this.state.userCredentials.data.walletBalance})
+            this.setState({currentBalance: userCredentials.data.walletBalance})
             console.log("This is user cred")
             console.log(this.state.thisUserCred);
             console.log(`Here is current balance: ${this.state.currentBalance}`);
@@ -134,15 +134,17 @@ class AppContainer extends Component {
                 .then((success) => {
                     this.setState({cartArray: []})   
                     this.setState({subTotal: 0});  
+                    // reset user credentials, balance, etc
+                    this.checkAndUpdateAuthenticatedUser();
+                    console.log(`Go to wallet page and see your updated balance!`)
                 })
                 .catch((err)=> {
                     console.log(`Purchasing fish broke`);
                     console.log(err);
+                    this.checkAndUpdateAuthenticatedUser();
+                    console.log(`Go to wallet page and see your updated balance!`)
                 })
             }
-            
-            this.checkAndUpdateAuthenticatedUser();
-            console.log(`Go to wallet page and see your updated balance!`)
      
         } else if (this.state.subTotal >= this.state.currentBalance){
             // TODO forward this error to the user - modal?
