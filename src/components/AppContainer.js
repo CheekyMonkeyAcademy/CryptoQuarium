@@ -90,9 +90,10 @@ class AppContainer extends Component {
             console.log(userCredentials.data);
             // Changed this to only have one set of user credentials data instead of a contact (would create multiple sets of the same)
             this.setState({thisUserCred: userCredentials.data})
-            this.setState({currentBalance: this.state.walletBalance})
+            this.setState({currentBalance: this.state.userCredentials.data.walletBalance})
             console.log("This is user cred")
-            console.log(this.state.thisUserCred.walletBalance)
+            console.log(this.state.thisUserCred);
+            console.log(`Here is current balance: ${this.state.currentBalance}`);
         })
         .catch((err)=> {
             console.log(`user auth vomited - so - it didn't get your credentials`)

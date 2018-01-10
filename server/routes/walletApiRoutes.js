@@ -1,11 +1,8 @@
 let db = require('../models');
-const authenticationMiddleware = require('../passport/authenticationMiddleware');
-
 
 module.exports = function(app) {
     // TODO add funds to wallet from bank (unable to validate remote source as yet - will use fake money for now)
-    app.post('/api/addFundsToWallet/', authenticationMiddleware, (req, res) => {
-    // app.post('/api/addFundsToWallet/', (req, res) => { // --- TEST VALUE
+    app.post('/api/addFundsToWallet/', (req, res) => { 
         let validated = true;
         let amount = 0;
         // TODO validate funds at remote target (???)
@@ -38,18 +35,14 @@ module.exports = function(app) {
         })
     });
 
-    //TODO: AUTHENTICATION MIDDLEWARE THREW UP CHUNKIES!!!
-    // app.get('/api/viewWalletHistory', authenticationMiddleware, (req, res) => {
     app.get('/api/viewWalletHistory/', (req, res) => { // --- TEST VALUE
 
         db.WalletHistory.findAll({
             where: {
                 UserId: req.user.id
-                // UserId: 2
             }
         })
         .then((history) => {
-            // console.log(history);
             res.json(history);
         })
     });

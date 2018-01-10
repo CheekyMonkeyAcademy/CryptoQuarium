@@ -2,7 +2,6 @@ let db = require('../models');
 const Sequelize = require('sequelize');
 // const authenticationMiddleware = require('../passport/authenticationMiddleware');
 const randomize = require('../services/randomize.js');
-const Q = require('q');
 
 module.exports = function(app) {
 
