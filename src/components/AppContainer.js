@@ -36,14 +36,18 @@ class AppContainer extends Component {
     }   
     
     toggleFishMarket = () => {
-        console.log(`Toggling fish market APP CONTAINER, hooray!`);
-        let targetToggle = document.getElementById("fishTemplateTrueOrUserFishFalseInput");
-        console.log(`currently: ${targetToggle.checked}`);
-        this.setState({fishTemplateTrueOrUserFishFalse: targetToggle.checked}, this.updateBuyFishArrayState())
+        if (this.state.cartArray.length === 0) {
+            console.log(`Cart array is empty, we can proceed.`)
+            
+            let targetToggle = document.getElementById("fishTemplateTrueOrUserFishFalseInput");
+            console.log(`currently: ${targetToggle.checked}`);
+            this.setState({fishTemplateTrueOrUserFishFalse: targetToggle.checked}, this.updateBuyFishArrayState())
+            // TODO known error - the first toggle does NOT show the user fish market - the SECOND and Nth iterations do
+            // not sure what is going on with the first - suggest it's an async issue on state being update?  
+            // Troubleshoot soon as able.  Works 'ok' for now.  
+        }
     }
-     
-
-    
+  
     //ORIGINAL IN BUY COMPONENT
     updateBuyFishArrayState = () => {
         this.state.buyFishArray = []; // TODO make this more graceful - we are over populating the array
