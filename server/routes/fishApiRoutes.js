@@ -1,7 +1,7 @@
 let db = require('../models');
 const Sequelize = require('sequelize');
-// const authenticationMiddleware = require('../passport/authenticationMiddleware');
 const randomize = require('../services/randomize.js');
+const Q = require('q');
 
 module.exports = function(app) {
 
@@ -105,16 +105,16 @@ module.exports = function(app) {
         // 3. If it is, see if the user has the required funds
         // 4. If all of that works, buy it and move along 
 
-        console.log(`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@`);
-        let asyncReturn = asyncFishPurchase(req.body, req.user.id);
-        console.log(asyncReturn);
-
-        if (asyncReturn = "Success") {
+        
+        asyncFishPurchase(req.body, req.user.id)
+        .then((asyncReturn) => {
+            console.log(`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@`);
             res.sendStatus(204);
-        }
-        else (
-            res.sendStatus(400).json(asyncReturn)
-        )
+        })
+        .catch((error) => {
+            console.log(`BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO`);
+            res.sendStatus(400).json(error);
+        })
     });
 
     app.put('/api/userFishUpdate/:id', function(req, res) {
@@ -140,13 +140,14 @@ module.exports = function(app) {
 
 }//End of module.exports        
 
-asyncFishPurchase = (fishArray, userId,  index = 0) => {
+asyncFishPurchase = (fishArray, userId, index = 0, deferred = Q.defer()) => {
     console.log(`total length: ${fishArray.length}`);
     console.log(`Calling fish purchase async like.. round ${index}.`);
 
     if (index >= fishArray.length) {
         console.log(`ANNNDD we're done here!`);
-        return "Success"
+        deferred.resolve();
+        return "Success";
     }
     else {
         console.log(`Purchase fish here ${fishArray[index]}`);
@@ -162,7 +163,7 @@ asyncFishPurchase = (fishArray, userId,  index = 0) => {
             }
             else {
                 let returnError = {"Error": `Not enough quantity available to purchase fish '${selectedFish.species}'`}
-                // res.json({"Error": "Not enough quantity available to purchase this fish"});
+                deferred.reject(returnError);
             }
 
             db.User.findOne({
@@ -217,17 +218,17 @@ asyncFishPurchase = (fishArray, userId,  index = 0) => {
                         console.log(`Fish purchased`);
                         // move the index along and fire again
                         index++
-                        asyncFishPurchase(fishArray, userId, index);
+                        asyncFishPurchase(fishArray, userId, index, deferred);
                     });
                 }
                 else {
                     let returnError = {"Error": "Insufficient funds to purchase this fish"}
-                    return returnError;
-                    // return json({"Error": "Insufficient funds to purchase this fish"});
+                    deferred.reject(returnError);
                 }
             });
         });
     }
+    return deferred.promise;
 }
 
 asyncUserFishPurchase = () => {

@@ -122,11 +122,15 @@ class AppContainer extends Component {
                 axios.post('/api/userPurchaseFish/', this.state.cartArray)
                 .then((success) => {
                     this.setState({cartArray: []})   
-                    this.setState({subTotal: 0});  
+                    this.setState({subTotal: 0});
+                    this.checkAndUpdateAuthenticatedUser();
+                    console.log(`Go to wallet page and see your updated balance!`);  
                 })
                 .catch((err)=> {
                     console.log(`Purchasing fish broke`);
                     console.log(err)
+                    this.checkAndUpdateAuthenticatedUser();
+                    console.log(`Go to wallet page and see your updated balance!`);
                 })
             }
             else {
@@ -136,13 +140,13 @@ class AppContainer extends Component {
                     this.setState({subTotal: 0});  
                     // reset user credentials, balance, etc
                     this.checkAndUpdateAuthenticatedUser();
-                    console.log(`Go to wallet page and see your updated balance!`)
+                    console.log(`Go to wallet page and see your updated balance!`);
                 })
                 .catch((err)=> {
                     console.log(`Purchasing fish broke`);
                     console.log(err);
                     this.checkAndUpdateAuthenticatedUser();
-                    console.log(`Go to wallet page and see your updated balance!`)
+                    console.log(`Go to wallet page and see your updated balance!`);
                 })
             }
      
