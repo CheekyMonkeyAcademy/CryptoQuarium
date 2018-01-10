@@ -49,7 +49,7 @@ module.exports = function(app) {
             }
         })
         .then((history) => {
-            console.log(history);
+            // console.log(history);
             res.json(history);
         })
     });

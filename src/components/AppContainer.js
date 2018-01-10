@@ -109,7 +109,8 @@ class AppContainer extends Component {
     //THIS FUNCTION NEEDS THE CARTARRAY
         //I WANT TO CLEAR THE ARRAY AFTER ACCEPTED PURCHASE SO THERE IS AN EMPTY CART FOR THE NEXT PURCHASE
     updateBalanceAfterCheckout = () => {
-        console.log("Am I clicking the checkout button");
+        console.log("Am I clicking the checkout button");   
+        console.log(this.state.thisUserCred);
         console.log(`Subtotal: ${this.state.subTotal}`);
         console.log(`Balance: ${this.state.thisUserCred.walletBalance}`);
        //I NEED TO PASS UP THE CART ARRAY TO EMPTY IT HERE--BUT IT IS BEING USED HEAVILY TWO COMPONENTS DOWN >:(
