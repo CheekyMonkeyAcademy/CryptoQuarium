@@ -3,12 +3,35 @@ import SellUserInventory from "../SellComponents/SellUserInventory/SellUserInven
 import SellUserCart from "../SellComponents/SellUserCart/SellUserCart";
 import axios from 'axios';
 
+{/* <input onChange={(event) => this.props.doSomethingWithEvent(event)} /> */}
+// doSomethingWithEvent = (event) => {
+//     const value = event.target.value;
+// }
 
+//Ron says to use state, when the user enters a price in the input, it updates the price of the item
+//AND THEN gets added to the sell cart
+    //Add two buttons - one to lock in the desired price of the item and another to sell the fish    
+    //The user HAS to enter a price to sell the item
+    //This needs to be handled on the front end AND on the back end
+    //The user needs to see that the price of their fish got updated 
+    //and the back end needs to know about it too
+
+    //Take the input value, update the fish on the backend, update the price on the front And then gets added to the cart for sale!
+    //Make the value in the sellCards a props.price. This props.price value will be stored as a props and then updated to the front end and back end
+    //And then added to the cart for subtotal
+    //Math will then ensue
+
+    //The onChange event will call a function that updates the price of the specified fish item
 class Sell extends Component {
 
     state = {
         itemsToBeSold: [], 
         myFishArray: []
+    }
+
+    //This will be an onChange event passed to the input space
+    updateFishPriceValueFromInput = () => {
+        //axios back end call here!
     }
 
     thisItemToMarket = (id) => {        
@@ -19,7 +42,7 @@ class Sell extends Component {
         this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]])
         }, (state) => {
             console.log(this.state.itemsToBeSold)
-        })      
+        })            
     }
 
 
@@ -58,7 +81,7 @@ class Sell extends Component {
                     </div>
 
                     <div className="col s4">
-                        <SellUserCart  />
+                        <SellUserCart itemsToBeSold = {this.state.itemsToBeSold} />
                     </div>
                 </div>
             </div>

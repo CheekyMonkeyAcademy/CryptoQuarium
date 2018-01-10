@@ -22,7 +22,10 @@ class SellMarket extends Component {
                     <div className="card teal lighten-2">
                         <div className="card-content white-text">
                             <span className="card-title">Items to be sold to the Market</span>            
-
+                                {this.props.itemsToBeSold.map(items => {
+                                    return <SellMarketCards {...items}
+                                    />
+                                })}
 
                        
                             <a className="waves-effect waves-light btn black" onClick = {() => this.props.sellToMarket}><i className="material-icons left">attach_money</i>Sell to Market</a>
