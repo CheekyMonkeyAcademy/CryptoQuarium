@@ -29,7 +29,7 @@ module.exports = function(app) {
                 forSale: true,
                 // TODO:  This should - theoretically - eliminate your own sales from the for sale... 
                 // ... remove once tested - or comment out code :)  Still need to remove own users' sales
-                UserId: {[Sequelize.op.ne]: req.user.id} 
+                // UserId: {[Sequelize.op.ne]: req.user.id} 
             }  
         }).then((allUserFishOnSale) => {
             res.json(allUserFishOnSale);

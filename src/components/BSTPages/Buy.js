@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import BuyInventory from "../BuyComponents/BuyInventory";
 import BuyCart from "../BuyComponents/BuyCart";
 import "../../Style/FishMarket.css";
+import "../../Style/ToggleSlider.css";
 // import axios from 'axios';
 
 //Add a checkbox that toggles with axios call is getting used
@@ -39,27 +40,32 @@ class Buy extends Component {
     //     .catch((err)=> {
     //         console.log(err)
     //     })
-    // } 
+    // }
 
-    render(){        
+    render(){  
         return (             
-           
             <div>
                 <div className="row">
                     <div className="col s8">
                         <h5>Buy Fish and Accoutrement</h5>
+                        <div>
+                            Source:
+                            Fish Market  
+                            <label className="switch">
+                                <input id="fishTemplateTrueOrUserFishFalseInput" onChange={this.props.toggleFishMarket} type="checkbox"></input>
+                                <span className="slider round"></span>
+                            </label>  
+                            Other Users Market
+                        </div>
                     </div>           
                 </div>
                 
                 <div className="row">
                     <div className="col s8">
                         <BuyInventory 
-                            // addToCart={this.clickItem}                            
-                            // buyFishArray={this.state.buyFishArray}
-                            // updateBuyFishArrayState={this.updateBuyFishArrayState} 
                             addToCart={this.props.clickItem}
                             buyFishArray= {this.props.buyFishArray}    
-                            updateBuyFishArrayState = {this.props.updateBuyFishArrayState}     
+                            updateBuyFishArrayState = {this.props.updateBuyFishArrayState}  
                         />                
                     </div>
 
