@@ -19,7 +19,7 @@ class AppContainer extends Component {
         subTotal: 0,
         cartArray: [],
         buyFishArray: [],
-        fishTemplateTrueOrUserFishFalse: true 
+        fishTemplateOrUserFish: false 
     };
 
     //ORIGINAL IN BUY COMPONENT
@@ -28,6 +28,14 @@ class AppContainer extends Component {
         // This will prevent issues when we concatenate below.  
         let fishIndex = this.state.buyFishArray.findIndex((fish) => fish===this.state.buyFishArray.filter(fish => fish.id===id)[0]);
         
+        // If something is added to the cart we disable the toggle - this disallows us from switching between carts (and screwing up pathing)
+        let targetToggle = document.getElementById("fishTemplateOrUserFishInput");
+        targetToggle.setAttribute("disabled","disabled");
+
+        if (this.state.fishTemplateOrUserFish == false) {
+            document.getElementById("card"+id).style.display = "none";
+        }
+
         this.setState({            
             cartArray: this.state.cartArray.concat([this.state.buyFishArray[fishIndex]])
         }, (state) => {
@@ -36,22 +44,35 @@ class AppContainer extends Component {
     }   
     
     toggleFishMarket = () => {
-        if (this.state.cartArray.length === 0) {
-            console.log(`Cart array is empty, we can proceed.`)
-            
-            let targetToggle = document.getElementById("fishTemplateTrueOrUserFishFalseInput");
-            console.log(`currently: ${targetToggle.checked}`);
-            this.setState({fishTemplateTrueOrUserFishFalse: targetToggle.checked}, this.updateBuyFishArrayState())
-            // TODO known error - the first toggle does NOT show the user fish market - the SECOND and Nth iterations do
-            // not sure what is going on with the first - suggest it's an async issue on state being update?  
-            // Troubleshoot soon as able.  Works 'ok' for now.  
-        }
+        let targetToggle = document.getElementById("fishTemplateOrUserFishInput");
+        console.log(`before update (?): ${targetToggle.checked}`);
+        this.toggleFishMarketState(targetToggle.checked);
+        // this.setState({fishTemplateOrUserFish: targetToggle.checked}, this.updateBuyFishArrayState())
+        // TODO known error - the first toggle does NOT show the user fish market - the SECOND and Nth iterations do
+        // not sure what is going on with the first - suggest it's an async issue on state being update?  
+        // Troubleshoot soon as able.  Works 'ok' for now.  
+    }
+
+    toggleFishMarketState = (trueOrFalse) => {
+        console.log(`setting market to: ${trueOrFalse}`);
+        this.setState({fishTemplateOrUserFish: trueOrFalse}, this.updateBuyFishArrayState())
     }
   
     //ORIGINAL IN BUY COMPONENT
     updateBuyFishArrayState = () => {
         this.state.buyFishArray = []; // TODO make this more graceful - we are over populating the array
-        if (this.state.fishTemplateTrueOrUserFishFalse){
+        if (this.state.fishTemplateOrUserFish){
+            axios.get('/api/allUserFishOnSale')
+            .then((allfish) => {    
+                allfish.data.forEach((fish) => {
+                    this.setState({buyFishArray: this.state.buyFishArray.concat([fish])})
+                })
+            })
+            .catch((err)=> {
+                console.log(err)
+            })
+        }
+        else {
             axios.get('/api/allFishTemplates')
             .then((allfish) => {    
                 allfish.data.forEach((fish) => {
@@ -62,17 +83,6 @@ class AppContainer extends Component {
                 console.log(err)
             })
         }
-        else (
-            axios.get('/api/allUserFishOnSale')
-            .then((allfish) => {    
-                allfish.data.forEach((fish) => {
-                    this.setState({buyFishArray: this.state.buyFishArray.concat([fish])})
-                })
-            })
-            .catch((err)=> {
-                console.log(err)
-            })
-        )
     } 
     
     //FUNCTION TO HANDLE THE SUBTOTAL MATH
@@ -87,11 +97,13 @@ class AppContainer extends Component {
             console.log(`So... we theoretically have user creds?`);
             console.log(userCredentials.data);
             // Changed this to only have one set of user credentials data instead of a contact (would create multiple sets of the same)
-            this.setState({thisUserCred: userCredentials.data})
-            this.setState({currentBalance: userCredentials.data.walletBalance})
-            console.log("This is user cred")
-            console.log(this.state.thisUserCred);
-            console.log(`Here is current balance: ${this.state.currentBalance}`);
+            this.setState({thisUserCred: userCredentials.data}, () => {
+                console.log("This is user cred");
+                console.log(this.state.thisUserCred);
+            })
+            this.setState({currentBalance: userCredentials.data.walletBalance}, () => {
+                console.log(`Here is current balance: ${this.state.currentBalance}`);
+            });
         })
         .catch((err)=> {
             console.log(`user auth vomited - so - it didn't get your credentials`)
@@ -102,6 +114,7 @@ class AppContainer extends Component {
     componentDidMount() {
         // TODO this doesn't load everything correctly the first time - it requires a page refresh
         this.checkAndUpdateAuthenticatedUser();
+        this.updateBuyFishArrayState();
     }
     
     updateBalanceAfterCheckout = () => {
@@ -112,7 +125,7 @@ class AppContainer extends Component {
         if(this.state.subTotal <= this.state.thisUserCred.walletBalance){
             console.log(`You CAN purchase these items!`);
 
-            if (this.state.fishTemplateTrueOrUserFishFalse){
+            if (this.state.fishTemplateOrUserFish){
                 axios.post('/api/userPurchaseFish/', this.state.cartArray)
                 .then((success) => {
                     this.setState({cartArray: []})   
@@ -145,6 +158,9 @@ class AppContainer extends Component {
                     this.updateBuyFishArrayState();
                 })
             }
+            // Re-enable the target toggle after fish are purchased
+            let targetToggle = document.getElementById("fishTemplateOrUserFishInput");
+            targetToggle.removeAttribute("disabled");
      
         } else if (this.state.subTotal >= this.state.currentBalance){
             // TODO forward this error to the user - modal?
@@ -181,7 +197,7 @@ class AppContainer extends Component {
                         clickItem = {this.clickItem}
                         updateBuyFishArrayState = {this.updateBuyFishArrayState}    
                         updateSubtotalState = {this.updateSubtotalState}
-                        fishTemplateTrueOrUserFishFalse = {this.fishTemplateTrueOrUserFishFalse}  
+                        fishTemplateOrUserFish = {this.fishTemplateOrUserFish}  
                         toggleFishMarket = {this.toggleFishMarket}                 
                     />
             }

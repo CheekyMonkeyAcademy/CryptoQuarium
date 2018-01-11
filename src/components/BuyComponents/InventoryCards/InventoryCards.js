@@ -8,7 +8,7 @@ const InventoryCards = props => (
         
         <div className="row">
             <div className="col s3">
-                <div className="card">
+                <div className="card" id={"card"+props.id}>
                     <div className="card-image">
                         <img alt="" src="http://via.placeholder.com/140x100" />                        
                         <a className="btn-floating halfway-fab waves-effect waves-light red" id={props.id} onClick={() => props.onClick(props.id)}><i className="material-icons">add</i></a>

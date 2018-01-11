@@ -53,7 +53,7 @@ class Buy extends Component {
                             Source:
                             Fish Market
                             <label className="switch">
-                                <input id="fishTemplateTrueOrUserFishFalseInput" onChange={this.props.toggleFishMarket} type="checkbox"></input>
+                                <input id="fishTemplateOrUserFishInput" onChange={this.props.toggleFishMarket} type="checkbox"></input>
                                 <span className="slider round"></span>
                             </label>
                             Other Users Market
