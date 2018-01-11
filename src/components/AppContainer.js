@@ -54,7 +54,6 @@ class AppContainer extends Component {
         if (this.state.fishTemplateTrueOrUserFishFalse){
             axios.get('/api/allFishTemplates')
             .then((allfish) => {    
-                // console.log(allfish);
                 allfish.data.forEach((fish) => {
                     this.setState({buyFishArray: this.state.buyFishArray.concat([fish])})
                 })
@@ -66,7 +65,6 @@ class AppContainer extends Component {
         else (
             axios.get('/api/allUserFishOnSale')
             .then((allfish) => {    
-                // console.log(allfish);
                 allfish.data.forEach((fish) => {
                     this.setState({buyFishArray: this.state.buyFishArray.concat([fish])})
                 })
@@ -90,9 +88,10 @@ class AppContainer extends Component {
             console.log(userCredentials.data);
             // Changed this to only have one set of user credentials data instead of a contact (would create multiple sets of the same)
             this.setState({thisUserCred: userCredentials.data})
-            this.setState({currentBalance: this.state.walletBalance})
+            this.setState({currentBalance: userCredentials.data.walletBalance})
             console.log("This is user cred")
-            console.log(this.state.thisUserCred.walletBalance)
+            console.log(this.state.thisUserCred);
+            console.log(`Here is current balance: ${this.state.currentBalance}`);
         })
         .catch((err)=> {
             console.log(`user auth vomited - so - it didn't get your credentials`)
@@ -105,14 +104,11 @@ class AppContainer extends Component {
         this.checkAndUpdateAuthenticatedUser();
     }
     
-    //FUNCTION FOR HANDLING ACCOUNT MATH ON CHECKOUT CLICK
-    //THIS FUNCTION NEEDS THE CARTARRAY
-        //I WANT TO CLEAR THE ARRAY AFTER ACCEPTED PURCHASE SO THERE IS AN EMPTY CART FOR THE NEXT PURCHASE
     updateBalanceAfterCheckout = () => {
-        console.log("Am I clicking the checkout button");
+        console.log("Am I clicking the checkout button");   
+        console.log(this.state.thisUserCred);
         console.log(`Subtotal: ${this.state.subTotal}`);
         console.log(`Balance: ${this.state.thisUserCred.walletBalance}`);
-       //I NEED TO PASS UP THE CART ARRAY TO EMPTY IT HERE--BUT IT IS BEING USED HEAVILY TWO COMPONENTS DOWN >:(
         if(this.state.subTotal <= this.state.thisUserCred.walletBalance){
             console.log(`You CAN purchase these items!`);
 
@@ -120,11 +116,15 @@ class AppContainer extends Component {
                 axios.post('/api/userPurchaseFish/', this.state.cartArray)
                 .then((success) => {
                     this.setState({cartArray: []})   
-                    this.setState({subTotal: 0});  
+                    this.setState({subTotal: 0});
+                    this.checkAndUpdateAuthenticatedUser();
+                    console.log(`Go to wallet page and see your updated balance!`);  
                 })
                 .catch((err)=> {
                     console.log(`Purchasing fish broke`);
                     console.log(err)
+                    this.checkAndUpdateAuthenticatedUser();
+                    console.log(`Go to wallet page and see your updated balance!`);
                 })
             }
             else {
@@ -132,15 +132,19 @@ class AppContainer extends Component {
                 .then((success) => {
                     this.setState({cartArray: []})   
                     this.setState({subTotal: 0});  
+                    // reset user credentials, balance, etc
+                    this.checkAndUpdateAuthenticatedUser();
+                    console.log(`Go to wallet page and see your updated balance!`);
+                    this.updateBuyFishArrayState();
                 })
                 .catch((err)=> {
                     console.log(`Purchasing fish broke`);
                     console.log(err);
+                    this.checkAndUpdateAuthenticatedUser();
+                    console.log(`Go to wallet page and see your updated balance!`);
+                    this.updateBuyFishArrayState();
                 })
             }
-            
-            this.checkAndUpdateAuthenticatedUser();
-            console.log(`Go to wallet page and see your updated balance!`)
      
         } else if (this.state.subTotal >= this.state.currentBalance){
             // TODO forward this error to the user - modal?

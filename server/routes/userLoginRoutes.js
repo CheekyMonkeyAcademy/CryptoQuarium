@@ -1,13 +1,11 @@
 const db = require('../models');
 const passport = require('passport');
-const authenticationMiddleware = require('../passport/authenticationMiddleware');
-
 
 module.exports = function(app) {
 
     app.get('/api/getAuthenticatedUser', function(req, res){
         if (req.user) {
-            console.log(`User is logged in`);
+            console.log(`User is logged in: '${req.user.displayName}'`);
             res.json(req.user);
         }
         else {

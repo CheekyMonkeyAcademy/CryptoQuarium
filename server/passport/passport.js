@@ -71,7 +71,7 @@ function(request, accessToken, refreshToken, profile, done) {
                 userId: profile.id,
                 provider: 'google',
             }
-            console.log(updatedUserSpecs);
+            // console.log(updatedUserSpecs);
             db.User.update(updatedUserSpecs,{
                 where: {
                     userId: updatedUserSpecs.userId
