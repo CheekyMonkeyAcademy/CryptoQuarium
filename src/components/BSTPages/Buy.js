@@ -4,6 +4,7 @@ import BuyCart from "../BuyComponents/BuyCart";
 import "../../Style/FishMarket.css";
 import "../../Style/ToggleSlider.css";
 
+
 // import axios from 'axios';
 
 //Add a checkbox that toggles with axios call is getting used
@@ -46,41 +47,47 @@ class Buy extends Component {
     render() {
         return (
             <div>
-                <div className="row">
-                    <div className="col s8">
-                        <h5>Buy Fish and Accoutrement</h5>
-                        <div>
-                            Source:
-                            Fish Market
+                <div className="container green">
+                    <div className="row">
+                        <h5 className="col s6">BUY FISH AND ACCOUNTREMENT</h5>    
+                    </div>
+                    <div className="row swith1">
+                        <div className="col s2">Fish Market</div>
+                        <div className="col s2">
                             <label className="switch">
                                 <input id="fishTemplateTrueOrUserFishFalseInput" onChange={this.props.toggleFishMarket} type="checkbox"></input>
-                                <span className="slider round"></span>
+                                <span className="slider round #dcedc8 light-green lighten-4"></span>
                             </label>
-                            Other Users Market
+                        </div>
+                        <div className="col s2">Other Users Market</div>
+                    </div>
+                </div>
+
+                <br/><br/>
+
+                <div>
+                    <div className="row">
+                        <div className="col s8">
+                            <BuyInventory
+                                addToCart={this.props.clickItem}
+                                buyFishArray={this.props.buyFishArray}
+                                updateBuyFishArrayState={this.props.updateBuyFishArrayState}
+                            />
+                        </div>
+
+                        <div className="col s4">
+                            <BuyCart
+                                // updateSubtotalState={this.props.updateSubtotalState}
+                                // shoppingCart={this.state.cartArray}  
+                                shoppingCart={this.props.cartArray}
+                                subTotal={this.props.subTotal}
+                                checkoutChangeBalance={this.props.checkoutChangeBalance}
+                            />
                         </div>
                     </div>
                 </div>
-
-                <div className="row">
-                    <div className="col s8">
-                        <BuyInventory
-                            addToCart={this.props.clickItem}
-                            buyFishArray={this.props.buyFishArray}
-                            updateBuyFishArrayState={this.props.updateBuyFishArrayState}
-                        />
-                    </div>
-
-                    <div className="col s4">
-                        <BuyCart
-                            // updateSubtotalState={this.props.updateSubtotalState}
-                            // shoppingCart={this.state.cartArray}  
-                            shoppingCart={this.props.cartArray}
-                            subTotal={this.props.subTotal}
-                            checkoutChangeBalance={this.props.checkoutChangeBalance}
-                        />
-                    </div>
-                </div>
             </div>
+
         )
     }
 }

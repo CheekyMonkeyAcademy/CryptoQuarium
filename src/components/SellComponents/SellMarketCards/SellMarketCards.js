@@ -13,7 +13,7 @@ const SellMarketCards = props => (
                     <div className="card-action black-text">
                         <p>Item Id: {props.id}</p>
                         <p>Species: {props.species}</p>
-                        <p>$ {props.price}</p>                        
+                        <p>Price $ {props.price}</p>                        
                     </div>
                 </div>
             </div>
