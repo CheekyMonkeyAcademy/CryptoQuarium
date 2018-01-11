@@ -3,8 +3,7 @@ import FishMarketNav from "../FishMarketNav";
 import Buy from "../BSTPages/Buy";
 import Sell from "../BSTPages/Sell";
 import Trade from "../BSTPages/Trade";
-import Fish from "../Fish";
-import PufferFish from "../PufferFish";
+
 
 
 //This is set up to be a stateful component because I assume the state of the page
