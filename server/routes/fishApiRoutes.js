@@ -37,7 +37,6 @@ module.exports = function(app) {
         });
     });
 
-    // TODO TEST THIS ENTIRE BEAST
     app.post('/api/userPurchaseOtherUserFish/', function(req, res){
         
         asyncOtherUserFishPurchase(req.body, req.user.id)

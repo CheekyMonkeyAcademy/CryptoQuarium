@@ -99,8 +99,8 @@ class AppContainer extends Component {
         })
     }
 
-    //FUNCTION TO GET LOGGEDIN USER CREDENTIALS FROM THE DATABASE
     componentDidMount() {
+        // TODO this doesn't load everything correctly the first time - it requires a page refresh
         this.checkAndUpdateAuthenticatedUser();
     }
     
@@ -195,6 +195,7 @@ class AppContainer extends Component {
                 <Navbar
                     currentPage = {this.state.currentPage}
                     handlePageChange = {this.handlePageChange}
+                    thisUserCred = {this.state.thisUserCred}
                 />
                 {this.renderPage()}
             </div>
