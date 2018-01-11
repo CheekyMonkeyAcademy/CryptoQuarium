@@ -112,8 +112,6 @@ asyncFishPurchase = (fishArray, userId, index = 0, deferred = Q.defer()) => {
             }
         })
         .then((selectedFish) => {
-            console.log(`@@@@@@@@@@@@@@@@@@@@`);
-            console.log(selectedFish);
             if (selectedFish.quantityAvailable >= 1) {
                 console.log(`You are clear to purchase a: ${selectedFish.species}`);
             }
