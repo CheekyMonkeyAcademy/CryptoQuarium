@@ -1,5 +1,6 @@
 let db = require('../models');
 const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 const randomize = require('../services/randomize.js');
 const Q = require('q');
 
@@ -27,9 +28,9 @@ module.exports = function(app) {
         db.UserFish.findAll({
             where: {
                 forSale: true,
-                // TODO:  This should - theoretically - eliminate your own sales from the for sale... 
-                // ... remove once tested - or comment out code :)  Still need to remove own users' sales
-                // UserId: {[Sequelize.op.ne]: req.user.id} 
+                // This hides the sales by the existing user (you can't buy your own fish);
+                UserId: {[Op.ne]: req.user.id}
+
             }  
         }).then((allUserFishOnSale) => {
             res.json(allUserFishOnSale);
@@ -48,57 +49,6 @@ module.exports = function(app) {
             console.log(`BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO`);
             res.sendStatus(400).json(error);
         })
-
-        // req.body.forEach((fish) => {
-        //     db.UserFish.findOne({
-        //         where: {
-        //             id: fish.id
-        //         }
-        //     })
-        //     .then((fishForSale) => {
-        //         // Get the user wanting to purchase
-        //         db.User.findOne({
-        //             where: {
-        //                 id: req.user.id
-        //                 // id: 1 // --- TEST VALUE
-        //             }
-        //         })
-        //         .then((userBuying) => {
-        //             if (userBuying.walletBalance >= fishForSale.price) {
-        //                 // Money changes hands
-        //                 userBuying.update({walletBalance: (userBuying.walletBalance -= fishForSale.price)});
-        //                 db.WalletHistory.create({
-        //                     UserId: req.user.id,
-        //                     // UserId: 1, //--- TEST VALUE
-        //                     walletBalanceChange: -fishForSale.price,
-        //                     walletBalanceChangeReason: `Fish purchased from other user: ${fishForSale.species} named: '${fishForSale.name}'`,
-        //                     lastWalletBalance: (userBuying.walletBalance - fishForSale.price)
-        //                 });
-
-        //                 db.User.findOne({
-        //                     where: {
-        //                         id: fishForSale.UserId
-        //                     }
-        //                 })
-        //                 .then((userSelling) => {
-        //                     userSelling.update({walletBalance: (userSelling.walletBalance += fishForSale.price)});
-        //                     db.WalletHistory.create({
-        //                         UserId: userSelling.id,
-        //                         walletBalanceChange: +fishForSale.price,
-        //                         walletBalanceChangeReason: `Fish sold: ${fishForSale.species} named: '${fishForSale.name}'`,
-        //                         lastWalletBalance: (userSelling.walletBalance + fishForSale.price)
-        //                     });
-        //                 });
-
-        //                 // Fish is moved from original user to current user
-        //                 fishForSale.update({UserId: req.user.id});
-        //                 // fishForSale.update({UserId: 1}); // --- TEST VALUE
-        //                 fishForSale.update({forSale: false});
-        //                 res.json({"Success": "Fish has changed hands"});
-        //             }
-        //         });
-        //     });
-        // });
     });
                 
 

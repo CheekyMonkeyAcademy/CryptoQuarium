@@ -19,7 +19,7 @@ class AppContainer extends Component {
         subTotal: 0,
         cartArray: [],
         buyFishArray: [],
-        fishTemplateTrueOrUserFishFalse: true 
+        fishTemplateTrueOrUserFishFalse: false 
     };
 
     //ORIGINAL IN BUY COMPONENT
