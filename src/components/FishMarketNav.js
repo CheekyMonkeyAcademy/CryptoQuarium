@@ -20,21 +20,21 @@ const FishMarketNav = props =>
                 <buttom
                     onClick={() => { props.handlePageChange("Buy"); }}
                     className={props.currentPage === "Buy" ? "active" : ""}>
-                    <a><button class="btn btn-large green waves-effect pulse col s2 offset-s1">Buy</button>
+                    <a><button className="btn btn-large green waves-effect pulse col s2 offset-s1">Buy</button>
                     </a>
                 </buttom>
 
                 <buttom
                     onClick={() => { props.handlePageChange("Sell"); }}
                     className={props.currentPage === "Sell" ? "active" : ""}>
-                    <a><button class="btn btn-large red waves-effect col s2 offset-s2">Sell</button>
+                    <a><button className="btn btn-large red waves-effect col s2 offset-s2">Sell</button>
                     </a>
                 </buttom>
 
                 <buttom
                     onClick={() => { props.handlePageChange("Trade"); }}
                     className={props.currentPage === "Trade" ? "active" : ""}>
-                    <a><button class="btn btn-large orange waves-effect waves-darker col s2 offset-s2">Trade</button>
+                    <a><button className="btn btn-large orange waves-effect waves-darker col s2 offset-s2">Trade</button>
                     </a>
                 </buttom>
             </div>
