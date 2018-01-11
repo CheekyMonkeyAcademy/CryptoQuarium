@@ -15,7 +15,8 @@
 .fish_body2 {
     transform: skewX(30deg) skewY(5deg);
     /* background: linear-gradient(225deg, rgb(242,237,136), 62.5%, rgb(225,225,225)); */
-    background-image: radial-gradient(black 6px, #f2ed88 2px);
+    /* background-image: radial-gradient(black 6px, rgb(var(--colorTwoR), var(--colorTwoG), var(--colorTwoB)) 2px); */
+    background-image: radial-gradient(rgb(var(--colorOneR),99,101) 6px, rgb(25,50,75) 2px);
     background-size:40px 40px;
     /* background-image: radial-gradient(black 10%, transparent 0%, rgb(242,237,136), rgb(225,225,225)); */
     border-radius: 1500px 1200px 757px 553px; /*orig*/
@@ -127,9 +128,10 @@
     left: 200px;
     top: 105px;
     z-index: 100;
-    animation-name: swim2;
+    animation: swim2 var(--animation-time) ease infinite;
+    /* animation-name: swim2;
     animation-duration: 15s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: infinite; */
  }
 
 @keyframes swim2 {
