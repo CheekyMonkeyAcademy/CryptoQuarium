@@ -7,6 +7,11 @@ class PufferFish extends Component {
         super(props);
     }
 
+    spot() {
+        let fish_wrap = document.getElementById(this.props.id);
+        fish_wrap.style.setProperty('--degree', this.props.degree + 'px');
+    }
+
     colorRedOne(){
         let fish_wrap = document.getElementById(this.props.id);
         fish_wrap.style.setProperty('--colorOneR', this.props.color1r);
@@ -38,17 +43,24 @@ class PufferFish extends Component {
     }
 
      swim() {
-        let animationDuration = Math.floor(Math.random() * 20 + 20);
+        let animationDuration = Math.floor(Math.random() * 50 + 20);
         let fish_wrap = document.getElementById(this.props.id);
         fish_wrap.style.setProperty("--animation-time", animationDuration + "s");
 
         setTimeout(() => {
             this.swim();
-        }, animationDuration * 1000);
+        }, animationDuration * 2000);
     }
 
     componentDidMount() {
         this.swim();
+        this.spot();
+        this.colorRedOne();
+        this.colorGreenOne();
+        this.colorBlueOne();
+        this.colorRedTwo();
+        this.colorGreenTwo();
+        this.colorBlueTwo();
     }
 
     render() {
