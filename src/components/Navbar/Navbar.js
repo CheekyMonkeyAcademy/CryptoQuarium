@@ -13,19 +13,21 @@ import "./Navbar.css";
 //TODO:: Add logic that limits what pages users have access to based on whether they are logged in or not
 
 const Navbar = props =>
-    <nav class="#607d8b blue-grey">
+    <nav className="#607d8b blue-grey">
         <div className="nav-wrapper">
             <a className="brand-logo right">
                 <img alt="" src={canbcheeky1} style={{ width: 240, marginTop: 15 }} />
             </a>
-            <a data-activates="mobile-demo" class="button-collapse">
-                <i class="material-icons">menu</i>
+            <a data-activates="mobile-demo" className="button-collapse">
+                <i className="material-icons">menu</i>
             </a>
 
             <ul className="left hide-on-med-and-down">
                 <li onClick={() => { props.handlePageChange("Login"); }}
                     className={props.currentPage === "Login" ? "active" : ""}>
-                    <a>Login</a>
+                    {/* TODO make logout actually function as logout */}
+                    {/* TODO make this re-render to show the right item without a refresh */}
+                    <a>{ props.thisUserCred.displayName ? "Logout": "Login" }</a>
                 </li>
 
                 <li onClick={() => { props.handlePageChange("Home"); }}

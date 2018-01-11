@@ -48,7 +48,8 @@ class Fish extends Component {
     swim() {
         let animationDuration = Math.floor(Math.random() * 20 + 20);
         let fish_wrap = document.getElementById(this.props.id);
-        fish_wrap.style.setProperty("--animation-time", animationDuration + "s");
+        // The following prevents a bug when we navigate AWAY from the aquarium page.  
+        fish_wrap ? fish_wrap.style.setProperty("--animation-time", animationDuration + "s") : console.log(`No fish, no style`);
 
         setTimeout(() => {
             this.swim();
