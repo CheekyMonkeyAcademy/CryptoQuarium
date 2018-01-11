@@ -12,8 +12,13 @@ import Tank from "../Tank";
 const MyAquarium = () => 
 
     <div>
-        <h5 className="center-align indigo-text text-accent-4">My Aquarium</h5>
-        <Tank />
+        <br/><br/>
+        <div className="container">
+            <h3 className="logo #757575 center grey darken-1 z-depth-5">My Aquarium</h3>
+        </div>
+        <div>
+            <Tank />
+        </div>
     </div>
 
 export default MyAquarium;
