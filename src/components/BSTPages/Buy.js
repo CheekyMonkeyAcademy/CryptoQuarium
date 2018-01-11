@@ -3,6 +3,7 @@ import BuyInventory from "../BuyComponents/BuyInventory";
 import BuyCart from "../BuyComponents/BuyCart";
 import "../../Style/FishMarket.css";
 import "../../Style/ToggleSlider.css";
+
 // import axios from 'axios';
 
 //Add a checkbox that toggles with axios call is getting used
@@ -49,7 +50,7 @@ class Buy extends Component {
                     <div className="col s8">
                         <h5>Buy Fish and Accoutrement</h5>
                         <div>
-                            Source:
+                            Source: 
                             Fish Market  
                             <label className="switch">
                                 <input id="fishTemplateTrueOrUserFishFalseInput" onChange={this.props.toggleFishMarket} type="checkbox"></input>

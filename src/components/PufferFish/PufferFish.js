@@ -1,11 +1,71 @@
 import React, {Component} from "react";
-
 import "./PufferFish.css";
 
+
 class PufferFish extends Component {
+   constructor(props) {
+        super(props);
+    }
+
+    spot() {
+        let fish_wrap = document.getElementById(this.props.id);
+        fish_wrap.style.setProperty('--degree', this.props.degree + 'px');
+    }
+
+    colorRedOne(){
+        let fish_wrap = document.getElementById(this.props.id);
+        fish_wrap.style.setProperty('--colorOneR', this.props.color1r);
+    }
+
+    colorGreenOne() {
+        let fish_wrap = document.getElementById(this.props.id);
+        fish_wrap.style.setProperty('--colorOneG', this.props.color1g);
+    }
+
+    colorBlueOne() {
+        let fish_wrap = document.getElementById(this.props.id);
+        fish_wrap.style.setProperty('--colorOneB', this.props.color1b);
+    }
+
+    colorRedTwo() {
+        let fish_wrap = document.getElementById(this.props.id);
+        fish_wrap.style.setProperty('--colorTwoR', this.props.color2r);
+    }
+
+    colorGreenTwo() {
+        let fish_wrap = document.getElementById(this.props.id);
+        fish_wrap.style.setProperty('--colorTwoG', this.props.color2g);
+    }
+
+    colorBlueTwo() {
+        let fish_wrap = document.getElementById(this.props.id);
+        fish_wrap.style.setProperty('--colorTwoB', this.props.color2b);
+    }
+
+     swim() {
+        let animationDuration = Math.floor(Math.random() * 50 + 20);
+        let fish_wrap = document.getElementById(this.props.id);
+        fish_wrap.style.setProperty("--animation-time", animationDuration + "s");
+
+        setTimeout(() => {
+            this.swim();
+        }, animationDuration * 2000);
+    }
+
+    componentDidMount() {
+        this.swim();
+        this.spot();
+        this.colorRedOne();
+        this.colorGreenOne();
+        this.colorBlueOne();
+        this.colorRedTwo();
+        this.colorGreenTwo();
+        this.colorBlueTwo();
+    }
+
     render() {
         return (
-            <div className = "fish_wrap2" > 
+            <div className = "fish_wrap2" id={this.props.id}> 
                 <div className="fish2">
                     <div className="tail_fin2"></div>
                     <div className="fish_body2">
