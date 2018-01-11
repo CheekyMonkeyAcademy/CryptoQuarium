@@ -9,11 +9,10 @@ const FishMarketNav = props =>
         <div className="container">
             <h3 className="logo center #757575 grey darken-1 z-depth-5">Crypto Fish Market</h3>
         </div>
-        <br/>
-        <div className="store1 center row"></div>
-        <br/>
+        {/* <div className="store1 center row"></div> */}
+        {/* <br/> */}
         <hr />
-        <br /><br />
+        {/* <br /> */}
         <div className="container">
             <div className="nav-content row">
                 {/* <ul id="nav-mobile" className="right hide-on-med-and-down"> */}

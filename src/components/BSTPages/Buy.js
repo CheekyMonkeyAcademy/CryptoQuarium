@@ -55,13 +55,14 @@ class Buy extends Component {
                         <div className="col s2">Fish Market</div>
                         <div className="col s2">
                             <label className="switch">
-                                <input id="fishTemplateTrueOrUserFishFalseInput" onChange={this.props.toggleFishMarket} type="checkbox"></input>
-                                <span className="slider round #dcedc8 light-green lighten-4"></span>
+                                <input id="fishTemplateOrUserFishInput" onChange={this.props.toggleFishMarket} type="checkbox"></input>
+                                <span className="slider round"></span>
                             </label>
                         </div>
                         <div className="col s2">Other Users Market</div>
                     </div>
                 </div>
+
 
                 <br/><br/>
 
