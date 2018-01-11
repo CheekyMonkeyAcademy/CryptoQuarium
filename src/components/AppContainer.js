@@ -19,7 +19,7 @@ class AppContainer extends Component {
         subTotal: 0,
         cartArray: [],
         buyFishArray: [],
-        fishTemplateTrueOrUserFishFalse: false 
+        fishTemplateTrueOrUserFishFalse: true 
     };
 
     //ORIGINAL IN BUY COMPONENT
@@ -54,7 +54,6 @@ class AppContainer extends Component {
         if (this.state.fishTemplateTrueOrUserFishFalse){
             axios.get('/api/allFishTemplates')
             .then((allfish) => {    
-                // console.log(allfish);
                 allfish.data.forEach((fish) => {
                     this.setState({buyFishArray: this.state.buyFishArray.concat([fish])})
                 })
@@ -66,7 +65,6 @@ class AppContainer extends Component {
         else (
             axios.get('/api/allUserFishOnSale')
             .then((allfish) => {    
-                // console.log(allfish);
                 allfish.data.forEach((fish) => {
                     this.setState({buyFishArray: this.state.buyFishArray.concat([fish])})
                 })
@@ -106,15 +104,11 @@ class AppContainer extends Component {
         this.checkAndUpdateAuthenticatedUser();
     }
     
-    //FUNCTION FOR HANDLING ACCOUNT MATH ON CHECKOUT CLICK
-    //THIS FUNCTION NEEDS THE CARTARRAY
-        //I WANT TO CLEAR THE ARRAY AFTER ACCEPTED PURCHASE SO THERE IS AN EMPTY CART FOR THE NEXT PURCHASE
     updateBalanceAfterCheckout = () => {
         console.log("Am I clicking the checkout button");   
         console.log(this.state.thisUserCred);
         console.log(`Subtotal: ${this.state.subTotal}`);
         console.log(`Balance: ${this.state.thisUserCred.walletBalance}`);
-       //I NEED TO PASS UP THE CART ARRAY TO EMPTY IT HERE--BUT IT IS BEING USED HEAVILY TWO COMPONENTS DOWN >:(
         if(this.state.subTotal <= this.state.thisUserCred.walletBalance){
             console.log(`You CAN purchase these items!`);
 
