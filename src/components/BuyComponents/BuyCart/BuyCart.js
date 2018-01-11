@@ -1,36 +1,34 @@
-import React, {Component} from "react";
-import CartItems from "../CartItems/CartItems"
-import CartSubtotal from "../CartSubtotal/CartSubtotal"
+import React, { Component } from "react";
+import CartItems from "../CartItems/CartItems";
+import CartSubtotal from "../CartSubtotal/CartSubtotal";
+import CartLogo from "../../../Images/fish/store3.png";
+import "./BuyCart.css";
+import { Card, CardTitle } from 'react-materialize'
 
 
 class BuyCart extends Component {
-      
+
     render() {
         return (
+            <div className="row">
 
-            <div>
-                <div className="row">
-                    <div className="col s12">
-                    <div className="card teal lighten-2">
-                        <div className="card-content white-text">
-                            <span className="card-title">Shopping Cart</span>
+                <Card className='big #757575 grey darken-1'
+                    header={<CardTitle image={CartLogo}>Shopping Cart</CardTitle>}>
+                    Your fish tank is looking empty, buy some crypto-fish.
 
-                                {this.props.shoppingCart.map(items =>{
-                                    return <CartItems {...items}
-                                    key = {items.id}                                        
-                                    />
-                                }, this)}
-                                
-                        </div>
-                        <div className="card-action card-content white-text">                           
-                           <CartSubtotal subTotal={this.props.subTotal}
-                                        
-                           /> 
-                            <a className="waves-effect waves-light btn black" onClick = {() => this.props.checkoutChangeBalance()}><i className="material-icons left">done</i>checkout</a>
-                        </div>
+                    <CartSubtotal subTotal={this.props.subTotal} />
+                    {this.props.shoppingCart.map(items => {
+                        return
+                        <CartItems {...items}
+                            key={items.id}
+                        />
+                    }, this)}
+
+                    <div className="card-action card-content white-text">
+                        <a className="waves-effect waves-light btn green pulse" onClick={() => this.props.checkoutChangeBalance()}><i
+                            className="material-icons left">done</i>checkout</a>
                     </div>
-                    </div>
-                </div>
+                </Card>
             </div>
         )
     }

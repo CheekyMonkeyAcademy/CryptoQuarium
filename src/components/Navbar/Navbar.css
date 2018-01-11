@@ -1,6 +1,7 @@
 .navbar-brand {
-    display: flex;
+    display: fixed;
     align-items: center;
+
   }
   .navbar-brand>img {
     padding: 7px 14px;
