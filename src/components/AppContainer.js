@@ -141,12 +141,14 @@ class AppContainer extends Component {
                     // reset user credentials, balance, etc
                     this.checkAndUpdateAuthenticatedUser();
                     console.log(`Go to wallet page and see your updated balance!`);
+                    this.updateBuyFishArrayState();
                 })
                 .catch((err)=> {
                     console.log(`Purchasing fish broke`);
                     console.log(err);
                     this.checkAndUpdateAuthenticatedUser();
                     console.log(`Go to wallet page and see your updated balance!`);
+                    this.updateBuyFishArrayState();
                 })
             }
      

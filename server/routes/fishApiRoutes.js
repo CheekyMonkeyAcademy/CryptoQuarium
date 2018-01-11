@@ -106,7 +106,7 @@ asyncFishPurchase = (fishArray, userId, index = 0, deferred = Q.defer()) => {
     else {
         console.log(`Purchase fish here ${fishArray[index]}`);
 
-        db.Fish.findOne({
+        db.UserFish.findOne({
             where: {
                 id: fishArray[index].id
             }
@@ -205,7 +205,7 @@ asyncOtherUserFishPurchase = (fishArray, userId, index = 0, deferred = Q.defer()
 
         db.UserFish.findOne({
             where: {
-                id: fishArray[index]
+                id: fishArray[index].id
             }
         })
         .then((fishForSale) => {
