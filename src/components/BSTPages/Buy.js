@@ -3,8 +3,7 @@ import BuyInventory from "../BuyComponents/BuyInventory";
 import BuyCart from "../BuyComponents/BuyCart";
 import "../../Style/FishMarket.css";
 import "../../Style/ToggleSlider.css";
-import Fish from "../Fish";
-import PufferFish from "../PufferFish";
+
 // import axios from 'axios';
 
 //Add a checkbox that toggles with axios call is getting used
