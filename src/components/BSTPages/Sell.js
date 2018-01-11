@@ -20,18 +20,22 @@ import axios from 'axios';
     //Make the value in the sellCards a props.price. This props.price value will be stored as a props and then updated to the front end and back end
     //And then added to the cart for subtotal
     //Math will then ensue
+    // let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
 
     //The onChange event will call a function that updates the price of the specified fish item
 class Sell extends Component {
 
     state = {
         itemsToBeSold: [], 
-        myFishArray: []
+        myFishArray: [], 
+        newPrice: 0
     }
 
     //This will be an onChange event passed to the input space
-    updateFishPriceValueFromInput = () => {
+    handlePriceChange = (event) => {
         //axios back end call here!
+        console.log("my axios call will be here!")
+        // this.setState({newPrice: event.target.newPrice})
     }
 
     thisItemToMarket = (id) => {        
@@ -44,8 +48,6 @@ class Sell extends Component {
             console.log(this.state.itemsToBeSold)
         })            
     }
-
-
 
     //FUNCTION TO GET ALL USERS FISH
     getAllUserFish = () => {
@@ -77,6 +79,8 @@ class Sell extends Component {
                             thisItemToMarket = {this.thisItemToMarket}
                             getAllUserFish = {this.getAllUserFish}
                             myFishArray = {this.state.myFishArray}
+                            handlePriceChange = {this.handlePriceChange}
+                            value = {this.state.value}
                         />                
                     </div>
 

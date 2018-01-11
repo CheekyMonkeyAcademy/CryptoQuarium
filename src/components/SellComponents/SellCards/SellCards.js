@@ -34,7 +34,7 @@ const SellCards = props => (
 
                                 <form className="row">
                                     <div className="input-field col s4">
-                                        <input placeholder={props.price} type="number" min= "0" max="9999999" className="validate" />                                        
+                                        <input  onChange={() => props.handlePriceChange()} placeholder={props.price} type="number" min= "0" max="9999999" className="validate" />                                        
                                     </div>
 
                                     <a className="btn-floating halfway-fab waves-effect waves-light red" onClick={() => props.thisItemToMarket(props.id)}>
