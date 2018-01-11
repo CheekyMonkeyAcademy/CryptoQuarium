@@ -16,6 +16,17 @@
 }
 
 body {
+    /* background-color: rgb(190, 248, 248); */
+    background-image: url("../Images/aquarium4.jpg");
+    background-repeat: no-repeat;
     background-color: rgb(190, 248, 248);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;	
 }
+
+.swith1 {
+    margin-left: 50px;
+}
+
 

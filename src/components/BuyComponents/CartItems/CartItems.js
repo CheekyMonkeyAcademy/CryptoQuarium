@@ -5,7 +5,7 @@ const CartItems = props => (
         
         <div className="row">
             <div className="col s12">
-                <div className="card white">
+                <div className="card #757575 grey darken-1">
                     <div className="card-content black-text">
                         <p>Show the fish here</p>
                         <img /> 

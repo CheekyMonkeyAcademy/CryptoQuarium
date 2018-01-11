@@ -9,9 +9,7 @@ import InventoryCards from "../InventoryCards"
 class BuyInventory extends Component {
 
     render(){
-        
         return(
-
             <div className="inventoryBorder">
                 
                 {this.props.buyFishArray.map(fish => {
