@@ -66,7 +66,6 @@ class Buy extends Component {
                         <BuyInventory
                             addToCart={this.props.clickItem}
                             buyFishArray={this.props.buyFishArray}
-                            updateBuyFishArrayState={this.props.updateBuyFishArrayState}
                         />
                     </div>
 

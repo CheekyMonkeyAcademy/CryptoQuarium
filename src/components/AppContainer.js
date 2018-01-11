@@ -32,7 +32,8 @@ class AppContainer extends Component {
         let targetToggle = document.getElementById("fishTemplateOrUserFishInput");
         targetToggle.setAttribute("disabled","disabled");
 
-        if (this.state.fishTemplateOrUserFish == false) {
+        console.log(`click item is going with: ${this.state.fishTemplateOrUserFish}`)
+        if (this.state.fishTemplateOrUserFish == true) {
             document.getElementById("card"+id).style.display = "none";
         }
 
@@ -46,22 +47,13 @@ class AppContainer extends Component {
     toggleFishMarket = () => {
         let targetToggle = document.getElementById("fishTemplateOrUserFishInput");
         console.log(`before update (?): ${targetToggle.checked}`);
-        this.toggleFishMarketState(targetToggle.checked);
-        // this.setState({fishTemplateOrUserFish: targetToggle.checked}, this.updateBuyFishArrayState())
-        // TODO known error - the first toggle does NOT show the user fish market - the SECOND and Nth iterations do
-        // not sure what is going on with the first - suggest it's an async issue on state being update?  
-        // Troubleshoot soon as able.  Works 'ok' for now.  
+        this.setState({fishTemplateOrUserFish: targetToggle.checked}, this.updateBuyFishArrayState(targetToggle.checked))
     }
 
-    toggleFishMarketState = (trueOrFalse) => {
-        console.log(`setting market to: ${trueOrFalse}`);
-        this.setState({fishTemplateOrUserFish: trueOrFalse}, this.updateBuyFishArrayState())
-    }
-  
-    //ORIGINAL IN BUY COMPONENT
-    updateBuyFishArrayState = () => {
+    updateBuyFishArrayState = (trueOrFalse) => {
         this.state.buyFishArray = []; // TODO make this more graceful - we are over populating the array
-        if (this.state.fishTemplateOrUserFish){
+        console.log(`buy fish array is going with: ${trueOrFalse}`);
+        if (trueOrFalse){
             axios.get('/api/allUserFishOnSale')
             .then((allfish) => {    
                 allfish.data.forEach((fish) => {
@@ -114,18 +106,30 @@ class AppContainer extends Component {
     componentDidMount() {
         // TODO this doesn't load everything correctly the first time - it requires a page refresh
         this.checkAndUpdateAuthenticatedUser();
-        this.updateBuyFishArrayState();
+        this.updateBuyFishArrayState(false);
     }
     
     updateBalanceAfterCheckout = () => {
-        console.log("Am I clicking the checkout button");   
-        console.log(this.state.thisUserCred);
-        console.log(`Subtotal: ${this.state.subTotal}`);
-        console.log(`Balance: ${this.state.thisUserCred.walletBalance}`);
         if(this.state.subTotal <= this.state.thisUserCred.walletBalance){
-            console.log(`You CAN purchase these items!`);
-
             if (this.state.fishTemplateOrUserFish){
+                axios.post('/api/userPurchaseOtherUserFish/', this.state.cartArray)
+                .then((success) => {
+                    this.setState({cartArray: []})   
+                    this.setState({subTotal: 0});  
+                    // reset user credentials, balance, etc
+                    this.checkAndUpdateAuthenticatedUser();
+                    console.log(`Go to wallet page and see your updated balance!`);
+                    this.updateBuyFishArrayState(false);
+                })
+                .catch((err)=> {
+                    console.log(`Purchasing fish broke`);
+                    console.log(err);
+                    this.checkAndUpdateAuthenticatedUser();
+                    console.log(`Go to wallet page and see your updated balance!`);
+                    this.updateBuyFishArrayState(false);
+                })
+            }
+            else {
                 axios.post('/api/userPurchaseFish/', this.state.cartArray)
                 .then((success) => {
                     this.setState({cartArray: []})   
@@ -138,24 +142,6 @@ class AppContainer extends Component {
                     console.log(err)
                     this.checkAndUpdateAuthenticatedUser();
                     console.log(`Go to wallet page and see your updated balance!`);
-                })
-            }
-            else {
-                axios.post('/api/userPurchaseOtherUserFish/', this.state.cartArray)
-                .then((success) => {
-                    this.setState({cartArray: []})   
-                    this.setState({subTotal: 0});  
-                    // reset user credentials, balance, etc
-                    this.checkAndUpdateAuthenticatedUser();
-                    console.log(`Go to wallet page and see your updated balance!`);
-                    this.updateBuyFishArrayState();
-                })
-                .catch((err)=> {
-                    console.log(`Purchasing fish broke`);
-                    console.log(err);
-                    this.checkAndUpdateAuthenticatedUser();
-                    console.log(`Go to wallet page and see your updated balance!`);
-                    this.updateBuyFishArrayState();
                 })
             }
             // Re-enable the target toggle after fish are purchased
@@ -195,7 +181,7 @@ class AppContainer extends Component {
                         cartArray = {this.state.cartArray}
                         buyFishArray = {this.state.buyFishArray}
                         clickItem = {this.clickItem}
-                        updateBuyFishArrayState = {this.updateBuyFishArrayState}    
+                        // updateBuyFishArrayState = {this.updateBuyFishArrayState}    
                         updateSubtotalState = {this.updateSubtotalState}
                         fishTemplateOrUserFish = {this.fishTemplateOrUserFish}  
                         toggleFishMarket = {this.toggleFishMarket}                 
