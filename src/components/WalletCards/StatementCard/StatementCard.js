@@ -22,9 +22,6 @@ class StatementCard extends Component {
         super(props)
         
         this.state = {
-            lastTransactionOne: "- 5.00 purchased blowfish",
-            lastTransactionTwo: "+ 60.00 sold fishfood",
-            lastTransactionThree: "- 19.00 purchased goldfish", 
             isModalOpen: false
         };         
     } //Closing of constructor here!
@@ -38,7 +35,10 @@ class StatementCard extends Component {
                     <div className="card-content white-text">
                         <h1 className="card-title">Recent Wallet Statements</h1>
                         <hr/>
-                        <p>{this.props.myStatementHistory}</p>                       
+                        <p>{this.props.myStatementHistory.walletBalanceChangeReason}</p>
+                        <p>{this.props.myStatementHistory.walletBalanceChange}</p>
+                        <p>{this.props.myStatementHistory.lastWalletBalance}</p>
+                        <p>{this.props.myStatementHistory.createdAt}</p>
                     </div>
                     <div className="card-action">                        
                         <a className="waves-effect waves-light btn" onClick={() => this.openModel()}>View Account Activity</a>                      
@@ -55,7 +55,7 @@ class StatementCard extends Component {
         );
     }
 
-    openModel () {
+    openModel = () => {
         this.setState({isModalOpen:true});
     }
 

@@ -3,10 +3,6 @@ import "./PufferFish.css";
 
 
 class PufferFish extends Component {
-   constructor(props) {
-        super(props);
-    }
-
     spot() {
         let fish_wrap = document.getElementById(this.props.id);
         fish_wrap.style.setProperty('--degree', this.props.degree + 'px');
