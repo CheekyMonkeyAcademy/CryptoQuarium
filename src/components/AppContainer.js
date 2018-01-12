@@ -216,7 +216,7 @@ class AppContainer extends Component {
                             clickItem = {this.clickItem}
                             updateBuyFishArrayState = {this.updateBuyFishArrayState}    
                             updateSubtotalState = {this.updateSubtotalState}
-                            fishTemplateOrUserFish = {this.state.fishTemplateOrUserFish}  
+                            // fishTemplateOrUserFish = {this.state.fishTemplateOrUserFish}  
                             toggleFishMarket = {this.toggleFishMarket}  
                             // handlePageChange = {this.handlePageChange}
                             // currentPage = {this.currentPage}                  
