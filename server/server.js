@@ -3,6 +3,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const session = require('express-session');
+const path = require('path');
 require('./passport/passport');
 
 const app = express();
@@ -47,9 +48,11 @@ app.get('/success', function (req, res) {
 if (process.env.NODE_ENV == 'production') {
     app.use(express.static("../build"));
     app.get("*", function(req, res){
-        res.sendFile('../build/index.html');
+        console.log(`PATHPATHPATHPATHPATH`);
+        // console.log(path);
+        res.sendFile('index.html', { root: path.join(__dirname, '../build') });
+        
     })
-
 }
 else {
     app.use(express.static("../src"));
