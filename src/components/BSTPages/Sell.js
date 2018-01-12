@@ -72,8 +72,7 @@ class Sell extends Component {
                 <br/>
                 <div className="container red">
                     <div className="row">
-                        <h5 className="col s6 push-s4 bold_text">SELL YOUR QUIPTO-FISH</h5>
-
+                        <h5 className="col s6 push-s4 bold_text" style={{ padding:25 }}>SELL YOUR QUIPTO-FISH</h5>
 					</div>
                 </div>
                 <br/><br/>
