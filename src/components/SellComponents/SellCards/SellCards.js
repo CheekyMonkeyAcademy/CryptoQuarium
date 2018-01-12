@@ -1,8 +1,10 @@
 import React from "react";
 //Cards in this component will basically look the same,
     //So I will reuse the same CSS because I don't want to do more CSS than I have to
-import "../../BuyComponents/InventoryCards/InventoryCards.css"
-// import NameYourPrice from '../NameYourPrice'
+
+import "../../BuyComponents/InventoryCards/InventoryCards.css";
+import PlaceHolderimg from '../../../Images/fish/fish1.png';
+
 
 // local_offer
 //Add an input field with default value of props.price
@@ -12,6 +14,7 @@ const SellCards = props => (
     <div> 
         
         <div className="row">
+
             <div className="col s12 m6">
                 <div className="card cyan lighten-5">                    
                     <div className="card-action">
@@ -43,6 +46,7 @@ const SellCards = props => (
 
                                
                                 </form>
+
                         </div>
 
 

@@ -7,16 +7,9 @@ import InventoryCards from "../InventoryCards"
 
 
 class BuyInventory extends Component {
-   
-    componentDidMount(){
-      
-       {this.props.updateBuyFishArrayState()}        
-    }   
 
     render(){
-        
         return(
-
             <div className="inventoryBorder">
                 
                 {this.props.buyFishArray.map(fish => {

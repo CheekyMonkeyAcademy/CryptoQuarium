@@ -19,7 +19,8 @@ class AppContainer extends Component {
         thisUserCred: [],     
         subTotal: 0,
         cartArray: [],
-        buyFishArray: []
+        buyFishArray: [],
+        fishTemplateOrUserFish: false 
     };
 
     //ORIGINAL IN BUY COMPONENT
@@ -28,26 +29,53 @@ class AppContainer extends Component {
         // This will prevent issues when we concatenate below.  
         let fishIndex = this.state.buyFishArray.findIndex((fish) => fish===this.state.buyFishArray.filter(fish => fish.id===id)[0]);
         
+        // If something is added to the cart we disable the toggle - this disallows us from switching between carts (and screwing up pathing)
+        let targetToggle = document.getElementById("fishTemplateOrUserFishInput");
+        targetToggle.setAttribute("disabled","disabled");
+
+        console.log(`click item is going with: ${this.state.fishTemplateOrUserFish}`)
+        if (this.state.fishTemplateOrUserFish == true) {
+            document.getElementById("card"+id).style.display = "none";
+        }
+
         this.setState({            
             cartArray: this.state.cartArray.concat([this.state.buyFishArray[fishIndex]])
         }, (state) => {
             this.updateSubtotalState(this.state.subTotal + this.state.buyFishArray[fishIndex].price); 
         });             
-    }    
+    }   
     
-    //ORIGINAL IN BUY COMPONENT
-    updateBuyFishArrayState = () => {
+    toggleFishMarket = () => {
+        let targetToggle = document.getElementById("fishTemplateOrUserFishInput");
+        console.log(`before update (?): ${targetToggle.checked}`);
+        this.setState({fishTemplateOrUserFish: targetToggle.checked}, this.updateBuyFishArrayState(targetToggle.checked))
+    }
+
+    updateBuyFishArrayState = (trueOrFalse) => {
         this.state.buyFishArray = []; // TODO make this more graceful - we are over populating the array
-        axios.get('/api/allFishTemplates')
-        .then((allfish) => {    
-            // console.log(allfish);
-            allfish.data.forEach((fish) => {
-                this.setState({buyFishArray: this.state.buyFishArray.concat([fish])})
+        console.log(`buy fish array is going with: ${trueOrFalse}`);
+        if (trueOrFalse){
+            axios.get('/api/allUserFishOnSale')
+            .then((allfish) => {    
+                allfish.data.forEach((fish) => {
+                    this.setState({buyFishArray: this.state.buyFishArray.concat([fish])})
+                })
             })
-        })
-        .catch((err)=> {
-            console.log(err)
-        })
+            .catch((err)=> {
+                console.log(err)
+            })
+        }
+        else {
+            axios.get('/api/allFishTemplates')
+            .then((allfish) => {    
+                allfish.data.forEach((fish) => {
+                    this.setState({buyFishArray: this.state.buyFishArray.concat([fish])})
+                })
+            })
+            .catch((err)=> {
+                console.log(err)
+            })
+        }
     } 
     
     //FUNCTION TO HANDLE THE SUBTOTAL MATH
@@ -62,10 +90,13 @@ class AppContainer extends Component {
             console.log(`So... we theoretically have user creds?`);
             console.log(userCredentials.data);
             // Changed this to only have one set of user credentials data instead of a contact (would create multiple sets of the same)
-            this.setState({thisUserCred: userCredentials.data})
-            this.setState({currentBalance: this.state.walletBalance})
-            console.log("This is user cred")
-            console.log(this.state.thisUserCred.walletBalance)
+            this.setState({thisUserCred: userCredentials.data}, () => {
+                console.log("This is user cred");
+                console.log(this.state.thisUserCred);
+            })
+            this.setState({currentBalance: userCredentials.data.walletBalance}, () => {
+                console.log(`Here is current balance: ${this.state.currentBalance}`);
+            });
         })
         .catch((err)=> {
             console.log(`user auth vomited - so - it didn't get your credentials`)
@@ -73,41 +104,50 @@ class AppContainer extends Component {
         })
     }
 
-    //FUNCTION TO GET LOGGEDIN USER CREDENTIALS FROM THE DATABASE
     componentDidMount() {
+        // TODO this doesn't load everything correctly the first time - it requires a page refresh
         this.checkAndUpdateAuthenticatedUser();
+        this.updateBuyFishArrayState(false);
     }
     
-    //FUNCTION FOR HANDLING ACCOUNT MATH ON CHECKOUT CLICK
-    //THIS FUNCTION NEEDS THE CARTARRAY
-        //I WANT TO CLEAR THE ARRAY AFTER ACCEPTED PURCHASE SO THERE IS AN EMPTY CART FOR THE NEXT PURCHASE
     updateBalanceAfterCheckout = () => {
-        console.log("Am I clicking the checkout button");
-        console.log(`Subtotal: ${this.state.subTotal}`);
-        console.log(`Balance: ${this.state.thisUserCred.walletBalance}`);
-       //I NEED TO PASS UP THE CART ARRAY TO EMPTY IT HERE--BUT IT IS BEING USED HEAVILY TWO COMPONENTS DOWN >:(
         if(this.state.subTotal <= this.state.thisUserCred.walletBalance){
-            console.log(`You CAN purchase these items!`)
-            
-            axios.post('/api/userPurchaseFish/', this.state.cartArray)
-            .then((success) => {
-                this.setState({cartArray: []})   
-                this.setState({subTotal: 0});  
-            })
-            .catch((err)=> {
-                console.log(`Purchasing fish broke`);
-                console.log(err)
-            })
-            
-            // TODO would prefer to call the logged in user -- and get the balance -- instead of doing this
-            // Reason being - we are then using the database as the system of record (there can be...
-            // ... other data changes in the background - what if the user has multiple windows open?)
-
-            // const afterPurchaseWalletBalance = this.state.currentBalance - this.state.subTotal;
-            // this.setState({currentBalance: afterPurchaseWalletBalance})                     
-
-            this.checkAndUpdateAuthenticatedUser();
-            console.log(`Go to wallet page and see your updated balance!`)
+            if (this.state.fishTemplateOrUserFish){
+                axios.post('/api/userPurchaseOtherUserFish/', this.state.cartArray)
+                .then((success) => {
+                    this.setState({cartArray: []})   
+                    this.setState({subTotal: 0});  
+                    // reset user credentials, balance, etc
+                    this.checkAndUpdateAuthenticatedUser();
+                    console.log(`Go to wallet page and see your updated balance!`);
+                    this.updateBuyFishArrayState(false);
+                })
+                .catch((err)=> {
+                    console.log(`Purchasing fish broke`);
+                    console.log(err);
+                    this.checkAndUpdateAuthenticatedUser();
+                    console.log(`Go to wallet page and see your updated balance!`);
+                    this.updateBuyFishArrayState(false);
+                })
+            }
+            else {
+                axios.post('/api/userPurchaseFish/', this.state.cartArray)
+                .then((success) => {
+                    this.setState({cartArray: []})   
+                    this.setState({subTotal: 0});
+                    this.checkAndUpdateAuthenticatedUser();
+                    console.log(`Go to wallet page and see your updated balance!`);  
+                })
+                .catch((err)=> {
+                    console.log(`Purchasing fish broke`);
+                    console.log(err)
+                    this.checkAndUpdateAuthenticatedUser();
+                    console.log(`Go to wallet page and see your updated balance!`);
+                })
+            }
+            // Re-enable the target toggle after fish are purchased
+            let targetToggle = document.getElementById("fishTemplateOrUserFishInput");
+            targetToggle.removeAttribute("disabled");
      
         } else if (this.state.subTotal >= this.state.currentBalance){
             // TODO forward this error to the user - modal?
@@ -142,8 +182,10 @@ class AppContainer extends Component {
                         cartArray = {this.state.cartArray}
                         buyFishArray = {this.state.buyFishArray}
                         clickItem = {this.clickItem}
-                        updateBuyFishArrayState = {this.updateBuyFishArrayState}    
-                        updateSubtotalState = {this.updateSubtotalState}                    
+                        // updateBuyFishArrayState = {this.updateBuyFishArrayState}    
+                        updateSubtotalState = {this.updateSubtotalState}
+                        fishTemplateOrUserFish = {this.fishTemplateOrUserFish}  
+                        toggleFishMarket = {this.toggleFishMarket}                 
                     />
             }
     }
@@ -154,6 +196,7 @@ class AppContainer extends Component {
     // https://stackoverflow.com/questions/43469071/react-react-router-dom-pass-props-to-component
     render() {
         return (
+
             <Router>
                 <div>
                     <Navbar />
@@ -180,6 +223,7 @@ class AppContainer extends Component {
                 </div>
 
             </Router>
+
         );
     }
 }

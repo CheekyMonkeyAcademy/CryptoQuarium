@@ -1,21 +1,23 @@
-import React, {Component} from "react";
-import SellMarketCards from '../SellMarketCards/SellMarketCards'
+import React, { Component } from "react";
+import SellMarketCards from '../SellMarketCards/SellMarketCards';
+import { Card, CardTitle } from 'react-materialize';
+import CartLogo1 from "../../../Images/fish/fish8.png";
+import "./SellMarket.css";
 
 //When a user clicks sell to market, it gets added to the buyInventory page
-    //That means I need access to the buyFishArray state living in the appcontainer
-    //The buyFish array can be passed to this component as a prop and be updated from here!!!
+//That means I need access to the buyFishArray state living in the appcontainer
+//The buyFish array can be passed to this component as a prop and be updated from here!!!
 
 //Also include total to be sold!
 
 //Loop over array that will be passed from from the sell page
-    //Whenever a user clicks on the tag to add an item to the sell to market, it pushes
-    //it to an array that will be passed down to this component
+//Whenever a user clicks on the tag to add an item to the sell to market, it pushes
+//it to an array that will be passed down to this component
 
 class SellMarket extends Component {
 
     render() {
         return (
-
             <div>
                 <div className="row">
                     <div className="col s12">
@@ -33,6 +35,7 @@ class SellMarket extends Component {
                     </div>
                     </div>
                 </div>
+
             </div>
         )
     }

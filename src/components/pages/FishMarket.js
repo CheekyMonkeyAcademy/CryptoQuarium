@@ -4,6 +4,8 @@ import Buy from "../BSTPages/Buy";
 import Sell from "../BSTPages/Sell";
 import Trade from "../BSTPages/Trade";
 
+
+
 //This is set up to be a stateful component because I assume the state of the page
     //will change depending on how users are interacting with the fish- buying/selling/trading
 
@@ -28,9 +30,10 @@ class FishMarket extends Component {
                 // updateSubtotalState = {this.props.updateSubtotalState} 
                 cartArray = {this.props.cartArray}
                 buyFishArray = {this.props.buyFishArray}
-                clickItem = {this.props.clickItem}
-                updateBuyFishArrayState = {this.props.updateBuyFishArrayState} 
-                              
+                clickItem = {this.props.clickItem} 
+                fishTemplateOrUserFish = {this.props.fishTemplateOrUserFish}
+                toggleFishMarket = {this.props.toggleFishMarket}
+           
             />
         } else if(this.state.currentPage === "Sell"){
             return <Sell 

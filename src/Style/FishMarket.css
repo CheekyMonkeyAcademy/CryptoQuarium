@@ -2,3 +2,31 @@
     background-color: black
 }
 
+.store1 {
+    height: 40px;
+    background-image: url("../Images/fish/store2.png");
+    min-height: 380px;
+}
+
+.logo {
+    padding: 20px;
+    border-radius: 20px;
+    background: linear-gradient(to right, #3a4749, rgb(20, 129, 129));
+    color: aliceblue;
+}
+
+body {
+    /* background-color: rgb(190, 248, 248); */
+    background-image: url("../Images/aquarium4.jpg");
+    background-repeat: no-repeat;
+    background-color: rgb(190, 248, 248);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;	
+}
+
+.swith1 {
+    margin-left: 50px;
+}
+
+
