@@ -17,7 +17,7 @@
   "scripts": {
     "dev": "concurrently \"nodemon server/server.js\" \"npm run startDev\"",
     "heroku-prebuild": "cd server && npm i",
-    "heroku-postbuild": "npm run build",
+    "heroku-postbuild": "pwd && npm run build",
     "start": "node server/server.js",
     "startDev": "react-scripts start",
     "build": "react-scripts build",
