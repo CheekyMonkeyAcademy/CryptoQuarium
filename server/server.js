@@ -44,8 +44,16 @@ app.get('/login', function (req, res) {
 app.get('/success', function (req, res) {
     res.sendfile('successfulLogin.html');
 });
+if (process.env.NODE_ENV == 'production') {
+    app.use(express.static("../build"));
+    app.get("*", function(req, res){
+        res.sendFile('../build/index.html');
+    })
 
-app.use(express.static("../src"));
+}
+else {
+    app.use(express.static("../src"));
+}
 
 require('./routes/fishApiRoutes.js')(app);
 require('./routes/userLoginRoutes.js')(app);
