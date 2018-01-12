@@ -23,8 +23,8 @@ module.exports = function(app) {
 
     app.get('/auth/google/callback', 
     passport.authenticate( 'google', { 
-        successRedirect: 'localhost:3000/', // TODO fix this hack job -- react-router ??
-        failureRedirect: '/login'
+        successRedirect: '/MyAquarium', // TODO fix this hack job -- react-router ??
+        failureRedirect: '/Login'
     }));
 
     app.get('/logout', function(req, res){
