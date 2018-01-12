@@ -12,16 +12,6 @@
     "react-materialize": "^1.1.2",
     "react-scripts": "1.0.17"
   }, 
-  "devDependencies": {
-    "axios": "^0.17.1",
-    "concurrently": "^3.5.1",
-    "materialize-css": "^0.100.2",
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-materialize": "^1.1.2",
-    "react-scripts": "1.0.17"
-  },
   "proxy": "http://localhost:8080",
   "scripts": {
     "dev": "concurrently \"nodemon server/server.js\" \"npm run start\"",
