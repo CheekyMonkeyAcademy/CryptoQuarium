@@ -162,34 +162,34 @@ class AppContainer extends Component {
 
     //Series of if/else statements that will render the corresponding component
     //for the page that is selected as current page
-    renderPage = () => {
-        if (this.state.currentPage === "Home"){
-            return <Home />
-        } else if(this.state.currentPage === "Login"){
-            return <Login />
-        } else if (this.state.currentPage === "MyAquarium"){
-            return <MyAquarium />
-        } else if (this.state.currentPage === "Wallet"){
-            return <Wallet 
-                        currentBalance={this.state.currentBalance}
-                    />
-        } else if (this.state.currentPage === "FishMarket"){
-            return <FishMarket 
-                        checkoutChangeBalance = {this.updateBalanceAfterCheckout}
-                        subTotal = {this.state.subTotal}
-                        // updateSubtotalState = {this.updateSubtotalState}
-                        //I AM PASSING CLICKITEM/FISHARRAY/CARTARRAY/UPDATESUBTOTAL TO FISH MARKET
-                        cartArray = {this.state.cartArray}
-                        buyFishArray = {this.state.buyFishArray}
-                        clickItem = {this.clickItem}
-                        // updateBuyFishArrayState = {this.updateBuyFishArrayState}    
-                        updateSubtotalState = {this.updateSubtotalState}
-                        fishTemplateOrUserFish = {this.fishTemplateOrUserFish}  
-                        toggleFishMarket = {this.toggleFishMarket}  
-                        // handlePageChange = {this.handlePageChange}               
-                    />
-            }
-    }
+    // renderPage = () => {
+    //     if (this.state.currentPage === "Home"){
+    //         return <Home />
+    //     } else if(this.state.currentPage === "Login"){
+    //         return <Login />
+    //     } else if (this.state.currentPage === "MyAquarium"){
+    //         return <MyAquarium />
+    //     } else if (this.state.currentPage === "Wallet"){
+    //         return <Wallet 
+    //                     currentBalance={this.state.currentBalance}
+    //                 />
+    //     } else if (this.state.currentPage === "FishMarket"){
+    //         return <FishMarket 
+    //                     checkoutChangeBalance = {this.updateBalanceAfterCheckout}
+    //                     subTotal = {this.state.subTotal}
+    //                     // updateSubtotalState = {this.updateSubtotalState}
+    //                     //I AM PASSING CLICKITEM/FISHARRAY/CARTARRAY/UPDATESUBTOTAL TO FISH MARKET
+    //                     cartArray = {this.state.cartArray}
+    //                     buyFishArray = {this.state.buyFishArray}
+    //                     clickItem = {this.clickItem}
+    //                     // updateBuyFishArrayState = {this.updateBuyFishArrayState}    
+    //                     updateSubtotalState = {this.updateSubtotalState}
+    //                     fishTemplateOrUserFish = {this.fishTemplateOrUserFish}  
+    //                     toggleFishMarket = {this.toggleFishMarket}  
+    //                     // handlePageChange = {this.handlePageChange}               
+    //                 />
+    //         }
+    // }
 
     //We are giving the Navbar the current page property and passing the handlePageChange function
     //Logic: if X condition, return a certain component
@@ -211,15 +211,15 @@ class AppContainer extends Component {
                         return <FishMarket 
                             checkoutChangeBalance = {this.updateBalanceAfterCheckout}
                             subTotal = {this.state.subTotal}
-                            // updateSubtotalState = {this.updateSubtotalState}
-                            //I AM PASSING CLICKITEM/FISHARRAY/CARTARRAY/UPDATESUBTOTAL TO FISH MARKET
                             cartArray = {this.state.cartArray}
                             buyFishArray = {this.state.buyFishArray}
                             clickItem = {this.clickItem}
                             updateBuyFishArrayState = {this.updateBuyFishArrayState}    
-                            updateSubtotalState = {this.updateSubtotalState} 
-                            handlePageChange = {this.handlePageChange}
-                            currentPage = {this.currentPage}                  
+                            updateSubtotalState = {this.updateSubtotalState}
+                            // fishTemplateOrUserFish = {this.state.fishTemplateOrUserFish}  
+                            toggleFishMarket = {this.toggleFishMarket}  
+                            // handlePageChange = {this.handlePageChange}
+                            // currentPage = {this.currentPage}                  
                         />
                     }} />
                     <Route exact path="/home" component={Home} />
