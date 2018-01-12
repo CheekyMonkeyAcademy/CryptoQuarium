@@ -15,8 +15,8 @@
   "proxy": "http://localhost:8080",
   "scripts": {
     "dev": "concurrently \"nodemon server/server.js\" \"npm run start\"",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "concurrently \"node server/server.js\",\"yarn start\"",
+    "build": "concurrently \"node server/server.js\",\"yarn build\"",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
