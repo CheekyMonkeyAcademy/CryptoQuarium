@@ -6,7 +6,7 @@ import MyAquarium from "./pages/MyAquarium";
 import Wallet from "./pages/Wallet";
 import FishMarket from "./pages/FishMarket";
 import axios from 'axios';
-import { BrowserRouter as Router, Route } from "react-router-dom"
+// import { BrowserRouter as Router, Route } from "react-router-dom"
 
 //This is a stateful component that will handle pageChange logic
 
@@ -154,17 +154,17 @@ class AppContainer extends Component {
     // https://stackoverflow.com/questions/43469071/react-react-router-dom-pass-props-to-component
     render() {
         return (
-            <Router>
+            // <Router>
 
             <div>
-                <Navbar
+                {/* <Navbar
                     currentPage = {this.state.currentPage}
                     handlePageChange = {this.handlePageChange}
-                />
+                /> */}
                 {this.renderPage()}
             </div>
 
-            </Router>
+            // </Router>
         );
     }
 }
