@@ -34,7 +34,7 @@ class AppContainer extends Component {
         targetToggle.setAttribute("disabled","disabled");
 
         console.log(`click item is going with: ${this.state.fishTemplateOrUserFish}`)
-        if (this.state.fishTemplateOrUserFish == true) {
+        if (this.state.fishTemplateOrUserFish === true) {
             document.getElementById("card"+id).style.display = "none";
         }
 
@@ -52,7 +52,7 @@ class AppContainer extends Component {
     }
 
     updateBuyFishArrayState = (trueOrFalse) => {
-        this.state.buyFishArray = []; // TODO make this more graceful - we are over populating the array
+        this.setState({buyFishArray: []}); // TODO make sure this doesn't introduce bugs (used to be this.state.buyFishArray = [] - which is a direct mutation... bad)
         console.log(`buy fish array is going with: ${trueOrFalse}`);
         if (trueOrFalse){
             axios.get('/api/allUserFishOnSale')
@@ -185,7 +185,8 @@ class AppContainer extends Component {
                         // updateBuyFishArrayState = {this.updateBuyFishArrayState}    
                         updateSubtotalState = {this.updateSubtotalState}
                         fishTemplateOrUserFish = {this.fishTemplateOrUserFish}  
-                        toggleFishMarket = {this.toggleFishMarket}                 
+                        toggleFishMarket = {this.toggleFishMarket}  
+                        // handlePageChange = {this.handlePageChange}               
                     />
             }
     }
@@ -206,6 +207,7 @@ class AppContainer extends Component {
                         return <Wallet currentBalance={this.state.currentBalance} />;
                     }}/>
                     <Route exact path="/fishmarket" render={() => {
+                        
                         return <FishMarket 
                             checkoutChangeBalance = {this.updateBalanceAfterCheckout}
                             subTotal = {this.state.subTotal}
@@ -215,7 +217,9 @@ class AppContainer extends Component {
                             buyFishArray = {this.state.buyFishArray}
                             clickItem = {this.clickItem}
                             updateBuyFishArrayState = {this.updateBuyFishArrayState}    
-                            updateSubtotalState = {this.updateSubtotalState}                    
+                            updateSubtotalState = {this.updateSubtotalState} 
+                            handlePageChange = {this.handlePageChange}
+                            currentPage = {this.currentPage}                  
                         />
                     }} />
                     <Route exact path="/home" component={Home} />
