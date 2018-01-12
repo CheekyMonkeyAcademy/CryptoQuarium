@@ -11,7 +11,6 @@ import FishMarket from "./components/pages/FishMarket";
 const App = () => 
     <Router>
         <div>
-            {/* <AppContainer /> */}
             <Navbar />
             <Route exact path="/" component={AppContainer} />
             <Route exact path="/Login" component={Login} />
