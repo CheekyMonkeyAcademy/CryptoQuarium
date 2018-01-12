@@ -38,30 +38,22 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/login', function (req, res) {
-    res.sendfile('testLogin.html');
-});
+require('./routes/fishApiRoutes.js')(app);
+require('./routes/userLoginRoutes.js')(app);
+require('./routes/walletApiRoutes.js')(app);
+require('./routes/aquariumApiRoutes.js')(app);
 
-app.get('/success', function (req, res) {
-    res.sendfile('successfulLogin.html');
-});
 if (process.env.NODE_ENV == 'production') {
     app.use(express.static("../build"));
     app.get("*", function(req, res){
         console.log(`PATHPATHPATHPATHPATH`);
-        // console.log(path);
         res.sendFile('index.html', { root: path.join(__dirname, '../build') });
-        
     })
 }
 else {
     app.use(express.static("../src"));
 }
 
-require('./routes/fishApiRoutes.js')(app);
-require('./routes/userLoginRoutes.js')(app);
-require('./routes/walletApiRoutes.js')(app);
-require('./routes/aquariumApiRoutes.js')(app);
 
 
 db.sequelize.sync({ force: false }).then(() => {
