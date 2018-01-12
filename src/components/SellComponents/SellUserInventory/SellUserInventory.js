@@ -16,6 +16,8 @@ class SellUserInventory extends Component {
                 {this.props.myFishArray.map(fish => {
                     return <SellCards {...fish}
                         thisItemToMarket = {this.props.thisItemToMarket}
+                        handlePriceChange = {this.props.handlePriceChange}
+                        value = {this.props.value}
                         key = {fish.id}
                     />
                 }, this)}        
