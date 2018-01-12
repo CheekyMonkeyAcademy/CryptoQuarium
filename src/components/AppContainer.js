@@ -6,7 +6,7 @@ import MyAquarium from "./pages/MyAquarium";
 import Wallet from "./pages/Wallet";
 import FishMarket from "./pages/FishMarket";
 import axios from 'axios';
-// import { BrowserRouter as Router, Route } from "react-router-dom"
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 //This is a stateful component that will handle pageChange logic
 
@@ -154,17 +154,32 @@ class AppContainer extends Component {
     // https://stackoverflow.com/questions/43469071/react-react-router-dom-pass-props-to-component
     render() {
         return (
-            // <Router>
+            <Router>
+                <div>
+                    <Navbar />
+                    <Route exact path="/login" component={Login}/>
+                    <Route exact path="/myaquarium" component={MyAquarium}/>
+                    <Route exact path="/wallet" render={() => {
+                        return <Wallet currentBalance={this.state.currentBalance} />;
+                    }}/>
+                    <Route exact path="/fishmarket" render={() => {
+                        return <FishMarket 
+                            checkoutChangeBalance = {this.updateBalanceAfterCheckout}
+                            subTotal = {this.state.subTotal}
+                            // updateSubtotalState = {this.updateSubtotalState}
+                            //I AM PASSING CLICKITEM/FISHARRAY/CARTARRAY/UPDATESUBTOTAL TO FISH MARKET
+                            cartArray = {this.state.cartArray}
+                            buyFishArray = {this.state.buyFishArray}
+                            clickItem = {this.clickItem}
+                            updateBuyFishArrayState = {this.updateBuyFishArrayState}    
+                            updateSubtotalState = {this.updateSubtotalState}                    
+                        />
+                    }} />
+                    <Route exact path="/home" component={Home} />
+                    <Route exact path="/" component={Home} />
+                </div>
 
-            <div>
-                {/* <Navbar
-                    currentPage = {this.state.currentPage}
-                    handlePageChange = {this.handlePageChange}
-                /> */}
-                {this.renderPage()}
-            </div>
-
-            // </Router>
+            </Router>
         );
     }
 }
