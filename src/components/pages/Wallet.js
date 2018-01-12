@@ -32,14 +32,16 @@ class Wallet extends Component {
     render() {
         return (
             <div>
-                My CryptoAquarium Wallet
-                <BalanceCard 
+                <br/>
+                 <div className="container">
+                    <h3 className="logo center #757575 grey darken-1 z-depth-5">My CryptoAquarium Wallet</h3>
+                </div>
+                <br/>
+                <div className="container">
+                    <BalanceCard
                     currentBalance={this.props.currentBalance}/>
-                <StatementCard 
-                    myStatementHistory = {this.state.statementHistory}
-                />
-
-
+                    <StatementCard myStatementHistory = {this.state.statementHistory}/>
+                </div>
             </div>
         )
     }

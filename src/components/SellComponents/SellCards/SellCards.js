@@ -9,11 +9,10 @@ import PlaceHolderimg from '../../../Images/fish/fish1.png';
     
 const SellCards = props => (
     
-    <div> 
-        
+    <div>
         <div className="row">
             <div className="col s3">
-                <div className="card">
+                <div className="card #757575 grey darken-1">
                     <div className="card-image">
                     <img alt="" src={PlaceHolderimg} style={{ width: 270, marginTop: 15 }} />                         
                         <a className="btn-floating halfway-fab waves-effect waves-light red" id={props.id} onClick={() => props.thisItemToMarket(props.id)}><i className="material-icons">local_offer</i></a>
@@ -26,7 +25,6 @@ const SellCards = props => (
                     </div>
                 </div>
             </div>
-
     </div>    
 );
     

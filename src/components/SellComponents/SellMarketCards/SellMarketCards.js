@@ -5,7 +5,7 @@ const SellMarketCards = props => (
         
         <div className="row">
             <div className="col s12">
-                <div className="card white">
+                <div className="card #757575 grey darken-1">
                     <div className="card-content black-text">
                         <span className="card-title">Item Name</span>
                             <p>Item Description: Lorem ipsum yada yada nada nada</p>
@@ -19,8 +19,6 @@ const SellMarketCards = props => (
             </div>
         </div>    
     </div>
-    
-
 );
 
 export default SellMarketCards; 

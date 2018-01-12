@@ -14,7 +14,7 @@
 
 import React, {Component} from 'react';
 import "./Login.css";
-// import jellyFish from '../../Images/video/jellyfish.mp4';
+import jellyFish from '../../Images/video/jellyfish.mp4';
 
 
 class Login extends Component {
@@ -23,8 +23,8 @@ class Login extends Component {
 
         this.state = {
             videoURL:  
-            'http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4'}
-            // {jellyFish}}
+            // 'http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4'}
+            {jellyFish}}
     }
 
     render () {
@@ -41,7 +41,7 @@ class Login extends Component {
                     <div className="row">
                         <div className="col s6 offset-s5">
                             <a method='POST' href='http://localhost:8080/auth/google'>
-                                <button class="btn btn-large red waves-effect waves-lighter"><i class="material-icons right">add</i>GOOGLE</button>
+                                <button class="btn btn-large red waves-effect waves-lighter"><i class="material-icons right">add</i>SIGN-IN WITH GOOGLE</button>
                             </a>        
                         </div>
                     </div>

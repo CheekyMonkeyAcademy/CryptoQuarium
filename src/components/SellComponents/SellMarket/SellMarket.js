@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SellMarketCards from '../SellMarketCards/SellMarketCards';
 import { Card, CardTitle } from 'react-materialize';
-import CartLogo1 from "../../../Images/fish/fish8.png";
+import CartLogo1 from "../../../Images/fish/fishBoard2.png";
 import "./SellMarket.css";
 
 //When a user clicks sell to market, it gets added to the buyInventory page
@@ -32,7 +32,7 @@ class SellMarket extends Component {
             // </div>
 
             <div className="row">
-                <Card className='big #757575 grey darken-1'
+                <Card className='midium #757575 grey darken-1'
                     header={<CardTitle image={CartLogo1}></CardTitle>}>
                     <span className="card-title white-text">Items to be sold to the Market</span>
                     <a className="waves-effect waves-light btn black" onClick={() => this.props.sellToMarket}><i className="material-icons left">attach_money</i>Sell to Market</a>

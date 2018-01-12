@@ -12,13 +12,20 @@ import "./Navbar.css";
 
 //TODO:: Add logic that limits what pages users have access to based on whether they are logged in or not
 
+ // THIS SCRIPT HAS TO BE PLACED SOMEWHERE FOR THE DROPDOWN MENU TO WORK BUT DON'T KNOW WHERE??
+/* <script>
+    $(".button-collapse").sideNav();
+</script> */
+
 const Navbar = props =>
     <nav className="#607d8b blue-grey">
         <div className="nav-wrapper">
             <a className="brand-logo right">
                 <img alt="" src={canbcheeky1} style={{ width: 240, marginTop: 15 }} />
             </a>
-            <a data-activates="mobile-demo" className="button-collapse">
+            <a data-activates="mobile-demo" className="button-collapse" >
+            {/* THIS IS SOMETHING THAT HAS TO BE IMPLEMENTED */}
+            {/* onClick={() => { props.sideNav();}} */}
                 <i className="material-icons">menu</i>
             </a>
 
@@ -79,10 +86,7 @@ const Navbar = props =>
         </div>
     </nav>
 
-    // THIS SCRIPT HAS TO BE PLACED SOMEWHERE FOR THE DROPDOWN MENU TO WORK BUT DON'T KNOW WHERE??
-{/* <script>
-    $(".button-collapse").sideNav();
-</script> */}
+   
     
 
 export default Navbar;
