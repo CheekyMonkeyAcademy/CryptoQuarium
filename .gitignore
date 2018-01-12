@@ -4,6 +4,9 @@
 /node_modules
 /server/node_modules
 
+# build
+/build
+
 # testing
 /coverage
 

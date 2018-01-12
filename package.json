@@ -1,6 +1,7 @@
 {		
      "name": "cryptoquarium",		
-      "version": "0.1.0",		
+      "version": "0.1.0",
+      "homepage": "https://cryptoquarium.herokuapp.com/",	
       "private": true,		
       "dependencies": {		
         "axios": "^0.17.1",		
