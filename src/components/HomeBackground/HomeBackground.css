@@ -1,7 +1,7 @@
 .home {
     background-image: url("../../Images/aquarium2.jpg");
     /* background: url("../../Images/background.gif");  */
-    min-height: 950px;
+    min-height: 950px; 
     background-size: cover;
     background-position: center;
     position: relative;

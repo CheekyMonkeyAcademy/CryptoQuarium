@@ -12,7 +12,7 @@ body {
 
 .store1 {
     height: 40px;
-    background-image: url("../Images/fish/store2.png");
+    /* background-image: url("../Images/fish/store2.png"); */
     min-height: 380px;
 }
 

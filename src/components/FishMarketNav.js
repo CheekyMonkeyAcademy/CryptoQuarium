@@ -36,7 +36,7 @@ const FishMarketNav = props =>
                 </div>
             </div>
         </div>
-        <div className="store1 center row"></div>
+        {/* <div className="store1 center row"></div> */}
         <hr />
     </div>
 
