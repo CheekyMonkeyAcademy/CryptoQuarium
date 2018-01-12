@@ -29,114 +29,47 @@ const Navbar = props =>
 
             <ul className="left hide-on-med-and-down">
 
-                <li
-                    // onClick={() => { props.handlePageChange("Login"); }}
-                    // className={props.currentPage === "Login" ? "active" : ""}
+                <li                    
                     className={
                         window.location.pathname === "/Login" ? "active" : ""
                     }
-                >
-                    {/* <a>Login</a> */}
+                >                    
                     <Link to="/Login">Login</Link>
                 </li>
 
-                <li
-                    // onClick={() => { props.handlePageChange("Home"); }}
-                    // className={props.currentPage === "Home" ? "active" : ""}
+                <li                    
                     className={
                         window.location.pathname === "/" || 
                         window.location.pathname === "/Home" 
                         ? "active" 
                         : ""
                     }
-                >
-                    {/* <a>Home</a> */}
+                >                    
                     <Link to="/Home">Home</Link>
                 </li>
 
-                <li
-                    // onClick={() => { props.handlePageChange("MyAquarium"); }}
-                    // className={props.currentPage === "MyAquarium" ? "active" : ""}
+                <li                    
                     className={
                         window.location.pathname === "/MyAquarium" ? "active" : ""
                     }
-                >
-                    {/* <a>MyAquarium</a> */}
+                >                    
                     <Link to="/MyAquarium">MyAquarium</Link>
                 </li>
 
-                <li
-                    // onClick={() => { props.handlePageChange("FishMarket"); }}
-                    // className={props.currentPage === "FishMarket" ? "active" : ""}
+                <li                   
                     className={
                         window.location.pathname === "/FishMarket" ? "active" : ""
                     }
-                >
-                    {/* <a>FishMarket</a> */}
+                >                    
                     <Link to="/FishMarket">FishMarket</Link>
                 </li>
 
-                <li
-                    // onClick={() => { props.handlePageChange("Wallet"); }}
-                    // className={props.currentPage === "Wallet" ? "active" : ""}
+                <li                
                     className={
                         window.location.pathname === "/Wallet" ? "active" : ""
                     }
                 >
                     <Link to="/Wallet">Wallet</Link>
-
-                <li onClick={() => { props.handlePageChange("Login"); }}
-                    className={props.currentPage === "Login" ? "active" : ""}>
-                    {/* TODO make logout actually function as logout */}
-                    {/* TODO make this re-render to show the right item without a refresh */}
-                    <a>{ props.thisUserCred.displayName ? "Logout": "Login" }</a>
-                </li>
-
-                <li onClick={() => { props.handlePageChange("Home"); }}
-                    className={props.currentPage === "Home" ? "active" : ""}>
-                    <a>Home</a>
-                </li>
-
-                <li onClick={() => { props.handlePageChange("MyAquarium"); }}
-                    className={props.currentPage === "MyAquarium" ? "active" : ""}>
-                    <a>My Aquarium</a>
-                </li>
-
-                <li onClick={() => { props.handlePageChange("FishMarket"); }}
-                    className={props.currentPage === "FishMarket" ? "active" : ""}>
-                    <a>FishMarket</a>
-                </li>
-
-                <li onClick={() => { props.handlePageChange("Wallet"); }}
-                    className={props.currentPage === "Wallet" ? "active" : ""}>
-                    <a>Wallet</a>
-                </li>
-            </ul>
-            <ul className="side-nav" id="mobile-demo">
-                <li onClick={() => { props.handlePageChange("Login"); }}
-                    className={props.currentPage === "Login" ? "active" : ""}>
-                    <a>Login</a>
-                </li>
-
-                <li onClick={() => { props.handlePageChange("Home"); }}
-                    className={props.currentPage === "Home" ? "active" : ""}>
-                    <a>Home</a>
-                </li>
-
-                <li onClick={() => { props.handlePageChange("MyAquarium"); }}
-                    className={props.currentPage === "MyAquarium" ? "active" : ""}>
-                    <a>My Aquarium</a>
-                </li>
-
-                <li onClick={() => { props.handlePageChange("FishMarket"); }}
-                    className={props.currentPage === "FishMarket" ? "active" : ""}>
-                    <a>FishMarket</a>
-                </li>
-
-                <li onClick={() => { props.handlePageChange("Wallet"); }}
-                    className={props.currentPage === "Wallet" ? "active" : ""}>
-                    <a>Wallet</a>
-
                 </li>
             </ul>
         </div>
