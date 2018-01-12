@@ -9,13 +9,17 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
     "react-materialize": "^1.1.2",
     "react-scripts": "1.0.17"
-  },
+  }, 
   "proxy": "http://localhost:8080",
+  "start": { "postinstall": "cd server && npm install" },
   "scripts": {
-    "dev": "concurrently \"nodemon server/server.js\" \"npm run start\"",
-    "start": "react-scripts start",
+    "dev": "concurrently \"nodemon server/server.js\" \"npm run startDev\"",
+    "heroku-postbuild": "npm run build",
+    "start": "node server/server.js",
+    "startDev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

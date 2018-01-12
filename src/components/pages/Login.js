@@ -41,7 +41,9 @@ class Login extends Component {
                     <div className="row">
                         <div className="col s6 offset-s5">
                             <a method='POST' href='http://localhost:8080/auth/google'>
-                                <button class="btn btn-large red waves-effect waves-lighter"><i class="material-icons right">add</i>SIGN-IN WITH GOOGLE</button>
+
+                                <button className="btn btn-large red waves-effect waves-lighter"><i class="material-icons right">add</i>SIGN-IN WITH GOOGLE</button>
+
                             </a>        
                         </div>
                     </div>

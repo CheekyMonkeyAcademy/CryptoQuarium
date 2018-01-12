@@ -3,26 +3,51 @@ import SellUserInventory from "../SellComponents/SellUserInventory/SellUserInven
 import SellUserCart from "../SellComponents/SellUserCart/SellUserCart";
 import axios from 'axios';
 
+{/* <input onChange={(event) => this.props.doSomethingWithEvent(event)} /> */}
+// doSomethingWithEvent = (event) => {
+//     const value = event.target.value;
+// }
 
+//Ron says to use state, when the user enters a price in the input, it updates the price of the item
+//AND THEN gets added to the sell cart
+    //Add two buttons - one to lock in the desired price of the item and another to sell the fish    
+    //The user HAS to enter a price to sell the item
+    //This needs to be handled on the front end AND on the back end
+    //The user needs to see that the price of their fish got updated 
+    //and the back end needs to know about it too
+
+    //Take the input value, update the fish on the backend, update the price on the front And then gets added to the cart for sale!
+    //Make the value in the sellCards a props.price. This props.price value will be stored as a props and then updated to the front end and back end
+    //And then added to the cart for subtotal
+    //Math will then ensue
+    // let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
+
+    //The onChange event will call a function that updates the price of the specified fish item
 class Sell extends Component {
 
     state = {
-        itemsToBeSold: [],
-        myFishArray: []
+
+        itemsToBeSold: [], 
+        myFishArray: [], 
+        newPrice: 0
     }
 
-    thisItemToMarket = (id) => {
-        console.log("Am I clicking my sell tag?")
+    //This will be an onChange event passed to the input space
+    handlePriceChange = (event) => {
+        //axios back end call here!
+        console.log("my axios call will be here!")
+        // this.setState({newPrice: event.target.newPrice})
+    }
 
-        let fishIndex = this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id[0]))
-        // this.state.cartArray.concat([this.state.buyFishArray[fishIndex]])
-        // this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]])
-        this.setState({
-            itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray])
-        },
-            // console.log(this.state.myFishArray)
+    thisItemToMarket = (id) => {        
+        console.log("Am I clicking my sell tag?")      
+        //0 on out side is referencing the filter
+        let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
+    
+        this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]])
+        }, (state) => {
             console.log(this.state.itemsToBeSold)
-        )
+        }) 
     }
 
     //FUNCTION TO GET ALL USERS FISH
@@ -43,11 +68,13 @@ class Sell extends Component {
     render() {
         return (
             <div>
+
                 <br/>
                 <div className="container red">
                     <div className="row">
                         <h5 className="col s6 push-s4 bold_text">SELL YOUR QUIPTO-FISH</h5>
-                    </div>
+
+					</div>
                 </div>
                 <br/><br/>
                 <div>
@@ -57,15 +84,19 @@ class Sell extends Component {
                                 thisItemToMarket={this.thisItemToMarket}
                                 getAllUserFish={this.getAllUserFish}
                                 myFishArray={this.state.myFishArray}
+                            		handlePriceChange = {this.handlePriceChange}
+																value={this.state.value}
                             />
                         </div>
 
-                        <div className="col s4">
-                            <SellUserCart />
-                        </div>
+
+                    <div className="col s4">
+                        <SellUserCart itemsToBeSold = {this.state.itemsToBeSold} />
+
                     </div>
                 </div>
-            </div>               
+            </div>    
+        </div>           
 
         )
     }

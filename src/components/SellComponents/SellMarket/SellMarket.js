@@ -18,25 +18,23 @@ class SellMarket extends Component {
 
     render() {
         return (
-            // <div>
-            //     <div className="row">
-            //         <div className="col s12">
-            //             <div className="card teal lighten-2">
-            //                 <div className="card-content white-text">
-            //                     <span className="card-title">Items to be sold to the Market</span>
-            //                     <a className="waves-effect waves-light btn black" onClick={() => this.props.sellToMarket}><i className="material-icons left">attach_money</i>Sell to Market</a>
-            //                 </div>
-            //             </div>
-            //         </div>
-            //     </div>
-            // </div>
+            <div>
+                <div className="row">
+                    <div className="col s12">
+                    <div className="card teal lighten-2">
+                        <div className="card-content white-text">
+                            <span className="card-title">Items to be sold to the Market</span>            
+                                {this.props.itemsToBeSold.map(items => {
+                                    return <SellMarketCards {...items}
+                                    />
+                                })}
 
-            <div className="row">
-                <Card className='midium #757575 grey darken-1'
-                    header={<CardTitle image={CartLogo1}></CardTitle>}>
-                    <span className="card-title white-text">Items to be sold to the Market</span>
-                    <a className="waves-effect waves-light btn black" onClick={() => this.props.sellToMarket}><i className="material-icons left">attach_money</i>Sell to Market</a>
-                </Card>
+                       
+                            <a className="waves-effect waves-light btn black" onClick = {() => this.props.sellToMarket}><i className="material-icons left">attach_money</i>Sell to Market</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
             </div>
         )
     }

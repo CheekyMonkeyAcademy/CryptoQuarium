@@ -5,7 +5,9 @@ class SellUserCart extends Component {
     render(){
         return(
             <div>
-                <SellMarket />
+                <SellMarket 
+                    itemsToBeSold = {this.props.itemsToBeSold}
+                />
             </div>
         )
     }
