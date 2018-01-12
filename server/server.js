@@ -46,7 +46,7 @@ require('./routes/aquariumApiRoutes.js')(app);
 if (process.env.NODE_ENV == 'production') {
     app.use(express.static("../build"));
     app.get("*", function(req, res){
-        // console.log(`PATHPATHPATHPATHPATH`);
+        console.log(`PATHPATHPATHPATHPATH - we've fallen do the default path`);
         res.sendFile('index.html', { root: path.join(__dirname, '../build') });
     })
 }
