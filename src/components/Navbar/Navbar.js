@@ -1,5 +1,6 @@
 import React from "react";
 import canbcheeky1 from '../../Images/canbcheeky1.png';
+import { Link } from "react-router-dom"
 
 //Possible pages we will need:
 //Login 
@@ -21,38 +22,60 @@ const Navbar = props =>
         
             <ul className="left hide-on-med-and-down">
                 <li
-                    onClick={() => { props.handlePageChange("Login"); }}
-                    className={props.currentPage === "Login" ? "active" : ""}
+                    // onClick={() => { props.handlePageChange("Login"); }}
+                    // className={props.currentPage === "Login" ? "active" : ""}
+                    className={
+                        window.location.pathname === "/Login" ? "active" : ""
+                    }
                 >
-                    <a>Login</a>
+                    {/* <a>Login</a> */}
+                    <Link to="/Login">Login</Link>
                 </li>
 
                 <li
-                    onClick={() => { props.handlePageChange("Home"); }}
-                    className={props.currentPage === "Home" ? "active" : ""}
+                    // onClick={() => { props.handlePageChange("Home"); }}
+                    // className={props.currentPage === "Home" ? "active" : ""}
+                    className={
+                        window.location.pathname === "/" || 
+                        window.location.pathname === "/Home" 
+                        ? "active" 
+                        : ""
+                    }
                 >
-                    <a>Home</a>
+                    {/* <a>Home</a> */}
+                    <Link to="/Home">Home</Link>
                 </li>
 
                 <li
-                    onClick={() => { props.handlePageChange("MyAquarium"); }}
-                    className={props.currentPage === "MyAquarium" ? "active" : ""}
+                    // onClick={() => { props.handlePageChange("MyAquarium"); }}
+                    // className={props.currentPage === "MyAquarium" ? "active" : ""}
+                    className={
+                        window.location.pathname === "/MyAquarium" ? "active" : ""
+                    }
                 >
-                    <a>MyAquarium</a>
+                    {/* <a>MyAquarium</a> */}
+                    <Link to="/MyAquarium">MyAquarium</Link>
                 </li>
 
                 <li
-                    onClick={() => { props.handlePageChange("FishMarket"); }}
-                    className={props.currentPage === "FishMarket" ? "active" : ""}
+                    // onClick={() => { props.handlePageChange("FishMarket"); }}
+                    // className={props.currentPage === "FishMarket" ? "active" : ""}
+                    className={
+                        window.location.pathname === "/FishMarket" ? "active" : ""
+                    }
                 >
-                    <a>FishMarket</a>
+                    {/* <a>FishMarket</a> */}
+                    <Link to="/FishMarket">FishMarket</Link>
                 </li>
 
                 <li
-                    onClick={() => { props.handlePageChange("Wallet"); }}
-                    className={props.currentPage === "Wallet" ? "active" : ""}
+                    // onClick={() => { props.handlePageChange("Wallet"); }}
+                    // className={props.currentPage === "Wallet" ? "active" : ""}
+                    className={
+                        window.location.pathname === "/Wallet" ? "active" : ""
+                    }
                 >
-                    <a>Wallet</a>
+                    <Link to="/Wallet">Wallet</Link>
                 </li>
             </ul>
         </div>

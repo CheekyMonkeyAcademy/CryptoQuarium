@@ -6,6 +6,7 @@ import MyAquarium from "./pages/MyAquarium";
 import Wallet from "./pages/Wallet";
 import FishMarket from "./pages/FishMarket";
 import axios from 'axios';
+import { BrowserRouter as Router, Route } from "react-router-dom"
 
 //This is a stateful component that will handle pageChange logic
 
@@ -149,8 +150,12 @@ class AppContainer extends Component {
 
     //We are giving the Navbar the current page property and passing the handlePageChange function
     //Logic: if X condition, return a certain component
+    // render={props => <Life sayHello={this.sayHello} />}
+    // https://stackoverflow.com/questions/43469071/react-react-router-dom-pass-props-to-component
     render() {
         return (
+            <Router>
+
             <div>
                 <Navbar
                     currentPage = {this.state.currentPage}
@@ -158,6 +163,8 @@ class AppContainer extends Component {
                 />
                 {this.renderPage()}
             </div>
+
+            </Router>
         );
     }
 }
