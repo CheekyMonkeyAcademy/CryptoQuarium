@@ -9,24 +9,29 @@ class Buy extends Component {
     render() {
         return (
             <div>
+            <br/>
                 <div className="container green">
                     <div className="row">
-                        <h5 className="col s6">BUY FISH AND ACCOUNTREMENT</h5>    
+                        <div className="col s6 push-s4">
+                            <h5>BUY FISH AND ACCOUNTREMENT</h5>    
+                        </div>
                     </div>
-                    <div className="row swith1">
+                    <hr/>
+                    <div className="row buy-fish-div">
                         <div className="col s2">Fish Market</div>
+                        <div className="col s2"><i class="small material-icons">arrow_back</i></div>
                         <div className="col s2">
                             <label className="switch">
                                 <input id="fishTemplateOrUserFishInput" onChange={this.props.toggleFishMarket} type="checkbox"></input>
-                                <span className="slider round"></span>
+                                <span className="slider round black"></span>
                             </label>
                         </div>
-                        <div className="col s2">Other Users Market</div>
+                        <div className="col s2"><i class="small material-icons">arrow_forward</i></div>
+                        <div className="col s4">Other Users Market</div>
                     </div>
                 </div>
 
-
-                <br/><br/>
+                <br/>
 
                 <div>
                     <div className="row">

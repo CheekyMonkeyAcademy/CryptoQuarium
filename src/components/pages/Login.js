@@ -12,46 +12,18 @@
 
 // export default Login;
 
-import React, {Component} from 'react';
-import "./Login.css";
-import jellyFish from '../../Images/video/jellyfish.mp4';
+
+import React, {Component} from "react";
+import LoginBackground from "../LoginBackground";
 
 
 class Login extends Component {
-    constructor (props) {
-        super(props);
 
-        this.state = {
-            videoURL:  
-            // 'http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4'}
-            {jellyFish}}
-    }
-
-    render () {
-        return (
-            <div className="container">
-                 <div className="video col s12">
-                    {/* TODO re-enable once we figure out a good URL (maybe on server?) */}
-                    {/* <video className="background-video"  muted loop autoPlay>
-                    <source src={this.state.videoURL} type="video/mp4" />
-                    <source src={this.state.videoURL} type="video/ogg" />
-                    Your browser does not support the video tag.
-                    </video>                    */}
-                </div>
-                <div className="container">
-                    <div className="row">
-                        <div className="col s6 offset-s5">
-                            <a method='POST' href='/auth/google'>
-
-                                <button className="btn btn-large red waves-effect waves-lighter"><i className="material-icons right">add</i>SIGN-IN WITH GOOGLE</button>
-
-                            </a>        
-                        </div>
-                    </div>
-                </div>    
-            </div>
-        )
-    }
-};
+  render() {
+    return (
+        <LoginBackground />
+    );
+  }
+}
 
 export default Login;
