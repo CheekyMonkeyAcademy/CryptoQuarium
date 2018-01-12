@@ -40,7 +40,7 @@ class Login extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col s6 offset-s5">
-                            <a method='POST' href='http://localhost:8080/auth/google'>
+                            <a method='POST' href={process.env.PORT ? 'http://localhost:/auth'+process.env.PORT+'/google' : 'http://localhost:8080/auth/google'}>
                                 <button className="btn btn-large red waves-effect waves-lighter"><i class="material-icons right">add</i>GOOGLE</button>
                             </a>        
                         </div>
