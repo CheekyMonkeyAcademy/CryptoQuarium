@@ -34,7 +34,7 @@ class AppContainer extends Component {
         targetToggle.setAttribute("disabled","disabled");
 
         console.log(`click item is going with: ${this.state.fishTemplateOrUserFish}`)
-        if (this.state.fishTemplateOrUserFish == true) {
+        if (this.state.fishTemplateOrUserFish === true) {
             document.getElementById("card"+id).style.display = "none";
         }
 

@@ -10,8 +10,9 @@ import PlaceHolderimg from '../../../Images/fish/fish1.png';
 //Add an input field with default value of props.price
 
 const SellCards = props => (
+   
     
-    <div> 
+     <div> 
         
         <div className="row">
 
@@ -35,32 +36,27 @@ const SellCards = props => (
                                     </div>
                                 </div>
 
-                                <form className="row">
-                                    <div className="input-field col s4">
-                                        <input  onChange={() => props.handlePriceChange()} placeholder={props.price} type="number" min= "0" max="9999999" className="validate" />                                        
-                                    </div>
-
-                                    <a className="btn-floating halfway-fab waves-effect waves-light red" onClick={() => props.thisItemToMarket(props.id)}>
-                                        <i className="material-icons">local_offer</i>
-                                    </a>
-
-                               
-                                </form>
-
+                                <div className="row">
+                                    <input type="number" value={props.newPrice} id={"input"+props.id}  onChange={() => props.handlePriceChange()}/>
+                                     
+                                </div>
+                            </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
-        </div>
-
+        </div>  
     </div>  
-</div>  
-);
+)
     
 export default SellCards;
 
-// <a className="btn-floating halfway-fab waves-effect waves-light red" onClick={() => props.thisItemToMarket(props.id)}>
-// <i className="material-icons">local_offer</i>
-// </a>
+//                                         <form className="row">
+//                                     <div className="input-field col s4">
+//                                         <input  onChange={() => props.handlePriceChange()} placeholder={props.price} type="number" min= "0" max="9999999" className="validate" />                                        
+//                                     </div>
+
+//                                     <a className="btn-floating halfway-fab waves-effect waves-light red" onClick={() => props.thisItemToMarket(props.id)}>
+//                                         <i className="material-icons">local_offer</i>
+//                                     </a>                               
+//                                 </form>
