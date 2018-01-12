@@ -6,6 +6,7 @@ import MyAquarium from "./pages/MyAquarium";
 import Wallet from "./pages/Wallet";
 import FishMarket from "./pages/FishMarket";
 import axios from 'axios';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 //This is a stateful component that will handle pageChange logic
 
@@ -191,16 +192,38 @@ class AppContainer extends Component {
 
     //We are giving the Navbar the current page property and passing the handlePageChange function
     //Logic: if X condition, return a certain component
+    // render={props => <Life sayHello={this.sayHello} />}
+    // https://stackoverflow.com/questions/43469071/react-react-router-dom-pass-props-to-component
     render() {
         return (
-            <div>
-                <Navbar
-                    currentPage = {this.state.currentPage}
-                    handlePageChange = {this.handlePageChange}
-                    thisUserCred = {this.state.thisUserCred}
-                />
-                {this.renderPage()}
-            </div>
+
+            <Router>
+                <div>
+                    <Navbar />
+                    <Route exact path="/login" component={Login}/>
+                    <Route exact path="/myaquarium" component={MyAquarium}/>
+                    <Route exact path="/wallet" render={() => {
+                        return <Wallet currentBalance={this.state.currentBalance} />;
+                    }}/>
+                    <Route exact path="/fishmarket" render={() => {
+                        return <FishMarket 
+                            checkoutChangeBalance = {this.updateBalanceAfterCheckout}
+                            subTotal = {this.state.subTotal}
+                            // updateSubtotalState = {this.updateSubtotalState}
+                            //I AM PASSING CLICKITEM/FISHARRAY/CARTARRAY/UPDATESUBTOTAL TO FISH MARKET
+                            cartArray = {this.state.cartArray}
+                            buyFishArray = {this.state.buyFishArray}
+                            clickItem = {this.clickItem}
+                            updateBuyFishArrayState = {this.updateBuyFishArrayState}    
+                            updateSubtotalState = {this.updateSubtotalState}                    
+                        />
+                    }} />
+                    <Route exact path="/home" component={Home} />
+                    <Route exact path="/" component={Home} />
+                </div>
+
+            </Router>
+
         );
     }
 }
