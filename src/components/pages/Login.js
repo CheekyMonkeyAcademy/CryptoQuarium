@@ -31,18 +31,19 @@ class Login extends Component {
         return (
             <div className="container">
                  <div className="video col s12">
-                    <video class="background-video"  muted loop autoPlay>
+                    {/* TODO re-enable once we figure out a good URL (maybe on server?) */}
+                    {/* <video className="background-video"  muted loop autoPlay>
                     <source src={this.state.videoURL} type="video/mp4" />
                     <source src={this.state.videoURL} type="video/ogg" />
                     Your browser does not support the video tag.
-                    </video>                   
+                    </video>                    */}
                 </div>
                 <div className="container">
                     <div className="row">
                         <div className="col s6 offset-s5">
                             <a method='POST' href='http://localhost:8080/auth/google'>
 
-                                <button className="btn btn-large red waves-effect waves-lighter"><i class="material-icons right">add</i>SIGN-IN WITH GOOGLE</button>
+                                <button className="btn btn-large red waves-effect waves-lighter"><i className="material-icons right">add</i>SIGN-IN WITH GOOGLE</button>
 
                             </a>        
                         </div>

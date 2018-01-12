@@ -3,7 +3,7 @@ import SellUserInventory from "../SellComponents/SellUserInventory/SellUserInven
 import SellUserCart from "../SellComponents/SellUserCart/SellUserCart";
 import axios from 'axios';
 
-{/* <input onChange={(event) => this.props.doSomethingWithEvent(event)} /> */}
+// <input onChange={(event) => this.props.doSomethingWithEvent(event)} /> 
 // doSomethingWithEvent = (event) => {
 //     const value = event.target.value;
 // }
@@ -84,8 +84,8 @@ class Sell extends Component {
                                 thisItemToMarket={this.thisItemToMarket}
                                 getAllUserFish={this.getAllUserFish}
                                 myFishArray={this.state.myFishArray}
-                            		handlePriceChange = {this.handlePriceChange}
-																value={this.state.value}
+                            	handlePriceChange = {this.handlePriceChange}
+								value={this.state.value}
                             />
                         </div>
 

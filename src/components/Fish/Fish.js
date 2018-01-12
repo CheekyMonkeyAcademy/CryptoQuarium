@@ -2,10 +2,6 @@ import React, {Component} from "react";
 import "./Fish.css";
 
 class Fish extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     degree() {
         let fish_wrap = document.getElementById(this.props.id);
         fish_wrap.style.setProperty('--degree', this.props.degree + 'deg');
