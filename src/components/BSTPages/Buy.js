@@ -13,7 +13,7 @@ class Buy extends Component {
                 <div className="container green">
                     <div className="row">
                         <div className="col s6 push-s4">
-                            <h5>BUY FISH AND ACCOUNTREMENT</h5>    
+                            <h5>BUY FISH AND ACCOUTREMENT</h5>    
                         </div>
                     </div>
                     <hr/>
