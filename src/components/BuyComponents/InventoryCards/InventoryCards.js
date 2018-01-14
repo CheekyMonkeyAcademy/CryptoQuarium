@@ -1,27 +1,46 @@
-import React from "react";
+import React, {Component} from "react";
 import "./InventoryCards.css"
 import PlaceHolderimg from '../../../Images/fish/fish1.png';
+import Fish from '../../Fish';
+import PufferFish from '../../PufferFish';
 
+class InventoryCards extends Component {
+    renderFish = () => {
+        switch (this.props.codeSpecies) {
+        case 'Fish': 
+            return <Fish {...this.props} key={this.props.id}/>
+        case 'PufferFish':
+            return <PufferFish {...this.props} key={this.props.id}/>
+        
+        default:
+            console.log(`unable to find target fish`);
+        }
+    }
 
-const InventoryCards = props => (
+render (){ 
+    return (
     <div className="container"> 
         <div className="row">
             <div className="col s3">
-                <div className="card card-action cyan lighten-5"  id={"card"+props.id}>
-                    <div className="card-image">      
+                <div className="card card-action cyan lighten-5"  id={"card"+this.props.id}>
+                    <div className="card-image">    
                         <img alt="" src={PlaceHolderimg} style={{ width: 150, marginTop: 120 }} />                  
-                        <a className="btn-floating halfway-fab waves-effect waves-light green" id={props.id} onClick={() => props.onClick(props.id)}><i className="material-icons">add</i></a>
+                        <a className="btn-floating halfway-fab waves-effect waves-light green" id={this.props.id} onClick={() => this.props.onClick(this.props.id)}><i className="material-icons">add</i></a>
                     </div>
                     <div className="card-content">
-                        <p>{props.species}</p>
-                        <p>Fish Id:{props.id}</p>
-                        <p>Price: ${props.price}</p>
+                        {this.renderFish()}
+
+                        <p>{this.props.species}</p>
+                        <p>Fish Id:{this.props.id}</p>
+                        <p>Price: ${this.props.price}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>    
-);
+)
+}
+}
     
 export default InventoryCards;
 

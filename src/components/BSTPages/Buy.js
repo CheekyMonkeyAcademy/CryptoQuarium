@@ -19,14 +19,14 @@ class Buy extends Component {
                     <hr/>
                     <div className="row buy-fish-div">
                         <div className="col s2">Fish Market</div>
-                        <div className="col s2"><i class="small material-icons">arrow_back</i></div>
+                        <div className="col s2"><i className="small material-icons">arrow_back</i></div>
                         <div className="col s2">
                             <label className="switch">
                                 <input id="fishTemplateOrUserFishInput" onChange={this.props.toggleFishMarket} type="checkbox"></input>
                                 <span className="slider round black"></span>
                             </label>
                         </div>
-                        <div className="col s2"><i class="small material-icons">arrow_forward</i></div>
+                        <div className="col s2"><i className="small material-icons">arrow_forward</i></div>
                         <div className="col s4">Other Users Market</div>
                     </div>
                 </div>
