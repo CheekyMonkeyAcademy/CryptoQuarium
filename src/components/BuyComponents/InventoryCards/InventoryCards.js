@@ -23,13 +23,12 @@ render (){
         <div className="row">
             <div className="col s3">
                 <div className="card card-action cyan lighten-5"  id={"card"+this.props.id}>
-                    <div className="card-image">    
-                        <img alt="" src={PlaceHolderimg} style={{ width: 150, marginTop: 120 }} />                  
+                    <div className="card-image"> 
+                        {this.renderFish()}   
+                        {/* <img alt="" src={PlaceHolderimg} style={{ width: 150, marginTop: 120 }} />                   */}
                         <a className="btn-floating halfway-fab waves-effect waves-light green" id={this.props.id} onClick={() => this.props.onClick(this.props.id)}><i className="material-icons">add</i></a>
                     </div>
                     <div className="card-content">
-                        {this.renderFish()}
-
                         <p>{this.props.species}</p>
                         <p>Fish Id:{this.props.id}</p>
                         <p>Price: ${this.props.price}</p>
