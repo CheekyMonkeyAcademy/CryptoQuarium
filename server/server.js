@@ -52,6 +52,7 @@ if (process.env.NODE_ENV == 'production') {
     })
 }
 else {
+    console.log(`using a src static path to route`);
     app.use(express.static("../src"));
 }
 
