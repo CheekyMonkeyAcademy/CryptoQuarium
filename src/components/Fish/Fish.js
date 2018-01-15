@@ -58,6 +58,7 @@ class Fish extends Component {
         fish_wrap ? fish_wrap.style.setProperty("--animation-time", animationDuration + "s") : console.log(`No fish, no style`);
 
         setTimeout(() => {
+            // this stops the loop from happening when we move away from the page - a different bug to prevent
             fish_wrap ? this.swim() : console.log(`Stop swimming!`);
         }, animationDuration * 1000);
     }
