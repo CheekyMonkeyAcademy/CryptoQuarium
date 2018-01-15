@@ -1,10 +1,6 @@
 import React, {Component} from "react";
 import "./BuyInventory.css"
 import InventoryCards from "../InventoryCards"
-// import axios from 'axios';
-
-//NICOLE--LIFT UP THE STATE!!!! THAT IS KEY!!
-
 
 class BuyInventory extends Component {
 

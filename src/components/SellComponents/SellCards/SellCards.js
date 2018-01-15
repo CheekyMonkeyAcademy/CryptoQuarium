@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import "../../BuyComponents/InventoryCards/InventoryCards.css";
-import Fish from '../../Fish';
-import PufferFish from '../../PufferFish';
+import Fish from '../../AllFish/Fish';
+import PufferFish from '../../AllFish/PufferFish';
 
 class SellCards extends Component {
     renderFish = () => {
