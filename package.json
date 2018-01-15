@@ -24,7 +24,14 @@
     "q": "^1.5.1",
     "sequelize": "^4.3.1"
   },
-  "proxy": "http://localhost:8080",
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:8080"
+    },
+    "/auth": {
+      "target": "http://localhost:8080"
+    }
+  },
   "scripts": {
     "dev": "concurrently \"nodemon server/server.js\" \"npm run startDev\"",
     "heroku-postbuild": "npm run build",

@@ -23,11 +23,11 @@ module.exports = function(app) {
 
     app.get('/auth/google/callback', 
     passport.authenticate( 'google', { 
-        successRedirect: '/MyAquarium', // TODO fix this hack job -- react-router ??
+        successRedirect: '/MyAquarium', 
         failureRedirect: '/Login'
     }));
 
-    app.get('/logout', function(req, res){
+    app.get('auth/logout', function(req, res){
         req.logout();
         res.redirect('/');
     });
