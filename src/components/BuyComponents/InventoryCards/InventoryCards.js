@@ -5,10 +5,14 @@ import Fish from '../../Fish';
 import PufferFish from '../../PufferFish';
 
 class InventoryCards extends Component {
+
     renderFish = () => {
         switch (this.props.codeSpecies) {
         case 'Fish': 
-            return <Fish {...this.props} key={this.props.id}/>
+            return <Fish 
+                {...this.props}
+                key={this.props.id}
+            />
         case 'PufferFish':
             return <PufferFish {...this.props} key={this.props.id}/>
         
@@ -17,15 +21,15 @@ class InventoryCards extends Component {
         }
     }
 
-render (){ 
+render (){
+    let doNotSwim = true;
     return (
     <div className="container"> 
         <div className="row">
             <div className="col s3">
                 <div className="card card-action cyan lighten-5"  id={"card"+this.props.id}>
                     <div className="card-image"> 
-                        {this.renderFish()}   
-                        {/* <img alt="" src={PlaceHolderimg} style={{ width: 150, marginTop: 120 }} />                   */}
+                        {this.renderFish()}
                         <a className="btn-floating halfway-fab waves-effect waves-light green" id={this.props.id} onClick={() => this.props.onClick(this.props.id)}><i className="material-icons">add</i></a>
                     </div>
                     <div className="card-content">
