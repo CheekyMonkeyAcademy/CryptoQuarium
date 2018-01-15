@@ -1,11 +1,9 @@
 import React, {Component} from "react";
 import "./InventoryCards.css"
-import PlaceHolderimg from '../../../Images/fish/fish1.png';
 import Fish from '../../Fish';
 import PufferFish from '../../PufferFish';
 
 class InventoryCards extends Component {
-
     renderFish = () => {
         switch (this.props.codeSpecies) {
         case 'Fish': 
@@ -22,7 +20,6 @@ class InventoryCards extends Component {
     }
 
 render (){
-    let doNotSwim = true;
     return (
     <div className="container"> 
         <div className="row">
