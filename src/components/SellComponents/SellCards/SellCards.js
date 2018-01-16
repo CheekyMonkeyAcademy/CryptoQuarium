@@ -37,8 +37,8 @@ const SellCards = props => (
                                 </div>
 
                                 <div className="row">
-                                    <input type="number" value={props.newPrice} id={"input"+props.id}  onChange={() => props.handlePriceChange()}/>
-                                     
+                                    <input type="number" value={props.newPrice} id={props.id}  onChange={props.handlePriceChange}
+                                     />
                                 </div>
                             </div>
                         </div>
@@ -60,3 +60,4 @@ export default SellCards;
 //                                         <i className="material-icons">local_offer</i>
 //                                     </a>                               
 //                                 </form>
+// onChange={() => props.handlePriceChange()}/>
