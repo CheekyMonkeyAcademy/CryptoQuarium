@@ -37,7 +37,7 @@ const SellCards = props => (
                                 </div>
 
                                 <div className="row">
-                                    <input type="number" value={props.newPrice} id={props.id}  onChange={props.handlePriceChange}
+                                    <input type="number" value={props.newPrice} id={"key" + props.id}  onChange={props.handlePriceChange}
                                      />
                                 </div>
                             </div>
