@@ -3,6 +3,7 @@ import "../../BuyComponents/InventoryCards/InventoryCards.css";
 import Fish from '../../AllFish/Fish';
 import PufferFish from '../../AllFish/PufferFish';
 
+
 class SellCards extends Component {
     renderFish = () => {
         switch (this.props.codeSpecies) {
@@ -41,11 +42,15 @@ class SellCards extends Component {
                         <a className="btn-floating halfway-fab waves-effect waves-light red" onClick={() => this.props.thisItemToMarket(this.props.id)}>
                             <i className="material-icons">local_offer</i>
                         </a>
+                                <div className="row">
+                                    <input type="number" value={props.newPrice} id={"key" + props.id}  onChange={props.handlePriceChange}
+                                     />
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
 
         )
     }
@@ -98,3 +103,4 @@ export default SellCards;
 // </a>
 
 // -------------------------^^^THIS WAS USED PRIOR TO ADDING CSS^^^---------------------------
+

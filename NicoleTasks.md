@@ -35,10 +35,7 @@ These changes will save to the database
         **STEP TWO:UPDATE User fish spec with this route!
             PUT: /api/userFishUpdate/:id
                 Updating a user fish for ONE or TWO reasons:
-                1. Rename the fish (uses req.body.name)
-                2. Put the fish up for sale (or take it off sale)
-                    a. forSale (Boolean):  req.body.forSale
-                    b. price (double): req.body.price (needs to be a value above zero);
+                    -- price (double): req.body.price (needs to be a value above zero);
 
 **REORGANIZATION OF TABS**
 Create a dropdown menu titled "My..."

@@ -30,20 +30,24 @@ class Sell extends Component {
         itemsToBeSold: [], 
         myFishArray: [], 
         newPrice: 0
+        // newPrice : {
+        //     key1: 1, 
+        //     key2: 5            
+        // }    
     }
 
     //This will be an onChange event passed to the input space
-    handlePriceChange = (event) => {
-        //axios back end call here!
-        console.log("my axios call will be here!")
-        // this.setState({newPrice: event.target.newPrice})
-    }
-
+    handlePriceChange = (event, id) => {   
+        this.setState({
+            newPrice: event.target.value})  
+            // newPrice."key"[id]: event.target.value})
+        }
+   
     thisItemToMarket = (id) => {        
         console.log("Am I clicking my sell tag?")      
         //0 on out side is referencing the filter
         let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
-    
+        
         this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]])
         }, (state) => {
             console.log(this.state.itemsToBeSold)
@@ -83,8 +87,9 @@ class Sell extends Component {
                                 thisItemToMarket={this.thisItemToMarket}
                                 getAllUserFish={this.getAllUserFish}
                                 myFishArray={this.state.myFishArray}
-                            	handlePriceChange = {this.handlePriceChange}
-								value={this.state.value}
+                                newPrice= {this.state.newPrice}
+                                handlePriceChange = {this.handlePriceChange}
+								                value={this.state.value}
                             />
                         </div>
 

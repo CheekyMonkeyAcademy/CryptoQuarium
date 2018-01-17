@@ -1,8 +1,6 @@
 import React from "react";
 import canbcheeky1 from '../../Images/canbcheeky1.png';
-
-import { Link } from "react-router-dom"
-
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 

@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import axios from 'axios';
+// import axios from 'axios';
 import SellCards from '../SellCards'
 
 class SellUserInventory extends Component {
@@ -17,7 +17,7 @@ class SellUserInventory extends Component {
                     return <SellCards {...fish}
                         thisItemToMarket = {this.props.thisItemToMarket}
                         handlePriceChange = {this.props.handlePriceChange}
-                        value = {this.props.value}
+                        newPrice = {this.props.newPrice}
                         key = {fish.id}
                     />
                 }, this)}        
