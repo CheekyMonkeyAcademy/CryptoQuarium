@@ -22,9 +22,6 @@ class StatementCard extends Component {
         super(props)
         
         this.state = {
-            lastTransactionOne: "- 5.00 purchased blowfish",
-            lastTransactionTwo: "+ 60.00 sold fishfood",
-            lastTransactionThree: "- 19.00 purchased goldfish", 
             isModalOpen: false
         };         
     } //Closing of constructor here!
@@ -33,18 +30,22 @@ class StatementCard extends Component {
     render(){
         return (
             <div className="row">
-                <div className="col s12 m6">
-                <div className="card blue-grey darken-1">
+                <div className="col s8 push-s2">
+                <div className="card #757575 grey darken-1">
                     <div className="card-content white-text">
-                        <span className="card-title">Recent Wallet Statements</span>
-                        <p>{this.props.myStatementHistory}</p>                       
+                        <h1 className="card-title">Recent Wallet Statements</h1>
+                        <hr/>
+                        <p>{this.props.myStatementHistory.walletBalanceChangeReason}</p>
+                        <p>{this.props.myStatementHistory.walletBalanceChange}</p>
+                        <p>{this.props.myStatementHistory.lastWalletBalance}</p>
+                        <p>{this.props.myStatementHistory.createdAt}</p>
                     </div>
                     <div className="card-action">                        
                         <a className="waves-effect waves-light btn" onClick={() => this.openModel()}>View Account Activity</a>                      
                         <StatementModal isOpen={this.state.isModalOpen} onClose={() => this.closeModal()}>
-                            <h5>Statement One</h5>
+                            <h3>Statement One</h3>
                             <hr />
-                            <h5>Statement Two</h5>
+                            <h3>Statement Two</h3>
                             <p><a className="waves-effect waves-light btn" onClick={() => this.closeModal()}>Close</a></p>                                                 
                         </StatementModal>
                     </div>
@@ -54,7 +55,7 @@ class StatementCard extends Component {
         );
     }
 
-    openModel () {
+    openModel = () => {
         this.setState({isModalOpen:true});
     }
 

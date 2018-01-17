@@ -18,7 +18,7 @@ class Wallet extends Component {
             console.log(`What have I spent my crypto money on?`)
             // console.log(statementHistory.data)
             // console.log(statementHistory.data[0].walletBalanceChangeReason)
-            const myHistory = statementHistory.data[0].walletBalanceChangeReason
+            const myHistory = statementHistory.data[0]
             this.setState({statementHistory: myHistory})
             // console.log("STATE!!!")
             // console.log(this.state.statementHistory)            
@@ -32,14 +32,15 @@ class Wallet extends Component {
     render() {
         return (
             <div>
-                My CryptoAquarium Wallet
-                <BalanceCard 
-                    currentBalance={this.props.currentBalance}/>
-                <StatementCard 
-                    myStatementHistory = {this.state.statementHistory}
-                />
-
-
+                <br/>
+                 <div className="container">
+                    <h3 className="logo center #757575 grey darken-1 z-depth-5">My CryptoAquarium Wallet</h3>
+                </div>
+                <br/>
+                <div className="container">
+                    <BalanceCard currentBalance={this.props.currentBalance}/>
+                    <StatementCard myStatementHistory = {this.state.statementHistory}/>
+                </div>
             </div>
         )
     }

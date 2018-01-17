@@ -1,10 +1,10 @@
 import React from "react"
 
 const SellMarketCards = props => (
-    <div>
-        
+    <div>        
         <div className="row">
             <div className="col s12">
+
                 <div className="card white">                    
                     <div className="card-action black-text">
                         <p>Item Id: {props.id}</p>
@@ -17,8 +17,6 @@ const SellMarketCards = props => (
             </div>
         </div>    
     </div>
-    
-
 );
 
 export default SellMarketCards; 

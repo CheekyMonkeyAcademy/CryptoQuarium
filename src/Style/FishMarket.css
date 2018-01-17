@@ -2,9 +2,17 @@
     background-color: black
 }
 
+body {
+    background-repeat: no-repeat;
+    background-color: rgb(190, 248, 248);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;	
+}
+
 .store1 {
     height: 40px;
-    background-image: url("../Images/fish/store2.png");
+    /* background-image: url("../Images/fish/store2.png"); */
     min-height: 380px;
 }
 
@@ -15,18 +23,20 @@
     color: aliceblue;
 }
 
-body {
-    /* background-color: rgb(190, 248, 248); */
-    background-image: url("../Images/aquarium4.jpg");
-    background-repeat: no-repeat;
-    background-color: rgb(190, 248, 248);
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;	
+.green {
+    border-radius: 20px;
 }
 
-.swith1 {
-    margin-left: 50px;
+.red {
+    border-radius: 20px;
 }
 
+.orange {
+    border-radius: 20px;
+}
+
+.buy-fish-div {
+    font-size: 20px;
+   padding-left: 250px;
+}
 

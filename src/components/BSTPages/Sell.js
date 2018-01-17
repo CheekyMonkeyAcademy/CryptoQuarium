@@ -3,7 +3,7 @@ import SellUserInventory from "../SellComponents/SellUserInventory/SellUserInven
 import SellUserCart from "../SellComponents/SellUserCart/SellUserCart";
 import axios from 'axios';
 
-{/* <input onChange={(event) => this.props.doSomethingWithEvent(event)} /> */}
+// <input onChange={(event) => this.props.doSomethingWithEvent(event)} /> 
 // doSomethingWithEvent = (event) => {
 //     const value = event.target.value;
 // }
@@ -76,8 +76,7 @@ class Sell extends Component {
                 <br/>
                 <div className="container red">
                     <div className="row">
-                        <h5 className="col s6 push-s4 bold_text">SELL YOUR QUIPTO-FISH</h5>
-
+                        <h5 className="col s6 push-s4 bold_text" style={{ padding:25 }}>SELL YOUR QUIPTO-FISH</h5>
 					</div>
                 </div>
                 <br/><br/>
@@ -90,6 +89,7 @@ class Sell extends Component {
                                 myFishArray={this.state.myFishArray}
                                 newPrice= {this.state.newPrice}
                                 handlePriceChange = {this.handlePriceChange}
+								                value={this.state.value}
                             />
                         </div>
 

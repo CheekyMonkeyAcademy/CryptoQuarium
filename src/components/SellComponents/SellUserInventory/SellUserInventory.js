@@ -21,7 +21,7 @@ class SellUserInventory extends Component {
                         key = {fish.id}
                     />
                 }, this)}        
-               
+                
             </div>
         )
     }

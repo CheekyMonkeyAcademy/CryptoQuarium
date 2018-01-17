@@ -1,0 +1,15 @@
+.login {
+  background: url("../../Images/background.gif"); 
+  max-width: 100%;
+  height: 975px;
+  background-size: cover;
+  background-position: center;
+  position: relative; 
+  background-repeat: no-repeat;
+}
+
+.button {
+  position: absolute;
+  top: 30%;
+  left: 40%;
+}

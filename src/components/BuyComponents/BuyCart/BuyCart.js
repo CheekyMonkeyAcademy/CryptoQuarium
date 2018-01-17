@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import CartItems from "../CartItems/CartItems";
 import CartSubtotal from "../CartSubtotal/CartSubtotal";
-import CartLogo from "../../../Images/fish/store3.png";
 import "./BuyCart.css";
 import { Card, CardTitle } from 'react-materialize'
-
+import CartLogo1 from "../../../Images/fish/fishBoard2.png";
 
 class BuyCart extends Component {
 
@@ -13,7 +12,7 @@ class BuyCart extends Component {
             <div className="row">
 
                 <Card className='big #757575 grey darken-1'
-                    header={<CardTitle image={CartLogo}>Shopping Cart</CardTitle>}>
+                    header={<CardTitle image={CartLogo1}>Shopping Cart</CardTitle>}>
                     Your fish tank is looking empty, buy some crypto-fish.
 
                     <CartSubtotal subTotal={this.props.subTotal} />

@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import Fish from "../Fish";
-import PufferFish from "../PufferFish";
+import Fish from "../AllFish/Fish";
+import PufferFish from "../AllFish/PufferFish";
 import "./Tank.css";
 import axios from 'axios';
 

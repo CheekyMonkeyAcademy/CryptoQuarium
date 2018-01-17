@@ -25,10 +25,20 @@ passport.deserializeUser(function(userId, done) {
 });
 
 //---------------------------Google strategy begins-------------------------
+let callbackUrlVar
+if (process.env.NODE_ENV == 'production'){
+    callbackUrlVar = `https://cryptoquarium.herokuapp.com/auth/google/callback`
+    console.log(`Using PRODUCTION callback URL: ${callbackUrlVar}`);
+}
+else {
+    callbackUrlVar = `http://localhost:8080/auth/google/callback`
+    console.log(`Using LOCAL callback URL: ${callbackUrlVar}`);
+}
+
 passport.use(new GoogleStrategy({
-    clientID:     `763654066344-7rok26dkplnoagci46oieb58303md5qo.apps.googleusercontent.com`,
-    clientSecret: `faDZggDkMGEO0GSggDs3YqMz`,
-    callbackURL: `http://localhost:${PORT}/auth/google/callback`,
+    clientID:        `763654066344-7ev3pq5ne5bjdkomjpuff726mufhvruj.apps.googleusercontent.com`,
+    clientSecret:    `4ZiThL5yW11HyTWIU43TdEX_`,
+    callbackURL: callbackUrlVar,
     passReqToCallback   : true
 },
 function(request, accessToken, refreshToken, profile, done) {
