@@ -61,3 +61,10 @@ Remove Sell and Trade and AppContainer and FishMarket and add a Buy tab
         one for buy from us and buy from other users
 
 
+Heroku:
+    add startDev
+    heroku-postbuild
+    dev 
+    heroku is going to run "npm start"
+
+In production Heroku, it doesn't use the proxy

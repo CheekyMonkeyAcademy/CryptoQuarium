@@ -23,7 +23,7 @@ class BuyCart extends Component {
                     }, this)}
 
                     <div className="card-action card-content white-text">
-                        <a className="waves-effect waves-light btn green pulse" onClick={() => this.props.checkoutChangeBalance()}><i
+                        <a className="waves-effect waves-light btn green" onClick={() => this.props.checkoutChangeBalance()}><i
                             className="material-icons left">done</i>checkout</a>
                     </div>
                 </Card>

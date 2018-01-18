@@ -17,7 +17,7 @@ const FishMarketNav = props =>
                 <div
                     onClick={() => { props.handlePageChange("Buy"); }}
                     className={props.currentPage === "Buy" ? "active" : ""}>
-                    <a><button className="btn btn-large green waves-effect pulse col s2 offset-s1">Buy</button>
+                    <a><button className="btn btn-large green waves-effect col s2 offset-s1">Buy</button>
                     </a>
                 </div>
 
