@@ -23,7 +23,7 @@ class SellCards extends Component {
     render(){
         return(
     <div className="container">
-        <div className="col s2 card-action sell-card card cyan lighten-5" >
+        <div className="col s2 card-action sell-card card cyan lighten-5" id={"card" + this.props.id}>
             <div className="row">
                 <div className="card-image">
                     {this.renderFish()}

@@ -26,24 +26,25 @@ import axios from 'axios';
 class Sell extends Component {
 
     state = {
-
         itemsToBeSold: [], 
-        myFishArray: [], 
-        //New price should be fish id and price
-        newPrice: 0   
-        // newPrice: {
-        //             fishId: 0,
-        //             newValue: 0
-        //     }      
+        myFishArray: [],           
+        newPrice: {
+                    fishId: 0,
+                    newValue: 0
+        }      
     }
 
     //This will be an onChange event passed to the input space
     handlePriceChange = (event, id) => { 
-        console.log("*****LOOK HERE******")  
-        console.log(event.target.value)
-        console.log(event.target.id)
+        console.log("*****LOOK HERE******")           
         this.setState({
-            newPrice: event.target.value})
+            newPrice: {
+                fishId: event.target.id, 
+                newValue: event.target.value
+            }
+        }, () => {
+            console.log(this.state.newPrice)
+        })      
             
         //axios call should go here to update price of fish!!!!
             //Get fish object to kyle in an array
@@ -54,10 +55,12 @@ class Sell extends Component {
         //0 on out side is referencing the filter
         let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
         
-        // this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]])
-        // }, (state) => {
-        //     console.log(this.state.itemsToBeSold)
-        // }) 
+        this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]])
+        }, (state) => {
+            console.log(this.state.itemsToBeSold)
+        }) 
+
+        document.getElementById("card"+id).style.display = "none";
     }
 
     //FUNCTION TO GET ALL USERS FISH
