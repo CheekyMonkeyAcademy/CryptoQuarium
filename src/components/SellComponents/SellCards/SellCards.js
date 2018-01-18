@@ -5,15 +5,23 @@ import PufferFish from '../../AllFish/PufferFish';
 
 
 class SellCards extends Component {
+    state = {
+        noMove: true
+    }
     renderFish = () => {
         switch (this.props.codeSpecies) {
         case 'Fish': 
             return <Fish 
                 {...this.props}
+                noMove = {this.state.noMove}     
                 key={this.props.id}
             />
         case 'PufferFish':
-            return <PufferFish {...this.props} key={this.props.id}/>
+            return <PufferFish 
+                {...this.props} 
+                noMove = {this.state.noMove}     
+                key={this.props.id}
+            />
         
         default:
             console.log(`unable to find target fish`);
@@ -42,9 +50,10 @@ class SellCards extends Component {
                         <a className="btn-floating halfway-fab waves-effect waves-light red" onClick={() => this.props.thisItemToMarket(this.props.id)}>
                             <i className="material-icons">local_offer</i>
                         </a>
-                                <div className="row">
-                                    <input type="number" value={props.newPrice} id={"key" + props.id}  onChange={props.handlePriceChange}
-                                     />
+                        <div className="row">
+                            <input type="number" value={this.props.newPrice} id={"key" + this.props.id}  onChange={this.props.handlePriceChange}
+                                />
+                        </div>
                     </form>
                 </div>
             </div>

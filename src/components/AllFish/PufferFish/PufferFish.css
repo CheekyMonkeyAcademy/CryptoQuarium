@@ -1,11 +1,11 @@
 
 .fish_wrap2 {
-    height: 230px;
-    left: 1000px;
+    border: 5px solid blue;
     position: absolute;
-    top: 305px;
-    width: 355px;
-    z-index: 90;
+    height: 165px;
+    width: 275px;
+    z-index: 100;
+    animation: swim2 var(--animation-time) ease infinite;
 }
 
 .fish2 {
@@ -13,6 +13,7 @@
 }
 
 .fish_body2 {
+    /* border: 5px solid red; */
     transform: skewX(30deg) skewY(5deg);
     background-image: radial-gradient(rgb(var(--colorOneR),var(--colorOneG),var(--colorOneB)) var(--degree), rgb(var(--colorTwoR),var(--colorTwoG),var(--colorTwoB)) 2px);
     background-size:40px 40px;
@@ -20,7 +21,8 @@
     box-shadow: 6px -12px 15px #3A2104 inset, -2px -3px 4px #281602 inset;
     height: 144px;
     position: absolute;
-    top: 260px;
+    left: -25px;
+    top: -30px;
     width: 184px;
 }
 
@@ -100,9 +102,9 @@
     border-radius: 200px 112px 47px 62px;    
     box-shadow: -15px -7px 9px #000604 inset;    
     height: 32px;
-    left: 191px;
+    left: 167px;
     position: absolute;
-    top: 381px;
+    top: 81px;
     width: 42px;
 }
 
@@ -120,16 +122,6 @@
 }
 
 /* start of fish animation */
-
-.fish_wrap2 {
-    left: 200px;
-    top: 105px;
-    z-index: 100;
-    animation: swim2 var(--animation-time) ease infinite;
-    /* animation-name: swim2;
-    animation-duration: 15s;
-    animation-iteration-count: infinite; */
- }
 
 @keyframes swim2 {
     from {
