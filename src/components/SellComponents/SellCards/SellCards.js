@@ -23,7 +23,7 @@ class SellCards extends Component {
     render(){
         return(
     <div className="container">
-        <div className="col s2 card-action sell-card card cyan lighten-5">
+        <div className="col s2 card-action sell-card card cyan lighten-5" >
             <div className="row">
                 <div className="card-image">
                     {this.renderFish()}
@@ -36,7 +36,8 @@ class SellCards extends Component {
                         <div className="col s12">Fish Id:{this.props.id}</div>
                     </div>
                    
-                       <input onChange={() => this.props.handlePriceChange()} />
+                       <input onChange={(event) => this.props.handlePriceChange(event)} id={this.props.id}/>
+                       <a onClick={() => this.props.thisItemToMarket(this.props.id)}><i className="material-icons">local_offer</i></a>
                    
                 </div>
             </div>

@@ -29,29 +29,35 @@ class Sell extends Component {
 
         itemsToBeSold: [], 
         myFishArray: [], 
-        newPrice: 0
-        // newPrice : {
-        //     key1: 1, 
-        //     key2: 5            
-        // }    
+        //New price should be fish id and price
+        newPrice: 0   
+        // newPrice: {
+        //             fishId: 0,
+        //             newValue: 0
+        //     }      
     }
 
     //This will be an onChange event passed to the input space
-    handlePriceChange = (event, id) => {   
+    handlePriceChange = (event, id) => { 
+        console.log("*****LOOK HERE******")  
+        console.log(event.target.value)
+        console.log(event.target.id)
         this.setState({
-            newPrice: event.target.value})  
-            // newPrice."key"[id]: event.target.value})
-        }
+            newPrice: event.target.value})
+            
+        //axios call should go here to update price of fish!!!!
+            //Get fish object to kyle in an array
+    }
    
     thisItemToMarket = (id) => {        
         console.log("Am I clicking my sell tag?")      
         //0 on out side is referencing the filter
         let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
         
-        this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]])
-        }, (state) => {
-            console.log(this.state.itemsToBeSold)
-        }) 
+        // this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]])
+        // }, (state) => {
+        //     console.log(this.state.itemsToBeSold)
+        // }) 
     }
 
     //FUNCTION TO GET ALL USERS FISH
@@ -66,7 +72,7 @@ class Sell extends Component {
             })
             .catch((err) => {
                 console.log(err)
-            })
+        })
     }
 
     render() {
@@ -89,7 +95,7 @@ class Sell extends Component {
                                 myFishArray={this.state.myFishArray}
                                 newPrice= {this.state.newPrice}
                                 handlePriceChange = {this.handlePriceChange}
-								                value={this.state.value}
+								value={this.state.value}
                             />
                         </div>
 
