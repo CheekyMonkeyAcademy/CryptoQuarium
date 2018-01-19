@@ -15,6 +15,7 @@ class Tank extends Component {
         switch (fish.codeSpecies) {
             case 'Fish': 
                 return <Fish {...fish} key={fish.id}/>
+    
             case 'PufferFish':
                 return <PufferFish {...fish} key={fish.id}/>
             
@@ -29,7 +30,6 @@ class Tank extends Component {
             this.setState({allUserFish: allFish.data});
         })
         .catch((err)=> {
-            console.log(`Error: No statement history for you!`)
             console.log(err)
         })
     }
