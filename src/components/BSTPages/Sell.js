@@ -26,22 +26,29 @@ import axios from 'axios';
 class Sell extends Component {
 
     state = {
-
         itemsToBeSold: [], 
-        myFishArray: [], 
-        newPrice: 0
-        // newPrice : {
-        //     key1: 1, 
-        //     key2: 5            
-        // }    
+        myFishArray: [],           
+        newPrice: {
+                    fishId: 0,
+                    newValue: 0
+        }      
     }
 
     //This will be an onChange event passed to the input space
-    handlePriceChange = (event, id) => {   
+    handlePriceChange = (event, id) => { 
+        console.log("*****LOOK HERE******")           
         this.setState({
-            newPrice: event.target.value})  
-            // newPrice."key"[id]: event.target.value})
-        }
+            newPrice: {
+                fishId: event.target.id, 
+                newValue: event.target.value
+            }
+        }, () => {
+            console.log(this.state.newPrice)
+        })      
+            
+        //axios call should go here to update price of fish!!!!
+            //Get fish object to kyle in an array
+    }
    
     thisItemToMarket = (id) => {        
         console.log("Am I clicking my sell tag?")      
@@ -52,6 +59,8 @@ class Sell extends Component {
         }, (state) => {
             console.log(this.state.itemsToBeSold)
         }) 
+
+        document.getElementById("card"+id).style.display = "none";
     }
 
     //FUNCTION TO GET ALL USERS FISH
@@ -66,7 +75,7 @@ class Sell extends Component {
             })
             .catch((err) => {
                 console.log(err)
-            })
+        })
     }
 
     render() {
@@ -89,7 +98,7 @@ class Sell extends Component {
                                 myFishArray={this.state.myFishArray}
                                 newPrice= {this.state.newPrice}
                                 handlePriceChange = {this.handlePriceChange}
-								                value={this.state.value}
+								value={this.state.value}
                             />
                         </div>
 
