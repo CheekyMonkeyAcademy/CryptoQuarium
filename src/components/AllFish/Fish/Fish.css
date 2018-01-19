@@ -1,6 +1,10 @@
+.lowerFishToTank {
+    position: relative;
+    top: 230px;
+}
 
 .fish_wrap {
-    border: 5px solid black;
+    /* border: 5px solid black; */
     position: absolute;
     height: 125px;
     width: 200px;
