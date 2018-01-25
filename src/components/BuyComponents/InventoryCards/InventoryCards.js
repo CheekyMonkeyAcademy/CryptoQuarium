@@ -10,18 +10,21 @@ class InventoryCards extends Component {
     renderFish = () => {
         switch (this.props.codeSpecies) {
         case 'Fish': 
-            return <Fish 
-                {...this.props}
-                noMove = {this.state.noMove}
-                key={this.props.id}
-            />
+            return <div className="frame thisFish">
+                <Fish 
+                    {...this.props}
+                    noMove = {this.state.noMove}
+                    key={this.props.id}
+                />
+            </div>
         case 'PufferFish':
-            return <PufferFish 
-                {...this.props} 
-                noMove = {this.state.noMove}
-                key={this.props.id}
-            />
-        
+            return <div className="frame thisPufferFish">
+                <PufferFish 
+                    {...this.props} 
+                    noMove = {this.state.noMove}
+                    key={this.props.id}
+                />
+            </div>
         default:
             console.log(`unable to find target fish`);
         }
