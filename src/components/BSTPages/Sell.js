@@ -30,7 +30,8 @@ class Sell extends Component {
         myFishArray: [],           
         newPrice: {
                     fishId: 0,
-                    newValue: 0
+                    newValue: 0,
+                    // sellAlert: "" 
         } ,   
         sellAlert: "" 
     }
@@ -61,36 +62,20 @@ class Sell extends Component {
         if (this.state.newPrice.newValue[fishIndex] < 0.01){
             //If the price is LESS than 0.01, ALERT "NO"
             alert("NO")
+            //Change state to tell user on the front-end
+            this.setState({sellAlert: "You need to sell for more money"})
         } else if (this.state.newPrice.newValue[fishIndex] >= 0.01){
             //If the price is GREATER than OR EQUAL TO 0.01, ALERT "YES"
             alert("YES")
         }
     }
-//     if(this.state.newPrice.newValue >= 0.01){        
+     
 //         this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]])
 //         }, (state) => {
 //             console.log(this.state.itemsToBeSold)
 //         })             
 //         document.getElementById("card"+id).style.display = "none";
 
-//     } else {             
-//         console.log("DID i get here?")
-//         this.setState({sellAlert: "You need to sell for more money"})
-//     }
-// }
-
-
-// if(fish.id === id) {
-//     console.log("YES!")  
-//     this.setState({sellAlert: "You need to sell for more money"})
-//  }
-//  else if (fish.id !== id) {
-//      console.log("Hey knucklehead...That doesn't work")
-//      // this.setState({sellAlert: " "})
-//  }
-        
-
-    //if the value at this ID is less than 0.01, then alert the message
 
     //FUNCTION TO GET ALL USERS FISH
     getAllUserFish = () => {
