@@ -2,19 +2,31 @@ import React, {Component} from "react";
 import "../../BuyComponents/InventoryCards/InventoryCards.css";
 import Fish from '../../AllFish/Fish';
 import PufferFish from '../../AllFish/PufferFish';
+import "./SellCards.css";
 
 
 class SellCards extends Component {
+    state = {
+        noMove: true
+    }
     renderFish = () => {
         switch (this.props.codeSpecies) {
         case 'Fish': 
-            return <Fish 
-                {...this.props}
-                key={this.props.id}
-            />
+            return <div className="frame thisFish">
+                <Fish 
+                    {...this.props}
+                    noMove = {this.state.noMove}     
+                    key={this.props.id}
+                />
+            </div>
         case 'PufferFish':
-            return <PufferFish {...this.props} key={this.props.id}/>
-        
+            return <div className="frame thisPufferFish">
+                <PufferFish 
+                    {...this.props} 
+                    noMove = {this.state.noMove}     
+                    key={this.props.id}
+                />
+            </div>
         default:
             console.log(`unable to find target fish`);
         }
@@ -23,7 +35,7 @@ class SellCards extends Component {
     render(){
         return(
     <div className="container">
-        <div className="col s2 card-action sell-card card cyan lighten-5" id={"card" + this.props.id}>
+        <div className="col s5 card-action sell-card card cyan lighten-5" id={"card" + this.props.id}>
             <div className="row">
                 <div className="card-image">
                     {this.renderFish()}
@@ -35,10 +47,13 @@ class SellCards extends Component {
                     <div className="row">
                         <div className="col s12">Fish Id:{this.props.id}</div>
                     </div>
+
                    
                        <input onChange={(event) => this.props.handlePriceChange(event)} id={this.props.id}/>
                        <a onClick={() => this.props.thisItemToMarket(this.props.id)}><i className="material-icons">local_offer</i></a>
+
                        <h6 id={this.props.id}>{this.props.sellAlert}</h6>
+
                 </div>
             </div>
         </div>
@@ -47,4 +62,6 @@ class SellCards extends Component {
     }
 }
 
+
 export default SellCards;
+

@@ -4,6 +4,16 @@ body {
     padding-bottom: 15px;
 }
 
+.lowerFishToTank {
+    position: relative;
+    top: 230px;
+}
+
+.lowerFishToTank2 {
+    position: relative;
+    top: 300px;
+}
+
 /* start of wrap */
 
 #wrap {
