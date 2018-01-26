@@ -19,6 +19,7 @@ class SellUserInventory extends Component {
                         handlePriceChange = {this.props.handlePriceChange}
                         newPrice = {this.props.newPrice}
                         key = {fish.id}
+                        sellAlert = {this.props.sellAlert}
                     />
                 }, this)}        
                 
@@ -26,5 +27,8 @@ class SellUserInventory extends Component {
         )
     }
 }
+
+
+
 
 export default SellUserInventory;

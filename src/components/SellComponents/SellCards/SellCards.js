@@ -38,7 +38,7 @@ class SellCards extends Component {
                    
                        <input onChange={(event) => this.props.handlePriceChange(event)} id={this.props.id}/>
                        <a onClick={() => this.props.thisItemToMarket(this.props.id)}><i className="material-icons">local_offer</i></a>
-                   
+                       <h6 id={this.props.id}>{this.props.sellAlert}</h6>
                 </div>
             </div>
         </div>
