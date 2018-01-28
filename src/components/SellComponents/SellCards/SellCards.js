@@ -46,13 +46,11 @@ class SellCards extends Component {
                     </div>
                     <div className="row">
                         <div className="col s12">Fish Id:{this.props.id}</div>
-                    </div>
-
-                   
+                    </div>                   
                        <input onChange={(event) => this.props.handlePriceChange(event)} id={this.props.id}/>
                        <a onClick={() => this.props.thisItemToMarket(this.props.id)}><i className="material-icons">local_offer</i></a>
 
-                       <h6 id={this.props.id}>{this.props.sellAlert}</h6>
+                       
 
                 </div>
             </div>
@@ -65,3 +63,5 @@ class SellCards extends Component {
 
 export default SellCards;
 
+//First attempt at cond't rendering
+{/* <h6 id={this.props.id}>{this.props.sellAlert}</h6> */}
