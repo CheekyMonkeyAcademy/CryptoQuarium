@@ -1,6 +1,6 @@
 import React from "react";
 
-const PriceValAlert = props = (
+const PriceValAlert  = (
     <div>
         That price won't do!
     </div>

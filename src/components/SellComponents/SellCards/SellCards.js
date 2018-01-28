@@ -3,7 +3,7 @@ import "../../BuyComponents/InventoryCards/InventoryCards.css";
 import Fish from '../../AllFish/Fish';
 import PufferFish from '../../AllFish/PufferFish';
 import "./SellCards.css";
-import PriceValAlert from './PriceValAlert'
+// import PriceValAlert from '../PriceValAlert'
 
 // https://reactjs.org/docs/conditional-rendering.html
 class SellCards extends Component {
@@ -50,7 +50,7 @@ class SellCards extends Component {
                     </div>                   
                        <input onChange={(event) => this.props.handlePriceChange(event)} id={this.props.id}/>
                        <a onClick={() => this.props.thisItemToMarket(this.props.id)}><i className="material-icons">local_offer</i></a>
-
+                       {/* <PriceValAlert /> */}
                        
 
                 </div>
