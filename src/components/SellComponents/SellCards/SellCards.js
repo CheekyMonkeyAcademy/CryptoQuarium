@@ -3,8 +3,9 @@ import "../../BuyComponents/InventoryCards/InventoryCards.css";
 import Fish from '../../AllFish/Fish';
 import PufferFish from '../../AllFish/PufferFish';
 import "./SellCards.css";
+import PriceValAlert from './PriceValAlert'
 
-
+// https://reactjs.org/docs/conditional-rendering.html
 class SellCards extends Component {
     state = {
         noMove: true

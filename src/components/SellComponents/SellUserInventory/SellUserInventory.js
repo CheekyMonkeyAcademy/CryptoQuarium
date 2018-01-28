@@ -19,7 +19,7 @@ class SellUserInventory extends Component {
                         handlePriceChange = {this.props.handlePriceChange}
                         newPrice = {this.props.newPrice}
                         key = {fish.id}
-                        sellAlert = {this.props.sellAlert}
+                        isPriceValid={this.props.isPriceValid}
                     />
                 }, this)}        
                 

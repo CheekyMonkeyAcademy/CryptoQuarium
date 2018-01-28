@@ -30,10 +30,10 @@ class Sell extends Component {
         myFishArray: [],           
         newPrice: {
                     fishId: 0,
-                    newValue: 0,
-                    // sellAlert: "" 
-        } ,   
-        sellAlert: "" 
+                    newValue: 0,                     
+        } , 
+        isPriceValid: false  
+        // sellAlert: "" 
     }
 
     //This will be an onChange event passed to the input space
@@ -61,12 +61,18 @@ class Sell extends Component {
         
         if (this.state.newPrice.newValue[fishIndex] < 0.01){
             //If the price is LESS than 0.01, ALERT "NO"
-            alert("NO")
+            // alert("NO")
             //Change state to tell user on the front-end
-            this.setState({sellAlert: "You need to sell for more money"})
+            this.setState({isPriceValid: false}, ()=>{
+                console.log(this.state.isPriceValid)
+            })
+
         } else if (this.state.newPrice.newValue[fishIndex] >= 0.01){
             //If the price is GREATER than OR EQUAL TO 0.01, ALERT "YES"
-            alert("YES")
+            // alert("YES")
+            this.setState({isPriceValid: true}, ()=>{
+                console.log(this.state.isPriceValid)
+            })
         }
     }
      
@@ -113,7 +119,7 @@ class Sell extends Component {
                                 newPrice= {this.state.newPrice}
                                 handlePriceChange = {this.handlePriceChange}
                                 value={this.state.value}
-                                sellAlert = {this.state.sellAlert}
+                                isPriceValid={this.state.isPriceValid}
                             />
                         </div>
 
