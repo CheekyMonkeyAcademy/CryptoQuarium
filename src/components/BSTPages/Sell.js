@@ -20,8 +20,7 @@ class Sell extends Component {
                     fishId: 0,
                     newValue: 0,                     
         } , 
-        isPriceValid: false  
-        // sellAlert: "" 
+        isPriceValid: false          
     }
 
     //This will be an onChange event passed to the input space
@@ -64,7 +63,6 @@ class Sell extends Component {
             this.setState({isPriceValid: false}, ()=>{
                 console.log(this.state.isPriceValid)
             })
-
         } else if (this.state.newPrice.newValue[fishIndex] >= 0.01){
             //If the price is GREATER than OR EQUAL TO 0.01, ALERT "YES"
             alert("YES")
@@ -73,10 +71,7 @@ class Sell extends Component {
             })
         }
     }
-     
-
-
-
+    
     //FUNCTION TO GET ALL USERS FISH
     getAllUserFish = () => {
         axios.get('/api/allUserFish')

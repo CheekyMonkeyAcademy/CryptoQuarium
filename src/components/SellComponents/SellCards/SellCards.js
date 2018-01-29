@@ -4,8 +4,8 @@ import Fish from '../../AllFish/Fish';
 import PufferFish from '../../AllFish/PufferFish';
 import "./SellCards.css";
 // import AlertSpace from "../AlertSpace/AlertSpace";
-// import PriceValAlert from '../PriceValAlert';
-// import LetsSellAlert from '../LetsSellAlert';
+import PriceValAlert from '../PriceValAlert';
+import LetsSellAlert from '../LetsSellAlert';
 
 
 // https://reactjs.org/docs/conditional-rendering.html
@@ -37,13 +37,16 @@ class SellCards extends Component {
         }
     }
 
-    // checkNewPrice = () => {
-    //     const isPriceValid = this.props.isPriceValid
-    //     if (isPriceValid){
-    //         return <PriceValAlert />
-    //     }
-    //     return <LetsSellAlert />
-    // }
+    checkNewPrice = () => {       
+
+        if (this.props.isPriceValid === false){
+            console.log("Hey, It's False!!")
+            return <div> No </div>
+        } else if(this.props.isPriceValid === true){
+            console.log("Hey, It's True!!")
+            return <div> Yes </div>
+        }
+    }
 
     render(){
         return(
@@ -63,7 +66,8 @@ class SellCards extends Component {
                        <input onChange={(event) => this.props.handlePriceChange(event)} id={this.props.id}/>
                        <a onClick={() => this.props.thisItemToMarket(this.props.id)}><i className="material-icons">local_offer</i></a>
                         <div>
-                            {/* <AlertSpace checkPrice = {this.checkNewPrice(true)} /> */}
+                            {this.checkNewPrice()}
+                           
                         </div>
 
                         
