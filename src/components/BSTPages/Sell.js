@@ -39,14 +39,24 @@ class Sell extends Component {
         //axios call should go here to update price of fish!!!!
             //Get fish object to kyle in an array
     }
+
+    // this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]])
+    //             }, (state) => {
+    //                 console.log(this.state.itemsToBeSold)
+    //             })             
+    //             document.getElementById("card"+id).style.display = "none";
    
     thisItemToMarket = (id) => {        
         console.log("Am I clicking my sell tag?")  
         console.log(`${id}`)    //Same as line 61!!
         console.log(this.state.newPrice)
-        //0 on out side is referencing the filter
+
+        this.validateEnteredPrice(id)        
+    }
+
+    validateEnteredPrice = (id) => {
         let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
-        
+
         if (this.state.newPrice.newValue[fishIndex] < 0.01){
             //If the price is LESS than 0.01, ALERT "NO"
             alert("NO")
@@ -63,14 +73,8 @@ class Sell extends Component {
             })
         }
     }
-
-    validateEnteredPrice
      
-//         this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]])
-//         }, (state) => {
-//             console.log(this.state.itemsToBeSold)
-//         })             
-//         document.getElementById("card"+id).style.display = "none";
+
 
 
     //FUNCTION TO GET ALL USERS FISH
