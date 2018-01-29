@@ -49,7 +49,7 @@ class Sell extends Component {
         
         if (this.state.newPrice.newValue[fishIndex] < 0.01){
             //If the price is LESS than 0.01, ALERT "NO"
-            // alert("NO")
+            alert("NO")
             //Change state to tell user on the front-end
             this.setState({isPriceValid: false}, ()=>{
                 console.log(this.state.isPriceValid)
@@ -57,12 +57,14 @@ class Sell extends Component {
 
         } else if (this.state.newPrice.newValue[fishIndex] >= 0.01){
             //If the price is GREATER than OR EQUAL TO 0.01, ALERT "YES"
-            // alert("YES")
+            alert("YES")
             this.setState({isPriceValid: true}, ()=>{
                 console.log(this.state.isPriceValid)
             })
         }
     }
+
+    validateEnteredPrice
      
 //         this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]])
 //         }, (state) => {
