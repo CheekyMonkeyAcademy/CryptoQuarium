@@ -8,19 +8,7 @@ import axios from 'axios';
 //     const value = event.target.value;
 // }
 
-//Ron says to use state, when the user enters a price in the input, it updates the price of the item
-//AND THEN gets added to the sell cart
-    //Add two buttons - one to lock in the desired price of the item and another to sell the fish    
-    //The user HAS to enter a price to sell the item
-    //This needs to be handled on the front end AND on the back end
-    //The user needs to see that the price of their fish got updated 
-    //and the back end needs to know about it too
-
-    //Take the input value, update the fish on the backend, update the price on the front And then gets added to the cart for sale!
-    //Make the value in the sellCards a props.price. This props.price value will be stored as a props and then updated to the front end and back end
-    //And then added to the cart for subtotal
-    //Math will then ensue
-    // let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
+// let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
 
     //The onChange event will call a function that updates the price of the specified fish item
 class Sell extends Component {
