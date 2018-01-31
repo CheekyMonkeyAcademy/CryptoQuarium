@@ -3,14 +3,10 @@ import SellUserInventory from "../SellComponents/SellUserInventory/SellUserInven
 import SellUserCart from "../SellComponents/SellUserCart/SellUserCart";
 import axios from 'axios';
 
-// <input onChange={(event) => this.props.doSomethingWithEvent(event)} /> 
-// doSomethingWithEvent = (event) => {
-//     const value = event.target.value;
-// }
 
 // let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
 
-    //The onChange event will call a function that updates the price of the specified fish item
+//The onChange event will call a function that updates the price of the specified fish item
 class Sell extends Component {
 
     state = {
@@ -25,20 +21,25 @@ class Sell extends Component {
 
     //This will be an onChange event passed to the input space
     handlePriceChange = (event, id) => { 
-        console.log("*****LOOK HERE******")           
+        console.log("*****LOOK HERE******")    
+        let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
+        console.log(fishIndex)   
+        console.log(`${id}`)        
+        
+        let newFishArray = Array.from(this.state.myFishArray);
+        console.log(newFishArray)        
+
+        newFishArray[fishIndex].price = event.target.value;
+        
         this.setState({
-            newPrice: {
-                fishId: event.target.id, 
-                newValue: event.target.value
-            }
-        }, () => {
-            console.log(this.state.newPrice)
-        })      
-            
-        //axios call should go here to update price of fish!!!!
-            //Get fish object to kyle in an array
+            myFishArray: newFishArray
+        }, ()=> {
+            console.log(this.state.myFishArray)
+        })
     }
 
+    
+    
     // this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]])
     //             }, (state) => {
     //                 console.log(this.state.itemsToBeSold)
@@ -55,6 +56,7 @@ class Sell extends Component {
 
     validateEnteredPrice = (id) => {
         let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
+        //TODO: Test to see if passing in the Id works here
 
         if (this.state.newPrice.newValue[fishIndex] < 0.01){
             //If the price is LESS than 0.01, ALERT "NO"

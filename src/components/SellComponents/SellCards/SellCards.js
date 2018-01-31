@@ -37,17 +37,6 @@ class SellCards extends Component {
         }
     }
 
-    checkNewPrice = () => {       
-
-        if (this.props.isPriceValid === false){
-            console.log("Hey, It's False!!")
-            return <div> No </div>
-        } else if(this.props.isPriceValid === true){
-            console.log("Hey, It's True!!")
-            return <div> Yes </div>
-        }
-    }
-
     render(){
         return(
     <div className="container">
@@ -63,14 +52,9 @@ class SellCards extends Component {
                     <div className="row">
                         <div className="col s12">Fish Id:{this.props.id}</div>
                     </div>                   
-                       <input onChange={(event) => this.props.handlePriceChange(event)} id={this.props.id}/>
+                       <input onChange={(event) => this.props.handlePriceChange(event, this.props.id)} id={this.props.id}/>
                        <a onClick={() => this.props.thisItemToMarket(this.props.id)}><i className="material-icons">local_offer</i></a>
-                        <div>
-                            {this.checkNewPrice()}
-                           
-                        </div>
-
-                        
+                                            
                 </div>
             </div>
         </div>
