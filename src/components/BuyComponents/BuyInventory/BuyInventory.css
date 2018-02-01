@@ -1,3 +1,7 @@
 /* .inventoryBorder{
     border: solid black 2px;
 } */
+
+.alertColor {
+    background-color: red
+}

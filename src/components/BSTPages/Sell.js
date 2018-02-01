@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import SellUserInventory from "../SellComponents/SellUserInventory/SellUserInventory";
 import SellUserCart from "../SellComponents/SellUserCart/SellUserCart";
 import axios from 'axios';
+import "../BuyComponents/InventoryCards/InventoryCards.css";
 
 
 // let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
@@ -37,14 +38,7 @@ class Sell extends Component {
             console.log(this.state.myFishArray)
         })
     }
-
     
-    
-    // this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]])
-    //             }, (state) => {
-    //                 console.log(this.state.itemsToBeSold)
-    //             })             
-    //             document.getElementById("card"+id).style.display = "none";
    
     thisItemToMarket = (id) => {        
         console.log("Am I clicking my sell tag?")  
@@ -54,20 +48,29 @@ class Sell extends Component {
         this.validateEnteredPrice(id)        
     }
 
+    // function myFunction() {
+    //     var element = document.getElementById("myDIV");
+    //     element.classList.add("mystyle");
+    // }
+
     validateEnteredPrice = (id) => {
         let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
         //TODO: Test to see if passing in the Id works here
 
-        if (this.state.newPrice.newValue[fishIndex] < 0.01){
-            //If the price is LESS than 0.01, ALERT "NO"
-            alert("NO")
-            //Change state to tell user on the front-end
+        const cardContainer = document.getElementById(`${id}`)
+        console.log("this is card container")
+        console.log(cardContainer)
+
+        if (this.state.isPriceValid[fishIndex] < 0.01){
+            
+            console.log("no")
+            
             this.setState({isPriceValid: false}, ()=>{
                 console.log(this.state.isPriceValid)
             })
-        } else if (this.state.newPrice.newValue[fishIndex] >= 0.01){
-            //If the price is GREATER than OR EQUAL TO 0.01, ALERT "YES"
-            alert("YES")
+        } else if (this.state.isPriceValid[fishIndex] >= 0.01){
+           
+            console.log("YES")
             this.setState({isPriceValid: true}, ()=>{
                 console.log(this.state.isPriceValid)
             })
