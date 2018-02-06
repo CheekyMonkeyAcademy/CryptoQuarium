@@ -42,10 +42,13 @@ class Sell extends Component {
    
     thisItemToMarket = (id) => {        
         console.log("Am I clicking my sell tag?")  
-        console.log(`${id}`)    //Same as line 61!!
+        console.log(`${id}`)   
+        console.log[id] //Same as line 61!!
         console.log(this.state.newPrice)
 
-        this.validateEnteredPrice(id)        
+        this.validateEnteredPrice(id)   
+          
+
     }
 
     // function myFunction() {
@@ -57,16 +60,18 @@ class Sell extends Component {
         let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
         //TODO: Test to see if passing in the Id works here
 
-        const cardContainer = document.getElementById(`${id}`)
-        console.log("this is card container")
-        console.log(cardContainer)
+        // const thisInputBox = document.getElementById(`${id}`) 
+        const inputBox = document.getElementsByTagName("input")
+        console.log(inputBox[`${id}`])       
 
         if (this.state.isPriceValid[fishIndex] < 0.01){
             
             console.log("no")
-            
+                        
             this.setState({isPriceValid: false}, ()=>{
                 console.log(this.state.isPriceValid)
+                inputBox[fishIndex].classList.remove("grey lighten-5")
+                inputBox[fishIndex].classList.add("red darken-2")
             })
         } else if (this.state.isPriceValid[fishIndex] >= 0.01){
            

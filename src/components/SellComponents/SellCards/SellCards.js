@@ -51,10 +51,13 @@ class SellCards extends Component {
                     </div>
                     <div className="row">
                         <div className="col s12">Fish Id:{this.props.id}</div>
-                    </div>                   
-                       <input onChange={(event) => this.props.handlePriceChange(event, this.props.id)} id={this.props.id}/>
-                       <a onClick={() => this.props.thisItemToMarket(this.props.id)}><i className="material-icons">local_offer</i></a>
-                                            
+                    </div>   
+              
+                    <input className="grey lighten-5" onChange={(event) => this.props.handlePriceChange(event, this.props.id)} id={this.props.id} />
+                    <a onClick={() => this.props.thisItemToMarket(this.props.id)}>
+                        <i className="material-icons">local_offer</i>
+                    </a>
+                                         
                 </div>
             </div>
         </div>
