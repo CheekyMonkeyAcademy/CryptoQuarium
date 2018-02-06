@@ -44,6 +44,8 @@ class Sell extends Component {
     thisItemToMarket = (id) => {        
         console.log("Am I clicking my sell tag?")  
         console.log(`${id}`);  
+        //When user sells from the Market, the fish they want to sell goes to the
+            //Buy from the other users array...These fish will be seen on the Buy From Other Users Array!
       
     }
 
