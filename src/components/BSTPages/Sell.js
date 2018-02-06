@@ -12,12 +12,12 @@ class Sell extends Component {
 
     state = {
         itemsToBeSold: [], 
-        myFishArray: [],           
+        myFishArray: [],    
+        inputColors: "red",       
         newPrice: {
                     fishId: 0,
                     newValue: 0,                     
-        } , 
-        isPriceValid: false          
+        }              
     }
 
     //This will be an onChange event passed to the input space
@@ -46,7 +46,6 @@ class Sell extends Component {
         console.log("Am I clicking my sell tag?")  
         console.log(`${id}`);  
       
-        // this.validateEnteredPrice(id, event)
     }
 
     validateEnteredPrice = (id, event) => {
@@ -57,6 +56,8 @@ class Sell extends Component {
         
         if(event.target.value <= 0.01){
             console.log("no")
+            thisInputBox.removeClass
+
         } else if(event.target.value >= 0.01){
             console.log("yes")
         }
@@ -99,7 +100,7 @@ class Sell extends Component {
                                 newPrice= {this.state.newPrice}
                                 handlePriceChange = {this.handlePriceChange}
                                 value={this.state.value}
-                                isPriceValid={this.state.isPriceValid}
+                                inputColors = {this.state.inputColors}
                             />
                         </div>
 
