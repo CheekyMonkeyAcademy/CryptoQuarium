@@ -32,7 +32,7 @@ class Sell extends Component {
 
         newFishArray[fishIndex].price = event.target.value;
 
-        // this.validateEnteredPrice(id)
+        this.validateEnteredPrice(id, event)
         
         this.setState({
             myFishArray: newFishArray
@@ -46,17 +46,19 @@ class Sell extends Component {
         console.log("Am I clicking my sell tag?")  
         console.log(`${id}`);  
       
-        this.validateEnteredPrice(id)
+        // this.validateEnteredPrice(id, event)
     }
 
-    validateEnteredPrice = (id) => {
+    validateEnteredPrice = (id, event) => {
         let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
         
         const thisInputBox = document.getElementById("input" + id);        
         console.log(thisInputBox)
         
         if(event.target.value <= 0.01){
-            
+            console.log("no")
+        } else if(event.target.value >= 0.01){
+            console.log("yes")
         }
 
     }
