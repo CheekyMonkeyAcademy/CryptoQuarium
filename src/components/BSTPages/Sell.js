@@ -12,8 +12,7 @@ class Sell extends Component {
 
     state = {
         itemsToBeSold: [], 
-        myFishArray: [],    
-        // inputColors: "red",                      
+        myFishArray: [],                              
     }
 
     //This will be an onChange event passed to the input space
@@ -28,12 +27,10 @@ class Sell extends Component {
 
         newFishArray[fishIndex].price = event.target.value;
         
-        const thisInputBox = document.getElementById("input" + id);    
-                  
         if(event.target.value <= 0.01){   
-            newFishArray[fishIndex].priceValid =  "red";
+            newFishArray[fishIndex].priceValid = "red";
         } else if(event.target.value >= 0.01){
-            newFishArray[fishIndex].priceValid = "green"
+            newFishArray[fishIndex].priceValid = "green";
         }
         
         this.setState({
@@ -50,22 +47,6 @@ class Sell extends Component {
       
     }
 
-    // validateEnteredPrice = (id, event) => {
-    //     let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
-        
-    //     const thisInputBox = document.getElementById("input" + id);        
-    //     console.log(thisInputBox)
-        
-    //     if(event.target.value <= 0.01){
-    //         console.log("no")          
-    //         this.setState({inputColors: "red"})
-    //     } else if(event.target.value >= 0.01){
-    //         console.log("yes")
-    //         this.setState({inputColors: "green"})
-    //     }
-
-    // }
-    
     //FUNCTION TO GET ALL USERS FISH
     getAllUserFish = () => {
         axios.get('/api/allUserFish')
@@ -88,7 +69,7 @@ class Sell extends Component {
                 <br/>
                 <div className="container red">
                     <div className="row">
-                        <h5 className="col s6 push-s4 bold_text" style={{ padding:25 }}>SELL YOUR QUIPTO-FISH</h5>
+                        <h5 className="col s6 push-s4 bold_text" style={{ padding:25 }}>SELL YOUR CRYPTO-FISH</h5>
 					</div>
                 </div>
                 <br/><br/>
