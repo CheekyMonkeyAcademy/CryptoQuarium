@@ -53,7 +53,7 @@ class SellCards extends Component {
                         <div className="col s12">Fish Id:{this.props.id}</div>
                     </div>   
               
-                    <input className = {this.props.inputColors} placeholder="Enter Price" onChange={(event) => this.props.handlePriceChange(event, this.props.id)} id={"input" + this.props.id} />
+                    <input className = {this.props.priceValid} placeholder="Enter Price" onChange={(event) => this.props.handlePriceChange(event, this.props.id)} id={"input" + this.props.id} />
                     <a onClick={() => this.props.thisItemToMarket(this.props.id)}>
                         <i className="material-icons">local_offer</i>
                     </a>

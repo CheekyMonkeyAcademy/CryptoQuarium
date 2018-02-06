@@ -13,11 +13,7 @@ class Sell extends Component {
     state = {
         itemsToBeSold: [], 
         myFishArray: [],    
-        inputColors: "red",       
-        newPrice: {
-                    fishId: 0,
-                    newValue: 0,                     
-        }              
+        // inputColors: "red",                      
     }
 
     //This will be an onChange event passed to the input space
@@ -31,8 +27,14 @@ class Sell extends Component {
         console.log(newFishArray)        
 
         newFishArray[fishIndex].price = event.target.value;
-
-        this.validateEnteredPrice(id, event)
+        
+        const thisInputBox = document.getElementById("input" + id);    
+                  
+        if(event.target.value <= 0.01){   
+            newFishArray[fishIndex].priceValid =  "red";
+        } else if(event.target.value >= 0.01){
+            newFishArray[fishIndex].priceValid = "green"
+        }
         
         this.setState({
             myFishArray: newFishArray
@@ -48,21 +50,21 @@ class Sell extends Component {
       
     }
 
-    validateEnteredPrice = (id, event) => {
-        let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
+    // validateEnteredPrice = (id, event) => {
+    //     let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
         
-        const thisInputBox = document.getElementById("input" + id);        
-        console.log(thisInputBox)
+    //     const thisInputBox = document.getElementById("input" + id);        
+    //     console.log(thisInputBox)
         
-        if(event.target.value <= 0.01){
-            console.log("no")
-            thisInputBox.removeClass
+    //     if(event.target.value <= 0.01){
+    //         console.log("no")          
+    //         this.setState({inputColors: "red"})
+    //     } else if(event.target.value >= 0.01){
+    //         console.log("yes")
+    //         this.setState({inputColors: "green"})
+    //     }
 
-        } else if(event.target.value >= 0.01){
-            console.log("yes")
-        }
-
-    }
+    // }
     
     //FUNCTION TO GET ALL USERS FISH
     getAllUserFish = () => {
