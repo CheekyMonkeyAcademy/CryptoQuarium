@@ -4,8 +4,7 @@ import Fish from '../../AllFish/Fish';
 import PufferFish from '../../AllFish/PufferFish';
 import "./SellCards.css";
 // import AlertSpace from "../AlertSpace/AlertSpace";
-import PriceValAlert from '../PriceValAlert';
-import LetsSellAlert from '../LetsSellAlert';
+
 
 
 // https://reactjs.org/docs/conditional-rendering.html
