@@ -3,12 +3,17 @@ import "../../BuyComponents/InventoryCards/InventoryCards.css";
 import Fish from '../../AllFish/Fish';
 import PufferFish from '../../AllFish/PufferFish';
 import "./SellCards.css";
+// import AlertSpace from "../AlertSpace/AlertSpace";
+import PriceValAlert from '../PriceValAlert';
+import LetsSellAlert from '../LetsSellAlert';
 
 
+// https://reactjs.org/docs/conditional-rendering.html
 class SellCards extends Component {
     state = {
         noMove: true
     }
+
     renderFish = () => {
         switch (this.props.codeSpecies) {
         case 'Fish': 
@@ -46,14 +51,13 @@ class SellCards extends Component {
                     </div>
                     <div className="row">
                         <div className="col s12">Fish Id:{this.props.id}</div>
-                    </div>
-
-                   
-                       <input onChange={(event) => this.props.handlePriceChange(event)} id={this.props.id}/>
-                       <a onClick={() => this.props.thisItemToMarket(this.props.id)}><i className="material-icons">local_offer</i></a>
-
-                       <h6 id={this.props.id}>{this.props.sellAlert}</h6>
-
+                    </div>   
+              
+                    <input className = {this.props.priceValid} placeholder="Enter Price" onChange={(event) => this.props.handlePriceChange(event, this.props.id)} id={"input" + this.props.id} />
+                    <a onClick={() => this.props.thisItemToMarket(this.props.id)}>
+                        <i className="material-icons">local_offer</i>
+                    </a>
+                                         
                 </div>
             </div>
         </div>
@@ -64,4 +68,3 @@ class SellCards extends Component {
 
 
 export default SellCards;
-
