@@ -48,13 +48,11 @@ class Sell extends Component {
 
         if (this.state.myFishArray[fishIndex].price < 0.01){
             console.log("No! Enter a higher price than 0.01")
-            
+            this.state.myFishArray[fishIndex].priceAlert = "Must sell for more than 0.01"
         } else if (this.state.myFishArray[fishIndex].price >= 0.01){
-            this.setState({
-                itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]])
-            })
+            this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]]
+            )})
             document.getElementById("card"+id).style.display = "none"; 
-
         }    
     }
 
@@ -90,14 +88,10 @@ class Sell extends Component {
                             <SellUserInventory
                                 thisItemToMarket={this.thisItemToMarket}
                                 getAllUserFish={this.getAllUserFish}
-                                myFishArray={this.state.myFishArray}
-                                newPrice= {this.state.newPrice}
-                                handlePriceChange = {this.handlePriceChange}
-                                value={this.state.value}
-                                inputColors = {this.state.inputColors}
+                                myFishArray={this.state.myFishArray}                  
+                                handlePriceChange = {this.handlePriceChange}           
                             />
                         </div>
-
 
                     <div className="col s4">
                         <SellUserCart itemsToBeSold = {this.state.itemsToBeSold} />

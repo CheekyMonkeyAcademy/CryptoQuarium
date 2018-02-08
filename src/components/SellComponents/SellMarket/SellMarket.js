@@ -26,6 +26,7 @@ class SellMarket extends Component {
                             <span className="card-title">Items to be sold to the Market</span>            
                                 {this.props.itemsToBeSold.map(items => {
                                     return <SellMarketCards {...items}
+                                    key = {items.id} 
                                     />
                                 })}
                        
