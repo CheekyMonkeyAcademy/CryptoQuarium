@@ -12,7 +12,7 @@ class Sell extends Component {
 
     state = {
         itemsToBeSold: [], 
-        myFishArray: [],                              
+        myFishArray: [],                                     
     }
 
     //This will be an onChange event passed to the input space
@@ -27,7 +27,7 @@ class Sell extends Component {
 
         newFishArray[fishIndex].price = event.target.value;
         
-        if(event.target.value <= 0.01){   
+        if(event.target.value < 0.01){   
             newFishArray[fishIndex].priceValid = "red";
         } else if(event.target.value >= 0.01){
             newFishArray[fishIndex].priceValid = "green";
@@ -38,15 +38,24 @@ class Sell extends Component {
         }, ()=> {
             console.log(this.state.myFishArray)
         })
-    }
-    
+    }    
    
     thisItemToMarket = (id) => {        
         console.log("Am I clicking my sell tag?")  
         console.log(`${id}`);  
-        //When user sells from the Market, the fish they want to sell goes to the
-            //Buy from the other users array...These fish will be seen on the Buy From Other Users Array!
-      
+
+        let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
+
+        if (this.state.myFishArray[fishIndex].price < 0.01){            
+            this.state.myFishArray[fishIndex].priceAlert = "Must sell for more than 0.01"
+            
+        } else if (this.state.myFishArray[fishIndex].price >= 0.01){
+            this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]]
+            )}, () => {
+                this.state.myFishArray[fishIndex].priceAlert = " "
+            })
+            document.getElementById("card"+id).style.display = "none"; 
+        }    
     }
 
     //FUNCTION TO GET ALL USERS FISH
@@ -81,14 +90,10 @@ class Sell extends Component {
                             <SellUserInventory
                                 thisItemToMarket={this.thisItemToMarket}
                                 getAllUserFish={this.getAllUserFish}
-                                myFishArray={this.state.myFishArray}
-                                newPrice= {this.state.newPrice}
-                                handlePriceChange = {this.handlePriceChange}
-                                value={this.state.value}
-                                inputColors = {this.state.inputColors}
+                                myFishArray={this.state.myFishArray}                  
+                                handlePriceChange = {this.handlePriceChange}           
                             />
                         </div>
-
 
                     <div className="col s4">
                         <SellUserCart itemsToBeSold = {this.state.itemsToBeSold} />

@@ -30,8 +30,7 @@ class FishMarket extends Component {
                 // updateSubtotalState = {this.props.updateSubtotalState} 
                 cartArray = {this.props.cartArray}
                 buyFishArray = {this.props.buyFishArray}
-                clickItem = {this.props.clickItem} 
-                // fishTemplateOrUserFish = {this.props.fishTemplateOrUserFish}
+                clickItem = {this.props.clickItem}            
                 toggleFishMarket = {this.props.toggleFishMarket}
            
             />

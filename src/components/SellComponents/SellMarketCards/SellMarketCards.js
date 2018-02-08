@@ -21,6 +21,3 @@ const SellMarketCards = props => (
 
 export default SellMarketCards; 
 
-{/* <span className="card-title">Item Name</span> 
-<div className="card-content black-text">                                                                          
-                    </div> */}

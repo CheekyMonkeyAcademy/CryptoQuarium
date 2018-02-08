@@ -13,6 +13,6 @@
     height: 175px;
 }
 
-.backgroundRed{
-    background-color: red;
+.priceAlert{
+    float: right;
 }
