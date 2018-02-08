@@ -19,6 +19,7 @@ class SellUserInventory extends Component {
                         handlePriceChange = {this.props.handlePriceChange}                        
                         key = {fish.id}
                         inputColors= {this.props.inputColors}
+                        
                     />
                 }, this)}        
                 

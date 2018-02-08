@@ -54,11 +54,10 @@ class SellCards extends Component {
               
                     <input className = {this.props.priceValid} placeholder="Enter Price" onChange={(event) => this.props.handlePriceChange(event, this.props.id)} id={"input" + this.props.id} />
                     <a onClick={() => this.props.thisItemToMarket(this.props.id)}>
-                        <i className="material-icons">local_offer</i>
-                        <h6>{this.props.priceAlert}</h6>
+                        <i className="material-icons">local_offer</i>                        
                     </a>
-                                         
-                </div>
+                    <h6>{this.props.priceAlert}</h6>                    
+                </div>               
             </div>
         </div>
     </div>
