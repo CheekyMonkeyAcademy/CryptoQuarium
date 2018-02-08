@@ -12,7 +12,8 @@ class Sell extends Component {
 
     state = {
         itemsToBeSold: [], 
-        myFishArray: [],                                     
+        myFishArray: [],    
+                                        
     }
 
     //This will be an onChange event passed to the input space
@@ -29,8 +30,11 @@ class Sell extends Component {
         
         if(event.target.value < 0.01){   
             newFishArray[fishIndex].priceValid = "red";
+            newFishArray[fishIndex].priceAlert = "Must sell for more than 0.01";
+
         } else if(event.target.value >= 0.01){
             newFishArray[fishIndex].priceValid = "green";
+            newFishArray[fishIndex].priceAlert = " ";
         }
         
         this.setState({
@@ -41,23 +45,27 @@ class Sell extends Component {
     }    
    
     thisItemToMarket = (id) => {        
-        console.log("Am I clicking my sell tag?")  
-        console.log(`${id}`);  
+        // console.log("Am I clicking my sell tag?")  
+        // console.log(`${id}`);  
 
         let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
+        this.state.myFishArray[fishIndex].priceAlert = " "
 
-        if (this.state.myFishArray[fishIndex].price < 0.01){            
-            this.state.myFishArray[fishIndex].priceAlert = "Must sell for more than 0.01"
-            
+        if (this.state.myFishArray[fishIndex].price < 0.01){          
+
+            console.log("no")
+                        
         } else if (this.state.myFishArray[fishIndex].price >= 0.01){
+
             this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]]
-            )}, () => {
-                this.state.myFishArray[fishIndex].priceAlert = " "
-            })
+                )}, (state) => {
+                    this.state.myFishArray[fishIndex].priceAlert = " "
+                })
             document.getElementById("card"+id).style.display = "none"; 
         }    
     }
 
+   
     //FUNCTION TO GET ALL USERS FISH
     getAllUserFish = () => {
         axios.get('/api/allUserFish')
@@ -91,7 +99,7 @@ class Sell extends Component {
                                 thisItemToMarket={this.thisItemToMarket}
                                 getAllUserFish={this.getAllUserFish}
                                 myFishArray={this.state.myFishArray}                  
-                                handlePriceChange = {this.handlePriceChange}           
+                                handlePriceChange = {this.handlePriceChange}         
                             />
                         </div>
 
