@@ -27,7 +27,7 @@ class Sell extends Component {
 
         newFishArray[fishIndex].price = event.target.value;
         
-        if(event.target.value <= 0.01){   
+        if(event.target.value < 0.01){   
             newFishArray[fishIndex].priceValid = "red";
         } else if(event.target.value >= 0.01){
             newFishArray[fishIndex].priceValid = "green";
@@ -46,16 +46,16 @@ class Sell extends Component {
 
         let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
 
-        //When the user clicks sell tag, item is added to the sell cart
-        this.setState({
-            itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]])
-        })
+        if (this.state.myFishArray[fishIndex].price < 0.01){
+            console.log("No! Enter a higher price than 0.01")
+            
+        } else if (this.state.myFishArray[fishIndex].price >= 0.01){
+            this.setState({
+                itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]])
+            })
+            document.getElementById("card"+id).style.display = "none"; 
 
-        document.getElementById("card"+id).style.display = "none";
-       
-        //When user sells from the Market, the fish they want to sell goes to the
-            //Buy from the other users array...These fish will be seen on the Buy From Other Users Array!
-      
+        }    
     }
 
     //FUNCTION TO GET ALL USERS FISH
