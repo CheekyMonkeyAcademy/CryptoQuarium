@@ -12,7 +12,7 @@ class Sell extends Component {
 
     state = {
         itemsToBeSold: [], 
-        myFishArray: [],                              
+        myFishArray: [],                                     
     }
 
     //This will be an onChange event passed to the input space
@@ -38,12 +38,21 @@ class Sell extends Component {
         }, ()=> {
             console.log(this.state.myFishArray)
         })
-    }
-    
+    }    
    
     thisItemToMarket = (id) => {        
         console.log("Am I clicking my sell tag?")  
         console.log(`${id}`);  
+
+        let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
+
+        //When the user clicks sell tag, item is added to the sell cart
+        this.setState({
+            itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]])
+        })
+
+        document.getElementById("card"+id).style.display = "none";
+       
         //When user sells from the Market, the fish they want to sell goes to the
             //Buy from the other users array...These fish will be seen on the Buy From Other Users Array!
       

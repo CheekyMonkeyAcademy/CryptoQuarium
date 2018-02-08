@@ -44,9 +44,7 @@ class Buy extends Component {
                         </div>
 
                         <div className="col s4">
-                            <BuyCart
-                                // updateSubtotalState={this.props.updateSubtotalState}
-                                // shoppingCart={this.state.cartArray}  
+                            <BuyCart                                 
                                 shoppingCart={this.props.cartArray}
                                 subTotal={this.props.subTotal}
                                 checkoutChangeBalance={this.props.checkoutChangeBalance}

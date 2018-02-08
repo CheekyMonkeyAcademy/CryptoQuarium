@@ -52,7 +52,7 @@ class AppContainer extends Component {
     }
 
     updateBuyFishArrayState = (trueOrFalse) => {
-        this.setState({buyFishArray: []}); // TODO make sure this doesn't introduce bugs (used to be this.state.buyFishArray = [] - which is a direct mutation... bad)
+        this.setState({buyFishArray: []}); 
         console.log(`buy fish array is going with: ${trueOrFalse}`);
         if (trueOrFalse){
             axios.get('/api/allUserFishOnSale')
@@ -160,41 +160,6 @@ class AppContainer extends Component {
         this.setState({currentPage: page});
     };    
 
-    //Series of if/else statements that will render the corresponding component
-    //for the page that is selected as current page
-    // renderPage = () => {
-    //     if (this.state.currentPage === "Home"){
-    //         return <Home />
-    //     } else if(this.state.currentPage === "Login"){
-    //         return <Login />
-    //     } else if (this.state.currentPage === "MyAquarium"){
-    //         return <MyAquarium />
-    //     } else if (this.state.currentPage === "Wallet"){
-    //         return <Wallet 
-    //                     currentBalance={this.state.currentBalance}
-    //                 />
-    //     } else if (this.state.currentPage === "FishMarket"){
-    //         return <FishMarket 
-    //                     checkoutChangeBalance = {this.updateBalanceAfterCheckout}
-    //                     subTotal = {this.state.subTotal}
-    //                     // updateSubtotalState = {this.updateSubtotalState}
-    //                     //I AM PASSING CLICKITEM/FISHARRAY/CARTARRAY/UPDATESUBTOTAL TO FISH MARKET
-    //                     cartArray = {this.state.cartArray}
-    //                     buyFishArray = {this.state.buyFishArray}
-    //                     clickItem = {this.clickItem}
-    //                     // updateBuyFishArrayState = {this.updateBuyFishArrayState}    
-    //                     updateSubtotalState = {this.updateSubtotalState}
-    //                     fishTemplateOrUserFish = {this.fishTemplateOrUserFish}  
-    //                     toggleFishMarket = {this.toggleFishMarket}  
-    //                     // handlePageChange = {this.handlePageChange}               
-    //                 />
-    //         }
-    // }
-
-    //We are giving the Navbar the current page property and passing the handlePageChange function
-    //Logic: if X condition, return a certain component
-    // render={props => <Life sayHello={this.sayHello} />}
-    // https://stackoverflow.com/questions/43469071/react-react-router-dom-pass-props-to-component
     render() {
         return (
 
@@ -214,12 +179,9 @@ class AppContainer extends Component {
                             cartArray = {this.state.cartArray}
                             buyFishArray = {this.state.buyFishArray}
                             clickItem = {this.clickItem}
-                            updateBuyFishArrayState = {this.updateBuyFishArrayState}    
+                            updateBuyFishArrayState = {this.updateBuyFishArrayState}
                             updateSubtotalState = {this.updateSubtotalState}
-                            // fishTemplateOrUserFish = {this.state.fishTemplateOrUserFish}  
-                            toggleFishMarket = {this.toggleFishMarket}  
-                            // handlePageChange = {this.handlePageChange}
-                            // currentPage = {this.currentPage}                  
+                            toggleFishMarket = {this.toggleFishMarket}                                       
                         />
                     }} />
                     <Route exact path="/home" component={Home} />

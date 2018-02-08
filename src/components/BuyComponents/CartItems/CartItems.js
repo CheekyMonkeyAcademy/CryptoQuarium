@@ -7,8 +7,7 @@ const CartItems = props => (
             <div className="col s12">
                 <div className="card #757575 grey darken-1">
                     <div className="card-content black-text">
-                        <p>Show the fish here</p>
-                        {/* <img />  */}
+                        <p>Show the fish here</p>                   
                     </div>
                     <div className="card-action black-text">
                         <p>Species: {props.species}</p>

@@ -28,7 +28,6 @@ class SellMarket extends Component {
                                     return <SellMarketCards {...items}
                                     />
                                 })}
-
                        
                             <a className="waves-effect waves-light btn black" onClick = {() => this.props.sellToMarket}><i className="material-icons left">attach_money</i>Sell to Market</a>
                         </div>
