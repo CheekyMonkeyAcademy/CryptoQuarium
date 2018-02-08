@@ -46,12 +46,14 @@ class Sell extends Component {
 
         let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
 
-        if (this.state.myFishArray[fishIndex].price < 0.01){
-            console.log("No! Enter a higher price than 0.01")
+        if (this.state.myFishArray[fishIndex].price < 0.01){            
             this.state.myFishArray[fishIndex].priceAlert = "Must sell for more than 0.01"
+            
         } else if (this.state.myFishArray[fishIndex].price >= 0.01){
             this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]]
-            )})
+            )}, () => {
+                this.state.myFishArray[fishIndex].priceAlert = " "
+            })
             document.getElementById("card"+id).style.display = "none"; 
         }    
     }
