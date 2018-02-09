@@ -52,8 +52,8 @@ class Sell extends Component {
 
         if (this.state.myFishArray[fishIndex].price < 0.01){          
             
-            // this.openModal()
-            this.state.myFishArray[fishIndex].isModalOpen = true
+            this.openModal()
+            // this.state.myFishArray[fishIndex].isModalOpen = true
                         
         } else if (this.state.myFishArray[fishIndex].price >= 0.01){
 
@@ -69,7 +69,6 @@ class Sell extends Component {
 
         let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
 
-        // this.setState({isModalOpen:true});
         this.state.myFishArray[fishIndex].isModalOpen = true;
         console.log("I'm opening!")
     }
@@ -116,7 +115,7 @@ class Sell extends Component {
                                 getAllUserFish={this.getAllUserFish}
                                 myFishArray={this.state.myFishArray}     
                                 handlePriceChange = {this.handlePriceChange} 
-                                // closeModal = {this.closeModal}
+                                closeModal = {this.closeModal}
                                 // isModalOpen = {this.state.isModalOpen}        
                             />
                         </div>
