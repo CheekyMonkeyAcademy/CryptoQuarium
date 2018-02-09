@@ -57,14 +57,17 @@ class SellCards extends Component {
                         <i className="material-icons">local_offer</i>                        
                     </a>
                     <h6>{this.props.priceAlert}</h6>                    
-                </div>  
-
-                <ErrorModal isOpen={this.state.isModalOpen} onClose={() => this.closeModal()}>
-                    <h3>Sell Price Must be Higher than 0.01</h3>                    
-                    <p><a className="waves-effect waves-light btn" onClick={() => this.closeModal()}>Close</a></p>                                                 
-                </ErrorModal>
+                </div>              
 
             </div>
+
+
+            <ErrorModal isOpen={this.props.isModalOpen} onClose={() => this.props.closeModal()}>
+                    <h3>Sell Price Must be Higher than 0.01</h3>                    
+                    <p><a className="waves-effect waves-light btn" onClick={() => this.props.closeModal()}>Close</a></p>                                                 
+            </ErrorModal>
+
+
         </div>
     </div>
         )
