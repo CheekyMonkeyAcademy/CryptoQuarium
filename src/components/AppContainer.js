@@ -38,7 +38,7 @@ class AppContainer extends Component {
             document.getElementById("card"+id).style.display = "none";
         }
 
-        this.setState({            
+        this.setState({          
             cartArray: this.state.cartArray.concat([this.state.buyFishArray[fishIndex]])
         }, (state) => {
             this.updateSubtotalState(this.state.subTotal + this.state.buyFishArray[fishIndex].price); 

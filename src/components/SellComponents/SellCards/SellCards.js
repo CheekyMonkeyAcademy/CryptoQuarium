@@ -3,7 +3,7 @@ import "../../BuyComponents/InventoryCards/InventoryCards.css";
 import Fish from '../../AllFish/Fish';
 import PufferFish from '../../AllFish/PufferFish';
 import "./SellCards.css";
-// import AlertSpace from "../AlertSpace/AlertSpace";
+import ErrorModal from "../ErrorModal"
 
 
 
@@ -57,7 +57,13 @@ class SellCards extends Component {
                         <i className="material-icons">local_offer</i>                        
                     </a>
                     <h6>{this.props.priceAlert}</h6>                    
-                </div>               
+                </div>  
+
+                <ErrorModal isOpen={this.state.isModalOpen} onClose={() => this.closeModal()}>
+                    <h3>Sell Price Must be Higher than 0.01</h3>                    
+                    <p><a className="waves-effect waves-light btn" onClick={() => this.closeModal()}>Close</a></p>                                                 
+                </ErrorModal>
+
             </div>
         </div>
     </div>

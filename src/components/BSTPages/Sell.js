@@ -13,7 +13,7 @@ class Sell extends Component {
     state = {
         itemsToBeSold: [], 
         myFishArray: [],    
-                                        
+        errorModalOpen: false                                        
     }
 
     //This will be an onChange event passed to the input space
@@ -44,15 +44,13 @@ class Sell extends Component {
         })
     }    
    
-    thisItemToMarket = (id) => {        
-        // console.log("Am I clicking my sell tag?")  
-        // console.log(`${id}`);  
+    thisItemToMarket = (id) => {       
 
         let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
         this.state.myFishArray[fishIndex].priceAlert = " "
 
         if (this.state.myFishArray[fishIndex].price < 0.01){          
-
+            //Error modal will be called here!
             console.log("no")
                         
         } else if (this.state.myFishArray[fishIndex].price >= 0.01){
