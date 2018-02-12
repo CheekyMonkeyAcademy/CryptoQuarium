@@ -27,6 +27,7 @@ class Sell extends Component {
         console.log(newFishArray)        
 
         newFishArray[fishIndex].price = event.target.value;
+        // this.state.myFishArray[fishIndex].isModalOpen = false
         
         if(event.target.value < 0.01){   
             newFishArray[fishIndex].priceValid = "red";
@@ -47,11 +48,12 @@ class Sell extends Component {
     thisItemToMarket = (id) => {       
 
         let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
-        this.state.myFishArray[fishIndex].priceAlert = " "
+        this.state.myFishArray[fishIndex].priceAlert = " ";
+        // this.state.myFishArray[fishIndex].isModalOpen = false
  
         if (this.state.myFishArray[fishIndex].price < 0.01){          
             
-            this.openModal()
+            this.openModal(fishIndex)
             // this.state.myFishArray[fishIndex].isModalOpen = true
                         
         } else if (this.state.myFishArray[fishIndex].price >= 0.01){
@@ -66,14 +68,17 @@ class Sell extends Component {
 
     openModal = (id) => {
 
-        let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id)    
-        this.setState({isModalOpen: true})     
+        let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id)
+        
+        this.setState({isModalOpen: true})  
+          
         console.log("I'm opening!")
     }
 
     closeModal = (id) => {
         let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
-        this.setState({isModalOpen: false})       
+        this.setState({isModalOpen: false})    
+        // this.state.myFishArray[fishIndex].isModalOpen = false   
         console.log("I'm closing!")
     }
    
@@ -82,7 +87,7 @@ class Sell extends Component {
         axios.get('/api/allUserFish')
             .then((allUserFish) => {
                 allUserFish.data.forEach((fish) => {
-                    this.setState({ myFishArray: this.state.myFishArray.concat([fish]) })
+                    this.setState({ myFishArray: this.state.myFishArray.concat([fish])})
                 })
                 console.log("THIS IS MY FISH ARRAY!")
                 console.log(this.state.myFishArray)
