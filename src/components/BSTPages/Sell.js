@@ -13,7 +13,7 @@ class Sell extends Component {
     state = {
         itemsToBeSold: [], 
         myFishArray: [],    
-        // isModalOpen: false                                        
+        isModalOpen: false                                        
     }
 
     //This will be an onChange event passed to the input space
@@ -48,8 +48,7 @@ class Sell extends Component {
 
         let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
         this.state.myFishArray[fishIndex].priceAlert = " "
-        this.state.myFishArray[fishIndex].isModalOpen = false;
-
+ 
         if (this.state.myFishArray[fishIndex].price < 0.01){          
             
             this.openModal()
@@ -67,17 +66,14 @@ class Sell extends Component {
 
     openModal = (id) => {
 
-        let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
-
-        this.state.myFishArray[fishIndex].isModalOpen = true;
+        let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id)    
+        this.setState({isModalOpen: true})     
         console.log("I'm opening!")
     }
 
     closeModal = (id) => {
         let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
-
-        // this.setState({isModalOpen: false})
-        this.state.myFishArray[fishIndex].isModalOpen = false;
+        this.setState({isModalOpen: false})       
         console.log("I'm closing!")
     }
    
@@ -116,7 +112,7 @@ class Sell extends Component {
                                 myFishArray={this.state.myFishArray}     
                                 handlePriceChange = {this.handlePriceChange} 
                                 closeModal = {this.closeModal}
-                                // isModalOpen = {this.state.isModalOpen}        
+                                isModalOpen = {this.state.isModalOpen}        
                             />
                         </div>
 
