@@ -3,6 +3,7 @@ import SellUserInventory from "../SellComponents/SellUserInventory/SellUserInven
 import SellUserCart from "../SellComponents/SellUserCart/SellUserCart";
 import axios from 'axios';
 import "../BuyComponents/InventoryCards/InventoryCards.css";
+import { open } from "fs";
 
 
 // let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
@@ -16,9 +17,6 @@ class Sell extends Component {
         // isModalOpen: false                                        
     }
 
-    
-
-    //This will be an onChange event passed to the input space
     handlePriceChange = (event, id) => { 
         console.log("*****LOOK HERE******")    
         let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
@@ -28,13 +26,13 @@ class Sell extends Component {
         let newFishArray = Array.from(this.state.myFishArray);
         console.log(newFishArray)        
 
-        newFishArray[fishIndex].price = event.target.value;
-        
+        newFishArray[fishIndex].price = event.target.value; 
+        console.log(newFishArray)       
                 
         if(event.target.value < 0.01){   
             newFishArray[fishIndex].priceValid = "red";
             newFishArray[fishIndex].priceAlert = "Must sell for more than 0.01";
-
+            
         } else if(event.target.value >= 0.01){
             newFishArray[fishIndex].priceValid = "green";
             newFishArray[fishIndex].priceAlert = " ";
@@ -47,33 +45,17 @@ class Sell extends Component {
         })
     }    
 
-    initialFalseModalState = (id) => {
-        let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
 
-        let marketFishArray = Array.from(this.state.myFishArray)
-        marketFishArray[fishIndex].isModalOpen = false;
-
-        this.setState({
-            myFishArray: marketFishArray
-        }, () => {
-            console.log("Establishing initial false modal state")
-            console.log(this.state.myFishArray)
-        })
-    }
-   
     thisItemToMarket = (id) => {       
 
         let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
         this.state.myFishArray[fishIndex].priceAlert = " ";
-
-        // let marketFishArray = Array.from(this.state.myFishArray);
-        // marketFishArray[fishIndex].isModalOpen = false;
          
         if (this.state.myFishArray[fishIndex].price < 0.01){          
-            // marketFishArray[fishIndex].isModalOpen = true;
+            this.openModal(fishIndex)
+            console.log("not enough money...")
                         
-        } else if (this.state.myFishArray[fishIndex].price >= 0.01){
-            // marketFishArray[fishIndex].isModalOpen = false;
+        } else if (this.state.myFishArray[fishIndex].price >= 0.01){           
             this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]]
                 )}, (state) => {
                     this.state.myFishArray[fishIndex].priceAlert = " "
@@ -82,16 +64,12 @@ class Sell extends Component {
         }    
     }
 
-    openModal = (id) => {  
-        
-        // this.setState({isModalOpen: true})          
+    openModal = (id) => {            
         console.log("I'm opening!")
+        console.log(id)
     }
 
-    closeModal = (id) => {
-        // let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
-        // this.setState({isModalOpen: false})    
-        // // this.state.myFishArray[fishIndex].isModalOpen = false   
+    closeModal = (id) => {         
         console.log("I'm closing!")
     }
    

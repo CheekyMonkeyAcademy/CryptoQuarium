@@ -67,7 +67,7 @@ class SellCards extends Component {
                     <p><a className="waves-effect waves-light btn" onClick={() => this.props.closeModal()}>Close</a></p>                               
             </ErrorModal> */}
 
-            <ErrorModal isOpen={this.props.isModalOpen}>
+            <ErrorModal isOpen={false}>
                 my modal                
             </ErrorModal>
 
