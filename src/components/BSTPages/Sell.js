@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import SellUserInventory from "../SellComponents/SellUserInventory/SellUserInventory";
-import SellUserCart from "../SellComponents/SellUserCart/SellUserCart";
+import SellMarket from "../SellComponents/SellMarket/SellMarket";
 import axios from 'axios';
 import "../BuyComponents/InventoryCards/InventoryCards.css";
 
@@ -81,6 +81,12 @@ class Sell extends Component {
         })
     }
 
+    sellToMarket = () => {
+        console.log(`Annnd we're calling 'sell to market' - we clicked this button, hooray!`)
+        // axios.get('/api/')
+        //     .then
+    }
+
     render() {
         return (
             <div>
@@ -104,7 +110,10 @@ class Sell extends Component {
                         </div>
 
                     <div className="col s4">
-                        <SellUserCart itemsToBeSold = {this.state.itemsToBeSold} />
+                        <SellMarket 
+                            itemsToBeSold = {this.state.itemsToBeSold} 
+                            sellToMarket = {this.sellToMarket}
+                        />
 
                     </div>
                 </div>

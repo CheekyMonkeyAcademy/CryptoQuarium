@@ -58,7 +58,7 @@ const Navbar = props =>
                         window.location.pathname === "/MyAquarium" ? "active" : ""
                     }
                 >                    
-                    <Link to="/MyAquarium">MyAquarium</Link>
+                    <Link to="/MyAquarium">My Aquarium</Link>
                 </li>
 
                 <li                   
@@ -66,7 +66,7 @@ const Navbar = props =>
                         window.location.pathname === "/FishMarket" ? "active" : ""
                     }
                 >                    
-                    <Link to="/FishMarket">FishMarket</Link>
+                    <Link to="/FishMarket">Fish Market</Link>
                 </li>
 
                 <li                
