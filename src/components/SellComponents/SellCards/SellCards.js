@@ -3,7 +3,7 @@ import "../../BuyComponents/InventoryCards/InventoryCards.css";
 import Fish from '../../AllFish/Fish';
 import PufferFish from '../../AllFish/PufferFish';
 import "./SellCards.css";
-// import AlertSpace from "../AlertSpace/AlertSpace";
+import ErrorModal from "../ErrorModal"
 
 
 
@@ -57,8 +57,20 @@ class SellCards extends Component {
                         <i className="material-icons">local_offer</i>                        
                     </a>
                     <h6>{this.props.priceAlert}</h6>                    
-                </div>               
+                </div>              
+
             </div>
+
+
+            {/* <ErrorModal isOpen= {this.props.isModalOpen} onClose={() => this.props.closeModal()}>
+                    <h6>Sell Price Must be Higher than 0.01</h6>                    
+                    <p><a className="waves-effect waves-light btn" onClick={() => this.props.closeModal()}>Close</a></p>                               
+            </ErrorModal> */}
+
+            <ErrorModal isOpen={false}>
+                my modal                
+            </ErrorModal>
+
         </div>
     </div>
         )
@@ -67,3 +79,4 @@ class SellCards extends Component {
 
 
 export default SellCards;
+// isOpen={this.props.isModalOpen} 
