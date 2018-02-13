@@ -62,11 +62,14 @@ class SellCards extends Component {
             </div>
 
 
-            <ErrorModal isOpen= {this.props.isModalOpen} onClose={() => this.props.closeModal()}>
+            {/* <ErrorModal isOpen= {this.props.isModalOpen} onClose={() => this.props.closeModal()}>
                     <h6>Sell Price Must be Higher than 0.01</h6>                    
                     <p><a className="waves-effect waves-light btn" onClick={() => this.props.closeModal()}>Close</a></p>                               
-            </ErrorModal>
+            </ErrorModal> */}
 
+            <ErrorModal isOpen={this.props.isModalOpen}>
+                my modal                
+            </ErrorModal>
 
         </div>
     </div>

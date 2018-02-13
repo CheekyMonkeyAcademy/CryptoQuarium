@@ -19,8 +19,8 @@ class SellUserInventory extends Component {
                         handlePriceChange = {this.props.handlePriceChange}                        
                         key = {fish.id}
                         inputColors= {this.props.inputColors}
-                        closeModal={this.props.closeModal}
-                        isModalOpen= {this.props.isModalOpen}
+                        // closeModal={this.props.closeModal}
+                        // isModalOpen= {this.props.isModalOpen}
                     />
                 }, this)}        
                 

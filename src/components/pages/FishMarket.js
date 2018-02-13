@@ -26,8 +26,7 @@ class FishMarket extends Component {
         if (this.state.currentPage === "Buy"){
             return <Buy
                 checkoutChangeBalance = {this.props.checkoutChangeBalance}   
-                subTotal = {this.props.subTotal}  
-                // updateSubtotalState = {this.props.updateSubtotalState} 
+                subTotal = {this.props.subTotal}                  
                 cartArray = {this.props.cartArray}
                 buyFishArray = {this.props.buyFishArray}
                 clickItem = {this.props.clickItem}            

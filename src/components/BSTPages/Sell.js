@@ -13,8 +13,10 @@ class Sell extends Component {
     state = {
         itemsToBeSold: [], 
         myFishArray: [],    
-        isModalOpen: false                                        
+        // isModalOpen: false                                        
     }
+
+    
 
     //This will be an onChange event passed to the input space
     handlePriceChange = (event, id) => { 
@@ -27,8 +29,8 @@ class Sell extends Component {
         console.log(newFishArray)        
 
         newFishArray[fishIndex].price = event.target.value;
-        // this.state.myFishArray[fishIndex].isModalOpen = false
         
+                
         if(event.target.value < 0.01){   
             newFishArray[fishIndex].priceValid = "red";
             newFishArray[fishIndex].priceAlert = "Must sell for more than 0.01";
@@ -44,20 +46,34 @@ class Sell extends Component {
             console.log(this.state.myFishArray)
         })
     }    
+
+    initialFalseModalState = (id) => {
+        let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
+
+        let marketFishArray = Array.from(this.state.myFishArray)
+        marketFishArray[fishIndex].isModalOpen = false;
+
+        this.setState({
+            myFishArray: marketFishArray
+        }, () => {
+            console.log("Establishing initial false modal state")
+            console.log(this.state.myFishArray)
+        })
+    }
    
     thisItemToMarket = (id) => {       
 
         let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
         this.state.myFishArray[fishIndex].priceAlert = " ";
-        // this.state.myFishArray[fishIndex].isModalOpen = false
- 
+
+        // let marketFishArray = Array.from(this.state.myFishArray);
+        // marketFishArray[fishIndex].isModalOpen = false;
+         
         if (this.state.myFishArray[fishIndex].price < 0.01){          
-            
-            this.openModal(fishIndex)
-            // this.state.myFishArray[fishIndex].isModalOpen = true
+            // marketFishArray[fishIndex].isModalOpen = true;
                         
         } else if (this.state.myFishArray[fishIndex].price >= 0.01){
-
+            // marketFishArray[fishIndex].isModalOpen = false;
             this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]]
                 )}, (state) => {
                     this.state.myFishArray[fishIndex].priceAlert = " "
@@ -66,28 +82,25 @@ class Sell extends Component {
         }    
     }
 
-    openModal = (id) => {
-
-        let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id)
+    openModal = (id) => {  
         
-        this.setState({isModalOpen: true})  
-          
+        // this.setState({isModalOpen: true})          
         console.log("I'm opening!")
     }
 
     closeModal = (id) => {
-        let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
-        this.setState({isModalOpen: false})    
-        // this.state.myFishArray[fishIndex].isModalOpen = false   
+        // let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
+        // this.setState({isModalOpen: false})    
+        // // this.state.myFishArray[fishIndex].isModalOpen = false   
         console.log("I'm closing!")
     }
    
     //FUNCTION TO GET ALL USERS FISH
-    getAllUserFish = () => {
+    getAllUserFish = () => {        
         axios.get('/api/allUserFish')
             .then((allUserFish) => {
                 allUserFish.data.forEach((fish) => {
-                    this.setState({ myFishArray: this.state.myFishArray.concat([fish])})
+                    this.setState({ myFishArray: this.state.myFishArray.concat([fish])})                    
                 })
                 console.log("THIS IS MY FISH ARRAY!")
                 console.log(this.state.myFishArray)
@@ -116,8 +129,8 @@ class Sell extends Component {
                                 getAllUserFish={this.getAllUserFish}
                                 myFishArray={this.state.myFishArray}     
                                 handlePriceChange = {this.handlePriceChange} 
-                                closeModal = {this.closeModal}
-                                isModalOpen = {this.state.isModalOpen}        
+                                // closeModal = {this.closeModal}
+                                // isModalOpen = {this.state.isModalOpen}        
                             />
                         </div>
 
