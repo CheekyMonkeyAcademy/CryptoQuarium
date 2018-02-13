@@ -151,7 +151,7 @@ class AppContainer extends Component {
      
         } else if (this.state.subTotal >= this.state.currentBalance){
             // TODO forward this error to the user - modal?
-            console.log(`You DO NO have enough money to purchase these items`)
+            console.log(`You DO NOT have enough money to purchase these items`)
         }
     }
 
@@ -181,7 +181,7 @@ class AppContainer extends Component {
                             clickItem = {this.clickItem}
                             updateBuyFishArrayState = {this.updateBuyFishArrayState}
                             updateSubtotalState = {this.updateSubtotalState}
-                            toggleFishMarket = {this.toggleFishMarket}                                       
+                            toggleFishMarket = {this.toggleFishMarket}                                
                         />
                     }} />
                     <Route exact path="/home" component={Home} />

@@ -11,14 +11,13 @@ import "../BuyComponents/InventoryCards/InventoryCards.css";
 class Sell extends Component {
 
     state = {
-        itemsToBeSold: [], 
-        myFishArray: [],    
-                                        
+        itemsToBeSold: [],
+        myFishArray: [],
     }
 
     //This will be an onChange event passed to the input space
     handlePriceChange = (event, id) => { 
-        console.log("*****LOOK HERE******")    
+        console.log("*****LOOK HERE******");
         let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
         console.log(fishIndex)   
         console.log(`${id}`)        
@@ -83,8 +82,17 @@ class Sell extends Component {
 
     sellToMarket = () => {
         console.log(`Annnd we're calling 'sell to market' - we clicked this button, hooray!`)
-        // axios.get('/api/')
-        //     .then
+        
+        axios.put('/api/userSellTheseFish/', this.state.itemsToBeSold)
+        .then((success) => {
+            this.setState({itemsToBeSold: []});
+            // TODO refresh the users fish displayed
+        })
+        .catch((err)=> {
+            console.log(`Selling fish broke`);
+            console.log(err);
+        });
+
     }
 
     render() {
