@@ -38,7 +38,6 @@ module.exports = function(app) {
     });
 
     app.post('/api/userPurchaseOtherUserFish/', function(req, res){
-        
         asyncOtherUserFishPurchase(req.body, req.user.id)
         .then((asyncReturn) => {
             console.log(`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@`);
@@ -70,6 +69,7 @@ module.exports = function(app) {
         })
     });
 
+    // TODO implement this fish naming thing -- and give it a RES
     app.put('/api/userFishUpdate/:id', function(req, res) {
         let updatedUserFish = {} 
         if (req.body.name !== "" || req.body.name !== null) {
@@ -89,6 +89,28 @@ module.exports = function(app) {
                 id: updatedUserFish.id
             }    
         })
+    });
+
+    app.put('/api/userSellTheseFish', function(req, res) {
+        let sellTheseFishArray = req.body;
+        console.log(sellTheseFishArray);
+
+        for (let i = 0; i < sellTheseFishArray.length; i++) {
+            db.UserFish.findOne({
+                where: {
+                    id: sellTheseFishArray[i].id
+                }    
+            })
+            .then((fish) => { // TODO this appears to have a potential async issue
+                fish.update({forSale: 1, price: sellTheseFishArray[i].price})
+                .then (() => {
+                    res.sendStatus(204); // return success with no payload
+                })
+                .catch((error) => {
+                    res.sendStatus(400).json(error);
+                })
+            });
+        }
     });
 
 }//End of module.exports        
