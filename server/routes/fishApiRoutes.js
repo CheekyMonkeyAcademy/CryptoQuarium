@@ -112,6 +112,7 @@ module.exports = function(app) {
                 })
             });
         }
+        // TODO make this promise based - or callback based
         res.sendStatus(204); // we're all good
 
     });
