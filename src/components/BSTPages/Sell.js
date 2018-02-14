@@ -94,7 +94,7 @@ class Sell extends Component {
         axios.put('/api/userSellTheseFish/', this.state.itemsToBeSold)
         .then((success) => {
             this.setState({itemsToBeSold: []});
-            // TODO refresh the users fish displayed
+            window.location.href="/FishMarket"; // TODO discuss:  send to fish market or...?
         })
         .catch((err)=> {
             console.log(`Selling fish broke`);
