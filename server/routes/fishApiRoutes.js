@@ -93,6 +93,7 @@ module.exports = function(app) {
 
     app.put('/api/userSellTheseFish', function(req, res) {
         let sellTheseFishArray = req.body;
+        let error;
         console.log(sellTheseFishArray);
 
         for (let i = 0; i < sellTheseFishArray.length; i++) {
@@ -101,16 +102,18 @@ module.exports = function(app) {
                     id: sellTheseFishArray[i].id
                 }    
             })
-            .then((fish) => { // TODO this appears to have a potential async issue
+            .then((fish) => {
                 fish.update({forSale: 1, price: sellTheseFishArray[i].price})
                 .then (() => {
-                    res.sendStatus(204); // return success with no payload
+                    // return success with no payload - waiting for the rest of the for loop
                 })
                 .catch((error) => {
                     res.sendStatus(400).json(error);
                 })
             });
         }
+        res.sendStatus(204); // we're all good
+
     });
 
 }//End of module.exports        
