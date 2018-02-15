@@ -31,4 +31,10 @@ module.exports = function(app) {
         req.logout();
         res.redirect('/');
     });
+
+    // Ugly hack - trying to fix a local login issue - TODO find a better way
+    app.get('/MyAquarium', function(req, res){
+        console.log(`##### Hitting localhost 8080 My Aquarium - this is your ugly hack to fix that locally... and hopefully not touch production #####`);
+        res.redirect('http://localhost:3000/MyAquarium');
+    })
 }//End of module.exports        
