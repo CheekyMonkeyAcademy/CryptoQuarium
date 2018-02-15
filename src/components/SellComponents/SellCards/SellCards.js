@@ -3,8 +3,18 @@ import "../../BuyComponents/InventoryCards/InventoryCards.css";
 import Fish from '../../AllFish/Fish';
 import PufferFish from '../../AllFish/PufferFish';
 import "./SellCards.css";
-import ErrorModal from "../ErrorModal"
+import Modal from 'react-modal'
 
+const customStyles = {
+    content : {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)'
+    }
+  };
 
 
 // https://reactjs.org/docs/conditional-rendering.html
@@ -60,18 +70,15 @@ class SellCards extends Component {
                 </div>              
 
             </div>
-
-
-            {/* <ErrorModal isOpen= {this.props.isModalOpen} onClose={() => this.props.closeModal()}>
-                    <h6>Sell Price Must be Higher than 0.01</h6>                    
-                    <p><a className="waves-effect waves-light btn" onClick={() => this.props.closeModal()}>Close</a></p>                               
-            </ErrorModal> */}
-
-            <ErrorModal isOpen={false}>
-                my modal                
-            </ErrorModal>
-
-        </div>
+                <Modal 
+                    isOpen={this.props.modalIsOpen}
+                    onRequestClose={this.closeModal}
+                    style={customStyles}
+                >
+                    <h6>hey! go fuck off!</h6>
+                    <button onClick={() => this.props.closeModal()}>close</button>
+                </Modal>
+            </div>
     </div>
         )
     }

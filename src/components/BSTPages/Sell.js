@@ -4,6 +4,7 @@ import SellUserCart from "../SellComponents/SellUserCart/SellUserCart";
 import axios from 'axios';
 import "../BuyComponents/InventoryCards/InventoryCards.css";
 import { open } from "fs";
+// import Modal from 'react-modal'
 
 
 // let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
@@ -14,7 +15,7 @@ class Sell extends Component {
     state = {
         itemsToBeSold: [], 
         myFishArray: [],    
-        // isModalOpen: false                                        
+        modalIsOpen: false                                        
     }
 
     handlePriceChange = (event, id) => { 
@@ -52,9 +53,11 @@ class Sell extends Component {
         this.state.myFishArray[fishIndex].priceAlert = " ";
          
         if (this.state.myFishArray[fishIndex].price < 0.01){          
-            this.openModal(fishIndex)
-            console.log("not enough money...")
-                        
+            this.openModal();
+            // this.setState({modalIsOpen:true}, ()=>{
+            //     console.log(this.state.modalIsOpen)
+            // })
+                                    
         } else if (this.state.myFishArray[fishIndex].price >= 0.01){           
             this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]]
                 )}, (state) => {
@@ -64,13 +67,12 @@ class Sell extends Component {
         }    
     }
 
-    openModal = (id) => {            
-        console.log("I'm opening!")
-        console.log(id)
+    openModal = () => {            
+        this.setState({modalIsOpen:true});        
     }
 
-    closeModal = (id) => {         
-        console.log("I'm closing!")
+    closeModal = () => {         
+        this.setState({modalIsOpen:false});
     }
    
     //FUNCTION TO GET ALL USERS FISH
@@ -107,8 +109,8 @@ class Sell extends Component {
                                 getAllUserFish={this.getAllUserFish}
                                 myFishArray={this.state.myFishArray}     
                                 handlePriceChange = {this.handlePriceChange} 
-                                // closeModal = {this.closeModal}
-                                // isModalOpen = {this.state.isModalOpen}        
+                                closeModal = {this.closeModal}
+                                modalIsOpen = {this.state.modalIsOpen}        
                             />
                         </div>
 
