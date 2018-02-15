@@ -16,7 +16,7 @@ class SellCards extends Component {
     renderFish = () => {
         switch (this.props.codeSpecies) {
         case 'Fish': 
-            return <div className="frame thisFish">
+            return <div className="thisFish">
                 <Fish 
                     {...this.props}
                     noMove = {this.state.noMove}     
@@ -24,7 +24,7 @@ class SellCards extends Component {
                 />
             </div>
         case 'PufferFish':
-            return <div className="frame thisPufferFish">
+            return <div className="thisPufferFish">
                 <PufferFish 
                     {...this.props} 
                     noMove = {this.state.noMove}     
@@ -39,8 +39,9 @@ class SellCards extends Component {
     render(){
         return(
     <div className="container">
-        <div className="col s5 card-action sell-card card cyan lighten-5" id={"card" + this.props.id}>
+        <div className="col s5 card-action sell-card card cyan lighten-5" id={"card" + this.props.id}> {/* TODO Should be S6 */}
             <div className="row">
+
                 <div className="card-image">
                     {this.renderFish()}
                 </div>
@@ -50,9 +51,18 @@ class SellCards extends Component {
                     </div>
                     <div className="row">
                         <div className="col s12">Fish Id:{this.props.id}</div>
-                    </div>   
-              
-                    <input className = {this.props.priceValid} placeholder="Enter Price" onChange={(event) => this.props.handlePriceChange(event, this.props.id)} id={"input" + this.props.id} />
+                    </div>
+                    <div>
+                        {this.props.forSale ? 
+                        <div id={"onSale" + this.props.id}>Currently On Sale: <button onClick={() => this.props.stopSellingThisFish(this.props.id)}>Stop Selling?</button></div>
+                        : ''}
+                    </div>
+                    <input className = {this.props.priceValid} 
+                        placeholder="Enter Price" 
+                        onChange={(event) => this.props.handlePriceChange(event, this.props.id)} 
+                        id={"input" + this.props.id} 
+                        value={this.props.price ? this.props.price : ''}
+                    />
                     <a onClick={() => this.props.thisItemToMarket(this.props.id)}>
                         <i className="material-icons">local_offer</i>                        
                     </a>
