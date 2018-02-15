@@ -16,7 +16,6 @@ const env = process.env.NODE_ENV || 'development';
 const config = require('./config/config.json')[env];
 
 
-
 //Authentication Packages
 const MySQLStore = require('express-mysql-session')(session);
 

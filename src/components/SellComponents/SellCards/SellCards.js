@@ -3,19 +3,24 @@ import "../../BuyComponents/InventoryCards/InventoryCards.css";
 import Fish from '../../AllFish/Fish';
 import PufferFish from '../../AllFish/PufferFish';
 import "./SellCards.css";
-import Modal from 'react-modal'
+// import Modal from 'react-modal'
 
-
+// const customStyles = {
+//     content : {
+//       top: '50%',
+//       left: '50%',
+//       right: 'auto',
+//       bottom: 'auto',
+//       marginRight: '-50%',
+//       transform: 'translate(-50%, -50%)'
+//     }
+//   };
 
 // https://reactjs.org/docs/conditional-rendering.html
 class SellCards extends Component {
     state = {
         noMove: true
-    }
-
-    componentDidMount(){
-        Modal.setAppElement('body')
-    }
+    }    
 
     renderFish = () => {
         switch (this.props.codeSpecies) {
@@ -42,7 +47,7 @@ class SellCards extends Component {
 
     render(){
         return(
-    <div className="container modalHide">
+    <div className="container">
         <div className="col s5 card-action sell-card card cyan lighten-5" id={"card" + this.props.id}>
             <div className="row">
                 <div className="card-image">
@@ -54,27 +59,19 @@ class SellCards extends Component {
                     </div>
                     <div className="row">
                         <div className="col s12">Fish Id:{this.props.id}</div>
-                    </div>   
+                    </div> 
               
                     <input className = {this.props.priceValid} placeholder="Enter Price" onChange={(event) => this.props.handlePriceChange(event, this.props.id)} id={"input" + this.props.id} />
                     <a onClick={() => this.props.thisItemToMarket(this.props.id)}>
                         <i className="material-icons">local_offer</i>                        
                     </a>
-                    <h6 className="modalAnchor">{this.props.priceAlert}</h6>                    
+                    <h6>{this.props.priceAlert}</h6>                    
                 </div>
             </div>                       
         </div>
 
-            <Modal 
-                isOpen={this.props.modalIsOpen}
-                onRequestClose={this.closeModal}
-                parentSelector = {this.props.getParent}
-                className="Modal"     
-                overlayClassName="Overlay"        
-            >
-                <h6>hey! go fuck off!</h6>
-                <button onClick={() => this.props.closeModal()}>close</button>
-            </Modal> 
+            
+
         </div>
         )
     }
@@ -82,3 +79,14 @@ class SellCards extends Component {
 
 
 export default SellCards;
+{/* <Modal 
+                isOpen={this.props.modalIsOpen}
+                onRequestClose={this.closeModal}
+                parentSelector = {this.props.getParent}
+                style = {customStyles}
+                // className="Modal"     
+                // overlayClassName="Overlay"        
+            >
+                Sell for a higher price
+                <button onClick={() => this.props.closeModal()}>close</button>
+            </Modal> */}

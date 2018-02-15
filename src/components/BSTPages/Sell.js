@@ -46,15 +46,15 @@ class Sell extends Component {
         })
     }    
 
-
-    thisItemToMarket = (id) => {       
+    thisItemToMarket = (id) => {  
+        console.log("Am I clicking my sell tag?")     
 
         let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
         this.state.myFishArray[fishIndex].priceAlert = " ";
-         
-        if (this.state.myFishArray[fishIndex].price < 0.01){          
-            this.openModal();
-            console.log(id)
+
+       
+        if (this.state.myFishArray[fishIndex].price < 0.01){             
+                this.openModal();       
                                                
         } else if (this.state.myFishArray[fishIndex].price >= 0.01){           
             this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]]
@@ -65,12 +65,18 @@ class Sell extends Component {
         }    
     }
 
+    
     getParent = (id) => {
-        return document.querySelector('.modalAnchor');
+        return document.querySelector(".container");
+        console.log(id)
     }
 
-    openModal = () => {            
-        this.setState({modalIsOpen:true});        
+    openModal = () => {     
+                     
+        this.setState({modalIsOpen:true}, () => {
+            console.log("open modal")
+        });     
+          
     }
 
     closeModal = () => {         
@@ -114,6 +120,7 @@ class Sell extends Component {
                                 closeModal = {this.closeModal}
                                 modalIsOpen = {this.state.modalIsOpen}        
                                 getParent = {this.getParent}
+                                
                             />
                         </div>
 
