@@ -54,10 +54,8 @@ class Sell extends Component {
          
         if (this.state.myFishArray[fishIndex].price < 0.01){          
             this.openModal();
-            // this.setState({modalIsOpen:true}, ()=>{
-            //     console.log(this.state.modalIsOpen)
-            // })
-                                    
+            console.log(id)
+                                               
         } else if (this.state.myFishArray[fishIndex].price >= 0.01){           
             this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]]
                 )}, (state) => {
@@ -65,6 +63,10 @@ class Sell extends Component {
                 })
             document.getElementById("card"+id).style.display = "none"; 
         }    
+    }
+
+    getParent = (id) => {
+        return document.querySelector('.modalAnchor');
     }
 
     openModal = () => {            
@@ -111,6 +113,7 @@ class Sell extends Component {
                                 handlePriceChange = {this.handlePriceChange} 
                                 closeModal = {this.closeModal}
                                 modalIsOpen = {this.state.modalIsOpen}        
+                                getParent = {this.getParent}
                             />
                         </div>
 

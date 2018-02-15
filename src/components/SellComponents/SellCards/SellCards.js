@@ -5,14 +5,15 @@ import PufferFish from '../../AllFish/PufferFish';
 import "./SellCards.css";
 import Modal from 'react-modal'
 
+
 const customStyles = {
     content : {
       top: '50%',
       left: '50%',
       right: 'auto',
-      bottom: 'auto',
+      bottom: 'auto',      
       marginRight: '-50%',
-      transform: 'translate(-50%, -50%)'
+    //   transform: 'translate(-50%, -50%)',      
     }
   };
 
@@ -21,6 +22,10 @@ const customStyles = {
 class SellCards extends Component {
     state = {
         noMove: true
+    }
+
+    componentDidMount(){
+        Modal.setAppElement('body')
     }
 
     renderFish = () => {
@@ -48,7 +53,7 @@ class SellCards extends Component {
 
     render(){
         return(
-    <div className="container">
+    <div className="container modalHide">
         <div className="col s5 card-action sell-card card cyan lighten-5" id={"card" + this.props.id}>
             <div className="row">
                 <div className="card-image">
@@ -66,24 +71,24 @@ class SellCards extends Component {
                     <a onClick={() => this.props.thisItemToMarket(this.props.id)}>
                         <i className="material-icons">local_offer</i>                        
                     </a>
-                    <h6>{this.props.priceAlert}</h6>                    
-                </div>              
+                    <h6 className="modalAnchor">{this.props.priceAlert}</h6>                    
+                </div>
+            </div>                       
+        </div>
 
-            </div>
-                <Modal 
-                    isOpen={this.props.modalIsOpen}
-                    onRequestClose={this.closeModal}
-                    style={customStyles}
-                >
-                    <h6>hey! go fuck off!</h6>
-                    <button onClick={() => this.props.closeModal()}>close</button>
-                </Modal>
-            </div>
-    </div>
+            <Modal 
+                isOpen={this.props.modalIsOpen}
+                onRequestClose={this.closeModal}
+                parentSelector = {this.props.getParent}
+                style={customStyles}                
+            >
+                <h6>hey! go fuck off!</h6>
+                <button onClick={() => this.props.closeModal()}>close</button>
+            </Modal> 
+        </div>
         )
     }
 }
 
 
 export default SellCards;
-// isOpen={this.props.isModalOpen} 

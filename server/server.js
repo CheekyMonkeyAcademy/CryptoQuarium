@@ -6,6 +6,7 @@ const session = require('express-session');
 const path = require('path');
 require('./passport/passport');
 
+
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -13,6 +14,8 @@ const db = require("./models");
 
 const env = process.env.NODE_ENV || 'development';
 const config = require('./config/config.json')[env];
+
+
 
 //Authentication Packages
 const MySQLStore = require('express-mysql-session')(session);
@@ -56,6 +59,7 @@ else {
     // app.use(express.static("../src"));
     app.use(express.static(path.join(__dirname, '../src')));
 }
+
 
 
 

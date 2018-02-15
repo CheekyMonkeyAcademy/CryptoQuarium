@@ -21,6 +21,7 @@ class SellUserInventory extends Component {
                         inputColors= {this.props.inputColors}
                         closeModal={this.props.closeModal}
                         modalIsOpen= {this.props.modalIsOpen}
+                        getParent = {this.props.getParent}
                     />
                 }, this)}        
                 
