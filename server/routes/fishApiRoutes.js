@@ -124,15 +124,9 @@ module.exports = function(app) {
                 id: thisId
             }    
         })
-        .then((fish) => {
-            fish.update({forSale: 0})
-            .then (() => {
-                res.sendStatus(204);
-            })
-            .catch((error) => {
-                res.sendStatus(400).json(error);
-            })
-        });
+        .then((fish) => fish.update({forSale: 0}))
+        .then(() => res.sendStatus(204))
+        .catch((error) => res.sendStatus(400).json(error))
     });
 
 }//End of module.exports        
