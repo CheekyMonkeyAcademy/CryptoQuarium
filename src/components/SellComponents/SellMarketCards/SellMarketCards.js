@@ -7,11 +7,13 @@ const SellMarketCards = props => (
 
                 <div className="card white">                    
                     <div className="card-action black-text">
-                        <p>Item Id: {props.id}</p>
+                        {/* TODO render the fish here */}
                         <p>Species: {props.species}</p>
 
-                        <p>$ {props.price}</p> 
-                        <i className="material-icons">cancel</i>                       
+                        <p>$ {props.price}</p>
+                        <a onClick={() => props.removeFromSelling(props.id)}>
+                            <i className="material-icons">cancel</i>
+                        </a>
                     </div>
                 </div>
             </div>
