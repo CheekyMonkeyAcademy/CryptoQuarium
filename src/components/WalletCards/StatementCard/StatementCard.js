@@ -41,7 +41,8 @@ class StatementCard extends Component {
                         <p>{this.props.myStatementHistory.createdAt}</p>
                     </div>
                     <div className="card-action">                        
-                        <a className="waves-effect waves-light btn" onClick={() => this.openModel()}>View Account Activity</a>                      
+                        <a className="waves-effect waves-light btn" onClick={() => this.openModel()}>View Account Activity</a>     
+                                         
                         <StatementModal isOpen={this.state.isModalOpen} onClose={() => this.closeModal()}>
                             <h3>Statement One</h3>
                             <hr />

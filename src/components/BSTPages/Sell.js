@@ -5,16 +5,12 @@ import axios from 'axios';
 import "../BuyComponents/InventoryCards/InventoryCards.css";
 import { open } from "fs";
 
-
-// let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
-
-//The onChange event will call a function that updates the price of the specified fish item
 class Sell extends Component {
 
     state = {
         itemsToBeSold: [], 
         myFishArray: [],    
-        // isModalOpen: false                                        
+        modalIsOpen: false                                        
     }
 
     handlePriceChange = (event, id) => { 
@@ -45,16 +41,16 @@ class Sell extends Component {
         })
     }    
 
-
-    thisItemToMarket = (id) => {       
+    thisItemToMarket = (id) => {  
+        console.log("Am I clicking my sell tag?")     
 
         let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
         this.state.myFishArray[fishIndex].priceAlert = " ";
-         
-        if (this.state.myFishArray[fishIndex].price < 0.01){          
-            this.openModal(fishIndex)
-            console.log("not enough money...")
-                        
+
+       
+        if (this.state.myFishArray[fishIndex].price < 0.01){             
+                this.openModal();       
+                                               
         } else if (this.state.myFishArray[fishIndex].price >= 0.01){           
             this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]]
                 )}, (state) => {
@@ -64,13 +60,22 @@ class Sell extends Component {
         }    
     }
 
-    openModal = (id) => {            
-        console.log("I'm opening!")
+    
+    getParent = (id) => {
+        return document.querySelector(".container");
         console.log(id)
     }
 
-    closeModal = (id) => {         
-        console.log("I'm closing!")
+    openModal = () => {     
+                     
+        this.setState({modalIsOpen:true}, () => {
+            console.log("open modal")
+        });     
+          
+    }
+
+    closeModal = () => {         
+        this.setState({modalIsOpen:false});
     }
    
     //FUNCTION TO GET ALL USERS FISH
@@ -135,10 +140,13 @@ class Sell extends Component {
                                 thisItemToMarket={this.thisItemToMarket}
                                 getAllUserFish={this.getAllUserFish}
                                 myFishArray={this.state.myFishArray}     
-                                handlePriceChange = {this.handlePriceChange}
+
+                                handlePriceChange = {this.handlePriceChange} 
+                                closeModal = {this.closeModal}
+                                modalIsOpen = {this.state.modalIsOpen}        
+                                getParent = {this.getParent}
                                 stopSellingThisFish = {this.stopSellingThisFish}
-                                // closeModal = {this.closeModal}
-                                // isModalOpen = {this.state.isModalOpen}        
+    
                             />
                         </div>
 

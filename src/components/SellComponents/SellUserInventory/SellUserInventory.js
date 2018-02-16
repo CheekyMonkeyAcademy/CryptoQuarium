@@ -1,6 +1,18 @@
 import React, {Component} from "react";
-// import axios from 'axios';
 import SellCards from '../SellCards'
+import Modal from 'react-modal'
+import "../SellCards/SellCards.css"
+
+const customStyles = {
+        content : {
+          top: '50%',
+          left: '50%',
+          right: 'auto',
+          bottom: 'auto',
+          marginRight: '-50%',
+          transform: 'translate(-50%, -50%)'
+    }
+};
 
 class SellUserInventory extends Component {
     
@@ -18,12 +30,26 @@ class SellUserInventory extends Component {
                         handlePriceChange = {this.props.handlePriceChange}                        
                         key = {fish.id}
                         inputColors= {this.props.inputColors}
-                        stopSellingThisFish = {this.props.stopSellingThisFish}
-                        // closeModal={this.props.closeModal}
-                        // isModalOpen= {this.props.isModalOpen}
+
+                        closeModal={this.props.closeModal}
+                        modalIsOpen= {this.props.modalIsOpen}
+                        getParent = {this.props.getParent}
+                        stopSellingThisFish = {this.props.stopSellingThisFish} 
                     />
                 }, this)}        
                 
+                <Modal 
+                    isOpen={this.props.modalIsOpen}
+                    onRequestClose={this.closeModal}
+                    parentSelector = {this.props.getParent}
+                    // style = {customStyles}
+                    className="Modal"     
+                    overlayClassName="Overlay"        
+                >
+                    <h4>Sell for a higher price</h4>
+                    <a class="waves-effect waves-light btn red lighten-5 black-text" onClick={() => this.props.closeModal()}>Close</a>
+                    
+                </Modal>
             </div>
         )
     }
@@ -33,3 +59,5 @@ class SellUserInventory extends Component {
 
 
 export default SellUserInventory;
+
+{/* <button onClick={() => this.props.closeModal()}>close</button> */}

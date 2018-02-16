@@ -3,7 +3,7 @@ import "../../BuyComponents/InventoryCards/InventoryCards.css";
 import Fish from '../../AllFish/Fish';
 import PufferFish from '../../AllFish/PufferFish';
 import "./SellCards.css";
-import ErrorModal from "../ErrorModal"
+// import Modal from 'react-modal'
 
 
 
@@ -11,7 +11,7 @@ import ErrorModal from "../ErrorModal"
 class SellCards extends Component {
     state = {
         noMove: true
-    }
+    }    
 
     renderFish = () => {
         switch (this.props.codeSpecies) {
@@ -51,6 +51,7 @@ class SellCards extends Component {
                     </div>
                     <div className="row">
                         <div className="col s12">Fish Id:{this.props.id}</div>
+
                     </div>
                     <div>
                         {this.props.forSale ? 
@@ -63,30 +64,19 @@ class SellCards extends Component {
                         id={"input" + this.props.id} 
                         value={this.props.price ? this.props.price : ''}
                     />
+
                     <a onClick={() => this.props.thisItemToMarket(this.props.id)}>
                         <i className="material-icons">local_offer</i>                        
                     </a>
                     <h6>{this.props.priceAlert}</h6>                    
-                </div>              
-
-            </div>
-
-
-            {/* <ErrorModal isOpen= {this.props.isModalOpen} onClose={() => this.props.closeModal()}>
-                    <h6>Sell Price Must be Higher than 0.01</h6>                    
-                    <p><a className="waves-effect waves-light btn" onClick={() => this.props.closeModal()}>Close</a></p>                               
-            </ErrorModal> */}
-
-            <ErrorModal isOpen={false}>
-                my modal                
-            </ErrorModal>
+                </div>
+            </div>                       
+        </div>           
 
         </div>
-    </div>
         )
     }
 }
 
 
 export default SellCards;
-// isOpen={this.props.isModalOpen} 
