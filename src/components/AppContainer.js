@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import Navbar from "./Navbar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Logout from "./pages/Logout";
 import MyAquarium from "./pages/MyAquarium";
 import Wallet from "./pages/Wallet";
 import FishMarket from "./pages/FishMarket";
@@ -165,7 +166,10 @@ class AppContainer extends Component {
 
             <Router>
                 <div>
-                    <Navbar />
+                    <Navbar 
+                        thisUserCred = {this.state.thisUserCred}
+                    />
+                    <Route exact path="/logout" component={Logout}/>
                     <Route exact path="/login" component={Login}/>
                     <Route exact path="/myaquarium" component={MyAquarium}/>
                     <Route exact path="/wallet" render={() => {
