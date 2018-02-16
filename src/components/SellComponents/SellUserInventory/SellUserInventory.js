@@ -47,7 +47,7 @@ class SellUserInventory extends Component {
                     overlayClassName="Overlay"        
                 >
                     <h4>Sell for a higher price</h4>
-                    <a class="waves-effect waves-light btn red lighten-5 black-text center-align" onClick={() => this.props.closeModal()}>Close</a>
+                    <a class="waves-effect waves-light btn red lighten-5 black-text" onClick={() => this.props.closeModal()}>Close</a>
                     
                 </Modal>
             </div>

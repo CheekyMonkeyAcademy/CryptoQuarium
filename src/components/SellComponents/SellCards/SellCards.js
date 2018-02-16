@@ -59,9 +59,7 @@ class SellCards extends Component {
                     <h6>{this.props.priceAlert}</h6>                    
                 </div>
             </div>                       
-        </div>
-
-            
+        </div>           
 
         </div>
         )
