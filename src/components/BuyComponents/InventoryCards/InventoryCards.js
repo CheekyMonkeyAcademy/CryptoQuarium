@@ -10,7 +10,7 @@ class InventoryCards extends Component {
     renderFish = () => {
         switch (this.props.codeSpecies) {
         case 'Fish': 
-            return <div className="frame thisFish">
+            return <div className="thisFish">
                 <Fish 
                     {...this.props}
                     noMove = {this.state.noMove}
@@ -18,7 +18,7 @@ class InventoryCards extends Component {
                 />
             </div>
         case 'PufferFish':
-            return <div className="frame thisPufferFish">
+            return <div className="thisPufferFish">
                 <PufferFish 
                     {...this.props} 
                     noMove = {this.state.noMove}
@@ -34,7 +34,7 @@ render (){
     return (
     <div className="container"> 
         <div className="row">
-            <div className="col s3">
+            <div className="col s5"> {/* TODO Should be S6 */}
                 <div className="card card-action cyan lighten-5"  id={"card"+this.props.id}>
                     <div className="card-image"> 
                         {this.renderFish()}
@@ -42,8 +42,9 @@ render (){
                     </div>
                     <div className="card-content">
                         <p>{this.props.species}</p>
-                        <p>Fish Id:{this.props.id}</p>
+                        {/* <p>Fish Id:{this.props.id}</p> */}
                         <p>Price: ${this.props.price}</p>
+                        {this.props.quantityAvailable ? <p>Quantity Remaining: {this.props.quantityAvailable}</p> : ''}
                     </div>
                 </div>
             </div>

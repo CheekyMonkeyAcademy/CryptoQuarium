@@ -100,7 +100,21 @@ class Sell extends Component {
             console.log(`Selling fish broke`);
             console.log(err);
         });
+    }
 
+    stopSellingThisFish = (id) => {
+        console.log(`received request to stop selling fish id: ${id}`);
+
+        let idTarget = {'target': id}
+
+        axios.put('/api/stopSellingThisFish/', idTarget)
+        .then((success) => {
+            document.getElementById('onSale'+ id).style.display = "none";
+        })
+        .catch((err)=> {
+            console.log(`Stop selling this fish broke`);
+            console.log(err);
+        });
     }
 
     render() {
@@ -121,7 +135,8 @@ class Sell extends Component {
                                 thisItemToMarket={this.thisItemToMarket}
                                 getAllUserFish={this.getAllUserFish}
                                 myFishArray={this.state.myFishArray}     
-                                handlePriceChange = {this.handlePriceChange} 
+                                handlePriceChange = {this.handlePriceChange}
+                                stopSellingThisFish = {this.stopSellingThisFish}
                                 // closeModal = {this.closeModal}
                                 // isModalOpen = {this.state.isModalOpen}        
                             />

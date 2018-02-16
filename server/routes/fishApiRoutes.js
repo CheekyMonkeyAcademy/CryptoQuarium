@@ -114,7 +114,19 @@ module.exports = function(app) {
         }
         // TODO make this promise based - or callback based
         res.sendStatus(204); // we're all good
+    });
 
+    app.put('/api/stopSellingThisFish/', function(req, res){
+        let thisId = req.body.target;
+
+        db.UserFish.findOne({
+            where: {
+                id: thisId
+            }    
+        })
+        .then((fish) => fish.update({forSale: 0}))
+        .then(() => res.sendStatus(204))
+        .catch((error) => res.sendStatus(400).json(error))
     });
 
 }//End of module.exports        
