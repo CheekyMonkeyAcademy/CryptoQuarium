@@ -34,13 +34,22 @@ const Navbar = props =>
 
             <ul className="left hide-on-med-and-down">
 
-                <li                    
-                    className={
-                        window.location.pathname === "/Login" ? "active" : ""
-                    }
-                >                    
-                    <Link to="/Login">Login</Link>
-                </li>
+                {props.thisUserCred.userId ?
+                    <li                    
+                        className={
+                            window.location.pathname === "/Logout" ? "active" : ""
+                        }
+                    >                    
+                        <Link to="/Logout">Logout</Link>
+                    </li> 
+                :    <li
+                        className={
+                            window.location.pathname === "/Login" ? "active" : ""
+                        }
+                    >                    
+                        <Link to="/Login">Login</Link>
+                    </li>
+                }
 
                 <li                    
                     className={
@@ -79,8 +88,5 @@ const Navbar = props =>
             </ul>
         </div>
     </nav>
-
-   
-    
 
 export default Navbar;

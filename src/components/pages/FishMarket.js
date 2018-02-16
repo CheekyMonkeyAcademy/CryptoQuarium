@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import FishMarketNav from "../FishMarketNav";
 import Buy from "../BSTPages/Buy";
 import Sell from "../BSTPages/Sell";
-import Trade from "../BSTPages/Trade";
-
-
 
 //This is set up to be a stateful component because I assume the state of the page
     //will change depending on how users are interacting with the fish- buying/selling/trading
@@ -38,9 +35,7 @@ class FishMarket extends Component {
                 buyFishArray = {this.props.buyFishArray}
                 
             />
-        } else if (this.state.currentPage === "Trade"){
-            return <Trade />
-        } 
+        }
     }
 
     //We are giving the Navbar the current page property and passing the handlePageChange function
