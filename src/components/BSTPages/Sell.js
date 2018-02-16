@@ -94,8 +94,6 @@ class Sell extends Component {
     }
 
     sellToMarket = () => {
-        console.log(`Annnd we're calling 'sell to market' - we clicked this button, hooray!`)
-        
         axios.put('/api/userSellTheseFish/', this.state.itemsToBeSold)
         .then((success) => {
             this.setState({itemsToBeSold: []});
@@ -108,8 +106,6 @@ class Sell extends Component {
     }
 
     stopSellingThisFish = (id) => {
-        console.log(`received request to stop selling fish id: ${id}`);
-
         let idTarget = {'target': id}
 
         axios.put('/api/stopSellingThisFish/', idTarget)
@@ -120,6 +116,25 @@ class Sell extends Component {
             console.log(`Stop selling this fish broke`);
             console.log(err);
         });
+    }
+
+    removeFromSelling = (id) => {
+        // Splice the item out of the items to be sold array
+        let fishIndex =  this.state.itemsToBeSold.findIndex(fish => fish.id === id)    
+        let newFishArray = Array.from(this.state.itemsToBeSold);     
+
+        // remove the target that was just clicked
+        newFishArray.splice(fishIndex,1);
+
+        // kick it back into current state
+        this.setState({
+            itemsToBeSold: newFishArray
+        }, ()=> {
+            console.log(this.state.itemsToBeSold);
+        })
+
+        // Make the item visible again
+        document.getElementById("card"+id).style.display = "block"; 
     }
 
     render() {
@@ -154,6 +169,7 @@ class Sell extends Component {
                         <SellMarket 
                             itemsToBeSold = {this.state.itemsToBeSold} 
                             sellToMarket = {this.sellToMarket}
+                            removeFromSelling = {this.removeFromSelling}
                         />
 
                     </div>
