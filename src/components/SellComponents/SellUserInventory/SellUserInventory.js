@@ -24,17 +24,17 @@ class SellUserInventory extends Component {
     render(){
         return(
             <div>
-
                 {this.props.myFishArray.map(fish => {
                     return <SellCards {...fish}
                         thisItemToMarket = {this.props.thisItemToMarket}
                         handlePriceChange = {this.props.handlePriceChange}                        
                         key = {fish.id}
                         inputColors= {this.props.inputColors}
+
                         closeModal={this.props.closeModal}
                         modalIsOpen= {this.props.modalIsOpen}
                         getParent = {this.props.getParent}
-                       
+                        stopSellingThisFish = {this.props.stopSellingThisFish} 
                     />
                 }, this)}        
                 

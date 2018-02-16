@@ -48,10 +48,10 @@ class PufferFish extends Component {
         
         let fish_wrap = document.getElementById(this.props.id);
         // The following prevents a bug when we navigate AWAY from the aquarium page.  
-        fish_wrap ? fish_wrap.style.setProperty("--animation-time", animationDuration + "s") : console.log(`No fish, no style`);
+        fish_wrap ? fish_wrap.style.setProperty("--animation-time", animationDuration + "s") : '';
 
         setTimeout(() => {
-            fish_wrap ? this.swim() : console.log(`Stop swimming!`);
+            fish_wrap ? this.swim() : '';
         }, animationDuration * 2000);
     }
 

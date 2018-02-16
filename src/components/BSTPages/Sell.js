@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import SellUserInventory from "../SellComponents/SellUserInventory/SellUserInventory";
-import SellUserCart from "../SellComponents/SellUserCart/SellUserCart";
+import SellMarket from "../SellComponents/SellMarket/SellMarket";
 import axios from 'axios';
 import "../BuyComponents/InventoryCards/InventoryCards.css";
 import { open } from "fs";
@@ -14,7 +14,7 @@ class Sell extends Component {
     }
 
     handlePriceChange = (event, id) => { 
-        console.log("*****LOOK HERE******")    
+        console.log("*****LOOK HERE******");
         let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
         console.log(fishIndex)   
         console.log(`${id}`)        
@@ -93,6 +93,35 @@ class Sell extends Component {
         })
     }
 
+    sellToMarket = () => {
+        console.log(`Annnd we're calling 'sell to market' - we clicked this button, hooray!`)
+        
+        axios.put('/api/userSellTheseFish/', this.state.itemsToBeSold)
+        .then((success) => {
+            this.setState({itemsToBeSold: []});
+            window.location.href="/FishMarket"; // TODO discuss:  send to fish market or...?
+        })
+        .catch((err)=> {
+            console.log(`Selling fish broke`);
+            console.log(err);
+        });
+    }
+
+    stopSellingThisFish = (id) => {
+        console.log(`received request to stop selling fish id: ${id}`);
+
+        let idTarget = {'target': id}
+
+        axios.put('/api/stopSellingThisFish/', idTarget)
+        .then((success) => {
+            document.getElementById('onSale'+ id).style.display = "none";
+        })
+        .catch((err)=> {
+            console.log(`Stop selling this fish broke`);
+            console.log(err);
+        });
+    }
+
     render() {
         return (
             <div>
@@ -111,16 +140,21 @@ class Sell extends Component {
                                 thisItemToMarket={this.thisItemToMarket}
                                 getAllUserFish={this.getAllUserFish}
                                 myFishArray={this.state.myFishArray}     
+
                                 handlePriceChange = {this.handlePriceChange} 
                                 closeModal = {this.closeModal}
                                 modalIsOpen = {this.state.modalIsOpen}        
                                 getParent = {this.getParent}
-                                
+                                stopSellingThisFish = {this.stopSellingThisFish}
+    
                             />
                         </div>
 
                     <div className="col s4">
-                        <SellUserCart itemsToBeSold = {this.state.itemsToBeSold} />
+                        <SellMarket 
+                            itemsToBeSold = {this.state.itemsToBeSold} 
+                            sellToMarket = {this.sellToMarket}
+                        />
 
                     </div>
                 </div>
