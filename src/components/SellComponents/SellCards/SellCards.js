@@ -5,16 +5,7 @@ import PufferFish from '../../AllFish/PufferFish';
 import "./SellCards.css";
 // import Modal from 'react-modal'
 
-// const customStyles = {
-//     content : {
-//       top: '50%',
-//       left: '50%',
-//       right: 'auto',
-//       bottom: 'auto',
-//       marginRight: '-50%',
-//       transform: 'translate(-50%, -50%)'
-//     }
-//   };
+
 
 // https://reactjs.org/docs/conditional-rendering.html
 class SellCards extends Component {
@@ -79,14 +70,3 @@ class SellCards extends Component {
 
 
 export default SellCards;
-{/* <Modal 
-                isOpen={this.props.modalIsOpen}
-                onRequestClose={this.closeModal}
-                parentSelector = {this.props.getParent}
-                style = {customStyles}
-                // className="Modal"     
-                // overlayClassName="Overlay"        
-            >
-                Sell for a higher price
-                <button onClick={() => this.props.closeModal()}>close</button>
-            </Modal> */}

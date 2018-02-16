@@ -4,12 +4,7 @@ import SellUserCart from "../SellComponents/SellUserCart/SellUserCart";
 import axios from 'axios';
 import "../BuyComponents/InventoryCards/InventoryCards.css";
 import { open } from "fs";
-// import Modal from 'react-modal'
 
-
-// let fishIndex =  this.state.myFishArray.findIndex(fish => this.state.myFishArray.filter(fish => fish.id === id)[0])
-
-//The onChange event will call a function that updates the price of the specified fish item
 class Sell extends Component {
 
     state = {

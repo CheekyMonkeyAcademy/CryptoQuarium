@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-// import axios from 'axios';
 import SellCards from '../SellCards'
 import Modal from 'react-modal'
+import "../SellCards/SellCards.css"
 
 const customStyles = {
         content : {
@@ -11,8 +11,8 @@ const customStyles = {
           bottom: 'auto',
           marginRight: '-50%',
           transform: 'translate(-50%, -50%)'
-        }
-      };
+    }
+};
 
 class SellUserInventory extends Component {
     
@@ -42,12 +42,13 @@ class SellUserInventory extends Component {
                     isOpen={this.props.modalIsOpen}
                     onRequestClose={this.closeModal}
                     parentSelector = {this.props.getParent}
-                    style = {customStyles}
-                    // className="Modal"     
-                    // overlayClassName="Overlay"        
+                    // style = {customStyles}
+                    className="Modal"     
+                    overlayClassName="Overlay"        
                 >
-                    Sell for a higher price
-                    <button onClick={() => this.props.closeModal()}>close</button>
+                    <h4>Sell for a higher price</h4>
+                    <a class="waves-effect waves-light btn red lighten-5 black-text center-align" onClick={() => this.props.closeModal()}>Close</a>
+                    
                 </Modal>
             </div>
         )
@@ -58,3 +59,5 @@ class SellUserInventory extends Component {
 
 
 export default SellUserInventory;
+
+{/* <button onClick={() => this.props.closeModal()}>close</button> */}
