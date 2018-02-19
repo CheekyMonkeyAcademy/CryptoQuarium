@@ -34,6 +34,8 @@ const Navbar = props =>
 
             <ul className="left hide-on-med-and-down">
 
+                {/* We're setting up a switch here - either we're active with credentials and we
+                are using logout - or we need credentials and we use login */}
                 {props.thisUserCred.userId ?
                     <li                    
                         className={
