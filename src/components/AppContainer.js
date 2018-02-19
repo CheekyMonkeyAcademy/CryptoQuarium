@@ -163,7 +163,6 @@ class AppContainer extends Component {
 
     render() {
         return (
-
             <Router>
                 <div>
                     <Navbar 
@@ -171,13 +170,18 @@ class AppContainer extends Component {
                     />
                     <Route exact path="/logout" component={Logout}/>
                     <Route exact path="/login" component={Login}/>
-                    <Route exact path="/myaquarium" component={MyAquarium}/>
-                    <Route exact path="/wallet" render={() => {
-                        return <Wallet currentBalance={this.state.currentBalance} />;
-                    }}/>
-                    <Route exact path="/fishmarket" render={() => {
-                        
-                        return <FishMarket 
+                    <Route exact path="/home" component={this.state.thisUserCred.userId ? Home : Login} />
+                    <Route exact path="/" component={this.state.thisUserCred.userId ? Home : Login} />
+                    
+                    <Route exact path="/myaquarium" component={this.state.thisUserCred.userId ? Home : Login}/>
+                    <Route exact path="/wallet" render={() => 
+                        this.state.thisUserCred.userId ? 
+                            <Wallet currentBalance={this.state.currentBalance} />
+                        :   <Login />
+                    }/>
+                    <Route exact path="/fishmarket" render={() => 
+                        this.state.thisUserCred.userId ? 
+                            <FishMarket 
                             checkoutChangeBalance = {this.updateBalanceAfterCheckout}
                             subTotal = {this.state.subTotal}
                             cartArray = {this.state.cartArray}
@@ -185,15 +189,11 @@ class AppContainer extends Component {
                             clickItem = {this.clickItem}
                             updateBuyFishArrayState = {this.updateBuyFishArrayState}
                             updateSubtotalState = {this.updateSubtotalState}
-                            toggleFishMarket = {this.toggleFishMarket}                                
-                        />
-                    }} />
-                    <Route exact path="/home" component={Home} />
-                    <Route exact path="/" component={Home} />
+                            toggleFishMarket = {this.toggleFishMarket}/>
+                        :   <Login />
+                    }/>
                 </div>
-
             </Router>
-
         );
     }
 }

@@ -49,13 +49,9 @@ class SellCards extends Component {
                     <div className="row">
                         <div className="col s12">{this.props.species}</div>
                     </div>
-                    {/* <div className="row">
-                        <div className="col s12">Fish Id:{this.props.id}</div>
-
-                    </div> */}
                     <div>
                         {this.props.forSale ? 
-                        <div id={"onSale" + this.props.id}>Currently On Sale: <button onClick={() => this.props.stopSellingThisFish(this.props.id)}>Stop Selling?</button></div>
+                        <div className="center" id={"onSale" + this.props.id}>$$$ Currently On Sale $$$ <button waves='light' className="btn red" onClick={() => this.props.stopSellingThisFish(this.props.id)}>Stop Selling?</button></div>
                         : ''}
                     </div>
                     <input className = {this.props.priceValid} 
