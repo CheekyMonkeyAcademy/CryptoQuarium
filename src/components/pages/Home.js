@@ -1,15 +1,9 @@
 import React, {Component} from "react";
-import HomeBackground from "../HomeBackground";
+import "./Home.css";
 
-
-class Home extends Component {
-
-  render() {
-    return (
-        <HomeBackground />
-    );
-  }
-}
+const Home = props =>
+    <div className="home">
+        {props.children}
+    </div>
 
 export default Home;
-
