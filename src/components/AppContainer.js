@@ -34,7 +34,7 @@ class AppContainer extends Component {
         let targetToggle = document.getElementById("fishTemplateOrUserFishInput");
         targetToggle.setAttribute("disabled","disabled");
 
-        // If we're on user fish - we add things this way...
+        // If we're on fish market for user fish - we add things this way...
         if (this.state.fishTemplateOrUserFish === true) {
             document.getElementById("card"+id).style.display = "none";
             this.setState({          
@@ -43,29 +43,34 @@ class AppContainer extends Component {
                 this.updateSubtotalState(this.state.subTotal + this.state.buyFishArray[fishIndex].price); 
             });         
         }
+        // If we're in the fish market store - we add things this way...
         else {
             let fishToAddToArray = this.state.buyFishArray[fishIndex];
             let newCartArray = this.state.cartArray;
-            // add our quantity desired - either add one, or set to 1. 
+            let fishIndexInCart = newCartArray.findIndex((fish) => fish===newCartArray.filter(fish => fish.id===id)[0]);
+
+            // add our quantity desired - either add one, or set to 1... if it exists, add, if not concatenate
             if (fishToAddToArray.quantityToBuy){ 
-                let fishIndexInCart = newCartArray.findIndex((fish) => fish===newCartArray.filter(fish => fish.id===id)[0]);
                 newCartArray[fishIndexInCart].quantityToBuy += 1;
             }
             else {
                 fishToAddToArray.quantityToBuy = 1;
                 newCartArray = this.state.cartArray.concat(fishToAddToArray);
+                // re-declare the fish index since it exists now
+                fishIndexInCart = newCartArray.findIndex((fish) => fish===newCartArray.filter(fish => fish.id===id)[0]);
             }
 
-            this.setState({          
-                cartArray: newCartArray
-            }, () => {
-                this.updateSubtotalState(this.state.subTotal + fishToAddToArray.price); 
-            });      
-
-
-
+            if (newCartArray[fishIndexInCart].quantityAvailable >= newCartArray[fishIndexInCart].quantityToBuy){
+                this.setState({          
+                    cartArray: newCartArray
+                }, () => {
+                    this.updateSubtotalState(this.state.subTotal + fishToAddToArray.price); 
+                });
+            }
+            else {
+                // TODO:  Add modal (?) Quanitity to buy is too high - so we'll need to throw an error to the user
+            }
         }
-    
     }   
     
     toggleFishMarket = () => {
@@ -103,15 +108,12 @@ class AppContainer extends Component {
     
     //FUNCTION TO HANDLE THE SUBTOTAL MATH
     updateSubtotalState = (value) => {
-        console.log("am i getting here? NOW")
         this.setState({subTotal: value});               
     }
 
     checkAndUpdateAuthenticatedUser = () => {
         axios.get('/api/getAuthenticatedUser')
         .then((userCredentials) => {
-            console.log(`So... we theoretically have user creds?`);
-            console.log(userCredentials.data);
             // Changed this to only have one set of user credentials data instead of a contact (would create multiple sets of the same)
             this.setState({thisUserCred: userCredentials.data}, () => {
                 console.log("This is user cred");
@@ -122,8 +124,8 @@ class AppContainer extends Component {
             });
         })
         .catch((err)=> {
-            console.log(`user auth vomited - so - it didn't get your credentials`)
-            console.log(err)
+            console.log(`user auth vomited - so - it didn't get your credentials`);
+            console.log(err);
         })
     }
 
@@ -142,14 +144,12 @@ class AppContainer extends Component {
                     this.setState({subTotal: 0});  
                     // reset user credentials, balance, etc
                     this.checkAndUpdateAuthenticatedUser();
-                    console.log(`Go to wallet page and see your updated balance!`);
                     this.updateBuyFishArrayState(false);
                 })
                 .catch((err)=> {
                     console.log(`Purchasing fish broke`);
                     console.log(err);
                     this.checkAndUpdateAuthenticatedUser();
-                    console.log(`Go to wallet page and see your updated balance!`);
                     this.updateBuyFishArrayState(false);
                 })
             }
@@ -159,13 +159,11 @@ class AppContainer extends Component {
                     this.setState({cartArray: []})   
                     this.setState({subTotal: 0});
                     this.checkAndUpdateAuthenticatedUser();
-                    console.log(`Go to wallet page and see your updated balance!`);  
                 })
                 .catch((err)=> {
                     console.log(`Purchasing fish broke`);
                     console.log(err)
                     this.checkAndUpdateAuthenticatedUser();
-                    console.log(`Go to wallet page and see your updated balance!`);
                 })
             }
             // Re-enable the target toggle after fish are purchased
