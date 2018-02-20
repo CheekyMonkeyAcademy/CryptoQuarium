@@ -16,12 +16,16 @@ class Wallet extends Component {
         axios.get('/api/viewWalletHistory')
         .then((statementHistory)=> {
             console.log(`What have I spent my crypto money on?`)
-            // console.log(statementHistory.data)
+            console.log(statementHistory.data)
             // console.log(statementHistory.data[0].walletBalanceChangeReason)
-            const myHistory = statementHistory.data[0]
-            this.setState({statementHistory: myHistory})
-            // console.log("STATE!!!")
-            // console.log(this.state.statementHistory)            
+            // const myHistory = statementHistory.data[0]
+            const myHistory = statementHistory.data
+            this.setState({statementHistory: myHistory}, () => {
+                console.log("this is my history")
+                console.log(myHistory)
+                console.log("this is statment HISTORY!!!!")
+                console.log(this.state.statementHistory)
+            })                    
         })
         .catch((err)=> {
             console.log(`Error: No statement history for you!`)
@@ -39,7 +43,14 @@ class Wallet extends Component {
                 <br/>
                 <div className="container">
                     <BalanceCard currentBalance={this.props.currentBalance}/>
-                    <StatementCard myStatementHistory = {this.state.statementHistory}/>
+
+                    {this.state.statementHistory.map(statement => {
+                        console.log(this.state.statementHistory)
+                        return <StatementCard {...statement} 
+                            
+                        />
+                    })}
+                    
                 </div>
             </div>
         )
@@ -47,3 +58,15 @@ class Wallet extends Component {
 }
 
 export default Wallet;
+{/* <StatementCard myStatementHistory = {this.state.statementHistory} /> */}
+
+// {this.state.statementHistory.map(statement => {
+//     console.log(this.statementHistory)
+//     return <StatementCard {...statement}
+    
+//         myStatementHistory = {this.state.statementHistory}
+//     />
+// })}
+
+// ×
+// Objects are not valid as a React child (found: object with keys {id, walletBalanceChangeReason, walletBalanceChange, lastWalletBalance, createdAt, updatedAt, UserId}). If you meant to render a collection of children, use an array instead.

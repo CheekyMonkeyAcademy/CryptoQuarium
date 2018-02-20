@@ -1,5 +1,8 @@
 import React, {Component} from "react";
-import StatementModal from "../../StatementModal"
+import StatementModal from "../../StatementModal";
+import Moment from 'react-moment';
+import 'moment-timezone';
+
 // import axios from 'axios';
 
 //This is a stateful component because I just think so for right now
@@ -26,7 +29,7 @@ class StatementCard extends Component {
         };         
     } //Closing of constructor here!
 
-        
+    // <div><em>{moment(new Date(reminder.dueDate)).fromNow()}</em></div>
     render(){
         return (
             <div className="row">
@@ -35,35 +38,19 @@ class StatementCard extends Component {
                     <div className="card-content white-text">
                         <h1 className="card-title">Recent Wallet Statements</h1>
                         <hr/>
-                        <p>{this.props.myStatementHistory.walletBalanceChangeReason}</p>
-                        <p>{this.props.myStatementHistory.walletBalanceChange}</p>
-                        <p>{this.props.myStatementHistory.lastWalletBalance}</p>
-                        <p>{this.props.myStatementHistory.createdAt}</p>
-                    </div>
-                    <div className="card-action">                        
-                        <a className="waves-effect waves-light btn" onClick={() => this.openModel()}>View Account Activity</a>     
-                                         
-                        <StatementModal isOpen={this.state.isModalOpen} onClose={() => this.closeModal()}>
-                            <h3>Statement One</h3>
-                            <hr />
-                            <h3>Statement Two</h3>
-                            <p><a className="waves-effect waves-light btn" onClick={() => this.closeModal()}>Close</a></p>                                                 
-                        </StatementModal>
-                    </div>
+                        <p>Transaction: {this.props.walletBalanceChangeReason}</p>
+                        <p>Amount: {this.props.walletBalanceChange}</p>
+                        <p>Last Wallet Balance: {this.props.lastWalletBalance}</p>
+                        <p>Purchase Time: <Moment>{this.props.createdAt}</Moment></p>
+                    </div>                   
                 </div>
                 </div>
             </div>               
         );
     }
 
-    openModel = () => {
-        this.setState({isModalOpen:true});
-    }
-
-    closeModal = () => {
-        this.setState({isModalOpen:false})
-    }
 }
 
 
 export default StatementCard;
+
