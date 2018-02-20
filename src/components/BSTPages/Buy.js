@@ -48,6 +48,7 @@ class Buy extends Component {
                                 shoppingCart={this.props.cartArray}
                                 subTotal={this.props.subTotal}
                                 checkoutChangeBalance={this.props.checkoutChangeBalance}
+                                removeOneFromCart = {this.props.removeOneFromCart}
                             />
                         </div>
                     </div>

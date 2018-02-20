@@ -28,7 +28,7 @@ class FishMarket extends Component {
                 buyFishArray = {this.props.buyFishArray}
                 addToCart = {this.props.addToCart}            
                 toggleFishMarket = {this.props.toggleFishMarket}
-           
+                removeOneFromCart = {this.props.removeOneFromCart}
             />
         } else if(this.state.currentPage === "Sell"){
             return <Sell 

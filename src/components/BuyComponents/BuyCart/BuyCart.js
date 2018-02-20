@@ -18,6 +18,7 @@ class BuyCart extends Component {
                     <CartSubtotal subTotal={this.props.subTotal} />
                     {this.props.shoppingCart.map(items => {
                         return <CartItems {...items}
+                            removeOneFromCart = {this.props.removeOneFromCart}
                             key={items.id}
                         />
                     }, this)}
