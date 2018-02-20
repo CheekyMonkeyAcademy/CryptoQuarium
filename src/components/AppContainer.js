@@ -75,7 +75,6 @@ class AppContainer extends Component {
     
     toggleFishMarket = () => {
         let targetToggle = document.getElementById("fishTemplateOrUserFishInput");
-        console.log(`before update (?): ${targetToggle.checked}`);
         this.setState({fishTemplateOrUserFish: targetToggle.checked}, this.updateBuyFishArrayState(targetToggle.checked))
     }
 
@@ -159,7 +158,14 @@ class AppContainer extends Component {
                     this.setState({cartArray: []})   
                     this.setState({subTotal: 0});
                     this.checkAndUpdateAuthenticatedUser();
-                    window.location.href="/FishMarket"; // TODO this could be done more gracefully
+                    // reset the buy fish array to update quantities
+                    this.setState({buyFishArray: []});
+                    axios.get('/api/allFishTemplates')
+                    .then((allfish) => {    
+                        allfish.data.forEach((fish) => {
+                            this.setState({buyFishArray: this.state.buyFishArray.concat([fish])})
+                        })
+                    })
                 })
                 .catch((err)=> {
                     console.log(`Purchasing fish broke`);
