@@ -39,20 +39,10 @@ class StatementCard extends Component {
                         <h1 className="card-title">Recent Wallet Statements</h1>
                         <hr/>
                         <p>Transaction: {this.props.walletBalanceChangeReason}</p>
-                        <p>Amuont: {this.props.walletBalanceChange}</p>
+                        <p>Amount: {this.props.walletBalanceChange}</p>
                         <p>Last Wallet Balance: {this.props.lastWalletBalance}</p>
                         <p>Purchase Time: <Moment>{this.props.createdAt}</Moment></p>
-                    </div>
-                    <div className="card-action">                        
-                        <a className="waves-effect waves-light btn" onClick={() => this.openModel()}>View Account Activity</a>     
-                                         
-                        <StatementModal isOpen={this.state.isModalOpen} onClose={() => this.closeModal()}>
-                            <h3>Statement One</h3>
-                            <hr />
-                            <h3>Statement Two</h3>
-                            <p><a className="waves-effect waves-light btn" onClick={() => this.closeModal()}>Close</a></p>                                                 
-                        </StatementModal>
-                    </div>
+                    </div>                   
                 </div>
                 </div>
             </div>               
@@ -64,12 +54,3 @@ class StatementCard extends Component {
 
 export default StatementCard;
 
-
-
-// openModel = () => {
-//     this.setState({isModalOpen:true});
-// }
-
-// closeModal = () => {
-//     this.setState({isModalOpen:false})
-// }
