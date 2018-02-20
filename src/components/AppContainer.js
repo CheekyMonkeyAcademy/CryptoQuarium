@@ -25,7 +25,7 @@ class AppContainer extends Component {
     };
 
     //ORIGINAL IN BUY COMPONENT
-    clickItem = (id) => {
+    addToCart = (id) => {
         // We are looking for the index of the target fish... so... find index of all fish where the fish is filtered to the fish with the target ID
         // This will prevent issues when we concatenate below.  
         let fishIndex = this.state.buyFishArray.findIndex((fish) => fish===this.state.buyFishArray.filter(fish => fish.id===id)[0]);
@@ -182,14 +182,15 @@ class AppContainer extends Component {
                     <Route exact path="/fishmarket" render={() => 
                         this.state.thisUserCred.userId ? 
                             <FishMarket 
-                            checkoutChangeBalance = {this.updateBalanceAfterCheckout}
-                            subTotal = {this.state.subTotal}
-                            cartArray = {this.state.cartArray}
-                            buyFishArray = {this.state.buyFishArray}
-                            clickItem = {this.clickItem}
-                            updateBuyFishArrayState = {this.updateBuyFishArrayState}
-                            updateSubtotalState = {this.updateSubtotalState}
-                            toggleFishMarket = {this.toggleFishMarket}/>
+                                checkoutChangeBalance = {this.updateBalanceAfterCheckout}
+                                subTotal = {this.state.subTotal}
+                                cartArray = {this.state.cartArray}
+                                buyFishArray = {this.state.buyFishArray}
+                                addToCart = {this.addToCart}
+                                updateBuyFishArrayState = {this.updateBuyFishArrayState}
+                                updateSubtotalState = {this.updateSubtotalState}
+                                toggleFishMarket = {this.toggleFishMarket}
+                            />
                         :   <Login />
                     }/>
                 </div>
