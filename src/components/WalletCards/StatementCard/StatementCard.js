@@ -35,10 +35,10 @@ class StatementCard extends Component {
                     <div className="card-content white-text">
                         <h1 className="card-title">Recent Wallet Statements</h1>
                         <hr/>
-                        <p>{this.props.myStatementHistory.walletBalanceChangeReason}</p>
-                        <p>{this.props.myStatementHistory.walletBalanceChange}</p>
-                        <p>{this.props.myStatementHistory.lastWalletBalance}</p>
-                        <p>{this.props.myStatementHistory.createdAt}</p>
+                        <p>Transaction: {this.props.myStatementHistory.walletBalanceChangeReason}</p>
+                        <p>Amount: {this.props.myStatementHistory.walletBalanceChange}</p>
+                        <p>Previous Balance: {this.props.myStatementHistory.lastWalletBalance}</p>
+                        <p>Purchase Time: {this.props.myStatementHistory.createdAt}</p>
                     </div>
                     <div className="card-action">                        
                         <a className="waves-effect waves-light btn" onClick={() => this.openModel()}>View Account Activity</a>     
