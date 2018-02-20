@@ -46,7 +46,9 @@ class Wallet extends Component {
 
                     {this.state.statementHistory.map(statement => {
                         console.log(this.state.statementHistory)
-                        // return <StatementCard {...statement} />
+                        return <StatementCard {...statement} 
+                            
+                        />
                     })}
                     
                 </div>
@@ -65,3 +67,6 @@ export default Wallet;
 //         myStatementHistory = {this.state.statementHistory}
 //     />
 // })}
+
+// ×
+// Objects are not valid as a React child (found: object with keys {id, walletBalanceChangeReason, walletBalanceChange, lastWalletBalance, createdAt, updatedAt, UserId}). If you meant to render a collection of children, use an array instead.
