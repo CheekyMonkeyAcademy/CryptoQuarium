@@ -173,7 +173,7 @@ class AppContainer extends Component {
                     <Route exact path="/home" component={this.state.thisUserCred.userId ? Home : Login} />
                     <Route exact path="/" component={this.state.thisUserCred.userId ? Home : Login} />
                     
-                    <Route exact path="/myaquarium" component={this.state.thisUserCred.userId ? Home : Login}/>
+                    <Route exact path="/myaquarium" component={this.state.thisUserCred.userId ? MyAquarium : Login}/>
                     <Route exact path="/wallet" render={() => 
                         this.state.thisUserCred.userId ? 
                             <Wallet currentBalance={this.state.currentBalance} />
