@@ -50,7 +50,7 @@ class AppContainer extends Component {
             let fishIndexInCart = newCartArray.findIndex((fish) => fish===newCartArray.filter(fish => fish.id===id)[0]);
 
             // add our quantity desired - either add one, or set to 1... if it exists, add, if not concatenate
-            if (fishToAddToArray.quantityToBuy){ 
+            if (fishToAddToArray.quantityToBuy > 0){ 
                 newCartArray[fishIndexInCart].quantityToBuy += 1;
             }
             else {
@@ -75,7 +75,6 @@ class AppContainer extends Component {
     
     toggleFishMarket = () => {
         let targetToggle = document.getElementById("fishTemplateOrUserFishInput");
-        console.log(`before update (?): ${targetToggle.checked}`);
         this.setState({fishTemplateOrUserFish: targetToggle.checked}, this.updateBuyFishArrayState(targetToggle.checked))
     }
 
@@ -159,6 +158,14 @@ class AppContainer extends Component {
                     this.setState({cartArray: []})   
                     this.setState({subTotal: 0});
                     this.checkAndUpdateAuthenticatedUser();
+                    // reset the buy fish array to update quantities
+                    this.setState({buyFishArray: []});
+                    axios.get('/api/allFishTemplates')
+                    .then((allfish) => {    
+                        allfish.data.forEach((fish) => {
+                            this.setState({buyFishArray: this.state.buyFishArray.concat([fish])})
+                        })
+                    })
                 })
                 .catch((err)=> {
                     console.log(`Purchasing fish broke`);
@@ -172,7 +179,7 @@ class AppContainer extends Component {
      
         } else if (this.state.subTotal >= this.state.currentBalance){
             // TODO forward this error to the user - modal?
-            console.log(`You DO NOT have enough money to purchase these items`)
+            console.log(`You DO NOT have enough money to purchase these items`);
         }
     }
 
