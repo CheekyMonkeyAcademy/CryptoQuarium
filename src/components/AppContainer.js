@@ -34,16 +34,38 @@ class AppContainer extends Component {
         let targetToggle = document.getElementById("fishTemplateOrUserFishInput");
         targetToggle.setAttribute("disabled","disabled");
 
-        console.log(`click item is going with: ${this.state.fishTemplateOrUserFish}`)
+        // If we're on user fish - we add things this way...
         if (this.state.fishTemplateOrUserFish === true) {
             document.getElementById("card"+id).style.display = "none";
+            this.setState({          
+                cartArray: this.state.cartArray.concat([this.state.buyFishArray[fishIndex]])
+            }, () => {
+                this.updateSubtotalState(this.state.subTotal + this.state.buyFishArray[fishIndex].price); 
+            });         
         }
+        else {
+            let fishToAddToArray = this.state.buyFishArray[fishIndex];
+            let newCartArray = this.state.cartArray;
+            // add our quantity desired - either add one, or set to 1. 
+            if (fishToAddToArray.quantityToBuy){ 
+                let fishIndexInCart = newCartArray.findIndex((fish) => fish===newCartArray.filter(fish => fish.id===id)[0]);
+                newCartArray[fishIndexInCart].quantityToBuy += 1;
+            }
+            else {
+                fishToAddToArray.quantityToBuy = 1;
+                newCartArray = this.state.cartArray.concat(fishToAddToArray);
+            }
 
-        this.setState({          
-            cartArray: this.state.cartArray.concat([this.state.buyFishArray[fishIndex]])
-        }, (state) => {
-            this.updateSubtotalState(this.state.subTotal + this.state.buyFishArray[fishIndex].price); 
-        });             
+            this.setState({          
+                cartArray: newCartArray
+            }, () => {
+                this.updateSubtotalState(this.state.subTotal + fishToAddToArray.price); 
+            });      
+
+
+
+        }
+    
     }   
     
     toggleFishMarket = () => {
