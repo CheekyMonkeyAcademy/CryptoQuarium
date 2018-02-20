@@ -190,22 +190,24 @@ class AppContainer extends Component {
 
     removeOneFromCart = (id) => {
         let fishIndex = this.state.cartArray.findIndex((fish) => fish===this.state.cartArray.filter(fish => fish.id===id)[0]);
-        
+        let fishToRemoveFromArray = this.state.cartArray[fishIndex];
+        let newCartArray = this.state.cartArray;
+        let fishIndexInCart = newCartArray.findIndex((fish) => fish===newCartArray.filter(fish => fish.id===id)[0]);
+
         // If we're on fish market for user fish - we remove things this way...
         if (this.state.fishTemplateOrUserFish === true) {
-            // document.getElementById("card"+id).style.display = "none";
-            // this.setState({          
-            //     cartArray: this.state.cartArray.concat([this.state.buyFishArray[fishIndex]])
-            // }, () => {
-            //     this.updateSubtotalState(this.state.subTotal + this.state.buyFishArray[fishIndex].price); 
-            // });         
+            document.getElementById("card"+id).style.display = "block";
+            
+            newCartArray.splice(fishIndexInCart, 1);
+            
+            this.setState({          
+                cartArray: newCartArray
+            }, () => {
+                this.updateSubtotalState(this.state.subTotal - fishToRemoveFromArray.price); 
+            });      
         }
         // If we're in the fish market store - we remove things this way...
         else {
-            let fishToRemoveFromArray = this.state.cartArray[fishIndex];
-            let newCartArray = this.state.cartArray;
-            let fishIndexInCart = newCartArray.findIndex((fish) => fish===newCartArray.filter(fish => fish.id===id)[0]);
-            console.log(`current index is: ${fishIndexInCart}`);
             // remove one of the target or remove the entire thing
             if (fishToRemoveFromArray.quantityToBuy > 1){ 
                 newCartArray[fishIndexInCart].quantityToBuy -= 1;
