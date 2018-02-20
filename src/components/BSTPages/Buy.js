@@ -37,7 +37,7 @@ class Buy extends Component {
                     <div className="row">
                         <div className="col s8">
                             <BuyInventory
-                                addToCart={this.props.clickItem}
+                                addToCart={this.props.addToCart}
                                 buyFishArray={this.props.buyFishArray}
                                 updateBuyFishArrayState={this.props.updateBuyFishArrayState}
                             />

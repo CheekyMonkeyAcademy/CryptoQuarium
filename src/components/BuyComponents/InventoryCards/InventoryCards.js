@@ -38,11 +38,10 @@ render (){
                 <div className="card card-action cyan lighten-5"  id={"card"+this.props.id}>
                     <div className="card-image"> 
                         {this.renderFish()}
-                        <a className="btn-floating halfway-fab waves-effect waves-light green" id={this.props.id} onClick={() => this.props.onClick(this.props.id)}><i className="material-icons">add</i></a>
+                        <a className="btn-floating halfway-fab waves-effect waves-light green" id={this.props.id} onClick={() => this.props.addToCart(this.props.id)}><i className="material-icons">add</i></a>
                     </div>
                     <div className="card-content">
                         <p>{this.props.species}</p>
-                        {/* <p>Fish Id:{this.props.id}</p> */}
                         <p>Price: ${this.props.price}</p>
                         {this.props.quantityAvailable ? <p>Quantity Remaining: {this.props.quantityAvailable}</p> : ''}
                     </div>

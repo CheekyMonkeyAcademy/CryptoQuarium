@@ -9,7 +9,7 @@ class BuyInventory extends Component {
             <div className="inventoryBorder">
                 {this.props.buyFishArray.map(fish => {
                     return <InventoryCards {...fish}
-                        onClick ={this.props.addToCart}
+                        addToCart ={this.props.addToCart}
                         key = {fish.id}                         
                     />
                 }, this)}

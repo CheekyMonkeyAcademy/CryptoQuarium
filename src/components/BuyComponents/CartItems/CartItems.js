@@ -11,7 +11,8 @@ const CartItems = props => (
                     </div>
                     <div className="card-action black-text">
                         <p>Species: {props.species}</p>
-                        <p>Cost: ${props.price}</p>                        
+                        <p>Cost For Each: ${props.price}</p>
+                        <p>Quantity To Buy: {props.quantityToBuy}</p>
                     </div>
                 </div>
             </div>
