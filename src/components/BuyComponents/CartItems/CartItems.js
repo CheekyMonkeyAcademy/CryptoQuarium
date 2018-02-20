@@ -13,6 +13,7 @@ const CartItems = props => (
                         <p>Species: {props.species}</p>
                         <p>Cost For Each: ${props.price}</p>
                         <p>Quantity To Buy: {props.quantityToBuy}</p>
+                        <a onClick={() => props.removeOneFromCart(props.id)}><i className="material-icons">highlight_off</i></a>
                     </div>
                 </div>
             </div>
