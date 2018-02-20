@@ -29,9 +29,9 @@ class AppContainer extends Component {
         // We are looking for the index of the target fish... so... find index of all fish where the fish is filtered to the fish with the target ID
         // This will prevent issues when we concatenate below.  
         let fishIndex = this.state.buyFishArray.findIndex((fish) => fish===this.state.buyFishArray.filter(fish => fish.id===id)[0]);
-        
-        // If something is added to the cart we disable the toggle - this disallows us from switching between carts (and screwing up pathing)
         let targetToggle = document.getElementById("fishTemplateOrUserFishInput");
+
+        // If something is added to the cart we disable the toggle - this disallows us from switching between carts (and screwing up pathing)
         targetToggle.setAttribute("disabled","disabled");
 
         // If we're on fish market for user fish - we add things this way...
@@ -48,7 +48,6 @@ class AppContainer extends Component {
             let fishToAddToArray = this.state.buyFishArray[fishIndex];
             let newCartArray = this.state.cartArray;
             let fishIndexInCart = newCartArray.findIndex((fish) => fish===newCartArray.filter(fish => fish.id===id)[0]);
-
 
             // add our quantity desired - either add one, or set to 1... if it exists, add, if not concatenate
             if (fishIndexInCart != -1){
@@ -221,6 +220,12 @@ class AppContainer extends Component {
             }, () => {
                 this.updateSubtotalState(this.state.subTotal - fishToRemoveFromArray.price); 
             });
+        }
+
+        if (newCartArray.length === 0){
+            console.log(`re-enable the toggle... cart is empty`);
+            let targetToggle = document.getElementById("fishTemplateOrUserFishInput");
+            targetToggle.removeAttribute("disabled");
         }
     }
 
