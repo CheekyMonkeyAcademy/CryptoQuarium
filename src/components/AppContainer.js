@@ -50,7 +50,7 @@ class AppContainer extends Component {
             let fishIndexInCart = newCartArray.findIndex((fish) => fish===newCartArray.filter(fish => fish.id===id)[0]);
 
             // add our quantity desired - either add one, or set to 1... if it exists, add, if not concatenate
-            if (fishToAddToArray.quantityToBuy){ 
+            if (fishToAddToArray.quantityToBuy > 0){ 
                 newCartArray[fishIndexInCart].quantityToBuy += 1;
             }
             else {
@@ -159,6 +159,7 @@ class AppContainer extends Component {
                     this.setState({cartArray: []})   
                     this.setState({subTotal: 0});
                     this.checkAndUpdateAuthenticatedUser();
+                    window.location.href="/FishMarket"; // TODO this could be done more gracefully
                 })
                 .catch((err)=> {
                     console.log(`Purchasing fish broke`);
@@ -172,7 +173,7 @@ class AppContainer extends Component {
      
         } else if (this.state.subTotal >= this.state.currentBalance){
             // TODO forward this error to the user - modal?
-            console.log(`You DO NOT have enough money to purchase these items`)
+            console.log(`You DO NOT have enough money to purchase these items`);
         }
     }
 
