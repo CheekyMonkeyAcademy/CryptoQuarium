@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import SellCards from '../SellCards'
-import Modal from 'react-modal'
-import "../SellCards/SellCards.css"
+import SellCards from '../SellCards';
+import Modal from 'react-modal';
+import "../SellCards/SellCards.css";
 
 const customStyles = {
         content : {

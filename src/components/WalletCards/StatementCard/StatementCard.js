@@ -1,5 +1,8 @@
 import React, {Component} from "react";
-import StatementModal from "../../StatementModal"
+import StatementModal from "../../StatementModal";
+import Moment from 'react-moment';
+import 'moment-timezone';
+
 // import axios from 'axios';
 
 //This is a stateful component because I just think so for right now
@@ -26,7 +29,7 @@ class StatementCard extends Component {
         };         
     } //Closing of constructor here!
 
-        
+    // <div><em>{moment(new Date(reminder.dueDate)).fromNow()}</em></div>
     render(){
         return (
             <div className="row">
@@ -38,7 +41,7 @@ class StatementCard extends Component {
                         <p>Transaction: {this.props.walletBalanceChangeReason}</p>
                         <p>Amuont: {this.props.walletBalanceChange}</p>
                         <p>Last Wallet Balance: {this.props.lastWalletBalance}</p>
-                        <p>Purchase Time: {this.props.createdAt}</p>
+                        <p>Purchase Time: <Moment>{this.props.createdAt}</Moment></p>
                     </div>
                     <div className="card-action">                        
                         <a className="waves-effect waves-light btn" onClick={() => this.openModel()}>View Account Activity</a>     
@@ -56,15 +59,17 @@ class StatementCard extends Component {
         );
     }
 
-    openModel = () => {
-        this.setState({isModalOpen:true});
-    }
-
-    closeModal = () => {
-        this.setState({isModalOpen:false})
-    }
 }
 
 
 export default StatementCard;
 
+
+
+// openModel = () => {
+//     this.setState({isModalOpen:true});
+// }
+
+// closeModal = () => {
+//     this.setState({isModalOpen:false})
+// }
