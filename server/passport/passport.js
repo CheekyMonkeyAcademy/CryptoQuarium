@@ -25,7 +25,7 @@ passport.deserializeUser(function(userId, done) {
 });
 
 //---------------------------Google strategy begins-------------------------
-let callbackUrlVar
+let callbackUrlVar = '';
 if (process.env.NODE_ENV == 'production'){
     callbackUrlVar = `https://cryptoquarium.herokuapp.com/auth/google/callback`
     console.log(`Using PRODUCTION callback URL: ${callbackUrlVar}`);
