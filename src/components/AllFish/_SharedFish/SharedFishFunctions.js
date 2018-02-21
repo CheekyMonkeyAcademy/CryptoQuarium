@@ -34,7 +34,6 @@ function setBlink(id, minDuration, variableDuration) {
     }, timeBetweenBlinks * 2000)
 }
 
-
 function colorRedOne(id, color1r){
     let fish_wrap = document.getElementById(id);
     fish_wrap.style.setProperty('--colorOneR', color1r);
