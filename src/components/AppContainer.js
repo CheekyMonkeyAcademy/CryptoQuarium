@@ -9,6 +9,8 @@ import FishMarket from "./pages/FishMarket";
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
+import {slide as Menu} from 'react-burger-menu';
+
 //This is a stateful component that will handle pageChange logic
 
 //Will need to import in other pages and components!!!
@@ -21,8 +23,15 @@ class AppContainer extends Component {
         subTotal: 0,
         cartArray: [],
         buyFishArray: [],
-        fishTemplateOrUserFish: false 
+        fishTemplateOrUserFish: false,
+        burgerNav:false
     };
+
+    //FUNCTION FOR OPENING SIDE BURGER NAV
+    isBurgerNavOpen = () => {
+        let burgerNav = document.getElementsByClassName("burgerNav");
+        console.log("I am clicking the Burger Nav!")
+    }
 
     //ORIGINAL IN BUY COMPONENT
     addToCart = (id) => {
@@ -132,9 +141,9 @@ class AppContainer extends Component {
     componentDidMount() {
         // TODO this doesn't load everything correctly the first time - it requires a page refresh
         this.checkAndUpdateAuthenticatedUser();
-        this.updateBuyFishArrayState(false);
+        this.updateBuyFishArrayState(false);              
     }
-    
+ 
     updateBalanceAfterCheckout = () => {
         if(this.state.subTotal <= this.state.thisUserCred.walletBalance){
             if (this.state.fishTemplateOrUserFish){
@@ -185,8 +194,14 @@ class AppContainer extends Component {
         return (
             <Router>
                 <div>
+                    {/* <Menu isOpen= {true} >
+                        <Route exact path="/logout" component={Logout}/> 
+                    </Menu> */}
+                     
+
                     <Navbar 
                         thisUserCred = {this.state.thisUserCred}
+                        isBurgerNavOpen = {this.isBurgerNavOpen}
                     />
                     <Route exact path="/logout" component={Logout}/>
                     <Route exact path="/login" component={Login}/>
