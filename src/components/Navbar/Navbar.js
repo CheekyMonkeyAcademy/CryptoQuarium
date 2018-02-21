@@ -4,19 +4,14 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 
-/* <script>
-    $(".button-collapse").sideNav();
-</script> */
-
-
 const Navbar = props =>
     <nav className="#607d8b blue-grey">
         <div className="nav-wrapper">
             <a className="brand-logo right">
                 <img alt="" src={canbcheeky1} style={{ width: 240, marginTop: 15 }} />
             </a>
-            <a data-activates="mobile-demo" className="button-collapse burgerNav" onClick= {() => props.isBurgerNavOpen()} >           
-                <i className="material-icons">menu</i>
+            <a data-activates="mobile-demo" className="button-collapse burgerNav">       
+                <i className="material-icons" onClick= {() => props.handleBurgerNavStateChange()}>menu</i>                
             </a>
 
             <ul className="left hide-on-med-and-down">

@@ -24,18 +24,10 @@ class AppContainer extends Component {
         cartArray: [],
         buyFishArray: [],
         fishTemplateOrUserFish: false,
-        burgerNav:false
+        isBurgerNavOpen:false
     };
 
-    //FUNCTION FOR OPENING SIDE BURGER NAV
-    isBurgerNavOpen = () => {
-        let burgerNav = document.getElementsByClassName("burgerNav");
-        console.log("I am clicking the Burger Nav!")
-        this.setState({burgerNav: true}, () => {
-            console.log("I am attempting to open the burger nav", this.state.burgerNav)
-        })
-    }
-
+   
     //ORIGINAL IN BUY COMPONENT
     addToCart = (id) => {
         // We are looking for the index of the target fish... so... find index of all fish where the fish is filtered to the fish with the target ID
@@ -193,24 +185,29 @@ class AppContainer extends Component {
         this.setState({currentPage: page});
     };    
 
+     //FUNCTION FOR OPENING SIDE BURGER NAV
+     handleBurgerNavStateChange = () => {
+         this.setState({isBurgerNavOpen: this.state.isOpen})
+     }
+
     render() {
         return (
             <Router>
                 <div>
-                    <Menu isOpen= {this.state.burgerNav} className="myBurgerMENU">
-                        <a id="home" className="menu-item" href="/login">Login</a>
-                        <a id="home" className="menu-item" href="/logout">Logout</a>
-                        <a id="about" className="menu-item" href="/home">Home</a>
-                        <a id="contact" className="menu-item" href="/myaquarium">My Aquarium</a>
-                        <a id="contact" className="menu-item" href="/wallet">Wallet</a>
-                        <a id="contact" className="menu-item" href="/fishmarket">Fish Market</a>
+                    <Menu isOpen = {this.state.isBurgerNavOpen} onstateChange={(state) => this.handleBurgerNavStateChange(state)}>
+                        {this.state.thisUserCred.userId ? 
+                        <a id="logout" className="menu-item" href="/logout">Logout</a> 
+                        : <a id="login" className="menu-item" href="/login">Login</a>
+                        }
+                        <a id="home" className="menu-item" href="/home">Home</a>
+                        <a id="myaquarium" className="menu-item" href="/myaquarium">My Aquarium</a>
+                        <a id="wallet" className="menu-item" href="/wallet">Wallet</a>
+                        <a id="fishmarket" className="menu-item" href="/fishmarket">Fish Market</a>
                     </Menu>
 
-                     
-
-                    <Navbar 
+                   <Navbar 
                         thisUserCred = {this.state.thisUserCred}
-                        isBurgerNavOpen = {this.isBurgerNavOpen}
+                        handleBurgerNavStateChange = {this.handleBurgerNavStateChange}
                     />
                     <Route exact path="/logout" component={Logout}/>
                     <Route exact path="/login" component={Login}/>
