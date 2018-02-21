@@ -4,7 +4,7 @@
     height: 165px;
     width: 275px;
     z-index: 100;
-    animation: swim2 var(--animation-time) ease infinite;
+    animation: var(--swimType) var(--swimAnimationTime) ease infinite;
 }
 
 .fish2 {
@@ -120,75 +120,6 @@
     width: 38px;
 }
 
-/* start of fish animation */
-
-@keyframes swim2 {
-    from {
-        transform: scale3d(1);
-        left: 500px;
-        top:-175px;
-    }
-    5% {
-        left: 488px;
-    }
-    12% {
-        left: 488px;
-        top: -190px;
-    }
-    22% {
-        left: 425px;
-        top: -125px;
-    }
-    28% {
-        left: 407px;
-        top: -95px;
-    }
-    33% {
-        transform: scale3d(-1);
-        left: 802px;
-        top: -50px;
-    }
-    45% {
-        left:802px;
-        top: 0px;
-    }
-    48% {
-        top: 25px;
-    }
-    49% {
-        top: 43px;
-    }
-    55% {
-        left: 625px;
-        top: 75px;
-    }
-    68% {
-        left: 555px;
-    }
-
-    75% {
-        left: 500px;
-        top: 25px;
-    }
-    83% {
-        top: -25px;
-    }
-    93% {
-        top: -155px;
-    }
-    97% {
-        top: -168px;
-    }
-    to {
-        transform: scaleX(1);
-        left: 500px;
-        top: -175px;
-        z-index: 90;
-    }
-}
-
-/*end of fish path */
-
 .tail_fin2 {
     animation-name: tail2;
     animation-duration: 0.9s;
@@ -236,7 +167,7 @@
 .eye2 {
     /*blink effect*/
     animation-name: blink2;
-    animation-duration: 5.7s;
+    animation-duration: var(--timeBetweenBlinks);
     animation-iteration-count: infinite;
     animation-timing-function: linear;   
 }
