@@ -197,9 +197,15 @@ class AppContainer extends Component {
         return (
             <Router>
                 <div>
-                    <Menu isOpen= {this.state.burgerNav} >
-                        <Route exact path="/logout" component={Logout}/> 
+                    <Menu isOpen= {this.state.burgerNav} className="myBurgerMENU">
+                        <a id="home" className="menu-item" href="/login">Login</a>
+                        <a id="home" className="menu-item" href="/logout">Logout</a>
+                        <a id="about" className="menu-item" href="/home">Home</a>
+                        <a id="contact" className="menu-item" href="/myaquarium">My Aquarium</a>
+                        <a id="contact" className="menu-item" href="/wallet">Wallet</a>
+                        <a id="contact" className="menu-item" href="/fishmarket">Fish Market</a>
                     </Menu>
+
                      
 
                     <Navbar 
