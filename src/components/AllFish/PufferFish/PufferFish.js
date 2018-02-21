@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import "./PufferFish.css";
+import "../_SharedFish/SharedFishSwimming.css";
+import SharedFunctions from "../_SharedFish/SharedFishFunctions.js";
 
 class PufferFish extends Component {
     spot() {
@@ -37,46 +39,43 @@ class PufferFish extends Component {
         fish_wrap.style.setProperty('--colorTwoB', this.props.color2b);
     }
 
-    setSwim() {        
+    setSwim() {
         // set our swim animation duration
         let fish_wrap = document.getElementById(this.props.id);
         let animationDuration = Math.floor(Math.random() * 20 + 20);
         let swimStyle = 'swim1';
-    
-        this.props.noMove ? 
-            "" // If there is a value for no move we don't move the fish -- we do not set the animation var
-            : 
-            // This sets the animation var
+        
+        if (this.props.noMove === false) {
             // It also prevents a bug when we navigate AWAY from the aquarium page.  
             fish_wrap ? 
                 fish_wrap.style.setProperty("--swimAnimationTime", animationDuration + "s") 
             :   '';
-            // The above code is tied to no move
+        
+            fish_wrap ? 
+                fish_wrap.style.setProperty("--swimType", swimStyle)
+            :   '';
+        }
     
-        fish_wrap ? 
-            fish_wrap.style.setProperty("--swimType", swimStyle)
-        :   '';
-
         setTimeout(() => {
             fish_wrap ? this.setSwim() : '';
-        }, animationDuration * 2000);
+        }, animationDuration * 2000)
     }
-
+    
     setBlink() {
         let fish_wrap = document.getElementById(this.props.id);
-        let timeBetweenBlinks = Math.floor(Math.random() * 10 + 5);
+        let timeBetweenBlinks = Math.floor(Math.random() * 20 + 20);
         fish_wrap ? 
             fish_wrap.style.setProperty("--timeBetweenBlinks", timeBetweenBlinks + "s")
         :   '';
-
-        this.props.noMove ?
-            setTimeout(() => {
-                fish_wrap ? this.setBlink() : '';
-            }, timeBetweenBlinks * 2000)
-        : ""
+    
+        setTimeout(() => {
+            fish_wrap ? this.setBlink() : '';
+        }, timeBetweenBlinks * 2000)
     }
 
     componentDidMount() {
+        // SharedFunctions.setSwim(this.props.id, 20, 20, this.props.noMove ? true : false);
+        // SharedFunctions.setBlink(this.props.id, 5, 15);
         this.setSwim();
         this.setBlink();
         this.spot();
