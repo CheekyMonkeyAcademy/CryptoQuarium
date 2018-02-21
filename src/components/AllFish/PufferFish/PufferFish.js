@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import "./PufferFish.css";
-
+import "../_SharedFish/SharedFishSwimming.css";
+import SharedFunctions from "../_SharedFish/SharedFishFunctions.js";
 
 class PufferFish extends Component {
     spot() {
@@ -8,62 +9,16 @@ class PufferFish extends Component {
         fish_wrap.style.setProperty('--degree', this.props.degree + 'px');
     }
 
-    colorRedOne(){
-        let fish_wrap = document.getElementById(this.props.id);
-        fish_wrap.style.setProperty('--colorOneR', this.props.color1r);
-    }
-
-    colorGreenOne() {
-        let fish_wrap = document.getElementById(this.props.id);
-        fish_wrap.style.setProperty('--colorOneG', this.props.color1g);
-    }
-
-    colorBlueOne() {
-        let fish_wrap = document.getElementById(this.props.id);
-        fish_wrap.style.setProperty('--colorOneB', this.props.color1b);
-    }
-
-    colorRedTwo() {
-        let fish_wrap = document.getElementById(this.props.id);
-        fish_wrap.style.setProperty('--colorTwoR', this.props.color2r);
-    }
-
-    colorGreenTwo() {
-        let fish_wrap = document.getElementById(this.props.id);
-        fish_wrap.style.setProperty('--colorTwoG', this.props.color2g);
-    }
-
-    colorBlueTwo() {
-        let fish_wrap = document.getElementById(this.props.id);
-        fish_wrap.style.setProperty('--colorTwoB', this.props.color2b);
-    }
-
-     swim() {
-         // TODO proxy this out to its own file
-        let animationDuration = Math.floor(Math.random() * 20 + 20);
-        
-        this.props.noMove ? // If there is a value for no move we don't move the fish.  
-            animationDuration = 0 : // so we set the duration to zero (non moving fish)
-            ""; // No 'no move' means we take the animation duration
-        
-        let fish_wrap = document.getElementById(this.props.id);
-        // The following prevents a bug when we navigate AWAY from the aquarium page.  
-        fish_wrap ? fish_wrap.style.setProperty("--animation-time", animationDuration + "s") : '';
-
-        setTimeout(() => {
-            fish_wrap ? this.swim() : '';
-        }, animationDuration * 2000);
-    }
-
     componentDidMount() {
-        this.swim();
         this.spot();
-        this.colorRedOne();
-        this.colorGreenOne();
-        this.colorBlueOne();
-        this.colorRedTwo();
-        this.colorGreenTwo();
-        this.colorBlueTwo();
+        SharedFunctions.setSwim(this.props.id, 20, 20, this.props.noMove ? true : false);
+        SharedFunctions.setBlink(this.props.id, 5, 15);
+        SharedFunctions.colorRedOne(this.props.id, this.props.color1r);
+        SharedFunctions.colorGreenOne(this.props.id, this.props.color1g);
+        SharedFunctions.colorBlueOne(this.props.id, this.props.color1b);
+        SharedFunctions.colorRedTwo(this.props.id, this.props.color2r);
+        SharedFunctions.colorGreenTwo(this.props.id, this.props.color2g);
+        SharedFunctions.colorBlueTwo(this.props.id, this.props.color2b);
     }
 
     render() {

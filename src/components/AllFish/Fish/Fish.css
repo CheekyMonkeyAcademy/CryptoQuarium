@@ -4,7 +4,7 @@
     height: 125px;
     width: 200px;
     z-index: 100;
-    animation: swim1 var(--animation-time) ease infinite;
+    animation: var(--swimType) var(--swimAnimationTime) ease infinite;
 }
 
 .fish1 {
@@ -129,143 +129,6 @@
     width: 38px;
 }
 
-/* start of fish animation */
-
-@keyframes swim1 {
-    from {
-        transform: scale3d(1);
-        left: 1000px;
-        top:15px;
-    }
-
-     10% {
-        left: 150px;
-        top: -60px;
-        transform: scale3d(1);
-        z-index: 90;
-    }
-
-    12% {
-        transform: scale3d(1);
-        top: -10px;
-        z-index: 10;
-    }
-
-    15% {
-        left: 125px;
-        top: 5px;
-        z-index: auto;
-    }
-
-    20% {
-        left: 0px;
-        transform: scale3d(-1);
-        z-index: 10;
-    } 
-
-    20.5% {
-        transform: scaleX(1);
-        z-index: 10;
-        left: -30px;
-    }
-
-    25% {
-        left: 15px;
-    }
-
-    30% {
-        left: 45px;
-        top: 12px;
-    }
-
-    33.5% {
-        left: -75px;
-    }
-
-    40% {
-        left: -10px;
-    } 
-
-    50% {
-        z-index: 28;
-        top: 130px;
-        left: -10px;
-        transform: scaleX(-1);
-    }
-    50.5% {
-        transform: scaleX(-1);
-        z-index: 100;
-        left: 0px;
-        top: 160px;
-    }
-   
-    60% {
-        left: 70px;
-        z-index: 150;
-    }
-
-    61% {
-        left: 115px;
-        z-index: 90;
-        transform: scaleX(-1);
-    }
-    68% {
-        left: 155px;
-    }
-
-    75% {
-        left: 255px;
-    }
-
-    80% {
-        left: 800px;
-    }
-
-    85% {
-        left: 825px;
-    }
-     87% {
-        left: 840px;
-        top: 6px;
-    }
-    90%{
-        left: 875px;
-        top: 8px;
-    } 
-    92% {
-        transform: scaleX(-1);
-        top: 10px;
-    }
-    92.5% {
-        top: 12px;
-        left: 925px;
-    }
-    94% {
-        left: 935px;
-    }
-    95% {
-        left: 960px;
-    }
-    95.5% {
-        left: 960px;
-        top: 13px;
-    }
-    96% {
-        left: 1000px;
-        top: 15px;
-    }
-    98% {
-        transform: scale3d(1);
-    }
-    to {
-        transform: scaleX(-1);
-        left: 1000px;
-        z-index: 90;
-    }
-}
-
-/*end of fish path */
-
 .tail_fin {
     animation-name: tail;
     animation-duration: 0.9s;
@@ -313,7 +176,7 @@
 .eye {
     /*blink effect*/
     animation-name: blink;
-    animation-duration: 5.7s;
+    animation-duration: var(--timeBetweenBlinks);
     animation-iteration-count: infinite;
     animation-timing-function: linear;   
 }
