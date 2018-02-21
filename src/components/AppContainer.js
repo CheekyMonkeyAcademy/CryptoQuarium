@@ -31,6 +31,9 @@ class AppContainer extends Component {
     isBurgerNavOpen = () => {
         let burgerNav = document.getElementsByClassName("burgerNav");
         console.log("I am clicking the Burger Nav!")
+        this.setState({burgerNav: true}, () => {
+            console.log("I am attempting to open the burger nav", this.state.burgerNav)
+        })
     }
 
     //ORIGINAL IN BUY COMPONENT
@@ -194,9 +197,9 @@ class AppContainer extends Component {
         return (
             <Router>
                 <div>
-                    {/* <Menu isOpen= {true} >
+                    <Menu isOpen= {this.state.burgerNav} >
                         <Route exact path="/logout" component={Logout}/> 
-                    </Menu> */}
+                    </Menu>
                      
 
                     <Navbar 
