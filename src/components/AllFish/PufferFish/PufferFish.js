@@ -11,8 +11,8 @@ class PufferFish extends Component {
 
     componentDidMount() {
         this.spot();
-        SharedFunctions.setSwim(this.props.id, 20, 20, this.props.noMove ? true : false);
-        SharedFunctions.setBlink(this.props.id, 5, 15);
+        SharedFunctions.setSwim(this.props.id, 30, 40, this.props.noMove ? true : false, ['swim2', 'swim2', 'swim1', 'pause'],0);
+        SharedFunctions.setBlink(this.props.id, 5, 10);
         SharedFunctions.colorRedOne(this.props.id, this.props.color1r);
         SharedFunctions.colorGreenOne(this.props.id, this.props.color1g);
         SharedFunctions.colorBlueOne(this.props.id, this.props.color1b);
