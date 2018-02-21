@@ -1,5 +1,3 @@
-// import "../_SharedFish/SharedFishSwimming.css"
-
 function setSwim(id, minDuration, variableDuration, noMove) {
     console.log(`called set swim`);
     // set our swim animation duration
@@ -37,7 +35,55 @@ function setBlink(id, minDuration, variableDuration) {
 }
 
 
+function colorRedOne(id, color1r){
+    let fish_wrap = document.getElementById(id);
+    fish_wrap.style.setProperty('--colorOneR', color1r);
+}
+
+function colorGreenOne(id, color1g) {
+    let fish_wrap = document.getElementById(id);
+    fish_wrap.style.setProperty('--colorOneG', color1g);
+}
+
+function colorBlueOne(id, color1b) {
+    let fish_wrap = document.getElementById(id);
+    fish_wrap.style.setProperty('--colorOneB', color1b);
+}
+
+function colorRedTwo(id, color2r) {
+    let fish_wrap = document.getElementById(id);
+    fish_wrap.style.setProperty('--colorTwoR', color2r);
+}
+
+function colorGreenTwo(id, color2g) {
+    let fish_wrap = document.getElementById(id);
+    fish_wrap.style.setProperty('--colorTwoG', color2g);
+}
+
+function colorBlueTwo(id, color2b) {
+    let fish_wrap = document.getElementById(id);
+    fish_wrap.style.setProperty('--colorTwoB', color2b);
+}
+
+function degree(id, degree) {
+    let fish_wrap = document.getElementById(id);
+    fish_wrap.style.setProperty('--degree', degree + 'deg');
+}
+
+function percent(id, percent) {
+    let fish_wrap = document.getElementById(id);
+    fish_wrap.style.setProperty('--percent', percent + '%');
+}
+
 module.exports = {
     setSwim: setSwim,
     setBlink: setBlink,
+    colorRedOne: colorRedOne,
+    colorGreenOne: colorGreenOne,
+    colorBlueOne: colorBlueOne,
+    colorRedTwo: colorRedTwo,
+    colorGreenTwo: colorGreenTwo,
+    colorBlueTwo: colorBlueTwo,
+    degree: degree,
+    percent: percent,
 }

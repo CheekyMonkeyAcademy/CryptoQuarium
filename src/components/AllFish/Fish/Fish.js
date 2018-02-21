@@ -4,56 +4,17 @@ import "../_SharedFish/SharedFishSwimming.css";
 import SharedFunctions from "../_SharedFish/SharedFishFunctions.js";
 
 class Fish extends Component {
-    degree() {
-        let fish_wrap = document.getElementById(this.props.id);
-        fish_wrap.style.setProperty('--degree', this.props.degree + 'deg');
-    }
-    percent() {
-        let fish_wrap = document.getElementById(this.props.id);
-        fish_wrap.style.setProperty('--percent', this.props.percent + '%');
-    }
-
-    colorRedOne(){
-        let fish_wrap = document.getElementById(this.props.id);
-        fish_wrap.style.setProperty('--colorOneR', this.props.color1r);
-    }
-
-    colorGreenOne() {
-        let fish_wrap = document.getElementById(this.props.id);
-        fish_wrap.style.setProperty('--colorOneG', this.props.color1g);
-    }
-
-    colorBlueOne() {
-        let fish_wrap = document.getElementById(this.props.id);
-        fish_wrap.style.setProperty('--colorOneB', this.props.color1b);
-    }
-
-    colorRedTwo() {
-        let fish_wrap = document.getElementById(this.props.id);
-        fish_wrap.style.setProperty('--colorTwoR', this.props.color2r);
-    }
-
-    colorGreenTwo() {
-        let fish_wrap = document.getElementById(this.props.id);
-        fish_wrap.style.setProperty('--colorTwoG', this.props.color2g);
-    }
-
-    colorBlueTwo() {
-        let fish_wrap = document.getElementById(this.props.id);
-        fish_wrap.style.setProperty('--colorTwoB', this.props.color2b);
-    }
-
     componentDidMount() {
         SharedFunctions.setSwim(this.props.id, 20, 20, this.props.noMove ? true : false);
         SharedFunctions.setBlink(this.props.id, 5, 15);
-        this.degree();
-        this.percent();
-        this.colorRedOne();
-        this.colorGreenOne();
-        this.colorBlueOne();
-        this.colorRedTwo();
-        this.colorGreenTwo();
-        this.colorBlueTwo();
+        SharedFunctions.colorRedOne(this.props.id, this.props.color1r);
+        SharedFunctions.colorGreenOne(this.props.id, this.props.color1g);
+        SharedFunctions.colorBlueOne(this.props.id, this.props.color1b);
+        SharedFunctions.colorRedTwo(this.props.id, this.props.color2r);
+        SharedFunctions.colorGreenTwo(this.props.id, this.props.color2g);
+        SharedFunctions.colorBlueTwo(this.props.id, this.props.color2b);
+        SharedFunctions.degree(this.props.id, this.props.degree);
+        SharedFunctions.percent(this.props.id, this.props.percent);
     }
     render() {
         return (
