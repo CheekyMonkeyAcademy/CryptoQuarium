@@ -6,12 +6,12 @@ import SharedFunctions from "../_SharedFish/SharedFishFunctions.js";
 class PufferFish extends Component {
     spot() {
         let fish_wrap = document.getElementById(this.props.id);
-        fish_wrap.style.setProperty('--spot', (this.props.degree/10) + 'px');
+        fish_wrap.style.setProperty('--spot', (this.props.degree/15) + 'px');
     }
 
     componentDidMount() {
         this.spot();
-        SharedFunctions.setSwim(this.props.id, 30, 40, this.props.noMove ? true : false, ['swim1', 'swim2'], 'notSet');
+        SharedFunctions.setSwim(this.props.id, 30, 40, this.props.noMove ? true : false, ['a1b','b1c','c1d','d1e','e1a'], 'notSet');
         SharedFunctions.setBlink(this.props.id, 5, 10);
         SharedFunctions.colorRedOne(this.props.id, this.props.color1r);
         SharedFunctions.colorGreenOne(this.props.id, this.props.color1g);

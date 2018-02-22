@@ -14,7 +14,7 @@
 .fish_body2 {
     /* border: 5px solid red; */
     transform: skewX(30deg) skewY(5deg);
-    background-image: radial-gradient(rgb(var(--colorOneR),var(--colorOneG),var(--colorOneB)) 4px, rgb(var(--colorTwoR),var(--colorTwoG),var(--colorTwoB)) var(--spot));
+    background-image: radial-gradient(black 4px, rgb(var(--colorOneR),var(--colorOneG),var(--colorOneB)) var(--spot));
     background-size:40px 40px;
     border-radius: 1500px 1200px 757px 553px; /*orig*/
     box-shadow: 6px -12px 15px #3A2104 inset, -2px -3px 4px #281602 inset;
