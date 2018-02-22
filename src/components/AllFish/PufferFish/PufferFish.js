@@ -6,7 +6,7 @@ import SharedFunctions from "../_SharedFish/SharedFishFunctions.js";
 class PufferFish extends Component {
     spot() {
         let fish_wrap = document.getElementById(this.props.id);
-        fish_wrap.style.setProperty('--spot', (this.props.degree/10) + 'px');
+        fish_wrap.style.setProperty('--spot', (this.props.degree/15) + 'px');
     }
 
     componentDidMount() {
