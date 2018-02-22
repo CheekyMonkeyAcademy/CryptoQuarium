@@ -6,8 +6,6 @@ function setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, pas
     let swimStyle;
     let currentSwimNumber 
     
-    console.log(`swim number: '${passedSwimNumber}'`)
-
     if (passedSwimNumber === 'notSet'){
         currentSwimNumber = (Math.floor(Math.random() * swimStyleArray.length));
     }
@@ -17,14 +15,10 @@ function setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, pas
 
     if (currentSwimNumber >= swimStyleArray.length) {
         currentSwimNumber = 0;
-        swimStyle = swimStyleArray[currentSwimNumber];
-    }
-    else {
-        swimStyle = swimStyleArray[currentSwimNumber];
-        currentSwimNumber++;
     }
 
-    console.log(`swim number: '${passedSwimNumber}' - transformed to: ${swimStyle}`);
+    swimStyle = swimStyleArray[currentSwimNumber];
+    currentSwimNumber++;
     
     if (noMove === false) {
         // It also prevents a bug when we navigate AWAY from the aquarium page.  
