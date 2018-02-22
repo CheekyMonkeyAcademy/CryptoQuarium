@@ -4,16 +4,6 @@ body {
     padding-bottom: 15px;
 }
 
-.lowerFishToTank {
-    position: relative;
-    top: 230px;
-}
-
-.lowerFishToTank2 {
-    position: relative;
-    top: 250px;
-}
-
 /* start of wrap */
 
 #wrap {
@@ -59,7 +49,7 @@ body {
     background-color: rgba(61, 124, 241, 0.09);
     border-top: 1px solid #191919;
     border-bottom: 1px solid #191919;
-    height: 559px;
+    height: 95%;
     position: absolute;
     top: 30px;
     width: 100%;

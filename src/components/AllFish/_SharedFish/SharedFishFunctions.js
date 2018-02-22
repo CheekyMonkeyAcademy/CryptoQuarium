@@ -2,18 +2,24 @@ function setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, pas
     // set our swim animation duration and what route to take
     let fish_wrap = document.getElementById(id);
     let animationDuration = Math.floor(Math.random() * variableDuration + minDuration);
-    let currentSwimNumber = passedSwimNumber;
     let swimStyleArray = passedSwimArray
     let swimStyle;
+    let currentSwimNumber; 
+    
+    if (passedSwimNumber === 'notSet'){
+        currentSwimNumber = (Math.floor(Math.random() * swimStyleArray.length));
+    }
+    else{
+        currentSwimNumber = passedSwimNumber;
+    }
 
-    if (currentSwimNumber > swimStyleArray.length) {
+    if (currentSwimNumber >= swimStyleArray.length) {
         currentSwimNumber = 0;
-        swimStyle = swimStyleArray[currentSwimNumber];
     }
-    else {
-        swimStyle = swimStyleArray[currentSwimNumber];
-        currentSwimNumber++;
-    }
+
+    swimStyle = swimStyleArray[currentSwimNumber];
+    console.log(`${swimStyle}`);
+    currentSwimNumber++;
     
     if (noMove === false) {
         // It also prevents a bug when we navigate AWAY from the aquarium page.  

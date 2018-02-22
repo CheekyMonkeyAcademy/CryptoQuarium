@@ -14,20 +14,16 @@ class Tank extends Component {
         // console.log(fish);
         switch (fish.codeSpecies) {
             case 'Fish': 
-                return <div className="lowerFishToTank">
-                        <Fish 
-                            {...fish} 
-                            key={fish.id}
-                        />
-                    </div>
-    
+                return <Fish 
+                        {...fish} 
+                        key={fish.id}
+                    />
+
             case 'PufferFish': 
-                return <div className="lowerFishToTank2">
-                        <PufferFish 
-                            {...fish} 
-                            key={fish.id}
-                        />
-                    </div>
+                return <PufferFish 
+                        {...fish} 
+                        key={fish.id}
+                    />
             
             default:
                 return <Fish key={fish.id}/>
