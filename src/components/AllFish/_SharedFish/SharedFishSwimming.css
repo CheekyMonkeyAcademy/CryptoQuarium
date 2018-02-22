@@ -196,58 +196,6 @@
     }
 }
 
-/* @keyframes originCheck {
-    from {
-        top: 0px;
-        left: 0px;
-    }
-    20% {
-        top: -25px;
-    }
-    40% {
-        top: 25px;
-        left: 25px;
-    }
-    60% {
-        top: 25px;
-        left:-25px;
-    }
-    80% {
-        top: -25px;
-        left: -25px;
-    }
-    to {
-        top: 0px;
-        left: 0px;
-    }
-} */
-
-@keyframes originCheck {
-    from {
-        top: 0%;
-        left: 0%;
-    }
-    20% {
-        top: -25%;
-    }
-    40% {
-        top: 25%;
-        left: 25%;
-    }
-    60% {
-        top: 25%;
-        left:-25%;
-    }
-    80% {
-        top: -25%;
-        left: -25%;
-    }
-    to {
-        top: 0%;
-        left: 0%;
-    }
-}
-
 @keyframes originCheckLR {
     from {
         left:0%;
@@ -299,5 +247,101 @@
     to {
         transform: scaleX(1);
         top:0vh;
+    }
+}
+
+@keyframes a1b {
+    from {
+        left:10%;
+        top:5vh;
+    }
+    25% {
+
+    }
+    50% {
+
+    }
+    75% {
+
+    }
+    to {
+        left:60%;
+        top:25vh;
+    }
+}
+@keyframes b1c {
+    from {
+        left:60%;
+        top:25vh;
+    }
+    25% {
+
+    }
+    50% {
+
+    }
+    75% {
+        
+    }
+    to {
+        left:15%;
+        top:35vh;
+    }
+}
+@keyframes c1d {
+    from {
+        left:15%;
+        top:35vh;
+    }
+    25% {
+
+    }
+    50% {
+
+    }
+    75% {
+        
+    }
+    to {
+        left:70%;
+        top:30vh;
+    }
+}
+@keyframes d1e {
+    from {
+        left:70%;
+        top:30vh;
+    }
+    25% {
+
+    }
+    50% {
+
+    }
+    75% {
+        
+    }
+    to {
+        left:55%;
+        top:20vh;
+    }
+}
+@keyframes e1a {
+    from {
+        left:55%;
+        top:20vh;
+    }
+    25% {
+
+    }
+    50% {
+
+    }
+    75% {
+        
+    }
+    to {
+        left:10%;
+        top:5vh;
     }
 }
