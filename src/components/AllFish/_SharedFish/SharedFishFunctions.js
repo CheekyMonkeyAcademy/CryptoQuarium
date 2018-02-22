@@ -4,7 +4,7 @@ function setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, pas
     let animationDuration = Math.floor(Math.random() * variableDuration + minDuration);
     let swimStyleArray = passedSwimArray
     let swimStyle;
-    let currentSwimNumber 
+    let currentSwimNumber; 
     
     if (passedSwimNumber === 'notSet'){
         currentSwimNumber = (Math.floor(Math.random() * swimStyleArray.length));
