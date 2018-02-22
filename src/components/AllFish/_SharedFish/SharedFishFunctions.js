@@ -18,6 +18,7 @@ function setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, pas
     }
 
     swimStyle = swimStyleArray[currentSwimNumber];
+    console.log(`${swimStyle}`);
     currentSwimNumber++;
     
     if (noMove === false) {
