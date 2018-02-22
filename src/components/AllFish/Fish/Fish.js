@@ -5,7 +5,7 @@ import SharedFunctions from "../_SharedFish/SharedFishFunctions.js";
 
 class Fish extends Component {
     componentDidMount() {
-        SharedFunctions.setSwim(this.props.id, 10, 20, this.props.noMove ? true : false, ['swim1', 'swim2', 'swim1', 'pause'], 0);
+        SharedFunctions.setSwim(this.props.id, 10, 20, this.props.noMove ? true : false, ['swim1', 'swim2'], 'notSet');
         SharedFunctions.setBlink(this.props.id, 10, 20);
         SharedFunctions.colorRedOne(this.props.id, this.props.color1r);
         SharedFunctions.colorGreenOne(this.props.id, this.props.color1g);
