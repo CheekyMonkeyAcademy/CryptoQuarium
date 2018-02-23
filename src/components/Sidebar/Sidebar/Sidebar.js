@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 // import { render } from 'react-dom';
+import SidebarContent from '../SidebarContent/SidebarContent'
 
 class Sidebar extends Component {
     //On set open needs to happen in app container and passed down!
@@ -9,7 +10,6 @@ class Sidebar extends Component {
     //         this.props.onSetOpen(false)
     //     }
     // }
-
 
     return() {
         return (
