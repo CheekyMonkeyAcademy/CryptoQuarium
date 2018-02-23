@@ -187,10 +187,19 @@ class AppContainer extends Component {
      //FUNCTION FOR OPENING SIDENAV
      openSideNav = () => {
         let showSideNav = document.getElementById('showSideNav');
-        console.log("showing sidenav is ", this.state.showSideNav)
-
+        console.log("showing sidenav is ", this.state.showSideNav);
+        this.setState({showSideNav: true}, () => {
+            console.log("Now, sidenav is showing", this.toggleSideNav())
+        })
     }
     
+    //SHOW SIDE NAV
+    toggleSideNav = (trueOrFalse) => {
+        let showSideNav = document.getElementById('showSideNav');
+        if(this.state.showSideNav === true){
+            showSideNav.display = 'block';
+        }
+    }
     
     render() {
         return (

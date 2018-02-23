@@ -19,14 +19,12 @@
     "prop-types": "^15.6.0",
     "q": "^1.5.1",
     "react": "^16.2.0",
-    "react-burger-menu": "^2.2.3",
     "react-dom": "^16.2.0",
     "react-materialize": "^1.1.2",
     "react-modal": "^3.2.1",
     "react-moment": "^0.7.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
-    "react-sidenav": "^2.1.2",
     "sequelize": "^4.3.1"
   },
   "proxy": {
@@ -45,5 +43,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "devDependencies": {}
 }
