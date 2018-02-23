@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import canbcheeky1 from '../../Images/canbcheeky1.png';
 import { Link } from "react-router-dom";
 import "./Navbar.css";
@@ -11,7 +11,7 @@ const Navbar = props =>
                 <img alt="" src={canbcheeky1} style={{ width: 240, marginTop: 15 }} />
             </a>
 
-            <a data-activates="mobile-demo" className="button-collapse burgerNav" onClick= {() => props.openSideNav()}>       
+            <a data-activates="mobile-demo" className="button-collapse burgerNav" onClick= {() => props.menuButtonClick()}>       
                 <i className="material-icons">menu</i>                   
             </a>
 

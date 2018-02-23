@@ -9,11 +9,10 @@ import FishMarket from "./pages/FishMarket";
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import OurSideNav from './OurSideNav'
-import { render } from 'react-dom';
-// import SideNav, {Nav, NavIcon, NavText} from 'react-sidenav';
+// import { render } from 'react-dom';
+import Sidebar from './Sidebar/Sidebar';
+// import SidebarContent from './Sidebar/SidebarContent';
 
-// import {slide as Menu} from 'react-burger-menu';
 
 class AppContainer extends Component {    
     state = {
@@ -24,7 +23,9 @@ class AppContainer extends Component {
         cartArray: [],
         buyFishArray: [],
         fishTemplateOrUserFish: false, 
-        showSideNav: false 
+
+        // docked: false,
+        // open: false,        
     };
    
     //ORIGINAL IN BUY COMPONENT
@@ -184,41 +185,32 @@ class AppContainer extends Component {
         this.setState({currentPage: page});
     };    
 
-     //FUNCTION FOR OPENING SIDENAV
-     openSideNav = () => {
-        let showSideNav = document.getElementById('showSideNav');
-        console.log("showing sidenav is ", this.state.showSideNav);
-        this.setState({showSideNav: true}, () => {
-            console.log("Now, sidenav is showing", this.toggleSideNav())
-        })
-    }
-    
-    //SHOW SIDE NAV
-    toggleSideNav = (trueOrFalse) => {
-        let showSideNav = document.getElementById('showSideNav');
-        if(this.state.showSideNav === true){
-            showSideNav.display = 'block';
-        }
-    }
-    
+    //FUNCTION FOR OPENING SIDENAV
+    menuButtonClick = () => {
+        console.log("clicking menu button")      
+    }    
+        
+    onSetOpen(open){
+        this.setState({open:open})
+    };
+
     render() {
+        // const sidebar = <SidebarContent />
+
+        // const sidebarProps = {
+        //     sidebar: sidebar,
+        //     docked: this.state.docked,
+        //     open: this.state.open,
+        //     onSetOpen: this.onSetOpen
+        // };
+
         return (
             <Router>
-                <div>                    
-                    {/* <Menu isOpen = {this.state.isBurgerNavOpen}>
-                        {this.state.thisUserCred.userId ? 
-                        <a id="logout" className="menu-item" href="/logout">Logout</a> 
-                        : <a id="login" className="menu-item" href="/login">Login</a>
-                        }
-                        <a id="home" className="menu-item" href="/home">Home</a>
-                        <a id="myaquarium" className="menu-item" href="/myaquarium">My Aquarium</a>
-                        <a id="wallet" className="menu-item" href="/wallet">Wallet</a>
-                        <a id="fishmarket" className="menu-item" href="/fishmarket">Fish Market</a>                        
-                    </Menu> */}
+                <div>                                           
 
                    <Navbar 
                         thisUserCred = {this.state.thisUserCred}
-                        openSideNav = {this.openSideNav}
+                        menuButtonClick = {this.menuButtonClick}
                     />
                     <Route exact path="/logout" component={Logout}/>
                     <Route exact path="/login" component={Login}/>
@@ -245,7 +237,7 @@ class AppContainer extends Component {
                             />
                         :   <Login />
                     }/>
-                </div>
+                        </div>
             </Router>
         );
     }
