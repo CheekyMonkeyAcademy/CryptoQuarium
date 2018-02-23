@@ -9,11 +9,10 @@ import FishMarket from "./pages/FishMarket";
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import {slide as Menu} from 'react-burger-menu';
+import OurSideNav from './OurSideNav'
+// import SideNav, {Nav, NavIcon, NavText} from 'react-sidenav';
 
-//This is a stateful component that will handle pageChange logic
-
-//Will need to import in other pages and components!!!
+// import {slide as Menu} from 'react-burger-menu';
 
 class AppContainer extends Component {    
     state = {
@@ -24,7 +23,7 @@ class AppContainer extends Component {
         cartArray: [],
         buyFishArray: [],
         fishTemplateOrUserFish: false,
-        isBurgerNavOpen:false
+        // isBurgerNavOpen:false
     };
 
    
@@ -195,7 +194,9 @@ class AppContainer extends Component {
         return (
             <Router>
                 <div>
-                    <Menu isOpen = {this.state.isBurgerNavOpen}>
+
+                    <OurSideNav />
+                    {/* <Menu isOpen = {this.state.isBurgerNavOpen}>
                         {this.state.thisUserCred.userId ? 
                         <a id="logout" className="menu-item" href="/logout">Logout</a> 
                         : <a id="login" className="menu-item" href="/login">Login</a>
@@ -204,11 +205,11 @@ class AppContainer extends Component {
                         <a id="myaquarium" className="menu-item" href="/myaquarium">My Aquarium</a>
                         <a id="wallet" className="menu-item" href="/wallet">Wallet</a>
                         <a id="fishmarket" className="menu-item" href="/fishmarket">Fish Market</a>                        
-                    </Menu>
+                    </Menu> */}
 
                    <Navbar 
                         thisUserCred = {this.state.thisUserCred}
-                        openBurgerNav = {this.openBurgerNav}
+                        // openBurgerNav = {this.openBurgerNav}
                     />
                     <Route exact path="/logout" component={Logout}/>
                     <Route exact path="/login" component={Login}/>

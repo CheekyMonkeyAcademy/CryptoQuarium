@@ -12,6 +12,7 @@ const Navbar = props =>
             </a>
             <a data-activates="mobile-demo" className="button-collapse burgerNav">       
                 <i className="material-icons" onClick= {() => props.openBurgerNav()}>menu</i>                
+                {/* <i className="material-icons">menu</i> */}
             </a>
 
             <ul className="left hide-on-med-and-down">
