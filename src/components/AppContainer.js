@@ -186,15 +186,16 @@ class AppContainer extends Component {
     };    
 
      //FUNCTION FOR OPENING SIDE BURGER NAV
-     handleBurgerNavStateChange = () => {
+     openBurgerNav = () => {
          this.setState({isBurgerNavOpen: this.state.isOpen})
      }
 
+   
     render() {
         return (
             <Router>
                 <div>
-                    <Menu isOpen = {this.state.isBurgerNavOpen} onstateChange={(state) => this.handleBurgerNavStateChange(state)}>
+                    <Menu isOpen = {this.state.isBurgerNavOpen}>
                         {this.state.thisUserCred.userId ? 
                         <a id="logout" className="menu-item" href="/logout">Logout</a> 
                         : <a id="login" className="menu-item" href="/login">Login</a>
@@ -202,12 +203,12 @@ class AppContainer extends Component {
                         <a id="home" className="menu-item" href="/home">Home</a>
                         <a id="myaquarium" className="menu-item" href="/myaquarium">My Aquarium</a>
                         <a id="wallet" className="menu-item" href="/wallet">Wallet</a>
-                        <a id="fishmarket" className="menu-item" href="/fishmarket">Fish Market</a>
+                        <a id="fishmarket" className="menu-item" href="/fishmarket">Fish Market</a>                        
                     </Menu>
 
                    <Navbar 
                         thisUserCred = {this.state.thisUserCred}
-                        handleBurgerNavStateChange = {this.handleBurgerNavStateChange}
+                        openBurgerNav = {this.openBurgerNav}
                     />
                     <Route exact path="/logout" component={Logout}/>
                     <Route exact path="/login" component={Login}/>
