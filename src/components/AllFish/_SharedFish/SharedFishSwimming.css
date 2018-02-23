@@ -1,4 +1,4 @@
-@keyframes swim1 {
+/* @keyframes swim1 {
     from {
         transform: scale3d(1);
         left: 1000px;
@@ -194,9 +194,9 @@
         top: -175px;
         z-index: 90;
     }
-}
+} */
 
-@keyframes originCheckLR {
+@keyframes originCheckLeftRight {
     from {
         left:0%;
         transform: scaleX(1);
@@ -220,7 +220,7 @@
     }
 }
 
-@keyframes originCheckUD {
+@keyframes originCheckUpDown {
     from {
         top:0vh;
         transform: scaleX(1);
@@ -327,6 +327,198 @@
     }
 }
 @keyframes e1a {
+    from {
+        left:55%;
+        top:20vh;
+    }
+    25% {
+
+    }
+    50% {
+
+    }
+    75% {
+        
+    }
+    to {
+        left:10%;
+        top:5vh;
+    }
+}
+
+@keyframes a2b {
+    from {
+        left:10%;
+        top:5vh;
+    }
+    25% {
+
+    }
+    50% {
+
+    }
+    75% {
+
+    }
+    to {
+        left:60%;
+        top:25vh;
+    }
+}
+@keyframes b2c {
+    from {
+        left:60%;
+        top:25vh;
+    }
+    25% {
+
+    }
+    50% {
+
+    }
+    75% {
+        
+    }
+    to {
+        left:15%;
+        top:35vh;
+    }
+}
+@keyframes c2d {
+    from {
+        left:15%;
+        top:35vh;
+    }
+    25% {
+
+    }
+    50% {
+
+    }
+    75% {
+        
+    }
+    to {
+        left:70%;
+        top:30vh;
+    }
+}
+@keyframes d2e {
+    from {
+        left:70%;
+        top:30vh;
+    }
+    25% {
+
+    }
+    50% {
+
+    }
+    75% {
+        
+    }
+    to {
+        left:55%;
+        top:20vh;
+    }
+}
+@keyframes e2a {
+    from {
+        left:55%;
+        top:20vh;
+    }
+    25% {
+
+    }
+    50% {
+
+    }
+    75% {
+        
+    }
+    to {
+        left:10%;
+        top:5vh;
+    }
+}
+
+@keyframes a3b {
+    from {
+        left:10%;
+        top:5vh;
+    }
+    25% {
+
+    }
+    50% {
+
+    }
+    75% {
+
+    }
+    to {
+        left:60%;
+        top:25vh;
+    }
+}
+@keyframes b3c {
+    from {
+        left:60%;
+        top:25vh;
+    }
+    25% {
+
+    }
+    50% {
+
+    }
+    75% {
+        
+    }
+    to {
+        left:15%;
+        top:35vh;
+    }
+}
+@keyframes c3d {
+    from {
+        left:15%;
+        top:35vh;
+    }
+    25% {
+
+    }
+    50% {
+
+    }
+    75% {
+        
+    }
+    to {
+        left:70%;
+        top:30vh;
+    }
+}
+@keyframes d3e {
+    from {
+        left:70%;
+        top:30vh;
+    }
+    25% {
+
+    }
+    50% {
+
+    }
+    75% {
+        
+    }
+    to {
+        left:55%;
+        top:20vh;
+    }
+}
+@keyframes e3a {
     from {
         left:55%;
         top:20vh;
