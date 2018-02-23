@@ -15,7 +15,7 @@ class OurSideNav extends Component {
     render() {
         return (
             <Router>
-                <div style={{display: 'flex', flexDirection: 'row'}}>
+                <div style={{display: 'flex', flexDirection: 'row'}} id="showSideNav">
                     <div style={{width:200}}>
                         <SideNav highlightBgColor='blue' highlightColor='white'>
                             <Nav id="logout">

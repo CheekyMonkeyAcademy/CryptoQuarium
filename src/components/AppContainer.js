@@ -10,6 +10,7 @@ import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import OurSideNav from './OurSideNav'
+import { render } from 'react-dom';
 // import SideNav, {Nav, NavIcon, NavText} from 'react-sidenav';
 
 // import {slide as Menu} from 'react-burger-menu';
@@ -22,10 +23,9 @@ class AppContainer extends Component {
         subTotal: 0,
         cartArray: [],
         buyFishArray: [],
-        fishTemplateOrUserFish: false,
-        // isBurgerNavOpen:false
+        fishTemplateOrUserFish: false, 
+        showSideNav: false 
     };
-
    
     //ORIGINAL IN BUY COMPONENT
     addToCart = (id) => {
@@ -184,18 +184,18 @@ class AppContainer extends Component {
         this.setState({currentPage: page});
     };    
 
-     //FUNCTION FOR OPENING SIDE BURGER NAV
-     openBurgerNav = () => {
-         this.setState({isBurgerNavOpen: this.state.isOpen})
-     }
+     //FUNCTION FOR OPENING SIDENAV
+     openSideNav = () => {
+        let showSideNav = document.getElementById('showSideNav');
+        console.log("showing sidenav is ", this.state.showSideNav)
 
-   
+    }
+    
+    
     render() {
         return (
             <Router>
-                <div>
-
-                    <OurSideNav />
+                <div>                    
                     {/* <Menu isOpen = {this.state.isBurgerNavOpen}>
                         {this.state.thisUserCred.userId ? 
                         <a id="logout" className="menu-item" href="/logout">Logout</a> 
@@ -209,7 +209,7 @@ class AppContainer extends Component {
 
                    <Navbar 
                         thisUserCred = {this.state.thisUserCred}
-                        // openBurgerNav = {this.openBurgerNav}
+                        openSideNav = {this.openSideNav}
                     />
                     <Route exact path="/logout" component={Logout}/>
                     <Route exact path="/login" component={Login}/>
