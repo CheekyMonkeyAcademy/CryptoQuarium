@@ -10,6 +10,7 @@ function setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, pas
     // if we are starting movement choose a random start location from the array
     if (passedSwimNumber === 'notSet'){
         currentSwimNumber = (Math.floor(Math.random() * passedSwimArray.length));
+        currentSwimSecondNumber = currentSwimNumber + 1;
     }
     // If we're not starting movement - continue on the loop
     else{
