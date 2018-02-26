@@ -1,39 +1,53 @@
-function setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, passedSwimNumber) {
+function setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, passedSwimNumber, swimVarianceArray) {
     // set our swim animation duration and what route to take
     let fish_wrap = document.getElementById(id);
     let animationDuration = Math.floor(Math.random() * variableDuration + minDuration);
-    let swimStyleArray = passedSwimArray
     let swimStyle;
     let currentSwimNumber; 
-    
+    let currentSwimSecondNumber;
+    let randomSwimVariance = swimVarianceArray[Math.floor(Math.random() * swimVarianceArray.length)];
+
+    // if we are starting movement choose a random start location from the array
     if (passedSwimNumber === 'notSet'){
-        currentSwimNumber = (Math.floor(Math.random() * swimStyleArray.length));
+        currentSwimNumber = (Math.floor(Math.random() * passedSwimArray.length));
+        currentSwimSecondNumber = currentSwimNumber + 1;
     }
+    // If we're not starting movement - continue on the loop
     else{
         currentSwimNumber = passedSwimNumber;
+        currentSwimSecondNumber = passedSwimNumber + 1;
     }
 
-    if (currentSwimNumber >= swimStyleArray.length) {
+    // Starting the loop over
+    if (currentSwimNumber >= passedSwimArray.length) {
         currentSwimNumber = 0;
+        currentSwimSecondNumber = 1;
     }
 
-    swimStyle = swimStyleArray[currentSwimNumber];
-    console.log(`${swimStyle}`);
+    // Setting the second number of the loop
+    if (currentSwimNumber+1 >= passedSwimArray.length) {
+        currentSwimSecondNumber = 0;
+    }
+
+    swimStyle = passedSwimArray[currentSwimNumber] + randomSwimVariance + passedSwimArray[currentSwimSecondNumber];
+    console.log(`id: ${id} now has ${swimStyle}`);
     currentSwimNumber++;
     
     if (noMove === false) {
-        // It also prevents a bug when we navigate AWAY from the aquarium page.  
+        // This prevents a bug when we navigate AWAY from the aquarium page.  
         fish_wrap ? 
             fish_wrap.style.setProperty("--swimAnimationTime", animationDuration + "s") 
         :   '';
     
+        // This prevents a bug when we navigate AWAY from the aquarium page.  
         fish_wrap ? 
             fish_wrap.style.setProperty("--swimType", swimStyle)
         :   '';
     }
 
     setTimeout(() => {
-        fish_wrap ? setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, currentSwimNumber) : '';
+        // This prevents a bug when we navigate AWAY from the aquarium page.  
+        fish_wrap ? setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, currentSwimNumber, swimVarianceArray) : '';
     }, animationDuration * 1000)
 }
 
