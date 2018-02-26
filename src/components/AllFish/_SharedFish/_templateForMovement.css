@@ -1,3 +1,55 @@
+@keyframes originCheckLeftRight {
+    from {
+        left:0%;
+        transform: scaleX(1);
+    }
+    20% {
+        left:25%;
+    }
+    40% {
+        left:50%;
+        transform: scaleX(-1);
+    }
+    60% {
+        left:75%;
+    }
+    80% {
+        left:100%;
+    }
+    to {
+        left:0%;
+        transform: scaleX(1);
+    }
+}
+@keyframes originCheckUpDown {
+    from {
+        top:0vh;
+        transform: scaleX(1);
+    }
+    20% {
+        top:10vh;
+    }
+    40% {
+        top:20vh;
+        transform: scaleX(1);
+    }
+    41% {
+        transform: scaleX(-1);
+    }
+    60% {
+        top:30vh;
+    }
+    80% {
+        top:40vh;
+    }
+    95% {
+        transform: scaleX(1);
+    }
+    to {
+        transform: scaleX(1);
+        top:0vh;
+    }
+}
 @keyframes a1b {
     from {
         left:10%;
