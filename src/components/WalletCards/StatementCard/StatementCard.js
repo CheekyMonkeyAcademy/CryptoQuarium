@@ -32,20 +32,16 @@ class StatementCard extends Component {
     // <div><em>{moment(new Date(reminder.dueDate)).fromNow()}</em></div>
     render(){
         return (
-            <div className="row">
-                <div className="col s8 push-s2">
+            <div className="col s8 push-s2">
                 <div className="card #757575 grey darken-1">
                     <div className="card-content white-text">
-                        <h1 className="card-title">Recent Wallet Statements</h1>
-                        <hr/>
                         <p>Transaction: {this.props.walletBalanceChangeReason}</p>
                         <p>Amount: {this.props.walletBalanceChange}</p>
                         <p>Last Wallet Balance: {this.props.lastWalletBalance}</p>
                         <p>Purchase Time: <Moment>{this.props.createdAt}</Moment></p>
                     </div>                   
                 </div>
-                </div>
-            </div>               
+            </div>
         );
     }
 
