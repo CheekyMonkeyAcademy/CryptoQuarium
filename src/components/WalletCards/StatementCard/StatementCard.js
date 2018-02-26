@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import StatementModal from "../../StatementModal";
 import Moment from 'react-moment';
 import 'moment-timezone';
+import "./StatementCard.css";
 
 // import axios from 'axios';
 
