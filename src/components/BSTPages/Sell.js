@@ -3,7 +3,6 @@ import SellUserInventory from "../SellComponents/SellUserInventory/SellUserInven
 import SellMarket from "../SellComponents/SellMarket/SellMarket";
 import axios from 'axios';
 import "../BuyComponents/InventoryCards/InventoryCards.css";
-import { open } from "fs";
 
 class Sell extends Component {
 
@@ -45,16 +44,18 @@ class Sell extends Component {
         console.log("Am I clicking my sell tag?")     
 
         let fishIndex =  this.state.myFishArray.findIndex(fish => fish.id === id) 
-        this.state.myFishArray[fishIndex].priceAlert = " ";
+        let newFishArray = this.state.myFishArray;
+        newFishArray[fishIndex].priceAlert = " ";
 
        
-        if (this.state.myFishArray[fishIndex].price < 0.01){             
+        if (newFishArray[fishIndex].price < 0.01){             
                 this.openModal();       
                                                
-        } else if (this.state.myFishArray[fishIndex].price >= 0.01){           
+        } else if (newFishArray[fishIndex].price >= 0.01){           
             this.setState({itemsToBeSold: this.state.itemsToBeSold.concat([this.state.myFishArray[fishIndex]]
-                )}, (state) => {
-                    this.state.myFishArray[fishIndex].priceAlert = " "
+                )}, () => {
+                    newFishArray[fishIndex].priceAlert = " "
+                    this.setState({myFishArray: newFishArray});
                 })
             document.getElementById("card"+id).style.display = "none"; 
         }    
@@ -63,7 +64,6 @@ class Sell extends Component {
     
     getParent = (id) => {
         return document.querySelector(".container");
-        console.log(id)
     }
 
     openModal = () => {     

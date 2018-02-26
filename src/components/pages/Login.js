@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 // import LoginBackground from "../LoginBackground";
 import "./Login.css";
 import { button } from 'react-materialize';
