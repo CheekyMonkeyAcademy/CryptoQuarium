@@ -38,6 +38,7 @@ module.exports = function(app) {
     app.get('/api/viewWalletHistory/', (req, res) => { // --- TEST VALUE
 
         db.WalletHistory.findAll({
+            order: [['updatedAt', 'DESC']],
             where: {
                 UserId: req.user.id
             }

@@ -161,17 +161,17 @@ asyncFishPurchase = (fishArray, userId, index = 0, deferred = Q.defer()) => {
             })
             .then((user) => {
                 if (user.walletBalance >= (selectedFish.price * targetQuantity)) {
-                    for (let i = 0; i < targetQuantity; i++){
-                        selectedFish.update({quantityAvailable: (selectedFish.quantityAvailable -= 1)})
+                    user.update({walletBalance: (user.walletBalance -= (selectedFish.price * targetQuantity))})
+                    .then(() => {
+                        db.WalletHistory.create({
+                            UserId: userId,
+                            walletBalanceChange: -selectedFish.price * targetQuantity,
+                            walletBalanceChangeReason: `Fish purchased: ${selectedFish.species} for $${selectedFish.price} (each) x Quantity: ${targetQuantity}`,
+                            lastWalletBalance: user.walletBalance
+                        })
                         .then(() => {
-                            user.update({walletBalance: (user.walletBalance -= selectedFish.price)})
-                            .then(() => {
-                                db.WalletHistory.create({
-                                    UserId: userId,
-                                    walletBalanceChange: -selectedFish.price,
-                                    walletBalanceChangeReason: `Fish purchased: ${selectedFish.species}`,
-                                    lastWalletBalance: user.walletBalance
-                                })
+                            for (let i = 0; i < targetQuantity; i++){
+                                selectedFish.update({quantityAvailable: (selectedFish.quantityAvailable -= 1)})
                                 .then(() => {
                                     let randomizeThese = JSON.parse(selectedFish.randomizeVar);
                                     let randomizedTargets = {};
@@ -212,16 +212,16 @@ asyncFishPurchase = (fishArray, userId, index = 0, deferred = Q.defer()) => {
                                         asyncFishPurchase(fishArray, userId, index, deferred);
                                     });
                                 })
-                            })
+                            }
                         })
-                    }
+                    })
                 }
                 else {
                     let returnError = {"Error": "Insufficient funds to purchase this fish"}
                     deferred.reject(returnError);
                 }
-            });
-        });
+            })  
+        })
     }
     return deferred.promise;
 }
