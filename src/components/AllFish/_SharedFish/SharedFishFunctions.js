@@ -33,7 +33,7 @@ function setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, pas
     }
 
     setTimeout(() => {
-        fish_wrap ? setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, currentSwimNumber) : '';
+        setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, currentSwimNumber);
     }, animationDuration * 1000)
 }
 

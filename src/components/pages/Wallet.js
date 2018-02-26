@@ -58,7 +58,7 @@ class Wallet extends Component {
 }
 
 export default Wallet;
-{/* <StatementCard myStatementHistory = {this.state.statementHistory} /> */}
+// <StatementCard myStatementHistory = {this.state.statementHistory} /> 
 
 // {this.state.statementHistory.map(statement => {
 //     console.log(this.statementHistory)

@@ -50,7 +50,7 @@ class AppContainer extends Component {
             let fishIndexInCart = newCartArray.findIndex((fish) => fish===newCartArray.filter(fish => fish.id===id)[0]);
 
             // add our quantity desired - either add one, or set to 1... if it exists, add, if not concatenate
-            if (fishIndexInCart != -1){
+            if (fishIndexInCart !== -1){
                 // if there is no quantity available, add it - otherwise do nothing
                 fishToAddToArray.quantityToBuy ? "" : fishToAddToArray.quantityToBuy = 0;
                 

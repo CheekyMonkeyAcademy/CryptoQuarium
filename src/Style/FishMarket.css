@@ -10,6 +10,10 @@ body {
     -o-background-size: cover;	
 }
 
+i {
+    z-index: 1111;
+}
+
 .store1 {
     height: 40px;
     /* background-image: url("../Images/fish/store2.png"); */

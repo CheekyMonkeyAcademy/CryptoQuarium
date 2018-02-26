@@ -3,22 +3,11 @@ import SellCards from '../SellCards';
 import Modal from 'react-modal';
 import "../SellCards/SellCards.css";
 
-const customStyles = {
-        content : {
-          top: '50%',
-          left: '50%',
-          right: 'auto',
-          bottom: 'auto',
-          marginRight: '-50%',
-          transform: 'translate(-50%, -50%)'
-    }
-};
-
 class SellUserInventory extends Component {
     
     //FUNCTION THAT CALLS ALL THIS USERS FISH FROM THE DATABASE
     componentDidMount(){
-        {this.props.getAllUserFish()}    
+        this.props.getAllUserFish()
     }
 
     render(){
@@ -60,4 +49,4 @@ class SellUserInventory extends Component {
 
 export default SellUserInventory;
 
-{/* <button onClick={() => this.props.closeModal()}>close</button> */}
+// <button onClick={() => this.props.closeModal()}>close</button> 

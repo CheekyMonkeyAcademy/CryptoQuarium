@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import SellMarketCards from '../SellMarketCards/SellMarketCards';
-import { Card, CardTitle } from 'react-materialize';
-import CartLogo1 from "../../../Images/fish/fishBoard2.png";
 import "./SellMarket.css";
 
 //When a user clicks sell to market, it gets added to the buyInventory page
