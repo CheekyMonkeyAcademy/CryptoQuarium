@@ -16,9 +16,7 @@ class Wallet extends Component {
         axios.get('/api/viewWalletHistory')
         .then((statementHistory)=> {
             const myHistory = statementHistory.data
-            this.setState({statementHistory: myHistory}, () => {
-                console.log(this.state.statementHistory)
-            })                    
+            this.setState({statementHistory: myHistory}, () => {})                    
         })
         .catch((err)=> {
             console.log(`Error: No statement history for you!`)
@@ -38,8 +36,7 @@ class Wallet extends Component {
                     <BalanceCard currentBalance={this.props.currentBalance}/>
                     <h3 className="logo center #757575 grey darken-1 z-depth-5">Recent Wallet Statements</h3>
                     {this.state.statementHistory.map(statement => {
-                        console.log(this.state.statementHistory)
-                        return <StatementCard {...statement} />
+                        return <StatementCard {...statement} key={statement.id}/>
                     })}
                     
                 </div>

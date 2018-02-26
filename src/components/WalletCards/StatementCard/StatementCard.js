@@ -35,10 +35,18 @@ class StatementCard extends Component {
             <div className="col s8 push-s2">
                 <div className="card #757575 grey darken-1">
                     <div className="card-content white-text">
-                        <p>Transaction: {this.props.walletBalanceChangeReason}</p>
-                        <p>Amount: {this.props.walletBalanceChange}</p>
-                        <p>Last Wallet Balance: {this.props.lastWalletBalance}</p>
-                        <p>Purchase Time: <Moment>{this.props.createdAt}</Moment></p>
+                        <div className="row">
+                            <div className="col s3">Transaction:</div><div className="col s9"> {this.props.walletBalanceChangeReason}</div>
+                        </div>
+                        <div className="row">
+                            <div className="col s3">Amount: </div><div className="col s9">{this.props.walletBalanceChange}</div>
+                        </div>
+                        <div className="row">
+                            <div className="col s3">Last Wallet Balance: </div><div className="col s9">{this.props.lastWalletBalance}</div>
+                        </div>
+                        <div className="row">
+                            <div className="col s3">Purchase Time: </div><div className="col s9"><Moment>{this.props.createdAt}</Moment></div>
+                        </div>
                     </div>                   
                 </div>
             </div>
