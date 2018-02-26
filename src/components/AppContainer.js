@@ -9,9 +9,7 @@ import FishMarket from "./pages/FishMarket";
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-// import { render } from 'react-dom';
-import Sidebar from './Sidebar/Sidebar';
-// import SidebarContent from './Sidebar/SidebarContent';
+import Sidebar from 'react-sidebar';
 
 
 class AppContainer extends Component {    
@@ -22,10 +20,9 @@ class AppContainer extends Component {
         subTotal: 0,
         cartArray: [],
         buyFishArray: [],
-        fishTemplateOrUserFish: false, 
-
-        // docked: false,
-        // open: false,        
+        fishTemplateOrUserFish: false,
+        
+        sidebarOpen: false
     };
    
     //ORIGINAL IN BUY COMPONENT
@@ -190,27 +187,28 @@ class AppContainer extends Component {
         console.log("clicking menu button")      
     }    
         
-    onSetOpen(open){
-        this.setState({open:open})
+    onSetSidebarOpen = open => {
+        console.log("YGHHH")
+        this.setState({sidebarOpen:true})
+        // this.setState({sidebarOpen:false})
     };
 
     render() {
-        // const sidebar = <SidebarContent />
-
-        // const sidebarProps = {
-        //     sidebar: sidebar,
-        //     docked: this.state.docked,
-        //     open: this.state.open,
-        //     onSetOpen: this.onSetOpen
-        // };
+      const sidebarContent = <b>Sidebar Content is here??</b>
 
         return (
             <Router>
-                <div>                                           
+                <div>  
+                    <Sidebar sidebar={sidebarContent}
+                        open={this.state.sidebarOpen}
+                        // onSetOpen={this.onSetSidebarOpen} 
+                    >
+                        <b>Main Content</b>
+                    </Sidebar>           
 
-                   <Navbar 
+                    <Navbar 
                         thisUserCred = {this.state.thisUserCred}
-                        menuButtonClick = {this.menuButtonClick}
+                        onSetOpen={this.onSetSidebarOpen} 
                     />
                     <Route exact path="/logout" component={Logout}/>
                     <Route exact path="/login" component={Login}/>
