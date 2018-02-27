@@ -9,9 +9,9 @@ import FishMarket from "./pages/FishMarket";
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-//This is a stateful component that will handle pageChange logic
+import Sidebar from 'react-sidebar';
+import SidebarContent from './Sidebar/SidebarContent/SidebarContent'
 
-//Will need to import in other pages and components!!!
 
 class AppContainer extends Component {    
     state = {
@@ -21,9 +21,11 @@ class AppContainer extends Component {
         subTotal: 0,
         cartArray: [],
         buyFishArray: [],
-        fishTemplateOrUserFish: false 
+        fishTemplateOrUserFish: false,
+        
+        sidebarOpen: false
     };
-
+   
     //ORIGINAL IN BUY COMPONENT
     addToCart = (id) => {
         // We are looking for the index of the target fish... so... find index of all fish where the fish is filtered to the fish with the target ID
@@ -135,9 +137,9 @@ class AppContainer extends Component {
     componentDidMount() {
         // TODO this doesn't load everything correctly the first time - it requires a page refresh
         this.checkAndUpdateAuthenticatedUser();
-        this.updateBuyFishArrayState(false);
+        this.updateBuyFishArrayState(false);              
     }
-    
+ 
     updateBalanceAfterCheckout = () => {
         if(this.state.subTotal <= this.state.thisUserCred.walletBalance){
             if (this.state.fishTemplateOrUserFish){
@@ -234,12 +236,44 @@ class AppContainer extends Component {
         this.setState({currentPage: page});
     };    
 
+    //FUNCTION FOR OPENING SIDENAV
+    onSetSidebarOpen = open => {
+        this.setState({sidebarOpen:open})
+    };
+
+    toggleOpen = ev => {
+        console.log("am i toggling?")
+        this.setState({sidebarOpen: !this.state.open});
+
+        if(ev) {
+            ev.preventDefault();
+        }
+    }
+
+    //A couple of sidebar notes:
+        //open: boolean, determines if the sidebar nav should be open
+        //sidebar: this is the sidebar content
+        //onSetOpen: a callback function that's called when the sidebar wants to change the open prop
+            //this happens after the sliding of the sidebar and when the overlay and when the overlay is clicked when sidebar is open
+
     render() {
+      const sidebarContent = <SidebarContent
+      thisUserCred = {this.state.thisUserCred}    
+                    />
+
         return (
             <Router>
-                <div>
+                <div>  
+                    <Sidebar sidebar={sidebarContent}
+                        open={this.state.sidebarOpen}
+                        onSetOpen={this.onSetSidebarOpen} 
+                        thisUserCred = {this.state.thisUserCred}                         
+                    />        
+
                     <Navbar 
                         thisUserCred = {this.state.thisUserCred}
+                        onSetOpen={this.onSetSidebarOpen} 
+                        toggleOpen = {this.toggleOpen}
                     />
                     <Route exact path="/logout" component={Logout}/>
                     <Route exact path="/login" component={Login}/>
@@ -267,7 +301,7 @@ class AppContainer extends Component {
                             />
                         :   <Login />
                     }/>
-                </div>
+                        </div>
             </Router>
         );
     }
