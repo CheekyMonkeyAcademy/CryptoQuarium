@@ -183,15 +183,18 @@ class AppContainer extends Component {
     };    
 
     //FUNCTION FOR OPENING SIDENAV
-    menuButtonClick = () => {
-        console.log("clicking menu button")      
-    }    
-        
     onSetSidebarOpen = open => {
-        console.log("YGHHH")
-        this.setState({sidebarOpen:true})
-        // this.setState({sidebarOpen:false})
+        this.setState({sidebarOpen:open})
     };
+
+    toggleOpen = ev => {
+        console.log("am i toggling?")
+        this.setState({sidebarOpen: !this.state.open});
+
+        if(ev) {
+            ev.preventDefault();
+        }
+    }
 
     render() {
       const sidebarContent = <b>Sidebar Content is here??</b>
@@ -201,7 +204,7 @@ class AppContainer extends Component {
                 <div>  
                     <Sidebar sidebar={sidebarContent}
                         open={this.state.sidebarOpen}
-                        // onSetOpen={this.onSetSidebarOpen} 
+                        onSetOpen={this.onSetSidebarOpen} 
                     >
                         <b>Main Content</b>
                     </Sidebar>           
@@ -209,6 +212,7 @@ class AppContainer extends Component {
                     <Navbar 
                         thisUserCred = {this.state.thisUserCred}
                         onSetOpen={this.onSetSidebarOpen} 
+                        toggleOpen = {this.toggleOpen}
                     />
                     <Route exact path="/logout" component={Logout}/>
                     <Route exact path="/login" component={Login}/>
