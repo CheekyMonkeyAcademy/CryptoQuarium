@@ -235,11 +235,7 @@ class AppContainer extends Component {
         this.setState({currentPage: page});
     };    
 
-    renderPlugPage = () => {
-        console.log("we are rendering the plug page")
-    }
-
-
+   
     render() {
         return (
             <Router>
@@ -249,9 +245,7 @@ class AppContainer extends Component {
                         renderPlugPage = {this.renderPlugPage}
                     />
                     <Route exact path="/plugpage" render={() => 
-                        <PlugPage
-                        
-                        />
+                        <PlugPage />
                     }/>
 
                     <Route exact path="/logout" component={Logout}/>
