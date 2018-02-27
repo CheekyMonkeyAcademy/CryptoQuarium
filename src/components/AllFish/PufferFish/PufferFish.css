@@ -98,7 +98,7 @@
 
 .tail_fin2 {
     transform: skewX(30deg) skewY(5deg);    
-    background-color: rgb(var(--colorTwoR), var(--colorTwoG), var(--colorTwoB));
+    background-color: rgb(var(--colorOneR), var(--colorOneG), var(--colorOneB));
     border-radius: 200px 112px 47px 62px;    
     box-shadow: -15px -7px 9px #000604 inset;    
     height: 32px;
@@ -110,7 +110,7 @@
 
 .tail_fin2:before {
     transform: skewX(30deg) skewY(5deg);   
-    background-color: rgb(var(--colorTwoR), var(--colorTwoG), var(--colorTwoB));
+    background-color: rgb(var(--colorOneR), var(--colorOneG), var(--colorOneB));
     border-radius: 62px 112px 112px 200px;
     box-shadow: 6px 13px 9px #2F1E01 inset, -6px -7px 2px black inset;
     content: "";
