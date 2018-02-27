@@ -6,6 +6,7 @@ import Logout from "./pages/Logout";
 import MyAquarium from "./pages/MyAquarium";
 import Wallet from "./pages/Wallet";
 import FishMarket from "./pages/FishMarket";
+import PlugPage from "./pages/PlugPage";
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -234,13 +235,25 @@ class AppContainer extends Component {
         this.setState({currentPage: page});
     };    
 
+    renderPlugPage = () => {
+        console.log("we are rendering the plug page")
+    }
+
+
     render() {
         return (
             <Router>
                 <div>
                     <Navbar 
                         thisUserCred = {this.state.thisUserCred}
+                        renderPlugPage = {this.renderPlugPage}
                     />
+                    <Route exact path="/plugpage" render={() => 
+                        <PlugPage
+                        
+                        />
+                    }/>
+
                     <Route exact path="/logout" component={Logout}/>
                     <Route exact path="/login" component={Login}/>
                     <Route exact path="/home" component={this.state.thisUserCred.userId ? Home : Login} />

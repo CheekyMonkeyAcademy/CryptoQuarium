@@ -23,7 +23,7 @@ import "./Navbar.css";
 const Navbar = props =>
     <nav className="#607d8b blue-grey">
         <div className="nav-wrapper">
-            <a className="brand-logo right">
+            <a className="brand-logo right" href="#" onClick={() => props.renderPlugPage()}>
                 <img alt="" src={canbcheeky1} style={{ width: 240, marginTop: 15 }} />
             </a>
             <a data-activates="mobile-demo" className="button-collapse" >
