@@ -2,7 +2,7 @@ import React from "react";
 import canbcheeky1 from '../../Images/canbcheeky1.png';
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-// import PlugPage from './../pages/PlugPage'
+
 
 const Navbar = props =>
     <nav className="#607d8b blue-grey">

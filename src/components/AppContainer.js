@@ -10,9 +10,6 @@ import PlugPage from "./pages/PlugPage";
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-//This is a stateful component that will handle pageChange logic
-
-//Will need to import in other pages and components!!!
 
 class AppContainer extends Component {    
     state = {

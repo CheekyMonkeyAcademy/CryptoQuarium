@@ -2,7 +2,16 @@ import React from 'react';
 
 const PlugPage = props =>
     <div>
-        This will be the plug page...you should hire us!
+
+        <div className="container">
+            <div className="plugTitle">
+                <h3>Meet the Team</h3>
+            </div>
+
+
+
+        </div>
+        
     </div>
 
 
