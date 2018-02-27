@@ -197,10 +197,16 @@ class AppContainer extends Component {
         }
     }
 
+    //A couple of sidebar notes:
+        //open: boolean, determines if the sidebar nav should be open
+        //sidebar: this is the sidebar content
+        //onSetOpen: a callback function that's called when the sidebar wants to change the open prop
+            //this happens after the sliding of the sidebar and when the overlay and when the overlay is clicked when sidebar is open
+
     render() {
       const sidebarContent = <SidebarContent
-                                thisUserCred = {this.state.thisUserCred} 
-                            />
+      thisUserCred = {this.state.thisUserCred}    
+                    />
 
         return (
             <Router>
@@ -208,6 +214,7 @@ class AppContainer extends Component {
                     <Sidebar sidebar={sidebarContent}
                         open={this.state.sidebarOpen}
                         onSetOpen={this.onSetSidebarOpen} 
+                        thisUserCred = {this.state.thisUserCred}                         
                     />        
 
                     <Navbar 
