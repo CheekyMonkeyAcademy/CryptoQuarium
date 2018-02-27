@@ -37,7 +37,7 @@ class StatementCard extends Component {
                 <div className="card #757575 grey darken-1">
                     <div className="card-content white-text">
                         <div className="row">
-                            <div className="col s3">Transaction:</div><div className="col s9"> {this.props.walletBalanceChangeReason}</div>
+                            <div className="col s3">Transaction:</div><div className="col s9">{this.props.walletBalanceChangeReason}</div>
                         </div>
                         <div className="row">
                             <div className="col s3">Amount: </div><div className="col s9">{this.props.walletBalanceChange}</div>
