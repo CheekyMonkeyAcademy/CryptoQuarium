@@ -10,6 +10,7 @@ import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Sidebar from 'react-sidebar';
+import SidebarContent from './Sidebar/SidebarContent/SidebarContent'
 
 
 class AppContainer extends Component {    
@@ -197,7 +198,9 @@ class AppContainer extends Component {
     }
 
     render() {
-      const sidebarContent = <b>Sidebar Content is here??</b>
+      const sidebarContent = <SidebarContent
+                                thisUserCred = {this.state.thisUserCred} 
+                            />
 
         return (
             <Router>
@@ -205,9 +208,7 @@ class AppContainer extends Component {
                     <Sidebar sidebar={sidebarContent}
                         open={this.state.sidebarOpen}
                         onSetOpen={this.onSetSidebarOpen} 
-                    >
-                        <b>Main Content</b>
-                    </Sidebar>           
+                    />        
 
                     <Navbar 
                         thisUserCred = {this.state.thisUserCred}
