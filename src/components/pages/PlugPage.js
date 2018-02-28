@@ -18,11 +18,11 @@ const PlugPage = props =>
             
         
             <div className="row">
-                <div className="col s6" style={{paddingRight: 0, margins:0}}>
+                <div className="col 4s" style={{paddingRight: 0, margins:0}}>
                     <img className="groupPic responsive-img" alt="" src={GroupPicEdit2} />
                 </div>
 
-                <div className="col s6 plugDes" style={{marginLeft: 0}}>
+                <div className="col s8 plugDes" style={{marginLeft: 0}}>
 
                     <div className="row">
                         <div className="col s12 m12 center-align hireSign">
@@ -77,15 +77,15 @@ const PlugPage = props =>
                     <div className="row">
                         <div className="col s12 m12">
                             <div className="row">
-                                <a className="repo portSpacing" href="https://kylekowalski.github.io/">Kyle Kowalski</a>
+                                <a className="repo portSpacing" href="https://kylekowalski.github.io/" target="_blank">Kyle Kowalski</a>
 
-                                <a className="repo portSpacing" href="nfrazier08.github.io./"> Nicole Frazier</a>
+                                <a className="repo portSpacing" href="nfrazier08.github.io./" target="_blank"> Nicole Frazier</a>
                             </div>
 
                             <div className="row">
-                                <a className="repo portSpacing" href="https://robrollner.github.io/updated_portfolio/">Robert Rollner</a>
+                                <a className="repo portSpacing" href="https://robrollner.github.io/updated_portfolio/" target="_blank">Robert Rollner</a>
 
-                                <a className="repo portSpacing" href="nfrazier08.github.io./">Robert Castiblanco</a>
+                                <a className="repo portSpacing" href="nfrazier08.github.io./" target="_blank">Robert Castiblanco</a>
                             </div>
                         </div>
                     </div>
