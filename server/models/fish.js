@@ -9,7 +9,7 @@
 
 //CReate for column for randomizeVar fields 
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
     let Fish = sequelize.define("Fish", {
         // An individual fish has no 'name' just a species 
         // A user owned fish will have a name
@@ -28,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
         codeSpecies: {
-              type: DataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
@@ -40,14 +40,14 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [1]
             }
-        }, 
+        },
         color1b: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
-        }, 
+        },
         color1g: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -61,22 +61,23 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [1]
             }
-        }, 
+        },
         color2b: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
-        }, 
+        },
         color2g: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
-        },codeSpecies: {
-              type: DataTypes.STRING,
+        },
+        codeSpecies: {
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
@@ -88,14 +89,14 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [1]
             }
-        }, 
+        },
         color1b: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
-        }, 
+        },
         color1g: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -109,14 +110,14 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [1]
             }
-        }, 
+        },
         color2b: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
-        }, 
+        },
         color2g: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -142,7 +143,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len:[1]
+                len: [1]
             }
         },
         quantityAvailable: {
