@@ -18,11 +18,11 @@ const PlugPage = props =>
             
         
             <div className="row">
-                <div className="col 4s" style={{paddingRight: 0, margins:0}}>
+                <div className="col 4s m6" style={{paddingRight: 0, margins:0}}>
                     <img className="groupPic responsive-img" alt="" src={GroupPicEdit2} />
                 </div>
 
-                <div className="col s8 plugDes" style={{marginLeft: 0}}>
+                <div className="col s8 m6 plugDes" style={{marginLeft: 0}}>
 
                     <div className="row">
                         <div className="col s12 m12 center-align hireSign">
