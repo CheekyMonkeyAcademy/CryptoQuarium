@@ -6,11 +6,14 @@ import Logout from "./pages/Logout";
 import MyAquarium from "./pages/MyAquarium";
 import Wallet from "./pages/Wallet";
 import FishMarket from "./pages/FishMarket";
+import PlugPage from "./pages/PlugPage";
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
+
 import Sidebar from 'react-sidebar';
 import SidebarContent from './Sidebar/SidebarContent/SidebarContent'
+
 
 
 class AppContainer extends Component {    
@@ -236,6 +239,7 @@ class AppContainer extends Component {
         this.setState({currentPage: page});
     };    
 
+
     //FUNCTION FOR OPENING SIDENAV
     onSetSidebarOpen = open => {
         this.setState({sidebarOpen:open})
@@ -256,6 +260,7 @@ class AppContainer extends Component {
         //onSetOpen: a callback function that's called when the sidebar wants to change the open prop
             //this happens after the sliding of the sidebar and when the overlay and when the overlay is clicked when sidebar is open
 
+
     render() {
       const sidebarContent = <SidebarContent
       thisUserCred = {this.state.thisUserCred}    
@@ -272,9 +277,15 @@ class AppContainer extends Component {
 
                     <Navbar 
                         thisUserCred = {this.state.thisUserCred}
+
                         onSetOpen={this.onSetSidebarOpen} 
                         toggleOpen = {this.toggleOpen}
+
                     />
+                    <Route exact path="/plugpage" render={() => 
+                        <PlugPage />
+                    }/>
+
                     <Route exact path="/logout" component={Logout}/>
                     <Route exact path="/login" component={Login}/>
                     <Route exact path="/home" component={this.state.thisUserCred.userId ? Home : Login} />

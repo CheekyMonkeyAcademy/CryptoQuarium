@@ -7,16 +7,17 @@ import "./Navbar.css";
 const Navbar = props =>
     <nav className="#607d8b blue-grey">
         <div className="nav-wrapper">
-            <a className="brand-logo right">
+            <a className="brand-logo right" href="/PlugPage">
                 <img alt="" src={canbcheeky1} style={{ width: 240, marginTop: 15 }} />
             </a>
 
+
             <a data-activates="mobile-demo" className="button-collapse burgerNav" onClick= {() => props.toggleOpen()}>       
                 <i className="material-icons">menu</i>                   
+
             </a>
 
             <ul className="left hide-on-med-and-down">
-
                 {/* We're setting up a switch here - either we're active with credentials and we
                 are using logout - or we need credentials and we use login */}
                 {props.thisUserCred.userId ?
