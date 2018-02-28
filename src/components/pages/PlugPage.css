@@ -1,6 +1,20 @@
+.groupPic {
+    width: 380px;
+    margin-top: 15;
+    padding: 0;
+    margin-right: 0;
+    height:540px
+}
+
 .hireSign {
     font-family: 'Oleo Script', cursive;
     background-color: white;    
     border-radius: 5%;    
+    margin-top: 5%
+}
+
+.repo{
+    font-size: 20px;
+    color: green;
 }
 
