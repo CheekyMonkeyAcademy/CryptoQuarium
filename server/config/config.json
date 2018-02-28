@@ -1,8 +1,8 @@
 {
     "development": {
         "username": "root",
-        "password": ".1.got.d@.p0w3r.",
-        "database": "cryptoquarium_db",
+        "password": "writing_admin",
+        "database": "password",
         "host": "localhost",
         "dialect": "mysql"
     },
