@@ -66,7 +66,7 @@ const PlugPage = props =>
                         </div>                                   
                     </div>
 
-                    <div className="row">
+                    <div className="row port">
                         <div className="col s12 m12 center-align hireSign">
                             <div>
                                 <h5 className="sectionTitles">Checkout Our Individual Portfolios</h5>
@@ -75,7 +75,7 @@ const PlugPage = props =>
                     </div>
 
                     <div className="row">
-                        <div className="col s12 m12 center-align">
+                        <div className="col s12 m12">
                             <div className="row">
                                 <a className="repo portSpacing" href="https://kylekowalski.github.io/">Kyle Kowalski</a>
 

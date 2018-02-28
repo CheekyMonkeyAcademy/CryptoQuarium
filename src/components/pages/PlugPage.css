@@ -20,6 +20,7 @@
 .repo{
     font-size: 20px;
     color: green;
+    
 }
 
 .hireBtn {
@@ -33,6 +34,13 @@
 }
 
 .portSpacing{
-    margin-top: 20px;
-    padding: 3%
+    margin-top: 40px;
+    padding-bottom: 10px;
+    padding: 3%;
+    margin-left:13%
+
+}
+
+.port{
+    padding-bottom: 5%;
 }
