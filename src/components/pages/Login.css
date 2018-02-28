@@ -13,3 +13,9 @@
   top: 30%;
   left: 40%;
 }
+
+h1 {
+  margin: 0px;
+  color: white;
+  text-align: center;
+}

@@ -3,7 +3,11 @@ import React from "react";
 
 const Logout = () =>
     <div className="logout-page">
-        <a method='POST' href='/auth/logout'>Logout of CryptoAquarium</a>
+        <div className="button">
+            <a method='POST' href='/auth/logout'>
+                <button className="btn btn-large red waves-effect"><i className="material-icons right">add</i>Logout of CryptoQuarium</button>
+            </a>        
+        </div>
     </div>
 
 export default Logout;
