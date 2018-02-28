@@ -9,7 +9,7 @@
 // - movement height min
 // - movement height max
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
     let UserFish = sequelize.define("UserFish", {
         // A user owned fish will have a name (optional)
         name: {
@@ -27,7 +27,7 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
         codeSpecies: {
-              type: DataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
@@ -39,14 +39,14 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [1]
             }
-        }, 
+        },
         color1b: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
-        }, 
+        },
         color1g: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -60,14 +60,14 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [1]
             }
-        }, 
+        },
         color2b: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
-        }, 
+        },
         color2g: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -88,7 +88,7 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [1]
             }
-        },       
+        },
         forSale: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
