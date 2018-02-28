@@ -19,7 +19,7 @@ const PlugPage = props =>
         
             <div className="row">
                 <div className="col s6" style={{paddingRight: 0, margins:0}}>
-                    <img className="groupPic" alt="" src={GroupPicEdit2} />
+                    <img className="groupPic responsive-img" alt="" src={GroupPicEdit2} />
                 </div>
 
                 <div className="col s6 plugDes" style={{marginLeft: 0}}>
