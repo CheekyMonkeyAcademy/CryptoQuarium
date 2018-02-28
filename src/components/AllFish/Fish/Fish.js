@@ -3,9 +3,11 @@ import "./Fish.css";
 import "../_SharedFish/SharedFishSwimming.css";
 import SharedFunctions from "../_SharedFish/SharedFishFunctions.js";
 
+const randomFishOffset = Math.floor(Math.random() * 20 -10);
+
 class Fish extends Component {
     componentDidMount() {
-        SharedFunctions.setSwim(this.props.id, 15, 20, this.props.noMove ? true : false, ['a', 'b', 'c', 'd', 'e'], 'notSet', [1,2,3]);
+        SharedFunctions.setSwim(this.props.id, 25, 20, this.props.noMove ? true : false, ['a', 'b', 'c', 'd', 'e'], 'notSet', [1,2,3]);
         SharedFunctions.setBlink(this.props.id, 10, 20);
         SharedFunctions.colorRedOne(this.props.id, this.props.color1r);
         SharedFunctions.colorGreenOne(this.props.id, this.props.color1g);
@@ -18,7 +20,7 @@ class Fish extends Component {
     }
     render() {
         return (
-            <div className="fish_wrap" id={this.props.id}> 
+            <div className="fish_wrap" id={this.props.id}>
                 <div className="fish1">
                     <div className="top_fin"></div>
                     <div className="tail_fin"></div>
@@ -29,7 +31,7 @@ class Fish extends Component {
                         <div className="scale_3"></div>
                         <div className="scale_4"></div>
                     </div>
-                </div> 
+                </div>
             </div>
         )
     }

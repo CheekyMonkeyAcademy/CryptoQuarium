@@ -24,13 +24,13 @@ function setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, pas
         currentSwimSecondNumber = 1;
     }
 
-    // Setting the second number of the loop
+    // Resetting the second number of the loop if it's too high
     if (currentSwimNumber+1 >= passedSwimArray.length) {
         currentSwimSecondNumber = 0;
     }
 
     swimStyle = passedSwimArray[currentSwimNumber] + randomSwimVariance + passedSwimArray[currentSwimSecondNumber];
-    console.log(`id: ${id} now has ${swimStyle}`);
+    console.log(`id: ${id} - received ${passedSwimNumber} went with ${currentSwimNumber}/${currentSwimSecondNumber} now has ${swimStyle}`);
     currentSwimNumber++;
     
     if (noMove === false) {
