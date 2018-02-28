@@ -10,8 +10,11 @@ const Navbar = props =>
             <a className="brand-logo right" href="/PlugPage">
                 <img alt="" src={canbcheeky1} style={{ width: 240, marginTop: 15 }} />
             </a>
-            <a data-activates="mobile-demo" className="button-collapse" >           
-                <i className="material-icons">menu</i>
+
+
+            <a data-activates="mobile-demo" className="button-collapse burgerNav" onClick= {() => props.toggleOpen()}>       
+                <i className="material-icons">menu</i>                   
+
             </a>
 
             <ul className="left hide-on-med-and-down">
