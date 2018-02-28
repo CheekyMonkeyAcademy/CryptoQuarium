@@ -12,7 +12,7 @@ const PlugPage = props =>
 
             <div className="row">
                 <div className="col s12">                   
-                    <h3>Meet the Team</h3>
+                    <h3 className="meetTeam">Meet the Team</h3>
                 </div>
             </div>
             
@@ -27,17 +27,17 @@ const PlugPage = props =>
                     <div className="row">
                         <div className="col s12 m12 center-align hireSign">
                             <div>
-                                <h5>Our Work</h5>
+                                <h5 className="sectionTitles">Our Work</h5>
                             </div>
                         </div>
                     </div>
 
 
-                    <div className="row">
-                        <h5>
+                    <div className="row"> 
+                        <h5>                       
                             <p>We are a developer team from the University of Denver Code Bootcamp.</p>
-                            <p>We built applications together and enjoy every step of the journey!</p>                            
-                        </h5>                            
+                            <p>We built applications together and enjoy every step of the journey!</p> 
+                        </h5>
                     </div>
 
                     <div className="row">
@@ -50,13 +50,44 @@ const PlugPage = props =>
                     <div className="row">
                         <div className="col s12 m12 center-align hireSign">
                             <div>
-                                <h5>Get in Touch!</h5>
+                                <h5 className="sectionTitles">Get in Touch!</h5>
                             </div>
                         </div>
                     </div>
 
                     <div className="row">
-                        button for hire here 
+                        <div className="col s12 center-align">
+                            <a class="waves-effect waves-light btn hireBtn">Hire Us!</a>     
+                        </div>    
+
+                        <div className="center-align">
+                            <h5>For all other inquires or questions</h5>
+                            <a className="repo" href="mailto:cm.writing.academy@gmail.com">cm.writing.academy@gmail.com</a>
+                        </div>                                   
+                    </div>
+
+                    <div className="row">
+                        <div className="col s12 m12 center-align hireSign">
+                            <div>
+                                <h5 className="sectionTitles">Checkout Our Individual Portfolios</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="row">
+                        <div className="col s12 m12 center-align">
+                            <div className="row">
+                                <a className="repo portSpacing" href="https://kylekowalski.github.io/">Kyle Kowalski</a>
+
+                                <a className="repo portSpacing" href="nfrazier08.github.io./"> Nicole Frazier</a>
+                            </div>
+
+                            <div className="row">
+                                <a className="repo portSpacing" href="https://robrollner.github.io/updated_portfolio/">Robert Rollner</a>
+
+                                <a className="repo portSpacing" href="nfrazier08.github.io./">Robert Castiblanco</a>
+                            </div>
+                        </div>
                     </div>
                      
 

@@ -1,9 +1,13 @@
+.meetTeam {
+    font-family: 'Oleo Script', cursive;
+}
+
 .groupPic {
     width: 380px;
     margin-top: 15;
     padding: 0;
     margin-right: 0;
-    height:540px
+    height:550px
 }
 
 .hireSign {
@@ -18,3 +22,17 @@
     color: green;
 }
 
+.hireBtn {
+    margin-top: 5%;
+    background-color: #e91e63; 
+    margin-bottom: 5%;
+}
+
+.sectionTitles{
+    font-size: 30px;
+}
+
+.portSpacing{
+    margin-top: 20px;
+    padding: 3%
+}
