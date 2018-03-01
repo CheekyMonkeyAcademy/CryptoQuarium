@@ -31,24 +31,36 @@ function setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, pas
 
     swimStyle = passedSwimArray[currentSwimNumber] + randomSwimVariance + passedSwimArray[currentSwimSecondNumber];
     console.log(`id: ${id} - received ${passedSwimNumber} went with ${currentSwimNumber}/${currentSwimSecondNumber} now has ${swimStyle}`);
+    console.log(`id: ${id} - no move? ${noMove} and fish_wrap of ${fish_wrap}`);
     currentSwimNumber++;
     
     if (noMove === false) {
-        // This prevents a bug when we navigate AWAY from the aquarium page.  
-        fish_wrap ? 
-            fish_wrap.style.setProperty("--swimAnimationTime", animationDuration + "s") 
-        :   '';
-    
+        // This prevents a bug when we navigate AWAY from the aquarium page.
+        fish_wrap ?
+            fish_wrap.style.setProperty("--swimAnimationTime", animationDuration + "s")
+        : '';
+        
         // This prevents a bug when we navigate AWAY from the aquarium page.  
         fish_wrap ? 
             fish_wrap.style.setProperty("--swimType", swimStyle)
-        :   '';
+        : '';
+    }
+    else {
+        // This prevents a bug when we navigate AWAY from the aquarium page. 
+        fish_wrap ?  
+            fish_wrap.style.setProperty("--swimAnimationTime", animationDuration + "s")
+        : '';
+        
+        // This prevents a bug when we navigate AWAY from the aquarium page.  
+        fish_wrap ? 
+            fish_wrap.style.setProperty("--swimType", swimStyle)
+        : '';
     }
 
     setTimeout(() => {
         // This prevents a bug when we navigate AWAY from the aquarium page.  
         fish_wrap ? setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, currentSwimNumber, swimVarianceArray) : '';
-    }, animationDuration * 1000)
+    }, animationDuration * 1000 + 1000)
 }
 
 function setBlink(id, minDuration, variableDuration) {
