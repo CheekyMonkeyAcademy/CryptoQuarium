@@ -7,18 +7,18 @@ import React, {Component} from "react";
 class HireForm extends Component {
 
     state = {
-        who: 'name',
-        email: 'you@email.com',
-        phone:  '555-555-5555', 
-        company: 'Tell us about your organization',
-        project: 'Tell us about your project',
-        deadlines: 'What are your deadlines?',
-        // budgetCheck: true,
-        tierOne: true,
-        tierTwo: false, 
-        tierThree: false, 
-        tierFour: false,
-        audience: 'Who is your targeted audience?'
+        who: ' ',
+        email: ' ',
+        phone:  ' ', 
+        company: ' ',
+        project: ' ',
+        deadlines: ' ',
+        selectedOption: 'tierOne',
+        // tierOne: true,
+        // tierTwo: false, 
+        // tierThree: false, 
+        // tierFour: false,
+        audience: ' '
     }
 
     //target.type = text, number, radio, etc.
@@ -29,9 +29,9 @@ class HireForm extends Component {
     //Handler function that updates form state
         //Below setState is also using COMPUTED PROPERTY NAMES 
             //Put an expression in brackets, that will be computed and used as the property name
-    handleInputChange(event) {
+    handleInputChange = (event) => {
         const target = event.target;
-        const value = target.type === 'radio' ? target.checked : target.value;
+        const value = target.value;
         const name = target.name;
 
         this.setState({
@@ -39,6 +39,11 @@ class HireForm extends Component {
         }, () => {
             console.log("I am in the HIRE PAGE")            
         })
+    }
+
+    handleOptionChange = (changeEvent) => {
+        console.log("changing buttons")
+        this.setState({selectedOption: changeEvent.target.value})
     }
 
     render(){
@@ -55,7 +60,7 @@ class HireForm extends Component {
                                 value={this.state.name}
                                 onChange={(event) => this.handleInputChange(event)}
                             />
-                                <label for="who">Name</label>                            
+                                <label className="active" htmlfor="who">Name</label>                            
                         </div>
                     </div>
 
@@ -67,7 +72,7 @@ class HireForm extends Component {
                                 value={this.state.email}
                                 onChange={(event) => this.handleInputChange(event)}
                             />
-                                <label for="email">Email</label>
+                                <label className="active" for="email">Email</label>
                         </div>
 
                         <div className="input-field col s6">
@@ -77,7 +82,7 @@ class HireForm extends Component {
                                 value={this.state.phone}
                                 onChange={(event) => this.handleInputChange(event)}
                             />
-                                <label for="phone">Phone</label>
+                                <label className="active" for="phone">Phone</label>
                         </div>
                     </div>
 
@@ -89,7 +94,7 @@ class HireForm extends Component {
                                 value={this.state.company}
                                 onChange={(event) => this.handleInputChange(event)}
                             />
-                                <label for="tellUse">Tell Us About Your Company</label>
+                                <label className="active" htmlfor="tellUse">Tell Us About Your Company</label>
                         </div>
                     </div>
 
@@ -101,7 +106,7 @@ class HireForm extends Component {
                                 value={this.state.project}
                                 onChange={(event) => this.handleInputChange(event)}
                             />
-                                <label for="project"> Tell Us About Your Project</label>
+                                <label className="active" htmlfor="project"> Tell Us About Your Project</label>
                         </div>
                     </div>
                     
@@ -113,7 +118,7 @@ class HireForm extends Component {
                                 value={this.state.deadline}
                                 onChange={(event) => this.handleInputChange(event)}
                             />
-                                <label for="deadlines">What Are Your Deadlines</label>
+                                <label className="active" htmlfor="deadlines">What Are Your Deadlines</label>
                         </div>
                     </div>
 
@@ -122,44 +127,43 @@ class HireForm extends Component {
                             <p>What is your budget?</p>
                                 <p>
                                     <input 
-                                        name="budgetCheck" 
-                                        type="radio" 
-                                        id="tierOne" 
-                                        defaultChecked ={true}
-                                        value= {this.state.tierOne}
-                                        onChange={(event) => this.handleInputChange(event)}     
+                                        name="radio" 
+                                        type="radio"                                          
+                                        checked = {this.state.selectedOption === 'tierOne'}
+                                        value = 'tierOne'
+                                        onChange={(changeEvent) => this.handleOptionChange(changeEvent)}    
                                     />
-                                    <label for="rangeOne">tierOne</label>
+                                    <label htmlfor="rangeOne">tierOne</label>
                                 </p>
                                 <p>
                                     <input 
-                                        name="budgetCheck" 
-                                        type="radio" 
-                                        id="tierTwo"                                         
-                                        value={this.state.tierTwo}
-                                        onChange={(event) => this.handleInputChange(event)}
+                                        name="radio" 
+                                        type="radio"                                         
+                                        checked = {this.state.selectedOption === 'tierTwo'}                                       
+                                        value = 'tierTwo'
+                                        onChange={(changeEvent) => this.handleOptionChange(changeEvent)} 
                                     />
-                                    <label for="rangeTwo">tierTwo</label>
+                                    <label htmlfor="rangeTwo">tierTwo</label>
                                 </p>
                                 <p>
                                     <input 
-                                        name="budgetCheck" 
-                                        type="radio" 
-                                        id="tierThree"
-                                        value={this.state.tierThree}
-                                        onChange={(event) => this.handleInputChange(event)}
+                                        name="radio" 
+                                        type="radio"                                       
+                                        checked = {this.state.selectedOption === 'tierThree'}
+                                        value= 'tierThree'
+                                        onChange={(changeEvent) => this.handleOptionChange(changeEvent)}  
                                     />
-                                    <label for="rangeThree">tierThree</label>
+                                    <label htmlfor="rangeThree">tierThree</label>
                                 </p>
                                 <p>
                                     <input 
-                                        name="budgetCheck" 
-                                        type="radio" 
-                                        id="tierFour"
-                                        value={this.state.tierFour}
-                                        onChange={(event) => this.handleInputChange(event)}                                    
+                                        name="radio" 
+                                        type="radio"                                         
+                                        checked = {this.state.selectedOption === 'tierFour'}
+                                        value= 'tierFour'
+                                        onChange={(changeEvent) => this.handleOptionChange(changeEvent)}                                     
                                     />
-                                    <label for="rangeFour">tierFour</label>
+                                    <label htmlfor="rangeFour">tierFour</label>
                                 </p>
                         </div>
 
@@ -170,19 +174,19 @@ class HireForm extends Component {
                                 value={this.state.name}
                                 onChange={(event) => this.handleInputChange(event)}
                             />
-                                <label for="audience">Who Is Your Target Audience?</label>
+                                <label className="active" htmlfor="audience">Who Is Your Target Audience?</label>
                         </div>
                     </div>
 
                     <div className="row">
                         <div className="input-field col s12 center-align">
-                            <a class="waves-effect waves-light btn" style={{backgroundColor:'white', color:'black'}}>Attach any files you feel would be necessary</a>
+                            <a className="waves-effect waves-light btn" style={{backgroundColor:'white', color:'black'}}>Attach any files you feel would be necessary</a>
                         </div>
                     </div>
 
                     <div className="row">
                         <div className="input-field col s12 center-align">
-                            <a class="waves-effect waves-light btn" style={{backgroundColor:'#ef5350'}}>Submit</a>
+                            <a className="waves-effect waves-light btn" style={{backgroundColor:'#ef5350'}}>Submit</a>
                         </div>
                     </div>                    
                 </form>
