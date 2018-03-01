@@ -15,9 +15,27 @@ class HireForm extends Component {
         deadlines: 'What are your deadlines?',
         budgetCheck: true,
         audience: 'Who is your targeted audience?'
-        
+    }
 
+    //target.type = text, number, radio, etc.
+        //If the type is checkbox, return if target is checked or not
+            //if the type is NOT a checkbox, the value is the target.value
+    //target.type === 'checkbox' ? target.checked : target.value
+    
+    //Handler function that updates form state
+        //Below setState is also using COMPUTED PROPERTY NAMES 
+            //Put an expression in brackets, that will be computed and used as the property name
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
 
+        this.setState({
+            [name]:value
+        }, () => {
+            console.log("I am in the HIRE PAGE")
+            console.log(this.state.name)
+        })
     }
 
     render(){
@@ -27,41 +45,45 @@ class HireForm extends Component {
             <div className="row">
                 <form className="col s12">
                     <div className="row">
-                        <div className="input-field col s12">
-                            <input type="text" className="validate" />
+                        <div className="input-field col s12">                        
+                            <input 
+                                name="name"
+                                type="text"
+                                value={this.state.name}
+                                onChange={(event) => this.handleInputChange(event)}/>
                                 <label for="name">Name</label>
                         </div>
                     </div>
 
                     <div className="row">
                         <div className="input-field col s6">
-                            <input type="text" className="validate" />
+                            <input type="text"/>
                                 <label for="email">Email</label>
                         </div>
 
                         <div className="input-field col s6">
-                            <input type="text" className="validate" />
+                            <input type="text"/>
                                 <label for="phone">Phone</label>
                         </div>
                     </div>
 
                     <div className="row">
                         <div className="input-field col s6">
-                            <input type="text" className="validate" />
+                            <input type="text"/>
                                 <label for="tellUse">Tell Us About Your Company</label>
                         </div>
                     </div>
 
                     <div className="row">
                         <div className="input-field col s6">
-                            <input type="text" className="validate" />
+                            <input type="text"/>
                                 <label for="project"> Tell Us About Your Project</label>
                         </div>
                     </div>
                     
                     <div className="row">
                         <div className="input-field col s6">
-                            <input type="text" className="validate" />
+                            <input type="text"/>
                                 <label for="deadlines">What Are Your Deadlines</label>
                         </div>
                     </div>
@@ -88,7 +110,7 @@ class HireForm extends Component {
                         </div>
 
                         <div className="input-field col s6">
-                            <input type="text" className="validate" />
+                            <input type="text"/>
                                 <label for="audience">Who Is Your Target Audience?</label>
                         </div>
                     </div>

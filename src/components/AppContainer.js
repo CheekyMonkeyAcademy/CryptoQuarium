@@ -22,8 +22,7 @@ class AppContainer extends Component {
         subTotal: 0,
         cartArray: [],
         buyFishArray: [],
-        fishTemplateOrUserFish: false,
-        
+        fishTemplateOrUserFish: false,        
         sidebarOpen: false
     };
    
