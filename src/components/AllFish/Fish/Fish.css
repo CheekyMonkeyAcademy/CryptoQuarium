@@ -132,7 +132,8 @@
 
 .tail_fin {
     animation-name: tail;
-    animation-duration: 0.9s;
+    /* animation-duration: 0.9s; */
+    animation-duration: var(--timeBetweenFinMovement);
     animation-iteration-count: infinite;
     animation-timing-function: ease-in;
 }
@@ -153,7 +154,8 @@
 .scale_4 {
     /*mid fin*/
     animation-name: midfin;
-    animation-duration: 2s;
+    /* animation-duration: 2s; */
+    animation-duration: var(--timeBetweenDorsalMovement);
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }

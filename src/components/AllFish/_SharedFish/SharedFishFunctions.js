@@ -7,6 +7,11 @@ function setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, pas
     let currentSwimSecondNumber;
     let randomSwimVariance = swimVarianceArray[Math.floor(Math.random() * swimVarianceArray.length)];
 
+// Variables to tie fin movement to forward swimming animation
+    let dorsalFinDuration = animationDuration / 10;
+    let tailFinDuration = animationDuration / 20;
+
+
     // if we are starting movement choose a random start location from the array
     if (passedSwimNumber === 'notSet'){
         currentSwimNumber = (Math.floor(Math.random() * passedSwimArray.length));
@@ -61,6 +66,29 @@ function setBlink(id, minDuration, variableDuration) {
     setTimeout(() => {
         fish_wrap ? this.setBlink(id, minDuration, variableDuration) : '';
     }, timeBetweenBlinks * 1000)
+}
+
+function setDorsal(id, minDuration, variableDuration) {
+    let fish_wrap = document.getElementById(id);
+    fish_wrap ? 
+        fish_wrap.style.setProperty("--timeBetweenDorsalMovement", dorsalFinDuration + "s")
+    :   '';
+
+    setTimeout(() => {
+        fish_wrap ? this.setDorsal(id, minDuration, variableDuration) : '';
+    }, dorsalFinDuration * 1000)
+}
+
+function setTail(id, minDuration, variableDuration) {
+    let fish_wrap = document.getElementById(id);
+    let timeBetweenBlinks = Math.floor(Math.random() * variableDuration + minDuration);
+    fish_wrap ? 
+        fish_wrap.style.setProperty("--timeBetweenFinMovement", tailFinDuration + "s")
+    :   '';
+
+    setTimeout(() => {
+        fish_wrap ? this.setTail(id, minDuration, variableDuration) : '';
+    }, tailFinDuration * 1000)
 }
 
 function colorRedOne(id, color1r){
