@@ -11,30 +11,18 @@ class Tank extends Component {
     }
 
     renderFish(fish){
-        let randomFishOffsetTop = Math.floor(Math.random() * 30 - 15);
-        let randomFishOffsetLeft = Math.floor(Math.random() * 30 - 15);
-        let style = {
-            content: {
-                top: randomFishOffsetTop + "px",
-                left: randomFishOffsetLeft + "px"
-            }
-        }
         switch (fish.codeSpecies) {
             case 'Fish': 
-                return <div style={style.content}> 
-                    <Fish 
+                return <Fish 
                         {...fish} 
                         key={fish.id}
                     />
-                </div>
 
             case 'PufferFish': 
-                return <div style={style.content}> 
-                    <PufferFish 
+                return <PufferFish 
                         {...fish} 
                         key={fish.id}
                     />
-                </div>
             
             default:
                 return <Fish key={fish.id}/>
