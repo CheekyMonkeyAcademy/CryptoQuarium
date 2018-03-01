@@ -11,6 +11,8 @@ function setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, pas
     let dorsalFinDuration = animationDuration / 10;
     let tailFinDuration = animationDuration / 20;
 
+    setDorsal(this.props.id, 1, dorsalFinDuration);
+    setTail(this.props.id, 1, tailFinDuration);
 
     // if we are starting movement choose a random start location from the array
     if (passedSwimNumber === 'notSet'){
