@@ -13,7 +13,11 @@ class HireForm extends Component {
         company: 'Tell us about your organization',
         project: 'Tell us about your project',
         deadlines: 'What are your deadlines?',
-        budgetCheck: true,
+        // budgetCheck: true,
+        tierOne: true,
+        tierTwo: false, 
+        tierThree: false, 
+        tierFour: false,
         audience: 'Who is your targeted audience?'
     }
 
@@ -48,7 +52,7 @@ class HireForm extends Component {
                             <input 
                                 name="who"
                                 type="text"
-                                value={this.name}
+                                value={this.state.name}
                                 onChange={(event) => this.handleInputChange(event)}
                             />
                                 <label for="who">Name</label>                            
@@ -60,7 +64,7 @@ class HireForm extends Component {
                             <input 
                                 name="email"
                                 type="email"
-                                value={this.state.name}
+                                value={this.state.email}
                                 onChange={(event) => this.handleInputChange(event)}
                             />
                                 <label for="email">Email</label>
@@ -70,7 +74,7 @@ class HireForm extends Component {
                             <input 
                                 name="phone"
                                 type="tel"
-                                value={this.state.name}
+                                value={this.state.phone}
                                 onChange={(event) => this.handleInputChange(event)}
                             />
                                 <label for="phone">Phone</label>
@@ -82,7 +86,7 @@ class HireForm extends Component {
                             <input 
                                 name="company"
                                 type="text"
-                                value={this.state.name}
+                                value={this.state.company}
                                 onChange={(event) => this.handleInputChange(event)}
                             />
                                 <label for="tellUse">Tell Us About Your Company</label>
@@ -94,7 +98,7 @@ class HireForm extends Component {
                             <input 
                                 name="project"
                                 type="text"
-                                value={this.state.name}
+                                value={this.state.project}
                                 onChange={(event) => this.handleInputChange(event)}
                             />
                                 <label for="project"> Tell Us About Your Project</label>
@@ -106,7 +110,7 @@ class HireForm extends Component {
                             <input 
                                 name="deadline"
                                 type="text"
-                                value={this.state.name}
+                                value={this.state.deadline}
                                 onChange={(event) => this.handleInputChange(event)}
                             />
                                 <label for="deadlines">What Are Your Deadlines</label>
@@ -120,42 +124,42 @@ class HireForm extends Component {
                                     <input 
                                         name="budgetCheck" 
                                         type="radio" 
-                                        id="rangeOne" 
+                                        id="tierOne" 
                                         defaultChecked ={true}
-                                        value= '5-9'
+                                        value= {this.state.tierOne}
                                         onChange={(event) => this.handleInputChange(event)}     
                                     />
-                                    <label for="rangeOne">5-9</label>
+                                    <label for="rangeOne">tierOne</label>
                                 </p>
                                 <p>
                                     <input 
                                         name="budgetCheck" 
                                         type="radio" 
-                                        id="rangeTwo" 
-                                        value={this.state.name}
+                                        id="tierTwo"                                         
+                                        value={this.state.tierTwo}
                                         onChange={(event) => this.handleInputChange(event)}
                                     />
-                                    <label for="rangeTwo">10-14</label>
+                                    <label for="rangeTwo">tierTwo</label>
                                 </p>
                                 <p>
                                     <input 
                                         name="budgetCheck" 
                                         type="radio" 
-                                        id="rangeThree"  
-                                        value={this.state.name}
+                                        id="tierThree"
+                                        value={this.state.tierThree}
                                         onChange={(event) => this.handleInputChange(event)}
                                     />
-                                    <label for="rangeThree">15-19</label>
+                                    <label for="rangeThree">tierThree</label>
                                 </p>
                                 <p>
                                     <input 
                                         name="budgetCheck" 
                                         type="radio" 
-                                        id="rangeFour"
-                                        value={this.state.name}
+                                        id="tierFour"
+                                        value={this.state.tierFour}
                                         onChange={(event) => this.handleInputChange(event)}                                    
                                     />
-                                    <label for="rangeFour">20-24</label>
+                                    <label for="rangeFour">tierFour</label>
                                 </p>
                         </div>
 
