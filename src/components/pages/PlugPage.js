@@ -1,9 +1,8 @@
 import React from 'react';
 import GroupPicEdit2 from '../../Images/groupPicEdit2.jpg';
+import HireForm from "./HireForm"
 import './PlugPage.css'
-//Need to move CSS to plug page file
-//Also move all of plug to pages folder
-// cm.writing.academy@gmail.com
+
 
 const PlugPage = props =>
     <div>
@@ -57,7 +56,7 @@ const PlugPage = props =>
 
                     <div className="row">
                         <div className="col s12 center-align">
-                            <a class="waves-effect waves-light btn hireBtn">Hire Us!</a>     
+                            <a className="waves-effect waves-light btn hireBtn" href="/hireform">Hire Us!</a>     
                         </div>    
 
                         <div className="center-align">
