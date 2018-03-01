@@ -6,8 +6,24 @@ import React, {Component} from "react";
 
 class HireForm extends Component {
 
+    state = {
+        name: 'name',
+        email: 'you@email.com',
+        phone:  '555-555-5555', 
+        company: 'Tell us about your organization',
+        project: 'Tell us about your project',
+        deadlines: 'What are your deadlines?',
+        budgetCheck: true,
+        audience: 'Who is your targeted audience?'
+        
+
+
+    }
+
     render(){
         return (
+            <div className="container" style={{backgroundColor:'white',padding:'20px'}}>
+
             <div className="row">
                 <form className="col s12">
                     <div className="row">
@@ -78,17 +94,19 @@ class HireForm extends Component {
                     </div>
 
                     <div className="row">
-                        <div className="input-field col s6">
+                        <div className="input-field col s12 center-align">
                             <a class="waves-effect waves-light btn" style={{backgroundColor:'white', color:'black'}}>Attach any files you feel would be necessary</a>
                         </div>
                     </div>
 
                     <div className="row">
-                        <div className="input-field col s6">
+                        <div className="input-field col s12 center-align">
                             <a class="waves-effect waves-light btn" style={{backgroundColor:'#ef5350'}}>Submit</a>
                         </div>
                     </div>                    
                 </form>
+            </div>
+
             </div>
         )
     }
