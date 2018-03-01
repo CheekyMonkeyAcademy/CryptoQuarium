@@ -7,7 +7,7 @@ import React, {Component} from "react";
 class HireForm extends Component {
 
     state = {
-        name: 'name',
+        who: 'name',
         email: 'you@email.com',
         phone:  '555-555-5555', 
         company: 'Tell us about your organization',
@@ -27,14 +27,13 @@ class HireForm extends Component {
             //Put an expression in brackets, that will be computed and used as the property name
     handleInputChange(event) {
         const target = event.target;
-        const value = target.value;
+        const value = target.type === 'radio' ? target.checked : target.value;
         const name = target.name;
 
         this.setState({
             [name]:value
         }, () => {
-            console.log("I am in the HIRE PAGE")
-            console.log(this.state.name)
+            console.log("I am in the HIRE PAGE")            
         })
     }
 
@@ -45,45 +44,71 @@ class HireForm extends Component {
             <div className="row">
                 <form className="col s12">
                     <div className="row">
-                        <div className="input-field col s12">                        
+                        <div className="input-field col s12">       
                             <input 
-                                name="name"
+                                name="who"
                                 type="text"
-                                value={this.state.name}
-                                onChange={(event) => this.handleInputChange(event)}/>
-                                <label for="name">Name</label>
+                                value={this.name}
+                                onChange={(event) => this.handleInputChange(event)}
+                            />
+                                <label for="who">Name</label>                            
                         </div>
                     </div>
 
                     <div className="row">
                         <div className="input-field col s6">
-                            <input type="text"/>
+                            <input 
+                                name="email"
+                                type="email"
+                                value={this.state.name}
+                                onChange={(event) => this.handleInputChange(event)}
+                            />
                                 <label for="email">Email</label>
                         </div>
 
                         <div className="input-field col s6">
-                            <input type="text"/>
+                            <input 
+                                name="phone"
+                                type="tel"
+                                value={this.state.name}
+                                onChange={(event) => this.handleInputChange(event)}
+                            />
                                 <label for="phone">Phone</label>
                         </div>
                     </div>
 
                     <div className="row">
                         <div className="input-field col s6">
-                            <input type="text"/>
+                            <input 
+                                name="company"
+                                type="text"
+                                value={this.state.name}
+                                onChange={(event) => this.handleInputChange(event)}
+                            />
                                 <label for="tellUse">Tell Us About Your Company</label>
                         </div>
                     </div>
 
                     <div className="row">
                         <div className="input-field col s6">
-                            <input type="text"/>
+                            <input 
+                                name="project"
+                                type="text"
+                                value={this.state.name}
+                                onChange={(event) => this.handleInputChange(event)}
+                            />
                                 <label for="project"> Tell Us About Your Project</label>
                         </div>
                     </div>
                     
                     <div className="row">
                         <div className="input-field col s6">
-                            <input type="text"/>
+                            <input 
+                                name="deadline"
+                                type="text"
+                                value={this.state.name}
+                                onChange={(event) => this.handleInputChange(event)}
+                            />
                                 <label for="deadlines">What Are Your Deadlines</label>
                         </div>
                     </div>
@@ -92,25 +117,55 @@ class HireForm extends Component {
                         <div className="input-field col s6">
                             <p>What is your budget?</p>
                                 <p>
-                                    <input name="group1" type="radio" id="test1" />
-                                    <label for="test1">5</label>
+                                    <input 
+                                        name="budgetCheck" 
+                                        type="radio" 
+                                        id="rangeOne" 
+                                        defaultChecked ={true}
+                                        value= '5-9'
+                                        onChange={(event) => this.handleInputChange(event)}     
+                                    />
+                                    <label for="rangeOne">5-9</label>
                                 </p>
                                 <p>
-                                    <input name="group1" type="radio" id="test2" />
-                                    <label for="test2">10</label>
+                                    <input 
+                                        name="budgetCheck" 
+                                        type="radio" 
+                                        id="rangeTwo" 
+                                        value={this.state.name}
+                                        onChange={(event) => this.handleInputChange(event)}
+                                    />
+                                    <label for="rangeTwo">10-14</label>
                                 </p>
                                 <p>
-                                    <input class="with-gap" name="group1" type="radio" id="test3"  />
-                                    <label for="test3">15</label>
+                                    <input 
+                                        name="budgetCheck" 
+                                        type="radio" 
+                                        id="rangeThree"  
+                                        value={this.state.name}
+                                        onChange={(event) => this.handleInputChange(event)}
+                                    />
+                                    <label for="rangeThree">15-19</label>
                                 </p>
                                 <p>
-                                    <input name="group1" type="radio" id="test4" />
-                                    <label for="test4">20</label>
+                                    <input 
+                                        name="budgetCheck" 
+                                        type="radio" 
+                                        id="rangeFour"
+                                        value={this.state.name}
+                                        onChange={(event) => this.handleInputChange(event)}                                    
+                                    />
+                                    <label for="rangeFour">20-24</label>
                                 </p>
                         </div>
 
                         <div className="input-field col s6">
-                            <input type="text"/>
+                            <input 
+                                name="audience"
+                                type="text"
+                                value={this.state.name}
+                                onChange={(event) => this.handleInputChange(event)}
+                            />
                                 <label for="audience">Who Is Your Target Audience?</label>
                         </div>
                     </div>

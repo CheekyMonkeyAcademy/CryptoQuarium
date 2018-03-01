@@ -231,10 +231,11 @@ class AppContainer extends Component {
         }
     }
 
+    //I don't think we are using this function anymore - NF 3.1.18
     //This function sets the state for the current page
-    handlePageChange = page => {
-        this.setState({currentPage: page});
-    };    
+    // handlePageChange = page => {
+    //     this.setState({currentPage: page});
+    // };    
 
 
     //FUNCTION FOR OPENING SIDENAV
