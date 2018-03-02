@@ -13,7 +13,7 @@ class HireForm extends Component {
         company: ' ',
         project: ' ',
         deadlines: ' ',
-        selectedOption: 'tierOne',
+        selectedOption: 'tierTwo',
         // tierOne: true,
         // tierTwo: false, 
         // tierThree: false, 
