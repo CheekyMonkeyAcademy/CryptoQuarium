@@ -24,31 +24,29 @@ function setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, pas
         currentSwimSecondNumber = 1;
     }
 
-    // Setting the second number of the loop
+    // Resetting the second number of the loop if it's too high
     if (currentSwimNumber+1 >= passedSwimArray.length) {
         currentSwimSecondNumber = 0;
     }
 
     swimStyle = passedSwimArray[currentSwimNumber] + randomSwimVariance + passedSwimArray[currentSwimSecondNumber];
-    console.log(`id: ${id} now has ${swimStyle}`);
     currentSwimNumber++;
-    
-    if (noMove === false) {
-        // This prevents a bug when we navigate AWAY from the aquarium page.  
+
+    if (noMove === false){
         fish_wrap ? 
-            fish_wrap.style.setProperty("--swimAnimationTime", animationDuration + "s") 
-        :   '';
-    
-        // This prevents a bug when we navigate AWAY from the aquarium page.  
+            fish_wrap.style.setProperty("--swimAnimationTime", animationDuration + "s")
+        : '';
         fish_wrap ? 
             fish_wrap.style.setProperty("--swimType", swimStyle)
-        :   '';
-    }
+        : '';
 
-    setTimeout(() => {
-        // This prevents a bug when we navigate AWAY from the aquarium page.  
-        fish_wrap ? setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, currentSwimNumber, swimVarianceArray) : '';
-    }, animationDuration * 1000)
+        setTimeout(() => {
+            // This prevents a bug when we navigate AWAY from the aquarium page.  
+            fish_wrap ? 
+                setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, currentSwimNumber, swimVarianceArray) 
+            : '';
+        }, animationDuration * 1000 + 500); // add extra 1/2 second for any rendering time - prevent/reduce skipping
+    }
 }
 
 function setBlink(id, minDuration, variableDuration) {

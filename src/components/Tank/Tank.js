@@ -11,7 +11,6 @@ class Tank extends Component {
     }
 
     renderFish(fish){
-        // console.log(fish);
         switch (fish.codeSpecies) {
             case 'Fish': 
                 return <Fish 

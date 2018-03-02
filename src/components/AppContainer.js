@@ -9,8 +9,6 @@ import FishMarket from "./pages/FishMarket";
 import PlugPage from "./pages/PlugPage";
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
-
 import Sidebar from 'react-sidebar';
 import SidebarContent from './Sidebar/SidebarContent/SidebarContent'
 
@@ -25,7 +23,6 @@ class AppContainer extends Component {
         cartArray: [],
         buyFishArray: [],
         fishTemplateOrUserFish: false,
-        
         sidebarOpen: false
     };
    
@@ -277,7 +274,6 @@ class AppContainer extends Component {
 
                     <Navbar 
                         thisUserCred = {this.state.thisUserCred}
-
                         onSetOpen={this.onSetSidebarOpen} 
                         toggleOpen = {this.toggleOpen}
 
