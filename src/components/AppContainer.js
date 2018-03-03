@@ -7,11 +7,11 @@ import MyAquarium from "./pages/MyAquarium";
 import Wallet from "./pages/Wallet";
 import FishMarket from "./pages/FishMarket";
 import PlugPage from "./pages/PlugPage";
+import HireForm from "./pages/HireForm"
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Sidebar from 'react-sidebar';
 import SidebarContent from './Sidebar/SidebarContent/SidebarContent'
-
 
 
 class AppContainer extends Component {    
@@ -22,7 +22,7 @@ class AppContainer extends Component {
         subTotal: 0,
         cartArray: [],
         buyFishArray: [],
-        fishTemplateOrUserFish: false,
+        fishTemplateOrUserFish: false, 
         sidebarOpen: false
     };
    
@@ -231,10 +231,11 @@ class AppContainer extends Component {
         }
     }
 
+    //I don't think we are using this function anymore - NF 3.1.18
     //This function sets the state for the current page
-    handlePageChange = page => {
-        this.setState({currentPage: page});
-    };    
+    // handlePageChange = page => {
+    //     this.setState({currentPage: page});
+    // };    
 
 
     //FUNCTION FOR OPENING SIDENAV
@@ -278,10 +279,8 @@ class AppContainer extends Component {
                         toggleOpen = {this.toggleOpen}
 
                     />
-                    <Route exact path="/plugpage" render={() => 
-                        <PlugPage />
-                    }/>
-
+                    <Route exact path="/plugpage" render={() => <PlugPage />}/>
+                    <Route exact path="/hireform" render={() => <HireForm />} />
                     <Route exact path="/logout" component={Logout}/>
                     <Route exact path="/login" component={Login}/>
                     <Route exact path="/home" component={this.state.thisUserCred.userId ? Home : Login} />

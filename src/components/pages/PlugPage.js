@@ -1,9 +1,8 @@
 import React from 'react';
 import GroupPicEdit2 from '../../Images/groupPicEdit2.jpg';
+import HireForm from "./HireForm"
 import './PlugPage.css'
-//Need to move CSS to plug page file
-//Also move all of plug to pages folder
-// cm.writing.academy@gmail.com
+
 
 const PlugPage = props =>
     <div>
@@ -18,11 +17,11 @@ const PlugPage = props =>
             
         
             <div className="row">
-                <div className="col s6" style={{paddingRight: 0, margins:0}}>
-                    <img className="groupPic" alt="" src={GroupPicEdit2} />
+                <div className="col m6" style={{paddingRight: 0, margins:0}}>
+                    <img className="groupPic responsive-img" alt="" src={GroupPicEdit2} />
                 </div>
 
-                <div className="col s6 plugDes" style={{marginLeft: 0}}>
+                <div className="col s8 m6 plugDes" style={{marginLeft: 0}}>
 
                     <div className="row">
                         <div className="col s12 m12 center-align hireSign">
@@ -57,7 +56,7 @@ const PlugPage = props =>
 
                     <div className="row">
                         <div className="col s12 center-align">
-                            <a class="waves-effect waves-light btn hireBtn">Hire Us!</a>     
+                            <a className="waves-effect waves-light btn hireBtn" href="/hireform">Hire Us!</a>     
                         </div>    
 
                         <div className="center-align">
@@ -77,15 +76,15 @@ const PlugPage = props =>
                     <div className="row">
                         <div className="col s12 m12">
                             <div className="row">
-                                <a className="repo portSpacing" href="https://kylekowalski.github.io/">Kyle Kowalski</a>
+                                <a className="repo portSpacing" href="https://kylekowalski.github.io/" target="_blank">Kyle Kowalski</a>
 
-                                <a className="repo portSpacing" href="nfrazier08.github.io./"> Nicole Frazier</a>
+                                <a className="repo portSpacing" href="nfrazier08.github.io./" target="_blank"> Nicole Frazier</a>
                             </div>
 
                             <div className="row">
-                                <a className="repo portSpacing" href="https://robrollner.github.io/updated_portfolio/">Robert Rollner</a>
+                                <a className="repo portSpacing" href="https://robrollner.github.io/updated_portfolio/" target="_blank">Robert Rollner</a>
 
-                                <a className="repo portSpacing" href="nfrazier08.github.io./">Robert Castiblanco</a>
+                                <a className="repo portSpacing" href="nfrazier08.github.io./" target="_blank">Robert Castiblanco</a>
                             </div>
                         </div>
                     </div>

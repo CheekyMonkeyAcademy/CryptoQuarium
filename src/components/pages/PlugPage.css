@@ -7,7 +7,9 @@
     margin-top: 15;
     padding: 0;
     margin-right: 0;
-    height:550px
+    height:550px;
+    border: #e91e63 solid 1px;
+    border-radius: 2%
 }
 
 .hireSign {
