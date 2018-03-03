@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const session = require('express-session');
 const path = require('path');
+const mysql = require('mysql');
 require('./passport/passport');
 
 
@@ -23,19 +24,40 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); //TODO what the heck is this true mean
 app.use(bodyParser.text());
 app.use(cookieParser());
+
+// sessionStore options
 const options = {
+    checkExpirationInterval: 1000 * 60 * 15,// 15 min // How frequently expired sessions will be cleared; milliseconds.
+    expiration: 1000 * 60 * 60 * 24 * 7,// 1 week // The maximum age of a valid session; milliseconds.
+    createDatabaseTable: false,// Whether or not to create the sessions database table, if one does not already exist.
+    // schema: {
+    //     tableName: 'sessions',
+    //     columnNames: {
+    //         session_id: 'session_id',
+    //         expires: 'expires',
+    //         data: 'data'
+    //     }
+    // }
+};
+ 
+// connect to the db
+const dbConnectionInfo = {
     host: config.host,
+    port: 3306,
     user: config.username,
     password: config.password,
     database: config.database,
-    port: 3306
 }
-const sessionStore = new MySQLStore(options);
+
+const pool = mysql.createPool(dbConnectionInfo); 
+
+const sessionStore = new MySQLStore(options, pool);
 app.use(session({   
     secret: 'OnceThereWasABoyWhoLikedToys',
-    resave: false,
     store: sessionStore,
-    saveUninitialized: false
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false }
 }));
 app.use(passport.initialize());
 app.use(passport.session());

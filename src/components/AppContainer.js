@@ -22,7 +22,7 @@ class AppContainer extends Component {
         subTotal: 0,
         cartArray: [],
         buyFishArray: [],
-        fishTemplateOrUserFish: false,        
+        fishTemplateOrUserFish: false, 
         sidebarOpen: false
     };
    
@@ -275,7 +275,6 @@ class AppContainer extends Component {
 
                     <Navbar 
                         thisUserCred = {this.state.thisUserCred}
-
                         onSetOpen={this.onSetSidebarOpen} 
                         toggleOpen = {this.toggleOpen}
 
