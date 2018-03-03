@@ -56,7 +56,7 @@ class HireForm extends Component {
                                 value={this.state.name}
                                 onChange={(event) => this.handleInputChange(event)}
                             />
-                                <label className="active" htmlfor="who">Name</label>                            
+                                <label className="active" htmlFor="who">Name</label>                            
                         </div>
                     </div>
 
@@ -90,7 +90,7 @@ class HireForm extends Component {
                                 value={this.state.company}
                                 onChange={(event) => this.handleInputChange(event)}
                             />
-                                <label className="active" htmlfor="tellUse">Tell Us About Your Company</label>
+                                <label className="active" htmlFor="tellUse">Tell Us About Your Company</label>
                         </div>
                     </div>
 
@@ -102,7 +102,7 @@ class HireForm extends Component {
                                 value={this.state.project}
                                 onChange={(event) => this.handleInputChange(event)}
                             />
-                                <label className="active" htmlfor="project"> Tell Us About Your Project</label>
+                                <label className="active" htmlFor="project"> Tell Us About Your Project</label>
                         </div>
                     </div>
                     
@@ -114,60 +114,59 @@ class HireForm extends Component {
                                 value={this.state.deadline}
                                 onChange={(event) => this.handleInputChange(event)}
                             />
-                                <label className="active" htmlfor="deadlines">What Are Your Deadlines</label>
+                                <label className="active" htmlFor="deadlines">What Are Your Deadlines</label>
                         </div>
                     </div>
 
+{/* Id for radio button need to match the htmlFor in the label
+Also, radio buttons do not need an 'input-field' */}
+
                      <div className="row">
-                        <div className="input-field col s6">
+                        <div className="col s6">
                             <p>What is your budget?</p>
                                 <p>
                                     <input 
-                                        // name="selectedOption" 
+                                        name="selectedOption" 
+                                        id="selectedOption1"
                                         type="radio"                                          
                                         checked = {this.state.selectedOption === 'tierOne'}
                                         value = "tierOne"
-                                        onChange={(event) => this.handleOptionChange(event)}  
-                                        // onChange={(event) => this.handleOptionChange('tierOne')}    
-                                        // onChange={(event) => this.handleOptionChange}
+                                        onChange={(event) => this.handleOptionChange(event)}                                          
                                     />
-                                    <label htmlfor="rangeOne">tierOne</label>
+                                    <label htmlFor="selectedOption1">tierOne</label>
                                 </p>
                                 <p>
                                     <input 
-                                        // name="selectedOption" 
+                                        name="selectedOption" 
+                                        id="selectedOption2"
                                         type="radio"                                         
                                         checked = {this.state.selectedOption === 'tierTwo'}                                       
                                         value = "tierTwo"
-                                        onChange={(event) => this.handleOptionChange(event)} 
-                                        // onChange={(event) => this.handleOptionChange('tierTwo')} 
-                                        // onChange={(event) => this.handleOptionChange()}
+                                        onChange={(event) => this.handleOptionChange(event)}                                       
                                     />
-                                    <label htmlfor="rangeTwo">tierTwo</label>
+                                    <label htmlFor="selectedOption2">tierTwo</label>
                                 </p>
                                 <p>
                                     <input 
-                                        // name="selectedOption" 
+                                        name="selectedOption" 
+                                        id="selectedOption3"
                                         type="radio"                                       
                                         checked = {this.state.selectedOption === 'tierThree'}
                                         value= "tierThree"
-                                        onChange={(event) => this.handleOptionChange(event)} 
-                                        // onChange={(event) => this.handleOptionChange('tierThree')} 
-                                        // onChange={(event) => this.handleOptionChange()} 
+                                        onChange={(event) => this.handleOptionChange(event)}                                        
                                     />
-                                    <label htmlfor="rangeThree">tierThree</label>
+                                    <label htmlFor="selectedOption3">tierThree</label>
                                 </p>
                                 <p>
                                     <input 
-                                        // name="selectesdOption" 
+                                        name="selectedOption" 
+                                        id="selectedOption4"
                                         type="radio"                                         
                                         checked = {this.state.selectedOption === 'tierFour'}
                                         value= "tierFour"
-                                        onChange={(event) => this.handleOptionChange(event)} 
-                                        // onChange={(event) => this.handleOptionChange('tierFour')}  
-                                        // onChange={(event) => this.handleOptionChange()}                                    
+                                        onChange={(event) => this.handleOptionChange(event)}                                                                      
                                     />
-                                    <label htmlfor="rangeFour">tierFour</label>
+                                    <label htmlFor="selectedOption4">tierFour</label>
                                 </p>
                         </div>
 
