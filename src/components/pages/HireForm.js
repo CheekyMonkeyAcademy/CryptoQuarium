@@ -1,8 +1,5 @@
 import React, {Component} from "react";
-
-
-//what is your target audience?
-    //Attach any files you see necessary, submit, let's work together
+import axios from 'axios';
 
 class HireForm extends Component {
 
@@ -17,12 +14,7 @@ class HireForm extends Component {
         audience: ' '
     }
 
-    //target.type = text, number, radio, etc.
-        //If the type is checkbox, return if target is checked or not
-            //if the type is NOT a checkbox, the value is the target.value
-    //target.type === 'checkbox' ? target.checked : target.value
-    
-    //Handler function that updates form state
+    //Handler function that updates form input change state
         //Below setState is also using COMPUTED PROPERTY NAMES 
             //Put an expression in brackets, that will be computed and used as the property name
     handleInputChange = (event) => {
@@ -37,10 +29,25 @@ class HireForm extends Component {
         })
     }
 
+    //Function to handle changing of radio buttons
     handleOptionChange = (event) => {
         console.log("changing buttons")
         this.setState({selectedOption: event.target.value})
     }
+
+    // Form Submission
+        // 1. I will need a route to hit!
+                // POST method / body is the data
+        // 2. onSubmit will be set next to start of Form Tag
+
+    // https://blog.stvmlbrn.com/2017/04/07/submitting-form-data-with-react.html
+    // https://medium.com/@everdimension/how-to-handle-forms-with-just-react-ac066c48bd4f
+    //Function to handle form submission
+    // onSubmit = () => {
+
+    // }
+
+
 
     render(){
         return (
@@ -181,11 +188,7 @@ Also, radio buttons do not need an 'input-field' */}
                         </div>
                     </div>
 
-                    <div className="row">
-                        <div className="input-field col s12 center-align">
-                            <a className="waves-effect waves-light btn" style={{backgroundColor:'white', color:'black'}}>Attach any files you feel would be necessary</a>
-                        </div>
-                    </div>
+                   
 
                     <div className="row">
                         <div className="input-field col s12 center-align">
