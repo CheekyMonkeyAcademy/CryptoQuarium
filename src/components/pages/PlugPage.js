@@ -78,13 +78,13 @@ const PlugPage = props =>
                             <div className="row">
                                 <a className="repo portSpacing" href="https://kylekowalski.github.io/" target="_blank">Kyle Kowalski</a>
 
-                                <a className="repo portSpacing" href="nfrazier08.github.io./" target="_blank"> Nicole Frazier</a>
+                                <a className="repo portSpacing" href="https://nfrazier08.github.io./" target="_blank"> Nicole Frazier</a>
                             </div>
 
                             <div className="row">
                                 <a className="repo portSpacing" href="https://robrollner.github.io/updated_portfolio/" target="_blank">Robert Rollner</a>
 
-                                <a className="repo portSpacing" href="nfrazier08.github.io./" target="_blank">Robert Castiblanco</a>
+                                <a className="repo portSpacing" href="https://ccrs2006.github.io/Bootstrap-Portfolio/" target="_blank">Robert Castiblanco</a>
                             </div>
                         </div>
                     </div>

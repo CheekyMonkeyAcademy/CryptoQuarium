@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 // import { render } from 'react-dom';
 import SidebarContent from '../SidebarContent/SidebarContent'
 
-class Sidebar extends Component {
-    //On set open needs to happen in app container and passed down!
+//I don't think this file is necessary, 
+//I will explore some more on the next branch NF 
+//March 4, 2018
 
-    // overlayClicked = () => {
-    //     if(this.props.open){
-    //         this.props.onSetOpen(false)
-    //     }
-    // }
+class Sidebar extends Component {
 
     return() {
         return (

@@ -1,8 +1,5 @@
 import React, {Component} from "react";
-
-
-//what is your target audience?
-    //Attach any files you see necessary, submit, let's work together
+import axios from 'axios';
 
 class HireForm extends Component {
 
@@ -17,12 +14,7 @@ class HireForm extends Component {
         audience: ' '
     }
 
-    //target.type = text, number, radio, etc.
-        //If the type is checkbox, return if target is checked or not
-            //if the type is NOT a checkbox, the value is the target.value
-    //target.type === 'checkbox' ? target.checked : target.value
-    
-    //Handler function that updates form state
+    //Handler function that updates form input change state
         //Below setState is also using COMPUTED PROPERTY NAMES 
             //Put an expression in brackets, that will be computed and used as the property name
     handleInputChange = (event) => {
@@ -37,10 +29,25 @@ class HireForm extends Component {
         })
     }
 
+    //Function to handle changing of radio buttons
     handleOptionChange = (event) => {
         console.log("changing buttons")
         this.setState({selectedOption: event.target.value})
     }
+
+    // Form Submission
+        // 1. I will need a route to hit!
+                // POST method / body is the data
+        // 2. onSubmit will be set next to start of Form Tag
+
+    // https://blog.stvmlbrn.com/2017/04/07/submitting-form-data-with-react.html
+    // https://medium.com/@everdimension/how-to-handle-forms-with-just-react-ac066c48bd4f
+    //Function to handle form submission
+    // onSubmit = () => {
+
+    // }
+
+
 
     render(){
         return (
@@ -56,7 +63,7 @@ class HireForm extends Component {
                                 value={this.state.name}
                                 onChange={(event) => this.handleInputChange(event)}
                             />
-                                <label className="active" htmlfor="who">Name</label>                            
+                                <label className="active" htmlFor="who">Name</label>                            
                         </div>
                     </div>
 
@@ -90,7 +97,7 @@ class HireForm extends Component {
                                 value={this.state.company}
                                 onChange={(event) => this.handleInputChange(event)}
                             />
-                                <label className="active" htmlfor="tellUse">Tell Us About Your Company</label>
+                                <label className="active" htmlFor="tellUse">Tell Us About Your Company</label>
                         </div>
                     </div>
 
@@ -102,7 +109,7 @@ class HireForm extends Component {
                                 value={this.state.project}
                                 onChange={(event) => this.handleInputChange(event)}
                             />
-                                <label className="active" htmlfor="project"> Tell Us About Your Project</label>
+                                <label className="active" htmlFor="project"> Tell Us About Your Project</label>
                         </div>
                     </div>
                     
@@ -114,60 +121,59 @@ class HireForm extends Component {
                                 value={this.state.deadline}
                                 onChange={(event) => this.handleInputChange(event)}
                             />
-                                <label className="active" htmlfor="deadlines">What Are Your Deadlines</label>
+                                <label className="active" htmlFor="deadlines">What Are Your Deadlines</label>
                         </div>
                     </div>
 
+{/* Id for radio button need to match the htmlFor in the label
+Also, radio buttons do not need an 'input-field' */}
+
                      <div className="row">
-                        <div className="input-field col s6">
+                        <div className="col s6">
                             <p>What is your budget?</p>
                                 <p>
                                     <input 
-                                        // name="selectedOption" 
+                                        name="selectedOption" 
+                                        id="selectedOption1"
                                         type="radio"                                          
                                         checked = {this.state.selectedOption === 'tierOne'}
                                         value = "tierOne"
-                                        onChange={(event) => this.handleOptionChange(event)}  
-                                        // onChange={(event) => this.handleOptionChange('tierOne')}    
-                                        // onChange={(event) => this.handleOptionChange}
+                                        onChange={(event) => this.handleOptionChange(event)}                                          
                                     />
-                                    <label htmlfor="rangeOne">tierOne</label>
+                                    <label htmlFor="selectedOption1">tierOne</label>
                                 </p>
                                 <p>
                                     <input 
-                                        // name="selectedOption" 
+                                        name="selectedOption" 
+                                        id="selectedOption2"
                                         type="radio"                                         
                                         checked = {this.state.selectedOption === 'tierTwo'}                                       
                                         value = "tierTwo"
-                                        onChange={(event) => this.handleOptionChange(event)} 
-                                        // onChange={(event) => this.handleOptionChange('tierTwo')} 
-                                        // onChange={(event) => this.handleOptionChange()}
+                                        onChange={(event) => this.handleOptionChange(event)}                                       
                                     />
-                                    <label htmlfor="rangeTwo">tierTwo</label>
+                                    <label htmlFor="selectedOption2">tierTwo</label>
                                 </p>
                                 <p>
                                     <input 
-                                        // name="selectedOption" 
+                                        name="selectedOption" 
+                                        id="selectedOption3"
                                         type="radio"                                       
                                         checked = {this.state.selectedOption === 'tierThree'}
                                         value= "tierThree"
-                                        onChange={(event) => this.handleOptionChange(event)} 
-                                        // onChange={(event) => this.handleOptionChange('tierThree')} 
-                                        // onChange={(event) => this.handleOptionChange()} 
+                                        onChange={(event) => this.handleOptionChange(event)}                                        
                                     />
-                                    <label htmlfor="rangeThree">tierThree</label>
+                                    <label htmlFor="selectedOption3">tierThree</label>
                                 </p>
                                 <p>
                                     <input 
-                                        // name="selectesdOption" 
+                                        name="selectedOption" 
+                                        id="selectedOption4"
                                         type="radio"                                         
                                         checked = {this.state.selectedOption === 'tierFour'}
                                         value= "tierFour"
-                                        onChange={(event) => this.handleOptionChange(event)} 
-                                        // onChange={(event) => this.handleOptionChange('tierFour')}  
-                                        // onChange={(event) => this.handleOptionChange()}                                    
+                                        onChange={(event) => this.handleOptionChange(event)}                                                                      
                                     />
-                                    <label htmlfor="rangeFour">tierFour</label>
+                                    <label htmlFor="selectedOption4">tierFour</label>
                                 </p>
                         </div>
 
@@ -182,11 +188,7 @@ class HireForm extends Component {
                         </div>
                     </div>
 
-                    <div className="row">
-                        <div className="input-field col s12 center-align">
-                            <a className="waves-effect waves-light btn" style={{backgroundColor:'white', color:'black'}}>Attach any files you feel would be necessary</a>
-                        </div>
-                    </div>
+                   
 
                     <div className="row">
                         <div className="input-field col s12 center-align">
