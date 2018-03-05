@@ -63,7 +63,7 @@ function(request, accessToken, refreshToken, profile, done) {
                     UserId: user.id,
                     walletBalanceChange: defaultAccountBalance,
                     walletBalanceChangeReason: "New Account Creation Balance",
-                    lastWalletBalance: 0 // New Account had no balance
+                    lastWalletBalance: defaultAccountBalance
                 });
                 return done(null, user);
             })

@@ -55,7 +55,7 @@ class SellCards extends Component {
                             {this.props.forSale ? 
                                 <div className="center" id={"onSale" + this.props.id}><button waves='light' className="btn red" onClick={() => this.props.stopSellingThisFish(this.props.id)}>Stop Selling?</button></div>
                             :   <a onClick={() => this.props.thisItemToMarket(this.props.id)}>
-                                    <i className="material-icons">local_offer</i>                        
+                                    <i className="material-icons material-iconsSellPage">local_offer</i>                        
                                 </a>
                             }
                             <h6>{this.props.priceAlert}</h6>                    

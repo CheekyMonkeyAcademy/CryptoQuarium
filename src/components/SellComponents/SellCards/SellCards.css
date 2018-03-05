@@ -11,6 +11,11 @@
     height: 335px;
 }
 
+.material-iconsSellPage {
+    padding-bottom: 6px;
+    padding-top: 6px;
+}
+
 .priceAlert{
     float: right;
 }
