@@ -42,7 +42,7 @@ const styles = {
     left: 0,
     right: 0,
     bottom: 0,
-    overflowY: 'scroll',       
+    overflowY: 'none',       
     WebkitOverflowScrolling: 'touch',
     transition: 'left .3s ease-out, right .3s ease-out',
   },

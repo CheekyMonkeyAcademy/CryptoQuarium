@@ -12,12 +12,7 @@
     z-index: 30;
 }
 
-.thisFish {
-    width: 200px;
-    height: 125px;
-}
-
-.thisPufferFish {
+.fishHeight {
     width: 275px;
     height: 175px;
 }

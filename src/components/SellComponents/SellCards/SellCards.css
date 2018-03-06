@@ -3,14 +3,17 @@
     z-index: 30;
 }
 
-.thisFish {
-    width: 200px;
-    height: 125px;
+.fishHeight {
+    height: 150px;
 }
 
-.thisPufferFish {
-    width: 275px;
-    height: 175px;
+.fishBoxHeight {
+    height: 335px;
+}
+
+.material-iconsSellPage {
+    padding-bottom: 6px;
+    padding-top: 6px;
 }
 
 .priceAlert{

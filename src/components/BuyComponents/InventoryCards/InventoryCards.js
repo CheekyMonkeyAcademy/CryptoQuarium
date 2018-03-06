@@ -10,7 +10,7 @@ class InventoryCards extends Component {
     renderFish = () => {
         switch (this.props.codeSpecies) {
         case 'Fish': 
-            return <div className="thisPufferFish center">
+            return <div className="fishHeight center">
                 <Fish 
                     {...this.props}
                     noMove = {this.state.noMove}
@@ -18,7 +18,7 @@ class InventoryCards extends Component {
                 />
             </div>
         case 'PufferFish':
-            return <div className="thisPufferFish center">
+            return <div className="fishHeight center">
                 <PufferFish 
                     {...this.props} 
                     noMove = {this.state.noMove}
