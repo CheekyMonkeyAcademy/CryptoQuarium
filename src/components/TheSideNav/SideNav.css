@@ -1,0 +1,31 @@
+/* I think this is for the javascript to hang on to 
+    the menu toggle button */
+
+.header_menu-toggle {
+    background: none;
+    border: none;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    margin: 0;
+    color: #FFF;
+}
+
+.side-nav-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.side-nav-container::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background:pink
+}
