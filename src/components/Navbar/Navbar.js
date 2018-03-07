@@ -15,7 +15,8 @@ const Navbar = props =>
             </a>
 
             {/* onClick= {() => props.openCollapsibleNav()} */}
-            <a data-activates="mobile-demo" className="button-collapse" href="<CollapsibleNav />">   
+            {/* href="/collapsiblenav" */}
+            <a data-activates="mobile-demo" className="button-collapse" onClick= {() => props.openCollapsibleNav()} >   
                 {/* <CollapsibleNav /> */}
                 <i className="material-icons">menu</i>                   
             </a>

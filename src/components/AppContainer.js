@@ -8,6 +8,7 @@ import Wallet from "./pages/Wallet";
 import FishMarket from "./pages/FishMarket";
 import PlugPage from "./pages/PlugPage";
 import HireForm from "./pages/HireForm"
+// import CollapsibleNav from "./CollapsibleNav/CollapsibleNav"
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -232,15 +233,22 @@ class AppContainer extends Component {
     }
 
   
+    openCollapsibleNav = () => {
+        console.log("cOlLaPsIbLe NaV")
+    }
+
+
     render() {
   
         return (
             <Router>
                 <div>             
                     <Navbar 
-                        thisUserCred = {this.state.thisUserCred}                                                
+                        thisUserCred = {this.state.thisUserCred}  
+                        openCollapsibleNav = {this.openCollapsibleNav}                                              
                     />                    
 
+                    {/* <Route exact path="/collapsiblenav" render={() => <CollapsibleNav />}/> */}
                     <Route exact path="/plugpage" render={() => <PlugPage />}/>
                     <Route exact path="/hireform" render={() => <HireForm />} />
                     <Route exact path="/logout" component={Logout}/>
