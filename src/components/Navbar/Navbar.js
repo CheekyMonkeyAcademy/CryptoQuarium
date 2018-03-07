@@ -15,9 +15,9 @@ const Navbar = props =>
             </a>
 
             {/* onClick= {() => props.openCollapsibleNav()} */}
-            <a data-activates="mobile-demo" className="button-collapse">   
-                <CollapsibleNav />
-                {/* <i className="material-icons">menu</i>                    */}
+            <a data-activates="mobile-demo" className="button-collapse" href="<CollapsibleNav />">   
+                {/* <CollapsibleNav /> */}
+                <i className="material-icons">menu</i>                   
             </a>
 
             <ul className="left hide-on-med-and-down">

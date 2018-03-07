@@ -10,8 +10,6 @@ import PlugPage from "./pages/PlugPage";
 import HireForm from "./pages/HireForm"
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import $ from 'jquery';
-
 
 // import TheSideNavCollapsibleNav from './CollapsibleNav/CollapsibleNav'
 
@@ -233,21 +231,14 @@ class AppContainer extends Component {
         }
     }
 
-    // openCollapsibleNav = () => {
-    //     console.log("open coLlapSe")
-    // }
-    
-
+  
     render() {
   
         return (
             <Router>
-                <div>                   
-
+                <div>             
                     <Navbar 
-                        thisUserCred = {this.state.thisUserCred}
-                        onSetOpen={this.onSetSidebarOpen} 
-                        // openCollapsibleNav  = {this.openCollapsibleNav}
+                        thisUserCred = {this.state.thisUserCred}                                                
                     />                    
 
                     <Route exact path="/plugpage" render={() => <PlugPage />}/>
