@@ -10,14 +10,10 @@ import PlugPage from "./pages/PlugPage";
 import HireForm from "./pages/HireForm"
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import SideNav from "react-materialize/lib/SideNav";
-import { Button } from "react-materialize";
+import $ from 'jquery';
 
-//FROM PACKAGE SIDEBAR
-// import Sidebar from 'react-sidebar';
-// import SidebarContent from './Sidebar/SidebarContent/SidebarContent'
 
-import TheSideNav from './TheSideNav/TheSideNav'
+// import TheSideNavCollapsibleNav from './CollapsibleNav/CollapsibleNav'
 
 
 class AppContainer extends Component {    
@@ -237,52 +233,22 @@ class AppContainer extends Component {
         }
     }
 
-    //FROM NPM SIDEBAR
-    //FUNCTION FOR OPENING SIDENAV
-    // onSetSidebarOpen = open => {
-    //     this.setState({sidebarOpen:open})
-    // };
-
-    // toggleOpen = ev => {
-    //     console.log("am i toggling?")
-    //     this.setState({sidebarOpen: !this.state.open});
-
-    //     if(ev) {
-    //         ev.preventDefault();
-    //     }
+    // openCollapsibleNav = () => {
+    //     console.log("open coLlapSe")
     // }
-
-    //A couple of sidebar notes:
-        //open: boolean, determines if the sidebar nav should be open
-        //sidebar: this is the sidebar content
-        //onSetOpen: a callback function that's called when the sidebar wants to change the open prop
-            //this happens after the sliding of the sidebar and when the overlay and when the overlay is clicked when sidebar is open
-
+    
 
     render() {
-    //FROM NPM SIDEBAR
-    //   const sidebarContent = <SidebarContent
-    //   thisUserCred = {this.state.thisUserCred}    
-    //                 />
-
+  
         return (
             <Router>
-                <div>  
-                    
-                    {/* <Sidebar sidebar={sidebarContent}
-                        open={this.state.sidebarOpen}
-                        onSetOpen={this.onSetSidebarOpen} 
-                        thisUserCred = {this.state.thisUserCred}                         
-                    />         */}
+                <div>                   
 
                     <Navbar 
                         thisUserCred = {this.state.thisUserCred}
                         onSetOpen={this.onSetSidebarOpen} 
-                        toggleOpen = {this.toggleOpen}
-
-                    />
-
-                    <TheSideNav />
+                        // openCollapsibleNav  = {this.openCollapsibleNav}
+                    />                    
 
                     <Route exact path="/plugpage" render={() => <PlugPage />}/>
                     <Route exact path="/hireform" render={() => <HireForm />} />
