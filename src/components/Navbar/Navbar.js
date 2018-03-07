@@ -11,10 +11,9 @@ const Navbar = props =>
                 <img alt="" src={canbcheeky1} style={{ width: 240, marginTop: 15 }} />
             </a>
 
-
-            <a data-activates="mobile-demo" className="button-collapse burgerNav" onClick= {() => props.toggleOpen()}>       
+            {/* onClick= {() => props.toggleOpen()} */}
+            <a data-activates="mobile-demo" className="button-collapse">       
                 <i className="material-icons">menu</i>                   
-
             </a>
 
             <ul className="left hide-on-med-and-down">
