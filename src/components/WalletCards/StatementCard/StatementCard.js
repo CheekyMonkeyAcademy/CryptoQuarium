@@ -40,13 +40,16 @@ class StatementCard extends Component {
                             <div className="col s3">Transaction:</div><div className="col s9">{this.props.walletBalanceChangeReason}</div>
                         </div>
                         <div className="row">
-                            <div className="col s3">Amount: </div><div className="col s9">{this.props.walletBalanceChange}</div>
+                            <div className="col s3">Initial: </div><div className="col s9">{this.props.lastWalletBalance - this.props.walletBalanceChange}</div>
                         </div>
                         <div className="row">
-                            <div className="col s3">Last Wallet Balance: </div><div className="col s9">{this.props.lastWalletBalance}</div>
+                            <div className="col s3">Change: </div><div className="col s9">{this.props.walletBalanceChange}</div>
                         </div>
                         <div className="row">
-                            <div className="col s3">Purchase Time: </div><div className="col s9"><Moment>{this.props.createdAt}</Moment></div>
+                            <div className="col s3">Balance: </div><div className="col s9">{this.props.lastWalletBalance}</div>
+                        </div>
+                        <div className="row">
+                            <div className="col s3">Purchase Time: </div><div className="col s9"><Moment format="YYYY-MMM-DD hh:mm:ss">{this.props.createdAt}</Moment></div>
                         </div>
                     </div>                   
                 </div>

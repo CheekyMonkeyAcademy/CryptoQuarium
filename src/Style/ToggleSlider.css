@@ -32,8 +32,8 @@
     left: 4px;
     bottom: 4px;
     background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: 1.0s;
+    transition: 1.0s;
   }
   
   input:checked + .slider {
