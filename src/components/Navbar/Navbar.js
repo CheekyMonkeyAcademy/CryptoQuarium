@@ -17,22 +17,12 @@ const Navbar = props =>
             </a>
           
             {/* Dropdown */}
-            <a class='dropdown-button btn' data-activates="dropdown1">Drop!</a>
+            {/* <a class='dropdown-button btn' data-activates="dropdown1" data-activates="mobile-demo">drop!</a> */}
 
-            <CollapsibleNav />
-
-            {/* <ul id='dropdown1' class='dropdown-content'>
-                <li><a href="#!">one</a></li>
-                <li><a href="#!">two</a></li>
-                <li class="divider"></li>
-                <li><a href="#!">three</a></li>
-                <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-                <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
-            </ul> */}
-
-            
-
-            {/* <a data-activates="mobile-demo" class="waves-effect waves-light btn button-collapse"><i class="material-icons left">dehaze</i></a> */}
+            <a data-activates="mobile-demo">
+                {/* <i class="material-icons left">dehaze</i> */}
+                <CollapsibleNav />     
+            </a>
 
             <ul className="left hide-on-med-and-down">
                 {/* We're setting up a switch here - either we're active with credentials and we
