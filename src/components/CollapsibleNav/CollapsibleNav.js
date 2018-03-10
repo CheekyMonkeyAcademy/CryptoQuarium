@@ -6,7 +6,7 @@ class CollapsibleNav extends Component {
     render(){
         return (
             <Dropdown trigger={
-                <Button><Icon small>dehaze</Icon></Button>
+                <Button><Icon left>dehaze</Icon></Button>
               }>
               <NavItem>one</NavItem>
               <NavItem>two</NavItem>

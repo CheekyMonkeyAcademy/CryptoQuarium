@@ -16,10 +16,7 @@ const Navbar = props =>
                 <img alt="" src={canbcheeky1} style={{ width: 240, marginTop: 15 }} />
             </a>
           
-            {/* Dropdown */}
-            {/* <a class='dropdown-button btn' data-activates="dropdown1" data-activates="mobile-demo">drop!</a> */}
-
-            <a data-activates="mobile-demo">
+            <a data-activates="mobile-demo" class="button-collapse">
                 {/* <i class="material-icons left">dehaze</i> */}
                 <CollapsibleNav />     
             </a>
