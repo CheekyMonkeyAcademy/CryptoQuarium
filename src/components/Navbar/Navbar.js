@@ -5,6 +5,8 @@ import "./Navbar.css";
 import CollapsibleNav from '../CollapsibleNav/CollapsibleNav';
 import $ from 'jquery';
 
+// import {Collapsible, CollapsibleItem} from 'react-materialize';
+
 
 const Navbar = props =>
     
@@ -13,13 +15,24 @@ const Navbar = props =>
             <a className="brand-logo right" href="/PlugPage">
                 <img alt="" src={canbcheeky1} style={{ width: 240, marginTop: 15 }} />
             </a>
+          
+            {/* Dropdown */}
+            <a class='dropdown-button btn' data-activates="dropdown1">Drop!</a>
 
-            {/* onClick= {() => props.openCollapsibleNav()} */}
-            {/* href="/collapsiblenav" */}
-            <a data-activates="mobile-demo" className="button-collapse" onClick= {() => props.openCollapsibleNav()} >   
-                {/* <CollapsibleNav /> */}
-                <i className="material-icons">menu</i>                   
-            </a>
+            <CollapsibleNav />
+
+            {/* <ul id='dropdown1' class='dropdown-content'>
+                <li><a href="#!">one</a></li>
+                <li><a href="#!">two</a></li>
+                <li class="divider"></li>
+                <li><a href="#!">three</a></li>
+                <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+                <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+            </ul> */}
+
+            
+
+            {/* <a data-activates="mobile-demo" class="waves-effect waves-light btn button-collapse"><i class="material-icons left">dehaze</i></a> */}
 
             <ul className="left hide-on-med-and-down">
                 {/* We're setting up a switch here - either we're active with credentials and we

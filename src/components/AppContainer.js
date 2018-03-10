@@ -11,6 +11,7 @@ import HireForm from "./pages/HireForm"
 // import CollapsibleNav from "./CollapsibleNav/CollapsibleNav"
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import CollapsibleNav from "./CollapsibleNav/CollapsibleNav";
 
 // import TheSideNavCollapsibleNav from './CollapsibleNav/CollapsibleNav'
 
@@ -24,7 +25,7 @@ class AppContainer extends Component {
         cartArray: [],
         buyFishArray: [],
         fishTemplateOrUserFish: false, 
-        sidebarOpen: false
+        showCollapsibleNav: false
     };
    
     //ORIGINAL IN BUY COMPONENT
@@ -235,6 +236,11 @@ class AppContainer extends Component {
   
     openCollapsibleNav = () => {
         console.log("cOlLaPsIbLe NaV")
+        this.setState(prevState => ({
+            showCollapsibleNav: !prevState.openCollapsibleNav
+        }), () => {
+            console.log(this.state.showCollapsibleNav)
+        })
     }
 
 
@@ -245,7 +251,8 @@ class AppContainer extends Component {
                 <div>             
                     <Navbar 
                         thisUserCred = {this.state.thisUserCred}  
-                        openCollapsibleNav = {this.openCollapsibleNav}                                              
+                        openCollapsibleNav = {this.openCollapsibleNav}    
+                        showCollapsibleNav = {this.state.showCollapsibleNav}                                          
                     />                    
 
                     {/* <Route exact path="/collapsiblenav" render={() => <CollapsibleNav />}/> */}
