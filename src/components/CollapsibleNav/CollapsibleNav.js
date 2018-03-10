@@ -6,7 +6,7 @@ import './CollapsibleNav.css';
 const CollapsibleNav = props => 
 
             <Dropdown trigger={
-                <Button><Icon left>dehaze</Icon></Button>
+                <Button className="menubtn"><Icon large className="menuIcon">reorder</Icon></Button>
               }>
 
                 {props.thisUserCred.userId ? 

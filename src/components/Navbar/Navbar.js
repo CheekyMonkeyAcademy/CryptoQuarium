@@ -5,8 +5,6 @@ import "./Navbar.css";
 import CollapsibleNav from '../CollapsibleNav/CollapsibleNav';
 import $ from 'jquery';
 
-// import {Collapsible, CollapsibleItem} from 'react-materialize';
-
 
 const Navbar = props =>
     
