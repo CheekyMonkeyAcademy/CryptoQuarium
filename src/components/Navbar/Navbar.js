@@ -16,9 +16,10 @@ const Navbar = props =>
                 <img alt="" src={canbcheeky1} style={{ width: 240, marginTop: 15 }} />
             </a>
           
-            <a data-activates="mobile-demo" class="button-collapse">
-                {/* <i class="material-icons left">dehaze</i> */}
-                <CollapsibleNav />     
+            <a data-activates="mobile-demo" class="button-collapse">                
+                <CollapsibleNav 
+                    thisUserCred={props.thisUserCred}
+                />     
             </a>
 
             <ul className="left hide-on-med-and-down">

@@ -7,13 +7,9 @@ import MyAquarium from "./pages/MyAquarium";
 import Wallet from "./pages/Wallet";
 import FishMarket from "./pages/FishMarket";
 import PlugPage from "./pages/PlugPage";
-import HireForm from "./pages/HireForm"
-// import CollapsibleNav from "./CollapsibleNav/CollapsibleNav"
+import HireForm from "./pages/HireForm";
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import CollapsibleNav from "./CollapsibleNav/CollapsibleNav";
-
-// import TheSideNavCollapsibleNav from './CollapsibleNav/CollapsibleNav'
 
 
 class AppContainer extends Component {    
@@ -24,8 +20,7 @@ class AppContainer extends Component {
         subTotal: 0,
         cartArray: [],
         buyFishArray: [],
-        fishTemplateOrUserFish: false, 
-        showCollapsibleNav: false
+        fishTemplateOrUserFish: false,        
     };
    
     //ORIGINAL IN BUY COMPONENT
@@ -234,28 +229,15 @@ class AppContainer extends Component {
     }
 
   
-    openCollapsibleNav = () => {
-        console.log("cOlLaPsIbLe NaV")
-        this.setState(prevState => ({
-            showCollapsibleNav: !prevState.openCollapsibleNav
-        }), () => {
-            console.log(this.state.showCollapsibleNav)
-        })
-    }
-
-
     render() {
   
         return (
             <Router>
                 <div>             
                     <Navbar 
-                        thisUserCred = {this.state.thisUserCred}  
-                        openCollapsibleNav = {this.openCollapsibleNav}    
-                        showCollapsibleNav = {this.state.showCollapsibleNav}                                          
-                    />                    
-
-                    {/* <Route exact path="/collapsiblenav" render={() => <CollapsibleNav />}/> */}
+                        thisUserCred = {this.state.thisUserCred}                                                                  
+                    />   
+                   
                     <Route exact path="/plugpage" render={() => <PlugPage />}/>
                     <Route exact path="/hireform" render={() => <HireForm />} />
                     <Route exact path="/logout" component={Logout}/>

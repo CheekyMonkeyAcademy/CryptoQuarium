@@ -2,20 +2,25 @@ import React, {Component} from 'react';
 import {Dropdown, NavItem, Button, Icon} from 'react-materialize';
 import './CollapsibleNav.css';
 
-class CollapsibleNav extends Component {
-    render(){
-        return (
+
+const CollapsibleNav = props => 
+
             <Dropdown trigger={
                 <Button><Icon left>dehaze</Icon></Button>
               }>
-              <NavItem>one</NavItem>
-              <NavItem>two</NavItem>
-              <NavItem divider />
-              <NavItem>three</NavItem>
+
+                {props.thisUserCred.userId ? 
+                    <NavItem href="/logout">Logout</NavItem>
+                :   <NavItem href="/login">Login</NavItem>
+                }
+                    <NavItem href="/home">Home</NavItem>
+                    <NavItem href="/myaquarium">My Aquarium</NavItem>
+                    <NavItem href="/fishmarket">Fish Market</NavItem>
+                    <NavItem href="/wallet">Wallet</NavItem>
+              
             </Dropdown>
 
-        )
-    }    
-}
 
 export default CollapsibleNav;
+
+
