@@ -8,6 +8,8 @@ import $ from 'jquery';
 
 const Navbar = props =>
     
+    <div className="navbar-fixed">
+
     <nav className="#607d8b blue-grey">
         <div className="nav-wrapper">
             <a className="brand-logo right" href="/PlugPage">
@@ -77,6 +79,8 @@ const Navbar = props =>
             </ul>
         </div>
     </nav>
+
+    </div>
     
 
 export default Navbar;
