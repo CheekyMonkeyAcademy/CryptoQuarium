@@ -10,6 +10,7 @@ import PlugPage from "./pages/PlugPage";
 import HireForm from "./pages/HireForm";
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { relative } from "path";
 
 
 class AppContainer extends Component {    
@@ -228,12 +229,14 @@ class AppContainer extends Component {
         }
     }
 
-  
+    //The reason why I was having issues with all my sidenav attempts appearing behind our
+        // other page content was because of a STACKING CONTEXT ISSUE. I needed to add a position relative to
+        // the parent component of the navbar to get the dropdown to appear over the main content!
     render() {
   
         return (
             <Router>
-                <div>             
+                <div style={{position:relative}}>             
                     <Navbar 
                         thisUserCred = {this.state.thisUserCred}                                                                  
                     />   

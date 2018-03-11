@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
 import {Dropdown, NavItem, Button, Icon} from 'react-materialize';
 import './CollapsibleNav.css';
+import { relative } from 'path';
 
 
 const CollapsibleNav = props => 
 
             <Dropdown trigger={
-                <Button className="menubtn"><Icon large className="menuIcon">reorder</Icon></Button>
+                <Button>
+                    <Icon>reorder</Icon>
+                </Button>
               }>
 
                 {props.thisUserCred.userId ? 

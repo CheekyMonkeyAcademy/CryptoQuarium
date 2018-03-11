@@ -17,16 +17,16 @@ const PlugPage = props =>
             
         
             <div className="row">
-                <div className="col m6" style={{paddingRight: 0, margins:0}}>
+                <div className="col s12 m6" >
                     <img className="groupPic responsive-img" alt="" src={GroupPicEdit2} />
                 </div>
 
-                <div className="col s8 m6 plugDes" style={{marginLeft: 0}}>
+                <div className="col s12 m6 plugDes" style={{marginLeft: 0}}>
 
                     <div className="row">
                         <div className="col s12 m12 center-align hireSign">
                             <div>
-                                <h5 className="sectionTitles">Our Work</h5>
+                                <h5 className="flow-text sectionTitles">Our Work</h5>
                             </div>
                         </div>
                     </div>
@@ -34,14 +34,14 @@ const PlugPage = props =>
 
                     <div className="row"> 
                         <h5>                       
-                            <p>We are a developer team from the University of Denver Code Bootcamp.</p>
-                            <p>We built applications together and enjoy every step of the journey!</p> 
+                            <p className="flow-text">We are a developer team from the University of Denver Code Bootcamp.</p>
+                            <p className="flow-text">We built applications together and enjoy every step of the journey!</p> 
                         </h5>
                     </div>
 
                     <div className="row">
                         <div className="col s12 m12 center-align">
-                            <a className="repo" href="https://github.com/CheekyMonkeyAcademy/CryptoQuarium" target="_blank">View CryptoQuarium Project Repository</a>                    
+                            <a className="repo flow-text" href="https://github.com/CheekyMonkeyAcademy/CryptoQuarium" target="_blank">View CryptoQuarium Project Repository</a>                    
                         </div>
                     </div>
 
@@ -49,7 +49,7 @@ const PlugPage = props =>
                     <div className="row">
                         <div className="col s12 m12 center-align hireSign">
                             <div>
-                                <h5 className="sectionTitles">Get in Touch!</h5>
+                                <h5 className="flow-text sectionTitles">Get in Touch!</h5>
                             </div>
                         </div>
                     </div>
@@ -60,15 +60,15 @@ const PlugPage = props =>
                         </div>    
 
                         <div className="center-align">
-                            <h5>For all other inquires or questions</h5>
-                            <a className="repo" href="mailto:cm.writing.academy@gmail.com">cm.writing.academy@gmail.com</a>
+                            <h5 className="flow-text">For all other inquires or questions</h5>
+                            <a className="repo flow-text" href="mailto:cm.writing.academy@gmail.com">cm.writing.academy@gmail.com</a>
                         </div>                                   
                     </div>
 
                     <div className="row port">
                         <div className="col s12 m12 center-align hireSign">
                             <div>
-                                <h5 className="sectionTitles">Checkout Our Individual Portfolios</h5>
+                                <h5 className="flow text sectionTitles">Checkout Our Individual Portfolios</h5>
                             </div>
                         </div>
                     </div>
@@ -76,15 +76,21 @@ const PlugPage = props =>
                     <div className="row">
                         <div className="col s12 m12">
                             <div className="row">
-                                <a className="repo portSpacing" href="https://kylekowalski.github.io/" target="_blank">Kyle Kowalski</a>
-
-                                <a className="repo portSpacing" href="https://nfrazier08.github.io./" target="_blank"> Nicole Frazier</a>
+                                <div className="col s6">
+                                    <a className="repo flow-text center-align" href="https://kylekowalski.github.io/" target="_blank">Kyle Kowalski</a>
+                                </div>
+                                <div className="col s6">
+                                    <a className="repo flow-text center-align" href="https://nfrazier08.github.io./" target="_blank">Nicole Frazier</a>
+                                </div>
                             </div>
 
                             <div className="row">
-                                <a className="repo portSpacing" href="https://robrollner.github.io/updated_portfolio/" target="_blank">Robert Rollner</a>
-
-                                <a className="repo portSpacing" href="https://ccrs2006.github.io/Bootstrap-Portfolio/" target="_blank">Robert Castiblanco</a>
+                                <div className="col s6">
+                                    <a className="repo flow-text center-align" href="https://robrollner.github.io/updated_portfolio/" target="_blank">Robert Rollner</a>
+                                </div>
+                                <div className="col s6">
+                                    <a className="repo flow-text center-align" href="https://ccrs2006.github.io/Bootstrap-Portfolio/" target="_blank">Robert Castiblanco</a>
+                                </div>
                             </div>
                         </div>
                     </div>
