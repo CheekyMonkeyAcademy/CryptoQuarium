@@ -7,11 +7,9 @@ import MyAquarium from "./pages/MyAquarium";
 import Wallet from "./pages/Wallet";
 import FishMarket from "./pages/FishMarket";
 import PlugPage from "./pages/PlugPage";
-import HireForm from "./pages/HireForm"
+import HireForm from "./pages/HireForm";
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Sidebar from 'react-sidebar';
-import SidebarContent from './Sidebar/SidebarContent/SidebarContent'
 
 
 class AppContainer extends Component {    
@@ -22,8 +20,7 @@ class AppContainer extends Component {
         subTotal: 0,
         cartArray: [],
         buyFishArray: [],
-        fishTemplateOrUserFish: false, 
-        sidebarOpen: false
+        fishTemplateOrUserFish: false,        
     };
    
     //ORIGINAL IN BUY COMPONENT
@@ -231,54 +228,16 @@ class AppContainer extends Component {
         }
     }
 
-    //I don't think we are using this function anymore - NF 3.1.18
-    //This function sets the state for the current page
-    // handlePageChange = page => {
-    //     this.setState({currentPage: page});
-    // };    
-
-
-    //FUNCTION FOR OPENING SIDENAV
-    onSetSidebarOpen = open => {
-        this.setState({sidebarOpen:open})
-    };
-
-    toggleOpen = ev => {
-        console.log("am i toggling?")
-        this.setState({sidebarOpen: !this.state.open});
-
-        if(ev) {
-            ev.preventDefault();
-        }
-    }
-
-    //A couple of sidebar notes:
-        //open: boolean, determines if the sidebar nav should be open
-        //sidebar: this is the sidebar content
-        //onSetOpen: a callback function that's called when the sidebar wants to change the open prop
-            //this happens after the sliding of the sidebar and when the overlay and when the overlay is clicked when sidebar is open
-
-
+  
     render() {
-      const sidebarContent = <SidebarContent
-      thisUserCred = {this.state.thisUserCred}    
-                    />
-
+  
         return (
             <Router>
-                <div>  
-                    <Sidebar sidebar={sidebarContent}
-                        open={this.state.sidebarOpen}
-                        onSetOpen={this.onSetSidebarOpen} 
-                        thisUserCred = {this.state.thisUserCred}                         
-                    />        
-
+                <div>             
                     <Navbar 
-                        thisUserCred = {this.state.thisUserCred}
-                        onSetOpen={this.onSetSidebarOpen} 
-                        toggleOpen = {this.toggleOpen}
-
-                    />
+                        thisUserCred = {this.state.thisUserCred}                                                                  
+                    />   
+                   
                     <Route exact path="/plugpage" render={() => <PlugPage />}/>
                     <Route exact path="/hireform" render={() => <HireForm />} />
                     <Route exact path="/logout" component={Logout}/>

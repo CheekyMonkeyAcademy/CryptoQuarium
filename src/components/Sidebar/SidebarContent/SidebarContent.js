@@ -2,21 +2,8 @@ import React from "react";
 import './SidebarContent.css'
 
 //This is changing the background of the sidenav
-// const styles = {
-//     content: {
-//         height: '100%', 
-//         // backgroundColor: '#e3f2fd',
-//         backgroundColor: 'orange',         
-//         padding: '10px', 
-//         //This did not change the overlay div, but you have tried it
-//         // overflowY: 'auto'
-//     },
-//     sidebar: {
-//         overflowY:'auto'
-//     }
-// }
-
 const styles = {
+
     
   root: {
     position: 'absolute',
@@ -64,10 +51,11 @@ const styles = {
     top: 0,
     bottom: 0,
   }
+
 }
 
 const SidebarContent = (props) => {
-//    const style = styles.content
+   const style = styles.content
 
     return (
         <div style={styles.content}>
