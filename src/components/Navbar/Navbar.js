@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import CollapsibleNav from '../CollapsibleNav/CollapsibleNav';
 import $ from 'jquery';
+import { relative } from "path";
 
 
 const Navbar = props =>

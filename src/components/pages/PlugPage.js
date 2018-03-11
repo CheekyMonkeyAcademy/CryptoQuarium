@@ -77,19 +77,19 @@ const PlugPage = props =>
                         <div className="col s12 m12">
                             <div className="row">
                                 <div className="col s6">
-                                    <a className="repo flow-text" href="https://kylekowalski.github.io/" target="_blank">Kyle Kowalski</a>
+                                    <a className="repo flow-text center-align" href="https://kylekowalski.github.io/" target="_blank">Kyle Kowalski</a>
                                 </div>
                                 <div className="col s6">
-                                    <a className="repo flow-text" href="https://nfrazier08.github.io./" target="_blank">Nicole Frazier</a>
+                                    <a className="repo flow-text center-align" href="https://nfrazier08.github.io./" target="_blank">Nicole Frazier</a>
                                 </div>
                             </div>
 
                             <div className="row">
                                 <div className="col s6">
-                                    <a className="repo flow-text" href="https://robrollner.github.io/updated_portfolio/" target="_blank">Robert Rollner</a>
+                                    <a className="repo flow-text center-align" href="https://robrollner.github.io/updated_portfolio/" target="_blank">Robert Rollner</a>
                                 </div>
                                 <div className="col s6">
-                                    <a className="repo flow-texts" href="https://ccrs2006.github.io/Bootstrap-Portfolio/" target="_blank">Robert Castiblanco</a>
+                                    <a className="repo flow-text center-align" href="https://ccrs2006.github.io/Bootstrap-Portfolio/" target="_blank">Robert Castiblanco</a>
                                 </div>
                             </div>
                         </div>
