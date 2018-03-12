@@ -12,6 +12,7 @@ passport.serializeUser(function(user, done){
 //Deserialize user ids
 passport.deserializeUser(function(userId, done) {  
     console.log(`Deserialized user ID: ${userId}`);
+    console.log(`Accessing environment variables... Host: ${process.env.PROD_DB_HOST}`)
     db.User.findOne({
         where: {
             userId: userId
