@@ -16,7 +16,6 @@ const db = require("./models");
 const env = process.env.NODE_ENV || 'development';
 const config = require('./config/config.json')[env];
 
-
 //Authentication Packages
 const MySQLStore = require('express-mysql-session')(session);
 
@@ -47,7 +46,7 @@ if (process.env.NODE_ENV == 'production') {
         port: 3306,
         user: process.env.PROD_DB_USER,
         password: process.env.PROD_DB_PASS,
-        database: config.database,
+        database: process.env.PROD_DB_DATABASE,
     }
 }
 else {
@@ -55,7 +54,7 @@ else {
         host: config.host,
         port: 3306,
         user: config.username,
-        password: config.password,
+        password: "password",
         database: config.database,
     }
 

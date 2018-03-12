@@ -1,4 +1,5 @@
-{
+require('dotenv').config(); // this is important!
+module.exports = {
     "development": {
         "username": "writing_admin",
         "password": "password",
