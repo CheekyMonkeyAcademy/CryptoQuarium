@@ -8,7 +8,7 @@ const CollapsibleNav = props =>
 
             <Dropdown trigger={
                 <Button>
-                    <Icon>reorder</Icon>
+                    ☰
                 </Button>
               }>
 
