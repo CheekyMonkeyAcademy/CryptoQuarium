@@ -39,14 +39,26 @@ const options = {
     //     }
     // }
 };
- 
-// connect to the db
-const dbConnectionInfo = {
-    host: config.host,
-    port: 3306,
-    user: config.username,
-    password: config.password,
-    database: config.database,
+let dbConnectionInfo = {}
+
+if (process.env.NODE_ENV == 'production') {
+    dbConnectionInfo = {
+        host: process.env.PROD_DB_HOST,
+        port: 3306,
+        user: process.env.PROD_DB_USER,
+        password: process.env.PROD_DB_PASS,
+        database: config.database,
+    }
+}
+else {
+    dbConnectionInfo = {
+        host: config.host,
+        port: 3306,
+        user: config.username,
+        password: config.password,
+        database: config.database,
+    }
+
 }
 
 const pool = mysql.createPool(dbConnectionInfo); 
