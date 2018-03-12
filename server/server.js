@@ -42,7 +42,6 @@ const options = {
 let dbConnectionInfo = {}
 
 if (process.env.NODE_ENV == 'production') {
-    console.log(`$$$$$$$$$$$$$$$$$$$ FOUND: ${process.env.PROD_DB_HOST} $$$$$$$$$$$$$$$$$$$`)
     dbConnectionInfo = {
         host: process.env.PROD_DB_HOST,
         port: 3306,
