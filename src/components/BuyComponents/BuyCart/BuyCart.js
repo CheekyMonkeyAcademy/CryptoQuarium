@@ -3,7 +3,7 @@ import CartItems from "../CartItems/CartItems";
 import CartSubtotal from "../CartSubtotal/CartSubtotal";
 import "./BuyCart.css";
 import { Card, CardTitle } from 'react-materialize'
-import CartLogo1 from "../../../Images/fish/fishBoard2.png";
+import CartLogo1 from  "../../../Images/Fish/fishBoard2.png";
 
 class BuyCart extends Component {
 
