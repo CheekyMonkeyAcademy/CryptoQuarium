@@ -6,13 +6,14 @@ const PORT = process.env.PORT || 8080;
 //Serialize user ids
 passport.serializeUser(function(user, done){
     console.log(`Serialized user ID: ${user.userId}`);
-    console.log(`Accessing environment variables... Host: ${process.env.PROD_DB_HOST}`)
     done(null, user.userId);
 });
 //Deserialize user ids
 passport.deserializeUser(function(userId, done) {  
     console.log(`Deserialized user ID: ${userId}`);
     console.log(`Accessing environment variables... Host: ${process.env.PROD_DB_HOST}`)
+    console.log(`Accessing environment variables... User: ${process.env.PROD_DB_USER}`)
+    console.log(`Accessing environment variables... Pass: ${process.env.PROD_DB_PASS}`)
     db.User.findOne({
         where: {
             userId: userId
