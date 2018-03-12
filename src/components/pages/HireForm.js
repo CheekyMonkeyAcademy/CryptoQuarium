@@ -1,6 +1,34 @@
 import React, {Component} from "react";
 import axios from 'axios';
 
+//Steps to get info sent to email
+    // 1. I need a route to the database
+
+
+    //On Submit button, execute Ajax POST to express server '/hireus'
+    //'hireus' route can fetch the email, subject and content out of the POST data and send to mail function
+
+    //REACT
+    //     $.ajax({
+    //         url:'/hireus',
+    //         datatype:'json',
+    //         cache: false,
+    //         success:function(data){
+    //             Success...
+    //         }.bind(this),
+    //             error:function(xhr, status, err){
+    //                 console.error(staus, err.toString());
+    //             }.bind(this)
+    //     })
+
+    // EXPRESS 
+    //     app.post('/hireus', function (req,res){
+    //         node mailer code...
+    //     });
+
+
+
+
 class HireForm extends Component {
 
     state = {
@@ -186,9 +214,7 @@ Also, radio buttons do not need an 'input-field' */}
                             />
                                 <label className="active" htmlfor="audience">Who Is Your Target Audience?</label>
                         </div>
-                    </div>
-
-                   
+                    </div>                   
 
                     <div className="row">
                         <div className="input-field col s12 center-align">

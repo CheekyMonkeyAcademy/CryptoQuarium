@@ -3,8 +3,7 @@ import canbcheeky1 from '../../Images/canbcheeky1.png';
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import CollapsibleNav from '../CollapsibleNav/CollapsibleNav';
-import $ from 'jquery';
-import { relative } from "path";
+
 
 
 const Navbar = props =>
