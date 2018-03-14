@@ -15,9 +15,9 @@ module.exports = {
         "dialect": "mysql"
     },
     "production": {
-        "username": "bt41m09cw9l1knjo",
-        "password": "ej72szle2656mc2i",
-        "database": "amml5q31hdinbry5",
+        "xusername": "bt41m09cw9l1knjo",
+        "xpassword": "ej72szle2656mc2i",
+        "xdatabase": "amml5q31hdinbry5",
         "host": "qbct6vwi8q648mrn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
         "dialect": "mysql"
     }
