@@ -17,10 +17,10 @@ VALUES  ('gravel', '2.50', '2018-1-1', '2018-1-1'),
 -- The following are optional for future use
 -- 'rock', 'castle', 'sunkenShip','bubbleMarker', 'teeterTotter', 'corucopia', 'roboticTurkey', 'diver', 'hookHand', 'pillars', 'aquiaticPlant', 'driftWood', 'startFish', 'anemore', 'harpoon', 'hotAirBallon', 'trafficCone', 'lantern', 'beachBall', 'windMill', 'pirateSkull', 'mermaid', 'pyramid', 'necklace', 'treasure', 'golfBall');
 
-INSERT INTO contacts (who, email, phone, company, project, deadline, budgetRange, audience)
+INSERT INTO contacts (who, email, phone, company, project, deadline, budgetRange, audience, createdAt, updatedAt)
 VALUES 
-('Cheeky Monkey', 'cheekymonkey@gmail.com', '5555555555', 'cheeky monkey academy', 'voting game', '2018-8-8', 'tierThree', 'data analysts')
-('Donkey Chasers', 'donkeychasers@gmail.com', '5555555555', 'donkey chaser academy', 'farming app', '2018-11-11', 'tierTwo', 'farmers')
+('Cheeky Monkey', 'cheekymonkey@gmail.com', '5555555555', 'cheeky monkey academy', 'voting game', '2018-8-8', 'tierThree', 'data analysts', '2018-3-4', '2018-3-4')
+('Donkey Chasers', 'donkeychasers@gmail.com', '5555555555', 'donkey chaser academy', 'farming app', '2018-11-11', 'tierTwo', 'farmers', '2018-3-4', '2018-3-4')
 
 -- This sets DEFAULT values for fish in the Aquarium - key pieces:  
 -- -- codeSpecies:  This MUST match the CSS/Fish Name - this is how we map the components ---- we can use this to sub in differnt fish models later easily
