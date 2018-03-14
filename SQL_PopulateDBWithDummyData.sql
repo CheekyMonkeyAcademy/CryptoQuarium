@@ -17,8 +17,10 @@ VALUES  ('gravel', '2.50', '2018-1-1', '2018-1-1'),
 -- The following are optional for future use
 -- 'rock', 'castle', 'sunkenShip','bubbleMarker', 'teeterTotter', 'corucopia', 'roboticTurkey', 'diver', 'hookHand', 'pillars', 'aquiaticPlant', 'driftWood', 'startFish', 'anemore', 'harpoon', 'hotAirBallon', 'trafficCone', 'lantern', 'beachBall', 'windMill', 'pirateSkull', 'mermaid', 'pyramid', 'necklace', 'treasure', 'golfBall');
 
-
-
+INSERT INTO contacts (who, email, phone, company, project, deadline, budgetRange, audience)
+VALUES 
+('Cheeky Monkey', 'cheekymonkey@gmail.com', '5555555555', 'cheeky monkey academy', 'voting game', '2018-8-8', 'tierThree', 'data analysts')
+('Donkey Chasers', 'donkeychasers@gmail.com', '5555555555', 'donkey chaser academy', 'farming app', '2018-11-11', 'tierTwo', 'farmers')
 
 -- This sets DEFAULT values for fish in the Aquarium - key pieces:  
 -- -- codeSpecies:  This MUST match the CSS/Fish Name - this is how we map the components ---- we can use this to sub in differnt fish models later easily
@@ -28,10 +30,12 @@ INSERT INTO `cryptoquarium_db`.`fishes` (`species`, `codeSpecies`, `color1r`, `c
 INSERT INTO `cryptoquarium_db`.`fishes` (`species`, `codeSpecies`, `color1r`, `color1b`, `color1g`, `color2r`, `color2b`, `color2g`, `degree`, `percent`, `randomizeVar`, `quantityAvailable`, `price`, `createdAt`, `updatedAt`) VALUES ('Puffer Fish', 'PufferFish', '0', '0', '0', '242', '237', '136', '180', '50', '{"color": ["color1r", "color1b", "color1g"], "degree": true, "percent": true}', '1000', '1', '2018-1-7', '2018-1-7');
 
 
--- INSERT INTO userAquiarium ('name', 'tankDescription', 'numFishAllowed', 'numDecorationsAllowed', 'background', 'lightingEffect');
+
+-- INSERT INTO userAquarium ('name', 'tankDescription', 'numFishAllowed', 'numDecorationsAllowed', 'background', 'lightingEffect');
 -- VALUES  ('', '', '', '', '', ''),
 --         ('', '', '', '', '', ''),
 --         ('', '', '', '', '', ''),
 --         ('', '', '', '', '', ''),
 --         ('', '', '', '', '', '');
+
 

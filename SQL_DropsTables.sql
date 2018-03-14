@@ -7,3 +7,4 @@ DROP TABLE `useraquaria`;
 DROP TABLE `userfishes`;
 DROP TABLE `users`;
 DROP TABLE `wallethistories`;
+DROP TABLE `contacts`;

@@ -1,5 +1,3 @@
-
-
 module.exports = function (sequelize, DataTypes) {
     let Contact = sequelize.define("Contact", {
         who: {
@@ -20,7 +18,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull:false, 
             validate: {
-                isNumeric
+                isNumeric:true
             }
         }, 
         company: {
@@ -58,5 +56,9 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1]
             }
         }
-    })
-}
+    });
+
+    return Contact;
+
+};
+
