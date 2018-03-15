@@ -7,6 +7,7 @@ function setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, pas
     let currentSwimSecondNumber;
     let randomSwimVariance = swimVarianceArray[Math.floor(Math.random() * swimVarianceArray.length)];
 
+    console.log(`Fish ID: ${id} was called again... noMove is ${noMove}`)
     // if we are starting movement choose a random start location from the array
     if (passedSwimNumber === 'notSet'){
         currentSwimNumber = (Math.floor(Math.random() * passedSwimArray.length));
@@ -32,20 +33,29 @@ function setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, pas
     swimStyle = passedSwimArray[currentSwimNumber] + randomSwimVariance + passedSwimArray[currentSwimSecondNumber];
     currentSwimNumber++;
 
-    if (noMove === false){
+    
+    if (noMove !== true) {
         fish_wrap ? 
             fish_wrap.style.setProperty("--swimAnimationTime", animationDuration + "s")
         : '';
         fish_wrap ? 
             fish_wrap.style.setProperty("--swimType", swimStyle)
         : '';
-
-        setTimeout(() => {
+        
+        let id = setTimeout(() => {
             // This prevents a bug when we navigate AWAY from the aquarium page.  
             fish_wrap ? 
                 setSwim(id, minDuration, variableDuration, noMove, passedSwimArray, currentSwimNumber, swimVarianceArray) 
             : '';
-        }, animationDuration * 1000 + 500); // add extra 1/2 second for any rendering time - prevent/reduce skipping
+        }, animationDuration * 1000);
+    }
+    else {
+        clearTimeout(id); 
+        // The setTimeout above is tricky.  
+        // If we don't clear it, then it will cause fish to move if people have visited the MyAquarium page previously
+        // So if we're not setting the timeout, we are clearing it (which means the fish actually stay still!)
+        // This gets passed along recursively which is (I think) why it works.  
+        // Kyle 2018-3-15
     }
 }
 

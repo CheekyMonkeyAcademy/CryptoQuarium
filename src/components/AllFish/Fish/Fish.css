@@ -4,7 +4,7 @@
     height: 125px;
     width: 200px;
     z-index: 100;
-    animation: var(--swimType) var(--swimAnimationTime) ease infinite;
+    animation: var(--swimType) var(--swimAnimationTime) ease; /* can use 'linear' instead of 'ease' - but fish seem less fishy */
     pointer-events:none;
 }
 
