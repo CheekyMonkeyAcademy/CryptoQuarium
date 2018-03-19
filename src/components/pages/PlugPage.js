@@ -5,8 +5,7 @@ import './PlugPage.css'
 
 
 const PlugPage = props =>
-    <div>
-
+    <div id="plugPageId">
         <div className="container">
 
             <div className="row">

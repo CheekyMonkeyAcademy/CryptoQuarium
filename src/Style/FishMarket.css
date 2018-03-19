@@ -2,14 +2,6 @@
     background-color: black
 }
 
-body {
-    background-repeat: no-repeat;
-    background-color: rgb(190, 248, 248);
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;	
-}
-
 .store1 {
     height: 40px;
     /* background-image: url("../Images/fish/store2.png"); */
