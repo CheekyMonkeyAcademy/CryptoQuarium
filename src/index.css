@@ -1,6 +1,19 @@
+html, body, #root, .magicDiv {
+  height: 100%;
+  /* position: absolute; */
+}
+
+.magicDiv {
+  top: 64px;
+}
+/* 
+#plugPageId {
+  position: relative;
+  top: -64px;
+} */
+
 body {
-  /* background-color: blue; */
-  background-image: url('./Images/greenTexture.jpg');
+  background-image: url('./Images/Backgrounds/greenTexture-background.jpg');
   background-attachment: fixed;
   margin: 0;
   padding: 0;
@@ -10,7 +23,6 @@ body {
    flex-direction: column;
    min-width: 360px;
 }
-
 
 main {
   flex: 1 0 auto;

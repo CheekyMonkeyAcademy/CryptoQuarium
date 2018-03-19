@@ -236,7 +236,7 @@ class AppContainer extends Component {
   
         return (
             <Router>
-                <div style={{position:relative}}>             
+                <div className="magicDiv" style={{position:relative}}>             
                     <Navbar 
                         thisUserCred = {this.state.thisUserCred}                                                                  
                     />   

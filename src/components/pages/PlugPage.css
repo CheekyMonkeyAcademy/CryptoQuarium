@@ -1,3 +1,9 @@
+#plugPageId {
+    background-image: url('../../Images/Backgrounds/blueTexture-background.jpg');
+    background-attachment: fixed;
+    height: 100%;
+}
+
 .meetTeam {
     font-family: 'Oleo Script', cursive;
 }
