@@ -266,6 +266,7 @@ class AppContainer extends Component {
                                 updateSubtotalState = {this.updateSubtotalState}
                                 toggleFishMarket = {this.toggleFishMarket}
                                 removeOneFromCart = {this.removeOneFromCart}
+                                fishTemplateOrUserFish = {this.state.fishTemplateOrUserFish}
                             />
                         :   <Login />
                     }/>

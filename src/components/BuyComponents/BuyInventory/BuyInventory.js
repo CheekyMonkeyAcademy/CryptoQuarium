@@ -7,6 +7,9 @@ class BuyInventory extends Component {
     render(){
         return(
             <div className="inventoryBorder">
+                {this.props.fishTemplateOrUserFish ? 
+                    ""
+                : <h3 class="center-align">Fish colors will randomize on fish purchase - no two fish are alike!</h3>}
                 {this.props.buyFishArray.map(fish => {
                     return <InventoryCards {...fish}
                         addToCart ={this.props.addToCart}
