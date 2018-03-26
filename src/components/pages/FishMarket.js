@@ -29,6 +29,7 @@ class FishMarket extends Component {
                 addToCart = {this.props.addToCart}            
                 toggleFishMarket = {this.props.toggleFishMarket}
                 removeOneFromCart = {this.props.removeOneFromCart}
+                fishTemplateOrUserFish = {this.props.fishTemplateOrUserFish}
             />
         } else if(this.state.currentPage === "Sell"){
             return <Sell 

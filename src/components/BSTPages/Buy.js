@@ -40,6 +40,7 @@ class Buy extends Component {
                                 addToCart={this.props.addToCart}
                                 buyFishArray={this.props.buyFishArray}
                                 updateBuyFishArrayState={this.props.updateBuyFishArrayState}
+                                fishTemplateOrUserFish = {this.props.fishTemplateOrUserFish}
                             />
                         </div>
 
