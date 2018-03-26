@@ -47,7 +47,7 @@ function(request, accessToken, refreshToken, profile, done) {
             userId: profile.id
         }
     }).then((user) => {
-        let defaultAccountBalance = 10;
+        let defaultAccountBalance = 5;
         //No user was found... so create a new user with values from Facebook (all the profile. stuff)
         if (!user) {
             db.User.create({
